@@ -1,38 +1,53 @@
 {{#if (eq acc.username session.User.name)}}
 <div class="container account-detail">
+    {{!-- --}}
     <div class="account-detail-header shadow">
-        <div id="user-avt">
+        <div class="bg-user">
+            <img src="/img/bg.jpg" alt="">
+            <button class="change-bg-acc"><i class="fad fa-camera"></i></button>
+        </div>
+        <ul class="account-detail-footer">
+            <li>Username: <span>{{acc.username}}</span></li>
+            <li>Username: <span>{{acc.username}}</span></li>
+        </ul>
+    </div>
+    {{!-- Avatar --}}
+    <div id="user-avt">
+        <div class="avt-acc">
             <img src="{{acc.img}}" alt="" class="shadow">
             <button id="btn-change-avt" type="button" style="margin: 1em 1em;" data-bs-toggle="modal"
                 data-bs-target="#modalAvt" data-bs-userID={{acc._id}}>
                 <p> <i class="fad fa-camera"></i></p>
             </button>
         </div>
-        {{!-- modal thực hiện đổi avt --}}
-        <div class="modal fade" id="modalAvt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Chọn ảnh thay thế</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form name='form-update-avt' method="POST" enctype="multipart/form-data">
+        <div class="info-acc">
+            <p class="name-acc-if">{{acc.name}}</p>
+        </div>
+    </div>
 
-                            <label for="updateImg" class="col-form-label">Ảnh đã chọn</label>
-                            <input type="file" name="updateAvt" class="form-control" id="updateAvt">
+    {{!-- modal thực hiện đổi avt --}}
+    <div class="modal fade" id="modalAvt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Chọn ảnh thay thế</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name='form-update-avt' method="POST" enctype="multipart/form-data">
 
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button type="submit" id="btn-submit-avt" class="btn btn-warning">Cập nhật ảnh</button>
-                    </div>
+                        <label for="updateImg" class="col-form-label">Ảnh đã chọn</label>
+                        <input type="file" name="updateAvt" class="form-control" id="updateAvt">
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" id="btn-submit-avt" class="btn btn-warning">Cập nhật ảnh</button>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 <script>
     var btnChangeAvt = document.getElementById('btn-submit-avt');

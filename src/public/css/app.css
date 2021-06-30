@@ -208,16 +208,41 @@
     display: block; }
 
 .account-detail {
-  margin-top: 2em; }
-
-.account-detail-header {
-  height: 20em; }
-  .account-detail-header #user-avt {
-    width: 10em;
+  margin-top: 2em;
+  position: relative; }
+  .account-detail .account-detail-header {
+    height: 18.5em; }
+    .account-detail .account-detail-header .bg-user {
+      height: 80%;
+      width: 100%;
+      overflow: hidden;
+      position: relative; }
+      .account-detail .account-detail-header .bg-user .change-bg-acc {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border-radius: 5px;
+        border: 0; }
+      .account-detail .account-detail-header .bg-user img {
+        max-width: 100%;
+        width: auto;
+        height: auto; }
+    .account-detail .account-detail-header .account-detail-footer {
+      padding: 10px 0;
+      height: 20%;
+      display: flex;
+      list-style: none;
+      margin-left: 13.2em; }
+      .account-detail .account-detail-header .account-detail-footer li {
+        margin-right: 10px; }
+        .account-detail .account-detail-header .account-detail-footer li span {
+          font-weight: bold; }
+  .account-detail #user-avt {
     height: 10em;
-    position: relative;
-    top: 7em; }
-    .account-detail-header #user-avt img {
+    position: absolute;
+    bottom: 2.2em;
+    display: flex; }
+    .account-detail #user-avt .avt-acc img {
       margin-left: 2em;
       width: 10em;
       height: 10em;
@@ -226,7 +251,7 @@
       border-width: 3px;
       border-color: white;
       background-color: black; }
-    .account-detail-header #user-avt #btn-change-avt {
+    .account-detail #user-avt .avt-acc #btn-change-avt {
       display: none;
       border: none;
       width: 2em;
@@ -235,12 +260,20 @@
       background-color: #D1C2BF;
       position: relative;
       left: 9em;
-      top: -2.5em;
+      top: -2.9em;
       cursor: pointer;
       text-align: center; }
-      .account-detail-header #user-avt #btn-change-avt p {
+      .account-detail #user-avt .avt-acc #btn-change-avt p {
         margin: auto; }
-  .account-detail-header #user-avt:hover #btn-change-avt {
+    .account-detail #user-avt .info-acc {
+      margin-top: 2.5em;
+      margin-left: 1.5em;
+      width: 200px; }
+      .account-detail #user-avt .info-acc p {
+        font-weight: bold;
+        font-size: 1.25em;
+        color: white; }
+  .account-detail #user-avt:hover #btn-change-avt {
     display: flex; }
 
 @media screen and (max-width: 85em) {
