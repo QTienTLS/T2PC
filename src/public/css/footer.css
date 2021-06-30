@@ -1,4 +1,6 @@
 #footer-id {
+  position: relative;
+  bottom: -10em;
   width: 100%;
   margin: 0 auto;
   background-color: #333;

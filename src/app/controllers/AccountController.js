@@ -126,6 +126,7 @@ class AccountController {
                 }
                 var newAcc = acc;
                 newAcc.img = '\\img\\avt\\' + req.file.filename;
+
                 Account.updateOne({ _id: req.params.id }, newAcc)
                     .then(() => {
                         req.session.reload(function (err) {
