@@ -51,25 +51,46 @@
 
       {{!-- sản phẩm --}}
         <a class="card" href="#">
-
           {{!-- Thân của thẻ chứa sản phẩm --}}
           <div class="body-card">
-
             {{!-- Phần ảnh --}}
             <div class="image-product">
               <img src="{{this.img}}" class="card-img-top" alt="...">
             </div>
-
             {{!-- Phần thông tin và giá --}}
+            {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
             <div class="card-body">
               <h5 class="card-title">{{this.name}}</h5>
-              <p id="money-product" class="card-text">{{this.price}} đ</p>
+              <div class="card-bottom">
+                <div class="product-reviews">
+                  <div class="star-reviews">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="evaluate">0 đánh giá</div>
+                </div>
+                <div class="mn-product">
+                  <p id="money-product" class="card-text currFormat">{{this.price}} đ</p>
+                  <p class="price currFormat">{{this.price}} đ</p>
+                </div>
+              </div>
             </div>
           </div>
+          {{!-- <a class="btn-buy" href="#">Mua ngay</a> --}}
         </a>
 
         {{!-- Nút mua --}}
-        <a class="btn-buy" href="#">Mua ngay</a>
+        <div class="btn-product">
+          <a class="btn-buy btn-xem" href="#">Xem chi tiết</a>
+          <a class="btn-buy" href="#">Them vao gio hang</a>
+        </div>
+
+        <div class="discount">
+          <span>-20%</span>
+        </div>
     </div>
   {{/each}}
 </div>

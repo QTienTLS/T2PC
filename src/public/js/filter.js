@@ -11,7 +11,12 @@ var timeString = document.getElementsByClassName('timeFormat');
 var time;
 for (var i = 0; i < timeString.length; i++) {
     time = new Date(timeString[i].innerHTML);
-    timeString[i].innerHTML = time.toLocaleDateString();
+    let day = time.getDate();
+    let month = time.getMonth() + 1;
+    let year = time.getFullYear();
+    time = day + '-' + month + '-' + year;
+    timeString[i].innerHTML = time;
+    console.log(time);
 }
 //Định dạng tiền tệ
 var currency = document.getElementsByClassName('currFormat');
