@@ -311,17 +311,24 @@
                 }
             }
             .account-detail-footer{
+                // width: 62%;
                 padding: 10px 0;
                 height: 20%;
                 display: flex;
+                align-items: center;
+                justify-content: center;
+                // justify-content: space-between;
+                // margin: 0 auto;
+                // justify-content: space-around;
                 list-style: none;
-                margin-left: 13.2em;
+                // margin-left: 13.2em;
                 li{
-                    margin-right: 10px;
+                    margin-right: 20px;
                     span{
                         font-weight: bold;
                     }
                 }
+
             }
         }
         

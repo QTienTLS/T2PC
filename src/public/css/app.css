@@ -231,10 +231,11 @@
       padding: 10px 0;
       height: 20%;
       display: flex;
-      list-style: none;
-      margin-left: 13.2em; }
+      align-items: center;
+      justify-content: center;
+      list-style: none; }
       .account-detail .account-detail-header .account-detail-footer li {
-        margin-right: 10px; }
+        margin-right: 20px; }
         .account-detail .account-detail-header .account-detail-footer li span {
           font-weight: bold; }
   .account-detail #user-avt {
