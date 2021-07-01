@@ -1,4 +1,5 @@
 const { mongooseToObject } = require('../../tools/mongoose');
+const { mutipleMongooseToObject } = require('../../tools/mongoose');
 const Product = require('../models/Product');
 
 class ProductController {
@@ -6,7 +7,7 @@ class ProductController {
         Product.find({})
             .then((products) => {
                 res.render('product/show-all', {
-                    products: mongooseToObject(products),
+                    products: mutipleMongooseToObject(products),
                 });
             })
             .catch(next);

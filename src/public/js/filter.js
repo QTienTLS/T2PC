@@ -13,3 +13,8 @@ for (var i = 0; i < timeString.length; i++) {
     time = new Date(timeString[i].innerHTML);
     timeString[i].innerHTML = time.toLocaleDateString();
 }
+//Định dạng tiền tệ
+var currency = document.getElementsByClassName('currFormat');
+for (let i = 0; i < currency.length; i++) {
+    currency[i].innerHTML = currency[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
