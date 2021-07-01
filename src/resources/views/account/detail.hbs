@@ -4,13 +4,16 @@
     <div class="account-detail-header shadow">
         <div class="bg-user">
             <img src="/img/bg.jpg" alt="">
-            <button class="change-bg-acc"><i class="fad fa-camera"></i></button>
+            {{!-- <button class="change-bg-acc"><i class="fad fa-camera"></i></button> --}}
         </div>
-        <ul class="account-detail-footer">
+        <ul class="account-info">
             <li>Username: <span>{{acc.username}}</span></li>
-            <li>Username: <span>{{acc.username}}</span></li>
-            <li>Username: <span>{{acc.username}}</span></li>
-            <li>Username: <span>{{acc.username}}</span></li>
+            <li class="vertical-divider">Ngày đăng kí: <span class="timeFormat">
+                    {{acc.createdAt}}</span></li>
+            <li class="vertical-divider">Ngày cập nhật: <span class="timeFormat">
+                    {{acc.updatedAt}}</span></li>
+            <li class="vertical-divider">Tổng chi tiêu: <span>
+                    {{acc.totalSpend}} vnđ</span></li>
         </ul>
     </div>
     {{!-- Avatar --}}
@@ -65,6 +68,7 @@
         formChangeAvt.action = '/account/' + userID + '/change-avt?_method=PUT';
         formChangeAvt.submit();
     }
+
 </script>
 {{else}}
 <script>

@@ -1,3 +1,11 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
+footer {
+  margin-bottom: auto; }
+
 #header-id {
   width: 100%;
   background-color: #49b14d; }
@@ -213,7 +221,7 @@
   .account-detail .account-detail-header {
     height: 18.5em; }
     .account-detail .account-detail-header .bg-user {
-      height: 80%;
+      height: 85%;
       width: 100%;
       overflow: hidden;
       position: relative; }
@@ -227,17 +235,23 @@
         max-width: 100%;
         width: auto;
         height: auto; }
-    .account-detail .account-detail-header .account-detail-footer {
+    .account-detail .account-detail-header .account-info {
       padding: 10px 0;
-      height: 20%;
+      height: 15%;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      list-style: none; }
-      .account-detail .account-detail-header .account-detail-footer li {
+      list-style: none;
+      margin-left: 13.2em; }
+      .account-detail .account-detail-header .account-info li {
         margin-right: 20px; }
-        .account-detail .account-detail-header .account-detail-footer li span {
+        .account-detail .account-detail-header .account-info li span {
           font-weight: bold; }
+      .account-detail .account-detail-header .account-info .vertical-divider::before {
+        border-left: 1px solid #333;
+        height: 5px;
+        content: '';
+        position: relative;
+        left: -10px;
+        opacity: 50%; }
   .account-detail #user-avt {
     height: 10em;
     position: absolute;

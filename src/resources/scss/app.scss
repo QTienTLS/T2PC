@@ -1,5 +1,12 @@
     @import 'var';
-
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    margin-bottom: auto;
+}
     #header-id {
         width: 100%;
         background-color: $main-color;
@@ -292,7 +299,7 @@
         .account-detail-header{
             height: 18.5em;
             .bg-user{
-                height: 80%;
+                height: 85%;
                 width: 100%;
                 overflow: hidden;
                 position: relative;
@@ -310,25 +317,27 @@
                     height: auto;
                 }
             }
-            .account-detail-footer{
-                // width: 62%;
+            .account-info{
                 padding: 10px 0;
-                height: 20%;
+                height: 15%;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                // justify-content: space-between;
-                // margin: 0 auto;
-                // justify-content: space-around;
                 list-style: none;
-                // margin-left: 13.2em;
+                margin-left: 13.2em;
                 li{
                     margin-right: 20px;
                     span{
                         font-weight: bold;
                     }
                 }
-
+                .vertical-divider::before{
+                    border-left:1px solid #333;
+                    height: 5px;
+                    content: '';
+                    position: relative;
+                    left: -10px;
+                    opacity: 50%;
+                    
+                }
             }
         }
         

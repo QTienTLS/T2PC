@@ -10,8 +10,11 @@ const Account = new Schema({
     password: { type: String, maxLength: 255 },
     role: { type: String, default: 'user' },
     img: { type: String, default: '/img/avt/user-default.png' },
-    createAt: { type: Date, default: Date.now },
-    updateAt: { type: Date, default: Date.now },
-});
+    totalSpend: { type: Number, default: 0 },
+    nationalID: { type: String },
+    address: { type: String },
+}
+    , { timestamps: true }
+);
 
 module.exports = mongoose.model('Account', Account);
