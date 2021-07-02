@@ -83,10 +83,11 @@
           height: 355px; }
           .product-main .all-products .list-all-products .card .body-card .card-title {
             color: black;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: ChakraPetch-Medium;
             font-size: 1.1em;
             height: 2.5em;
             overflow: hidden;
+            margin-top: 10px;
             margin-bottom: 3px; }
           .product-main .all-products .list-all-products .card .body-card .card-body {
             height: 125px;
@@ -96,17 +97,20 @@
               display: flex;
               margin-bottom: 3px; }
               .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .product-reviews .evaluate {
-                margin-left: 10px; }
+                margin-left: 10px;
+                font-family: ChakraPetch-SemiBold; }
             .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .mn-product {
               display: flex; }
               .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .mn-product .card-text {
                 color: #f9495f;
-                font-weight: bold;
+                font-family: ChakraPetch-Bold;
                 font-size: 1.1em; }
               .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .mn-product .price {
                 text-decoration: line-through;
                 margin-left: 10px;
-                font-style: oblique;
+                margin-top: 3.5px;
+                font-size: 0.9em;
+                font-family: ChakraPetch-SemiBoldItalic;
                 color: #99a0ad; }
           .product-main .all-products .list-all-products .card .body-card .image-product {
             display: flex;
@@ -125,7 +129,7 @@
         position: absolute;
         z-index: 10;
         top: 17.7em;
-        left: 0.7em;
+        left: 0.55em;
         width: 91%;
         text-align: center; }
         .product-main .all-products .list-all-products .btn-product .btn-xem {
@@ -134,7 +138,7 @@
           border-radius: 5px;
           display: inline-block;
           font-size: 1em;
-          font-family: Roboto;
+          font-family: ChakraPetch-Medium;
           padding-top: 4px;
           background-color: #f9495f;
           color: white;
@@ -154,7 +158,8 @@
         transform: skew(-12deg);
         align-items: center;
         justify-content: center;
-        margin-left: -5px; }
+        margin-left: -5px;
+        font-family: ChakraPetch-SemiBold; }
       .product-main .all-products .list-all-products .card:hover .btn-product {
         display: block; }
       .product-main .all-products .list-all-products .card:hover .card-title {

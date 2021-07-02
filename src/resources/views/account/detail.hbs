@@ -1,54 +1,56 @@
 {{#if (eq acc.username session.User.name)}}
-<div class="container account-detail">
-    {{!-- --}}
-    <div class="account-detail-header shadow">
-        <div class="bg-user">
-            <img src="/img/bg.jpg" alt="">
-            {{!-- <button class="change-bg-acc"><i class="fad fa-camera"></i></button> --}}
+<div class="account-management">
+    <div class="container account-detail">
+        {{!-- --}}
+        <div class="account-detail-header shadow">
+            <div class="bg-user">
+                <img src="/img/bg.jpg" alt="">
+                {{!-- <button class="change-bg-acc"><i class="fad fa-camera"></i></button> --}}
+            </div>
+            <ul class="account-info">
+                <li>Username: <span>{{acc.username}}</span></li>
+                <li class="vertical-divider">Ngày đăng kí: <span class="timeFormat">
+                        {{acc.createdAt}}</span></li>
+                <li class="vertical-divider">Ngày cập nhật: <span class="timeFormat">
+                        {{acc.updatedAt}}</span></li>
+                <li class="vertical-divider">Tổng chi tiêu: <span>
+                        {{acc.totalSpend}} vnđ</span></li>
+            </ul>
         </div>
-        <ul class="account-info">
-            <li>Username: <span>{{acc.username}}</span></li>
-            <li class="vertical-divider">Ngày đăng kí: <span class="timeFormat">
-                    {{acc.createdAt}}</span></li>
-            <li class="vertical-divider">Ngày cập nhật: <span class="timeFormat">
-                    {{acc.updatedAt}}</span></li>
-            <li class="vertical-divider">Tổng chi tiêu: <span>
-                    {{acc.totalSpend}} vnđ</span></li>
-        </ul>
-    </div>
-    {{!-- Avatar --}}
-    <div id="user-avt">
-        <div class="avt-acc">
-            <img src="{{acc.img}}" alt="" class="shadow">
-            <button id="btn-change-avt" type="button" style="margin: 1em 1em;" data-bs-toggle="modal"
-                data-bs-target="#modalAvt" data-bs-userID={{acc._id}}>
-                <p> <i class="fad fa-camera"></i></p>
-            </button>
+        {{!-- Avatar --}}
+        <div id="user-avt">
+            <div class="avt-acc">
+                <img src="{{acc.img}}" alt="" class="shadow">
+                <button id="btn-change-avt" type="button" style="margin: 1em 1em;" data-bs-toggle="modal"
+                    data-bs-target="#modalAvt" data-bs-userID={{acc._id}}>
+                    <p> <i class="fad fa-camera"></i></p>
+                </button>
+            </div>
+            <div class="info-acc">
+                <p class="name-acc-if">{{acc.name}}</p>
+            </div>
         </div>
-        <div class="info-acc">
-            <p class="name-acc-if">{{acc.name}}</p>
-        </div>
-    </div>
 
-    {{!-- modal thực hiện đổi avt --}}
-    <div class="modal fade" id="modalAvt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Chọn ảnh thay thế</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form name='form-update-avt' method="POST" enctype="multipart/form-data">
+        {{!-- modal thực hiện đổi avt --}}
+        <div class="modal fade" id="modalAvt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Chọn ảnh thay thế</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form name='form-update-avt' method="POST" enctype="multipart/form-data">
 
-                        <label for="updateImg" class="col-form-label">Ảnh đã chọn</label>
-                        <input type="file" name="updateAvt" class="form-control" id="updateAvt">
+                            <label for="updateImg" class="col-form-label">Ảnh đã chọn</label>
+                            <input type="file" name="updateAvt" class="form-control" id="updateAvt">
 
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="submit" id="btn-submit-avt" class="btn btn-warning">Cập nhật ảnh</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" id="btn-submit-avt" class="btn btn-warning">Cập nhật ảnh</button>
+                    </div>
                 </div>
             </div>
         </div>
