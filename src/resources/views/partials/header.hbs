@@ -19,23 +19,42 @@
         </div>
         {{!-- phần header dưới --}}
         <div class="header-container">
+
+            {{!-- Thanh Nav cho giao diện Mobile --}}
+            <div class="sidenav__mobile">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNavMobile()">&times;</a>
+                    <a href="#">Đăng ký</a>
+                    <a href="#">Đăng nhập</a>
+                    <a href="#">Danh sách sản phẩm</a>
+                    <a href="#">Liên hệ</a>
+                </div>
+                <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNavMobile()">&#9776;</span>
+            </div>
+
             {{!-- logo --}}
             <div class="logo">
                 <a href="/"><img src="/img/logo.png" alt="logo"></a>
             </div>
+
             {{!-- thanh tìm kiếm --}}
             <div class="search">
                 <form action="">
                     <input type="search" placeholder="Nhập thông tin cần tìm...">
                 </form>
             </div>
+
             {{!-- khu vực đăng nhập + giỏ hàng --}}
             <div class="login-cart">
             {{!-- Giỏ hàng --}}
                 <div class="cart">
+<<<<<<< HEAD
                      <button onclick="showShoppingCart()" class="cart-in dropbtn"><i class="fad fa-shopping-cart"></i> Giỏ hàng 
                      
                       </button>
+=======
+                    <a href="#" class="cart-in"><i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span></a>
+>>>>>>> parent of bc17192 (a)
                 </div>
 
                 {{!-- bảng thông tin user đã đăng nhập --}}
@@ -75,9 +94,16 @@
                 </div>
             </div>
         </div>
+
+        {{!-- Thanh tìm kiếm giao diện Mobile --}}
+        <form class="mobile__search" action="">
+            <input type="search" placeholder="Nhập thông tin cần tìm...">
+        </form>
+
     </div>
     {{!-- menu chính --}}
-    <div id="nav-bar">
+    
+    <nav id="nav-bar">
         <div class="menu-nav-bar">
             <ul class="list-menu">
                 <li class="tilte-menu product"><a class="link-tm" href="/product/all"><i class="fas fa-desktop"></i> DANH MỤC SẢN
@@ -239,8 +265,37 @@
                 <li class="tilte-menu"><a class="link-tm" href="#"><i class="fas fa-phone-alt"></i> LIÊN HỆ</a></li>
             </ul>
         </div>
-    </div>
+    </nav>
+
+    {{!-- Thanh nav giao diện Tablet --}}
+    <nav class="nav-tablet">
+        <div class="icon-nav-tablet" onclick="changeIconNavTab(this)">
+            <div class="bar1 bar"></div>
+            <div class="bar2 bar"></div>
+            <div class="bar3 bar"></div>
+        </div>
+        <div id="myDIV" class="main__nav-tablet">
+            <div class="title__nav-tablet" onclick="changeListPrd()"><i class="fas fa-desktop icon__nav-tab"></i><span>Danh mục sản phẩm </span><i class="fas fa-angle-right"></i>
+                <ul id="myUL">
+                    <a href="facebook.com"><li>XÂY DỰNG CẤU HÌNH PC</li></a>
+                    <a href="#"><li>LAPTOPS</li></a>
+                    <a href="#"><li>MACBOOK</li></a>
+                    <a href="#"><li>LINK KIỆN MÁY TÍNH</li></a>
+                    <a href="#"><li>MÀN HÌNH MÁY TÍNH</li></a>
+                    <a href="#"><li>GAMING GEARS</li></a>
+                    <a href="#"><li>AUDIO</li></a>
+                    <a href="#"><li>PHỤ KIỆN - TẢN NHIỆT PC</li></a>
+                    <a href="#"><li>THIẾT BỊ VĂN PHÒNG</li></a>
+                    <a href="#"><li>THIÊT BỊ MẠNG</li></a>
+                </ul>
+            </div>
+            <div class="title__nav-tablet"><a href="#"><i class="fas fa-tools icon__nav-tab"></i><span>Xây dựng cấu hình</span></a></div>
+            <div class="title__nav-tablet"><a href="#"><i class="fas fa-gift icon__nav-tab"></i><span>Click là sale</span></a></div>
+            <div class="title__nav-tablet"><a href="#"><i class="far fa-newspaper icon__nav-tab"></i><span>Tin tức</span></a></div>
+        </div>
+    </nav>
 </div>
+
 <script>
     //hiện bảng lựa chọn người dùng
     function showUserPanel() {
@@ -262,5 +317,50 @@
     //click hiện giỏ hàng
     function showShoppingCart(){
 
+<<<<<<< HEAD
     }
+=======
+</script>
+
+{{!--  --}}
+<script>
+    function changeIconNavTab(x) {
+        x.classList.toggle("change");
+    }
+</script>
+
+{{!-- Đóng mở Navbar Tablet --}}
+<script>
+    function changeIconNavTab() {
+        var navTablet = document.getElementById("myDIV");
+        if (navTablet.style.display === "block") {
+            navTablet.style.display = "none";
+        } else {
+            navTablet.style.display = "block";
+        }
+    }
+</script>
+
+{{!-- Đóng mở Submenu ở giao diện Tablet --}}
+<script>
+    function changeListPrd() {
+        var ListProd = document.getElementById("myUL");
+        if (ListProd.style.display === "block") {
+            ListProd.style.display = "none";
+        } else {
+            ListProd.style.display = "block";
+        }
+    }
+</script>
+
+{{!-- Đóng mở thanh nav Giao diện Mobile --}}
+<script>
+function openNavMobile() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNavMobile() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+>>>>>>> parent of bc17192 (a)
 </script>
