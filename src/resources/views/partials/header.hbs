@@ -31,11 +31,8 @@
             </div>
             {{!-- khu vực đăng nhập + giỏ hàng --}}
             <div class="login-cart">
-            {{!-- Giỏ hàng --}}
                 <div class="cart">
-                     <button onclick="showShoppingCart()" class="cart-in dropbtn"><i class="fad fa-shopping-cart"></i> Giỏ hàng 
-                     
-                      </button>
+                    <a href="#" class="cart-in"><i class="fad fa-shopping-cart"></i> Giỏ hàng</a>
                 </div>
 
                 {{!-- bảng thông tin user đã đăng nhập --}}
@@ -51,7 +48,7 @@
                         <a href="/admin/dashboard"><i class="fad fa-tools"></i> Quản lí website</a>
                         {{/if}}
                         
-                        <a href="/account/detail"><i class="fad fa-user-cog"></i> Thông tin cá nhân</a>
+                        <a href="/account/{{session.User.id}}/detail"><i class="fad fa-user-cog"></i> Thông tin cá nhân</a>
                         
                         <a href="#"><i class="fad fa-thumbs-up"></i> Sản phẩm yêu thích</a>
                         <a href="/account/log-out"><i class="fad fa-sign-out"></i> Đăng xuất</a>
@@ -242,10 +239,10 @@
     </div>
 </div>
 <script>
-    //hiện bảng lựa chọn người dùng
     function showUserPanel() {
         document.getElementById("userDropdown").classList.toggle("show");
     }
+
     // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn')) {
@@ -259,8 +256,5 @@
             }
         }
     }
-    //click hiện giỏ hàng
-    function showShoppingCart(){
 
-    }
 </script>
