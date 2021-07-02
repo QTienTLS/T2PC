@@ -40,7 +40,7 @@ class AccountController {
         formData.password = bcryt.hashSync(
             formData.password,
             salt,
-            function (err, hash) { },
+            function (err, hash) {},
         );
         const account = new Account(formData);
         account.save();
@@ -86,18 +86,13 @@ class AccountController {
         });
     }
     detail(req, res) {
-
         Account.findOne({ _id: req.params.id }, function (err, acc) {
             if (err) console.log(err);
 
             res.render('account/detail', { acc: mongooseToObject(acc) });
-
         });
-
-
     }
     changeAvt(req, res, next) {
-
         //upload ảnh đã chọn lên sever
         let uploadFile = multer({ storage: diskStorageforAvt }).single(
             'updateAvt',
@@ -111,10 +106,8 @@ class AccountController {
         Account.findOne({ _id: req.params.id }, function (err, acc) {
             if (err) console.log(err);
             //nếu k có file ảnh nào thì trở về trang cũ
-            if (!req.file)
-                res.redirect('back');
+            if (!req.file) res.redirect('back');
             else {
-
                 if (acc.img != '/img/avt/user-default.png') {
                     var fs = require('fs');
                     fs.unlink(
@@ -137,16 +130,19 @@ class AccountController {
                                 role: acc.role,
                                 id: acc._id,
                             };
-                            res.redirect('back')
+                            res.redirect('back');
                         });
-
-
                     })
                     .catch(next);
             }
+        });
+    }
+    updateAcc(req,res,next){
+        Account.updateOne({ _id: req.params.id }, req.body)
+        .then(() => {
+            res.redirect('back');
         })
-
-
+        .catch(next);
     }
 }
 

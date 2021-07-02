@@ -98,7 +98,8 @@
         width: 80%;
         display: grid;
         // grid-template-columns: 240px 240px 240px 240px;
-        grid-template-columns: 25% 25% 25% 25%;;
+        grid-template-columns: 25% 25% 25% 25%;
+        // grid-template-rows: 550px 550px 550px;
         grid-column-gap: 0.5em;
         grid-row-gap: 0.5em;
 
@@ -115,11 +116,10 @@
                     .card-title {
                         // overflow: hidden;
                         color: black;
-                        font-family: ChakraPetch-Medium;
+                        font-family: Arial, Helvetica, sans-serif;
                         font-size: 1.1em;
                         height: 2.5em;
                         overflow: hidden;
-                        margin-top: 10px;
                         margin-bottom: 3px;
                     }
 
@@ -127,33 +127,29 @@
                         height: 125px;
                         padding: 5px;
 
-                        .card-bottom{
-                            .product-reviews{
+                        .card-bottom {
+                            .product-reviews {
                                 color: #99a0ad;
                                 display: flex;
                                 margin-bottom: 3px;
-                                .evaluate{
+                                .evaluate {
                                     margin-left: 10px;
-                                    font-family: ChakraPetch-SemiBold;
                                 }
                             }
-    
-                            .mn-product{
+
+                            .mn-product {
                                 display: flex;
-                                
-                                .card-text{
+
+                                .card-text {
                                     color: #f9495f;
-                                    // font-weight: bold;
-                                    font-family: ChakraPetch-Bold;
+                                    font-weight: bold;
                                     font-size: 1.1em;
                                 }
 
-                                .price{
+                                .price {
                                     text-decoration: line-through;
                                     margin-left: 10px;
-                                    margin-top: 3.5px;
-                                    font-size: 0.9em;
-                                    font-family: ChakraPetch-SemiBoldItalic;
+                                    font-style: oblique;
                                     color: #99a0ad;
                                 }
                             }
@@ -174,27 +170,29 @@
                             width: auto;
                             height: auto;
                         }
-                    }    
+                    }
                 }
             }
 
             // Nút mua
-            .btn-product{
+            .btn-product {
                 display: none;
                 position: absolute;
                 z-index: 10;
                 top: 17.7em;
-                left: 0.55em;
+                left: 0.7em;
                 width: 91%;
+
                 text-align: center;
-                .btn-xem{
+                .btn-xem {
                     margin-bottom: 5px;
                 }
                 .btn-buy {
                     border-radius: 5px;
+                    // display: none;
                     display: inline-block;
                     font-size: 1em;
-                    font-family: ChakraPetch-Medium;
+                    font-family: Roboto;
                     padding-top: 4px;
                     background-color: #f9495f;
                     color: white;
@@ -205,7 +203,7 @@
                 }
             }
 
-            .discount{
+            .discount {
                 display: flex;
                 position: absolute;
                 top: 0;
@@ -217,12 +215,11 @@
                 transform: skew(-12deg);
                 align-items: center;
                 justify-content: center;
+                // overflow: hidden;
                 margin-left: -5px;
-                font-family: ChakraPetch-SemiBold;
-                span{
+                span {
                 }
             }
-
 
             .card:hover .btn-product {
                 display: block;
@@ -235,11 +232,11 @@
             display: block;
         }
 
-        .list-all-products:hover .card-bottom{
+        .list-all-products:hover .card-bottom {
             display: none;
         }
 
-        .list-all-products:hover .card{
+        .list-all-products:hover .card {
             background-color: $main-color;
         }
 
@@ -247,5 +244,4 @@
         //     color: white;
         // }
     }
-
 }

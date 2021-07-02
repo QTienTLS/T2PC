@@ -12,7 +12,6 @@ const session = require('express-session');
 var cookieParser = require('cookie-parser');
 const multer = require('multer');
 
-
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(
@@ -29,9 +28,11 @@ app.use(function (req, res, next) {
 });
 db.connect();
 //middleware
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    }),
+);
 app.use(bodyParser.json());
 
 route(app);
