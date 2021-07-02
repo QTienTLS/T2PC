@@ -21,5 +21,7 @@ for (var i = 0; i < timeString.length; i++) {
 //Định dạng tiền tệ
 var currency = document.getElementsByClassName('currFormat');
 for (let i = 0; i < currency.length; i++) {
-    currency[i].innerHTML = currency[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    currency[i].innerHTML = currency[i].innerHTML
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }

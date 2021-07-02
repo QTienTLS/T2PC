@@ -9,5 +9,6 @@ router.post('/loging-in', accountController.logingin);
 router.get('/log-out', accountController.logout);
 router.get('/:id/detail', accountController.detail);
 router.put('/:id/change-avt', accountController.changeAvt);
+router.put('/:id/update', accountController.updateAcc);
 
 module.exports = router;

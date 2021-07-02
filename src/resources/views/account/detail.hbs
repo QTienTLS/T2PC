@@ -1,5 +1,6 @@
 {{#if (eq acc.username session.User.name)}}
 <div class="container account-detail">
+
     {{!-- --}}
     <div class="account-detail-header shadow">
         <div class="bg-user">
@@ -7,26 +8,26 @@
             {{!-- <button class="change-bg-acc"><i class="fad fa-camera"></i></button> --}}
         </div>
         <ul class="account-info">
-            <li>Username: <span>{{acc.username}}</span></li>
-            <li class="vertical-divider">Ngày đăng kí: <span class="timeFormat">
+            <li>Ngày đăng kí: <span class="timeFormat">
                     {{acc.createdAt}}</span></li>
             <li class="vertical-divider">Ngày cập nhật: <span class="timeFormat">
                     {{acc.updatedAt}}</span></li>
             <li class="vertical-divider">Tổng chi tiêu: <span>
                     {{acc.totalSpend}} vnđ</span></li>
         </ul>
-    </div>
-    {{!-- Avatar --}}
-    <div id="user-avt">
-        <div class="avt-acc">
-            <img src="{{acc.img}}" alt="" class="shadow">
-            <button id="btn-change-avt" type="button" style="margin: 1em 1em;" data-bs-toggle="modal"
-                data-bs-target="#modalAvt" data-bs-userID={{acc._id}}>
-                <p> <i class="fad fa-camera"></i></p>
-            </button>
-        </div>
-        <div class="info-acc">
-            <p class="name-acc-if">{{acc.name}}</p>
+        {{!-- Avatar --}}
+        <div id="user-avt">
+            <div class="avt-acc">
+                <img src="{{acc.img}}" alt="" class="shadow">
+                <button id="btn-change-avt" type="button" style="margin: 1em 1em;" data-bs-toggle="modal"
+                    data-bs-target="#modalAvt" data-bs-userID={{acc._id}}>
+                    <p> <i class="fad fa-camera"></i></p>
+                </button>
+            </div>
+            <div class="info-acc">
+                <p class="name-acc-if">{{acc.name}}</p>
+                <p class="name-acc-if">Username: <span>{{acc.username}}</span></p>
+            </div>
         </div>
     </div>
 
@@ -53,6 +54,95 @@
             </div>
         </div>
     </div>
+    <div class=" account-detail-content shadow row">
+        <div id="acc-menu-side" class="col-3">
+            <a class="tab tab-active"><i class="fas fa-info-circle fa-2x" style="color: rgb(54, 12, 243);"></i>
+                <p>Thông tin tài khoản</p>
+            </a>
+            <a class="tab"><i class="fad fa-sack-dollar fa-2x" style="color: darkgreen;"></i>
+                <p> Đơn hàng đã hoàn thành</p>
+            </a>
+            <a class="tab"><i class="fad fa-shopping-cart fa-2x" style='color: olive'></i>
+                <p>Đơn hàng đang xử lí</p>
+            </a>
+            <a class="tab"><i class="fad fa-heart-circle fa-2x" style="color: tomato;"></i>
+                <p>Sản phẩm yêu thích</p>
+            </a>
+            <a class="tab"><i class="fad fa-key fa-2x" style="color: 
+            blueviolet;"></i>
+                <p>Thay đổi mật khẩu</p>
+            </a>
+            <a class="tab"><i class="fad fa-envelope-open-text fa-2x" style="color: rgb(19, 95, 100);"></i>
+                <p>Thay đổi email</p>
+            </a>
+        </div>
+        <div id="acc-content" class="col-9">
+           
+            <form method="POST" action="/account/{{acc._id}}/update?_method=PUT">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control " id="inputFirstName" type="text"
+                                placeholder="Enter your username" name="username" value="{{acc.username}}" readonly />
+                            <label for="inputUserName">Tên tài khoản</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-floating ">
+                            <input class="form-control" id="inputName" type="text" placeholder="Enter your name"
+                                name="name" value="{{acc.name}}" readonly />
+                            <label for="inputName">Họ tên</label>
+                        </div>
+                    
+                        
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6  ">
+                        <div class="form-floating">
+                            <input class="form-control" id="inputNationalID" type="number"
+                                placeholder="Số căn cước công dân" name="nationalId" value="{{acc.nationalId}}"
+                                readonly />
+                            <label for="inputNationalID">Số căn cước công dân</label>
+                        </div>
+                         
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating ">
+                            <input class="form-control" id="inputPhoneNumber" type="number" placeholder="+84"
+                                name="phone" value={{acc.phone}} readonly />
+                            <label for="inputFirstName">Số điện thoại</label>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="form-floating mb-3 mb-md-0">
+                        <input class="form-control" id="inputAddress" type="text" placeholder="Địa chỉ của bạn"
+                            name="address" value='{{acc.address}}' readonly />
+                        <label for="inputAddress">Địa chỉ</label>
+
+                    </div>
+
+
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="email"
+                        value="{{acc.email}}" readonly />
+                    <span class="error" aria-live="polite"></span>
+                    <label for="inputEmail">Địa chỉ Email</label>
+                </div>
+
+                <div class="mt-4 mb-0">
+                    <div class="d-grid"><button type="submit" class="btn btn-primary btn-block" id="btn-submit" style="display: none;">
+                            Cập nhật tài khoản
+                        </button></div>
+                        <div class="btn-fix" id="btn-fix"><i class="fas fa-tools fa-2x"></i></div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <script>
     var btnChangeAvt = document.getElementById('btn-submit-avt');
@@ -68,7 +158,33 @@
         formChangeAvt.action = '/account/' + userID + '/change-avt?_method=PUT';
         formChangeAvt.submit();
     }
-
+    //Sự kiện hiện nút menu khi hover
+    var tabMenu = document.getElementsByClassName('tab');
+    var currentTab;
+    for (let i = 0; i < tabMenu.length; i++) {
+        if (tabMenu[i].classList.contains('tab-active'))
+            currentTab = i;
+    }
+    for (let i = 0; i < tabMenu.length; i++) {
+        if (i != currentTab) {
+            tabMenu[i].onmouseover = function () {
+                tabMenu[i].classList.add('tab-active');
+            }
+            tabMenu[i].onmouseout = function () {
+                tabMenu[i].classList.remove('tab-active');
+            }
+        }
+    }
+//click nút fix thông tin
+var btnFix = document.getElementById('btn-fix');
+btnFix.onclick = function(){
+    btnFix.style.display = 'none';
+    document.getElementById('btn-submit').style.display = 'block';
+    document.getElementById('inputName').removeAttribute('readonly');
+    document.getElementById('inputNationalID').removeAttribute('readonly');
+    document.getElementById('inputPhoneNumber').removeAttribute('readonly');
+    document.getElementById('inputAddress').removeAttribute('readonly');
+}
 </script>
 {{else}}
 <script>

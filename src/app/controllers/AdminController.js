@@ -62,15 +62,12 @@ class AdminController {
         });
         // Tiến hành thêm event
 
-
         Event.countDocuments({}, function (err, countEvent) {
             formData = {
                 link: req.body.inputLink,
                 img: '\\img\\banner\\' + req.file.filename,
                 name: req.body.inputEventName,
-
             };
-
 
             const event = new Event(formData);
             event.save();
@@ -107,10 +104,9 @@ class AdminController {
             formData = {
                 name: req.body.updateName,
                 link: req.body.updateLink,
-                img: "",
-            }
+                img: '',
+            };
             if (req.file) {
-
                 fs.unlink(
                     path.join(`${__dirname}..\\..\\..\\public` + ev.img),
                     function (err) {
@@ -118,17 +114,13 @@ class AdminController {
                     },
                 );
                 formData.img = '\\img\\banner\\' + req.file.filename;
-            }
-            else {
+            } else {
                 formData.img = ev.img;
             }
             Event.updateOne({ _id: req.params.id }, formData)
                 .then(() => res.redirect('/admin/event'))
                 .catch(next);
-        })
-
-
-
+        });
     }
 }
 

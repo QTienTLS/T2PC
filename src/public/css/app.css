@@ -217,7 +217,10 @@ footer {
 
 .account-detail {
   margin-top: 2em;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
   .account-detail .account-detail-header {
     height: 18.5em; }
     .account-detail .account-detail-header .bg-user {
@@ -240,7 +243,10 @@ footer {
       height: 15%;
       display: flex;
       list-style: none;
-      margin-left: 13.2em; }
+      margin-left: 13.2em;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%); }
       .account-detail .account-detail-header .account-info li {
         margin-right: 20px; }
         .account-detail .account-detail-header .account-info li span {
@@ -248,14 +254,14 @@ footer {
       .account-detail .account-detail-header .account-info .vertical-divider::before {
         border-left: 1px solid #333;
         height: 5px;
-        content: '';
+        content: "";
         position: relative;
         left: -10px;
         opacity: 50%; }
   .account-detail #user-avt {
     height: 10em;
-    position: absolute;
-    bottom: 2.2em;
+    position: relative;
+    bottom: 12em;
     display: flex; }
     .account-detail #user-avt .avt-acc img {
       margin-left: 2em;
@@ -272,7 +278,7 @@ footer {
       width: 2em;
       height: 2em;
       border-radius: 3px;
-      background-color: #D1C2BF;
+      background-color: #d1c2bf;
       position: relative;
       left: 9em;
       top: -2.9em;
@@ -290,6 +296,62 @@ footer {
         color: white; }
   .account-detail #user-avt:hover #btn-change-avt {
     display: flex; }
+  .account-detail .account-detail-content {
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 3em; }
+    .account-detail .account-detail-content #acc-menu-side {
+      display: flex;
+      flex-direction: column; }
+      .account-detail .account-detail-content #acc-menu-side .tab {
+        height: 100px;
+        cursor: pointer;
+        padding: 1em 2em;
+        width: 100%;
+        background-color: #e0e0e0;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center; }
+        .account-detail .account-detail-content #acc-menu-side .tab p {
+          margin-left: 1em;
+          margin-top: 4px;
+          font-size: 0.9em;
+          color: black; }
+      .account-detail .account-detail-content #acc-menu-side .tab::before {
+        border-left: 12px solid #e0e0e0;
+        height: 100px;
+        content: "";
+        position: relative;
+        left: -44px; }
+      .account-detail .account-detail-content #acc-menu-side .tab-active {
+        background-color: #f3f3f3; }
+      .account-detail .account-detail-content #acc-menu-side .tab-active::before {
+        border-left: 12px solid #49b14d;
+        height: 100px;
+        content: "";
+        position: relative;
+        left: -44px; }
+    .account-detail .account-detail-content #acc-content {
+      background-color: white;
+      border: 1px solid #49b14d; }
+      .account-detail .account-detail-content #acc-content .btn-fix {
+        cursor: pointer;
+        border: 2px solid #49b14d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        height: 4em;
+        width: 4em;
+        color: #49b14d;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%); }
+      .account-detail .account-detail-content #acc-content form {
+        margin-top: 6em; }
 
 @media screen and (max-width: 85em) {
   .login-cart .login {
