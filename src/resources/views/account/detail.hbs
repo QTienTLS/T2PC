@@ -1,4 +1,4 @@
-{{#if (eq acc.username session.User.name)}}
+
 <div class="container account-detail">
     {{!-- --}}
     <div class="account-detail-header shadow">
@@ -185,9 +185,5 @@ btnFix.onclick = function(){
     document.getElementById('inputAddress').removeAttribute('readonly');
 }
 </script>
-{{else}}
-<script>
-    document.getElementById('header-id').style.display = 'none';
-</script>
-{{>404}}
-{{/if}}
+
+

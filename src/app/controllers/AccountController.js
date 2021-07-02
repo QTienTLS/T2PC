@@ -86,11 +86,15 @@ class AccountController {
         });
     }
     detail(req, res) {
-        Account.findOne({ _id: req.params.id }, function (err, acc) {
-            if (err) console.log(err);
-
-            res.render('account/detail', { acc: mongooseToObject(acc) });
-        });
+        if(!req.session.User)
+            res.render('partials/404');
+        else
+        {
+            Account.findOne({_id: req.session.User.id}, function(err,acc){
+                res.render('account/detail',{acc: mongooseToObject(acc)});
+                // res.json(acc);
+            })
+        }
     }
     changeAvt(req, res, next) {
         //upload ảnh đã chọn lên sever
