@@ -217,10 +217,14 @@ footer {
 
 .account-detail {
   margin-top: 2em;
+<<<<<<< HEAD
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center; }
+=======
+  position: relative; }
+>>>>>>> parent of ddc40ba (Responsive Header + Footer)
   .account-detail .account-detail-header {
     height: 18.5em; }
     .account-detail .account-detail-header .bg-user {
@@ -243,10 +247,14 @@ footer {
       height: 15%;
       display: flex;
       list-style: none;
+<<<<<<< HEAD
       margin-left: 13.2em;
       position: relative;
       left: 50%;
       transform: translateX(-50%); }
+=======
+      margin-left: 13.2em; }
+>>>>>>> parent of ddc40ba (Responsive Header + Footer)
       .account-detail .account-detail-header .account-info li {
         margin-right: 20px; }
         .account-detail .account-detail-header .account-info li span {
@@ -254,6 +262,7 @@ footer {
       .account-detail .account-detail-header .account-info .vertical-divider::before {
         border-left: 1px solid #333;
         height: 5px;
+<<<<<<< HEAD
         content: "";
         position: relative;
         left: -10px;
@@ -352,6 +361,50 @@ footer {
         transform: translateX(-50%); }
       .account-detail .account-detail-content #acc-content form {
         margin-top: 6em; }
+=======
+        content: '';
+        position: relative;
+        left: -10px;
+        opacity: 50%; }
+  .account-detail #user-avt {
+    height: 10em;
+    position: absolute;
+    bottom: 2.2em;
+    display: flex; }
+    .account-detail #user-avt .avt-acc img {
+      margin-left: 2em;
+      width: 10em;
+      height: 10em;
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 3px;
+      border-color: white;
+      background-color: black; }
+    .account-detail #user-avt .avt-acc #btn-change-avt {
+      display: none;
+      border: none;
+      width: 2em;
+      height: 2em;
+      border-radius: 3px;
+      background-color: #D1C2BF;
+      position: relative;
+      left: 9em;
+      top: -2.9em;
+      cursor: pointer;
+      text-align: center; }
+      .account-detail #user-avt .avt-acc #btn-change-avt p {
+        margin: auto; }
+    .account-detail #user-avt .info-acc {
+      margin-top: 2.5em;
+      margin-left: 1.5em;
+      width: 200px; }
+      .account-detail #user-avt .info-acc p {
+        font-weight: bold;
+        font-size: 1.25em;
+        color: white; }
+  .account-detail #user-avt:hover #btn-change-avt {
+    display: flex; }
+>>>>>>> parent of ddc40ba (Responsive Header + Footer)
 
 @media screen and (max-width: 85em) {
   .login-cart .login {
