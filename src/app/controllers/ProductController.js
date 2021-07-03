@@ -41,9 +41,9 @@ class ProductController {
                {
                 req.session.Cart.product.push(pro.name);
                 req.session.Cart.amount.push(1);
-                req.session.Cart.numPro++;
+                
                }
-             
+               req.session.Cart.numPro++;
            }
             console.log( req.session.Cart);
            res.redirect('back');

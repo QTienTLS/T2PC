@@ -116,8 +116,8 @@
                     .card-title {
                         // overflow: hidden;
                         color: black;
-                        font-family: Arial, Helvetica, sans-serif;
-                        font-size: 1.1em;
+                        font-family: ChakraPetch-SemiBold;
+                        font-size: 1em;
                         height: 2.5em;
                         overflow: hidden;
                         margin-bottom: 3px;
@@ -200,6 +200,9 @@
                     text-align: center;
                     height: 2em;
                     width: 100%;
+                }
+                .btn__add{
+                    border: 0;
                 }
             }
 
