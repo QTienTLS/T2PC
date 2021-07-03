@@ -49,7 +49,14 @@
             <div class="login-cart">
             {{!-- Giỏ hàng --}}
                 <div class="cart">
-                     <button onclick="showShoppingCart()" class="cart-in dropbtn"> <i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span> </button>
+                    <button onclick="showShoppingCart()" class="cart-in dropbtn"> 
+                        <i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span>
+                      {{#unless session.Cart}}
+                      <p class="numProduct">0</p>
+                      {{else}}
+                      <p class="numProduct">{{session.Cart.numPro}}</p>
+                      {{/unless}}
+                    </button>
                    
                 </div>
 
@@ -310,10 +317,7 @@
             }
         }
     }
-    //click hiện giỏ hàng
-    function showShoppingCart(){
-
-    }
+   
 </script>
 
 {{!--  --}}
@@ -333,6 +337,7 @@
             navTablet.style.display = "block";
         }
     }
+    
 </script>
 
 {{!-- Đóng mở Submenu ở giao diện Tablet --}}

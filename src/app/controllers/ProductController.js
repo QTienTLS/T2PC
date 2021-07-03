@@ -12,6 +12,43 @@ class ProductController {
             })
             .catch(next);
     }
+    addToCart(req,res,next){
+        Product.findOne({_id: req.params.id}, function(err,pro){
+           if(err) res.send(err);
+           if(!req.session.Cart)
+           {
+               req.session.Cart = {
+                   product: [pro.name],
+                   amount: [1],
+                   numPro: 1
+               }
+             
+           }
+           else
+           {
+               var i;
+               var isPush = true;
+               for(i=0;i<req.session.Cart.product.length;i++)
+               {
+                   if(pro.name === req.session.Cart.product[i])
+                   {
+                    req.session.Cart.amount[i]++;
+
+                    isPush = false;
+                   }
+               }
+               if(isPush)
+               {
+                req.session.Cart.product.push(pro.name);
+                req.session.Cart.amount.push(1);
+                req.session.Cart.numPro++;
+               }
+             
+           }
+            console.log( req.session.Cart);
+           res.redirect('back');
+        })
+    }
 }
 
 module.exports = new ProductController();
