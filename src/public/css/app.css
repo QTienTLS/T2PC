@@ -1,3 +1,6 @@
+.btn-maincolor {
+  background-color: #49b14d; }
+
 body {
   min-height: 100vh;
   display: flex;
@@ -266,7 +269,7 @@ body {
       .account-detail .account-detail-header .account-info .vertical-divider::before {
         border-left: 1px solid #333;
         height: 5px;
-        content: "";
+        content: '';
         position: relative;
         left: -10px;
         opacity: 50%; }
@@ -336,7 +339,7 @@ body {
       .account-detail .account-detail-content #acc-menu-side .tab::before {
         border-left: 12px solid #e0e0e0;
         height: 100px;
-        content: "";
+        content: '';
         position: relative;
         left: -44px; }
       .account-detail .account-detail-content #acc-menu-side .tab-active {
@@ -344,7 +347,7 @@ body {
       .account-detail .account-detail-content #acc-menu-side .tab-active::before {
         border-left: 12px solid #49b14d;
         height: 100px;
-        content: "";
+        content: '';
         position: relative;
         left: -44px; }
     .account-detail .account-detail-content #acc-content {

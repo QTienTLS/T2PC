@@ -86,14 +86,12 @@ class AccountController {
         });
     }
     detail(req, res) {
-        if(!req.session.User)
-            res.render('partials/404');
-        else
-        {
-            Account.findOne({_id: req.session.User.id}, function(err,acc){
-                res.render('account/detail',{acc: mongooseToObject(acc)});
+        if (!req.session.User) res.render('partials/404');
+        else {
+            Account.findOne({ _id: req.session.User.id }, function (err, acc) {
+                res.render('account/detail', { acc: mongooseToObject(acc) });
                 // res.json(acc);
-            })
+            });
         }
     }
     changeAvt(req, res, next) {
@@ -141,12 +139,12 @@ class AccountController {
             }
         });
     }
-    updateAcc(req,res,next){
+    updateAcc(req, res, next) {
         Account.updateOne({ _id: req.params.id }, req.body)
-        .then(() => {
-            res.redirect('back');
-        })
-        .catch(next);
+            .then(() => {
+                res.redirect('back');
+            })
+            .catch(next);
     }
 }
 
