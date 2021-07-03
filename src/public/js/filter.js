@@ -26,7 +26,7 @@ for (let i = 0; i < currency.length; i++) {
         .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 //hàm thêm sản phẩm vào giỏ hàng
-function addToCart(event){
+function addToCart(event) {
     var btn = event.target;
     var productID = btn.getAttribute('data-proID');
     var formShip = document.forms['shipper'];

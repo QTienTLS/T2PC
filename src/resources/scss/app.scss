@@ -1,4 +1,7 @@
-@import "var";
+@import 'var';
+.btn-maincolor{
+    background-color: $main-color;
+}
 body {
     min-height: 100vh;
     display: flex;
@@ -54,7 +57,7 @@ footer {
                 }
             }
         }
-        .mobile__search{
+        .mobile__search {
             display: none;
         }
     }
@@ -64,7 +67,7 @@ footer {
         display: flex;
         justify-content: space-between;
         padding: 0.5em 0.3em;
-        .sidenav__mobile{
+        .sidenav__mobile {
             display: none;
         }
         .logo {
@@ -204,7 +207,7 @@ footer {
             }
         }
     }
-    .nav-tablet{
+    .nav-tablet {
         display: none;
     }
 }
@@ -247,7 +250,7 @@ footer {
             flex-direction: row;
             align-items: center;
             justify-items: center;
-            .numProduct{
+            .numProduct {
                 background-color: yellow;
                 padding: 2px 9px;
                 position: relative;
@@ -357,7 +360,7 @@ footer {
             .vertical-divider::before {
                 border-left: 1px solid #333;
                 height: 5px;
-                content: "";
+                content: '';
                 position: relative;
                 left: -10px;
                 opacity: 50%;
@@ -455,7 +458,7 @@ footer {
             .tab::before {
                 border-left: 12px solid #e0e0e0;
                 height: 100px;
-                content: "";
+                content: '';
                 position: relative;
                 left: -44px;
             }
@@ -465,7 +468,7 @@ footer {
             .tab-active::before {
                 border-left: 12px solid $main-color;
                 height: 100px;
-                content: "";
+                content: '';
                 position: relative;
                 left: -44px;
             }
@@ -489,7 +492,6 @@ footer {
             }
             form {
                 margin-top: 6em;
-                
             }
         }
     }
