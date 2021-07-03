@@ -8,7 +8,8 @@ body {
 
 #header-id {
   width: 100%;
-  background-color: #49b14d; }
+  background-color: #49b14d;
+  font-family: ChakraPetch-Regular; }
   #header-id #header-main {
     max-width: 120em;
     margin: 0 auto; }
@@ -198,6 +199,81 @@ body {
       clear: both; }
     .login-cart .login .color-r:hover {
       color: yellow; }
+
+#modalCart .modal-dialog {
+  width: 62em; }
+  #modalCart .modal-dialog .modal-content .modal-header .modal-title {
+    font-family: ChakraPetch-Bold; }
+  #modalCart .modal-dialog .modal-content .modal-body {
+    padding: 0 1em;
+    margin-left: 0;
+    margin-right: 0; }
+    #modalCart .modal-dialog .modal-content .modal-body .modal-body-right {
+      background-color: white; }
+      #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart {
+        background-color: #f0f3fc;
+        padding: 1em; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart h5 {
+          font-family: ChakraPetch-Bold; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .modal__info-cart-ft {
+          display: flex;
+          justify-content: space-between; }
+          #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .modal__info-cart-ft .gtx {
+            font-family: ChakraPetch-SemiBold;
+            margin-bottom: 10px; }
+          #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .modal__info-cart-ft .gtx__1 {
+            font-family: ChakraPetch-SemiBold;
+            color: blue;
+            margin-bottom: 10px; }
+          #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .modal__info-cart-ft .gtx__2 {
+            font-family: ChakraPetch-Bold;
+            font-size: 1.2em;
+            color: #f9495f;
+            margin-bottom: 10px; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart p {
+          font-family: ChakraPetch-Light;
+          text-align: right; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart button {
+          display: block;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          width: 100%;
+          font-family: ChakraPetch-Bold;
+          margin-bottom: 1em; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .btn__modal-dem {
+          background-color: #49b14d;
+          border: #49b14d;
+          color: white; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .btn__modal-delete {
+          background: #ed1b24;
+          color: white;
+          border: #ed1b24; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal-body-right .modal__info-cart .btn__modal-view {
+          color: #005ec4;
+          background: #fff;
+          border: 1px solid #005ec4;
+          margin-bottom: 0em; }
+    #modalCart .modal-dialog .modal-content .modal-body .modal__policy-cart {
+      margin-top: 1em; }
+      #modalCart .modal-dialog .modal-content .modal-body .modal__policy-cart ul {
+        line-height: 2;
+        list-style: none;
+        padding-left: 1em; }
+        #modalCart .modal-dialog .modal-content .modal-body .modal__policy-cart ul li {
+          font-size: 0.9em; }
+          #modalCart .modal-dialog .modal-content .modal-body .modal__policy-cart ul li .fa-check-circle {
+            color: #27ae60;
+            padding-right: 0.5em; }
+    #modalCart .modal-dialog .modal-content .modal-body .modal__pay-cart ul {
+      padding-left: 1em;
+      list-style: none;
+      display: flex;
+      justify-content: space-between; }
+      #modalCart .modal-dialog .modal-content .modal-body .modal__pay-cart ul li img {
+        max-width: 65px;
+        max-height: 43px;
+        width: auto;
+        height: auto; }
 
 #user-panel {
   position: relative;

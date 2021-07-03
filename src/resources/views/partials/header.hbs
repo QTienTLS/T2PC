@@ -69,13 +69,52 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    {{#if session.Cart}}
+                                <div class="modal-body row">
+                                    <div class="col-7">
+                                        a
+                                    </div>
+                                    <div class="col-5 modal-body-right">
+
+                                        {{!-- Thông tin giỏ hàng trong modal --}}
+                                        <div class="modal__info-cart">
+                                            <h5>Thông tin giỏ hàng</h5>
+                                            <div class="modal__info-cart-ft">
+                                                <p class="gtx">Số lượng sản phẩm</p>
+                                                <p class="gtx__1">1</p>
+                                            </div>
+                                            <div class="modal__info-cart-ft">
+                                                <p class="gtx">Tổng chi phí</p>
+                                                <p class="gtx__2">12.345.678đ</p>
+                                            </div>
+                                            <p>Đã bao gồm VAT (Nếu có)</p>
+                                            <button class="btn__modal-dem"><i class="fad fa-money-check-alt"></i> CHI TIẾT GIỎ HÀNG</button>
+                                            <button class="btn__modal-delete"><i class="fad fa-trash-alt"></i> XOÁ GIỎ HÀNG</button>
+                                            <button class="btn__modal-view"><i class="fad fa-store"></i> XEM SẢN PHẨM KHÁC</button>
+                                        </div>
+                                        <div class="modal__policy-cart">
+                                            <ul>
+                                                <li><i class="fas fa-check-circle"></i>Hỗ trợ trả góp 0%, trả trước 0đ</li>
+                                                <li><i class="fas fa-check-circle"></i>Hoàn tiền 200% khi phát hiện hàng giả</li>
+                                                <li><i class="fas fa-check-circle"></i>Giao hàng nhanh 3H nội thành Hà Nội</li>
+                                                <li><i class="fas fa-check-circle"></i>Giao hàng từ 5 - 7 ngày toàn quốc</li>
+                                                <li><i class="fas fa-check-circle"></i>Đội ngũ kĩ thuật hỗ trợ online 7/7</li>
+                                            </ul>
+                                        </div>
+                                        <div class="modal__pay-cart">
+                                            <ul>
+                                                <li><img src="/img/pay/tienmat.png" alt=""></li>
+                                                <li><img src="/img/pay/banking.png" alt=""></li>
+                                                <li><img src="/img/pay/mastercard.png" alt=""></li>
+                                                <li><img src="/img/pay/visa.png" alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {{!-- {{#if session.Cart}}
                                     {{else}}
                                     <p>Chưa có sản phẩm nào trong giỏ hàng !</p>
-                                    {{/if}}
+                                    {{/if}} --}}
                                 </div>
-                                <div class="modal-footer">
+                                {{!-- <div class="modal-footer">
                                     <p id="remindLogin" style="display: none;">Có vẻ bạn chưa đăng nhập ! Vui lòng đăng
                                         nhập để tiến hành mua hàng !</p>
                                     <button type="button" class="btn btn-secondary"
@@ -88,7 +127,7 @@
                                     </script>
                                     <a href="/account/login" class="btn btn-success">Đăng nhập</a>
                                     {{/if}}
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

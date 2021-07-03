@@ -3,6 +3,7 @@
     background-color: $main-color;
 }
 body {
+    // font-family: ChakraPetch-Regular;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,6 +14,7 @@ footer {
 #header-id {
     width: 100%;
     background-color: $main-color;
+    font-family: ChakraPetch-Regular;
     #header-main {
         max-width: 120em;
         margin: 0 auto;
@@ -230,8 +232,6 @@ footer {
     //background-color: yellowgreen;
 
     .cart {
-        //background-color: yellowgreen;
-
         .cart-in {
             background-color: $main-color;
             border-style: solid;
@@ -259,6 +259,7 @@ footer {
                 color: #333;
             }
         }
+
     }
     .login {
         display: flex;
@@ -276,6 +277,118 @@ footer {
         }
     }
 }
+
+#modalCart{
+    .modal-dialog{
+        width: 62em;
+        .modal-content{
+            .modal-header{
+                .modal-title{
+                    font-family: ChakraPetch-Bold;
+                }
+            }
+            .modal-body {
+                padding: 0 1em;
+                margin-left: 0;
+                margin-right: 0;
+                .modal-body-right{
+                    // background-color: gray;
+                    background-color: white;
+                    .modal__info-cart{
+                        background-color: #f0f3fc;
+                        padding: 1em;
+                        h5{
+                            font-family: ChakraPetch-Bold;
+                        }
+                        .modal__info-cart-ft{
+                            display: flex;
+                            justify-content: space-between;
+                            .gtx{
+                                font-family: ChakraPetch-SemiBold;
+                                margin-bottom: 10px;
+                            }
+                            .gtx__1{
+                                font-family: ChakraPetch-SemiBold;
+                                color: blue;
+                                margin-bottom: 10px;
+                            }
+                            .gtx__2{
+                                font-family: ChakraPetch-Bold;
+                                font-size: 1.2em;
+                                color: #f9495f;
+                                margin-bottom: 10px;
+                            }
+                        }
+                        p{
+                            font-family: ChakraPetch-Light;
+                            text-align: right;
+                        }
+                        button{
+                            display: block;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            width: 100%;
+                            font-family: ChakraPetch-Bold;
+                            margin-bottom: 1em;
+                        }
+                        .btn__modal-dem{
+                            background-color: $main-color;
+                            border: $main-color;
+                            color: white;
+                            // font-family: ChakraPetch-Bold;
+                        }
+                        .btn__modal-delete{
+                            background: rgb(237, 27, 36);
+                            color: white;
+                            border: rgb(237, 27, 36);
+                        }
+                        .btn__modal-view{
+                            color: #005ec4;
+                            // margin-bottom: 16px;
+                            background: #fff;
+                            border: 1px solid #005ec4;
+                            margin-bottom: 0em;
+                        }
+                    }
+                }
+                .modal__policy-cart{
+                    margin-top: 1em;
+                    ul{
+                        line-height: 2;
+                        list-style: none;
+                        padding-left: 1em;
+                        li{
+                            // display: flex;
+                            // justify-content: space-around;
+                            font-size: 0.9em;
+                            .fa-check-circle{
+                                color: rgb(39, 174, 96);
+                                padding-right: 0.5em;
+                            }
+                        }
+                    }
+                }
+                .modal__pay-cart{
+                    ul{
+                        padding-left: 1em;
+                        list-style: none;
+                        display: flex;
+                        justify-content: space-between;
+                        li{
+                            img{
+                                max-width: 65px;
+                                max-height: 43px;
+                                width: auto;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 #user-panel {
     position: relative;
     display: inline-block;
