@@ -3,9 +3,6 @@ body {
   display: flex;
   flex-direction: column; }
 
-footer {
-  margin-bottom: auto; }
-
 #header-id {
   width: 100%;
   background-color: #49b14d; }
@@ -42,12 +39,16 @@ footer {
         #header-id #header-main .header-top .hotline-info div a {
           text-decoration: none;
           color: yellow; }
+    #header-id #header-main .mobile__search {
+      display: none; }
   #header-id .header-container {
     max-width: 85%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     padding: 0.5em 0.3em; }
+    #header-id .header-container .sidenav__mobile {
+      display: none; }
     #header-id .header-container .logo a img {
       display: block;
       max-width: 12.5em;
@@ -144,6 +145,8 @@ footer {
               display: block; }
         #header-id #nav-bar .menu-nav-bar .list-menu .product:hover .submenu {
           display: block; }
+  #header-id .nav-tablet {
+    display: none; }
 
 #slide-event {
   margin-top: 1.5em;
@@ -299,7 +302,8 @@ footer {
   .account-detail .account-detail-content {
     border-radius: 5px;
     width: 100%;
-    margin-top: 3em; }
+    margin-top: 3em;
+    margin-bottom: 10em; }
     .account-detail .account-detail-content #acc-menu-side {
       display: flex;
       flex-direction: column; }

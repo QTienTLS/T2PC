@@ -5,7 +5,7 @@ body {
     flex-direction: column;
 }
 footer {
-    margin-bottom: auto;
+    //margin-bottom: auto;
 }
 #header-id {
     width: 100%;
@@ -54,6 +54,9 @@ footer {
                 }
             }
         }
+        .mobile__search{
+            display: none;
+        }
     }
     .header-container {
         max-width: 85%;
@@ -61,6 +64,9 @@ footer {
         display: flex;
         justify-content: space-between;
         padding: 0.5em 0.3em;
+        .sidenav__mobile{
+            display: none;
+        }
         .logo {
             a {
                 img {
@@ -197,6 +203,9 @@ footer {
                 }
             }
         }
+    }
+    .nav-tablet{
+        display: none;
     }
 }
 #slide-event {
@@ -405,6 +414,7 @@ footer {
 
         width: 100%;
         margin-top: 3em;
+        margin-bottom: 10em;
         // height: 1000px;
         //background-color: aqua;
 
