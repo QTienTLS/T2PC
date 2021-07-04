@@ -20,7 +20,10 @@ class ProductController {
                req.session.Cart = {
                    product: [pro.name],
                    amount: [1],
-                   numPro: 1
+                   numPro: 1,
+                   numRow: 1,
+                   price: [pro.price],
+                   img: [pro.img],
                }
              
            }
@@ -33,19 +36,20 @@ class ProductController {
                    if(pro.name === req.session.Cart.product[i])
                    {
                     req.session.Cart.amount[i]++;
-
                     isPush = false;
                    }
                }
                if(isPush)
                {
                 req.session.Cart.product.push(pro.name);
+                req.session.Cart.price.push(pro.price);
+                req.session.Cart.img.push(pro.img);
                 req.session.Cart.amount.push(1);
-                
+                req.session.Cart.numRow++;
                }
                req.session.Cart.numPro++;
            }
-            console.log( req.session.Cart);
+           
            res.redirect('back');
         })
     }
