@@ -35,7 +35,7 @@ function addToCart(productID) {
     formShip.submit();
 }
 //hàm xem chi tiết sản phẩm
-function goToDetail(productID){
+function goToDetail(productID) {
     var formShip = document.forms['shipper'];
     formShip.action = '/product/' + productID + '/detail';
     formShip.submit();
