@@ -57,3 +57,11 @@
         .container .product__detail .product__detail-top .product__detail-top-right .detail__product-reviews .baohanh {
           font-family: ChakraPetch-Bold;
           color: #ff8f02; }
+      .container .product__detail .product__detail-top .product__detail-top-right .short-desc {
+        line-height: 1.2;
+        margin-top: 1em; }
+      .container .product__detail .product__detail-top .product__detail-top-right .status__quantity .stastus span {
+        color: #49b14d;
+        font-family: ChakraPetch-SemiBold; }
+        .container .product__detail .product__detail-top .product__detail-top-right .status__quantity .stastus span i {
+          margin-right: 0.5em; }

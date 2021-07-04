@@ -11,7 +11,7 @@ modalCart.addEventListener('show.bs.modal', function (event) {
     var numRow = parseInt(document.getElementById('numRow-cart').innerHTML);
     for(let i = 0; i< numRow;i++){
         var cloneNode = document.getElementById('pro-node').cloneNode(true);
-        cloneNode.childNodes[1].src = imglist[i];
+        cloneNode.childNodes[1].childNodes[0].src = imglist[i];
         cloneNode.style.display = 'flex';
         cloneNode.classList.remove('root-node');
         totalPrice += amount[i]*price[i];

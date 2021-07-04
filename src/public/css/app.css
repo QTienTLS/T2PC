@@ -219,8 +219,15 @@ body {
     border: 1px solid #dee2e6;
     height: 100px;
     margin-top: 5px; }
+    #modalCart .modal-dialog .modal-content .modal-body .pro-node .pro-node-img {
+      padding: 0.5em; }
+      #modalCart .modal-dialog .modal-content .modal-body .pro-node .pro-node-img img {
+        max-width: 64px;
+        max-height: 64px;
+        width: auto;
+        width: auto; }
     #modalCart .modal-dialog .modal-content .modal-body .pro-node .name-price {
-      padding: 0.9em 0;
+      padding: 0em 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between; }

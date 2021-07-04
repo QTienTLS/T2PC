@@ -17,8 +17,6 @@
                     img{
                         max-width: 348px;
                         max-height: 348px;
-                        // max-width: 100%;
-                        // max-height: 100%;
                         width: auto;
                         width: auto;
                     }
@@ -81,6 +79,9 @@
                             color: #99a0ad;
                         }
                     }
+                    // .short-desc{
+                    //     line-height: 1;
+                    // }
                     // .detail__star-reviews:last-child{
                     //     margin-right: 1em;
                     // }
@@ -91,6 +92,22 @@
                     .baohanh{
                         font-family: ChakraPetch-Bold;
                         color: #ff8f02;
+                    }
+                }
+                .short-desc{
+                    line-height: 1.2;
+                    margin-top: 1em;
+                }
+                .status__quantity{
+                    .stastus{
+                        span{
+                            color: $main-color;
+                            font-family: ChakraPetch-SemiBold;
+                            i{
+                                // color: $main-color;
+                                margin-right: 0.5em;
+                            }
+                        }
                     }
                 }
             }
