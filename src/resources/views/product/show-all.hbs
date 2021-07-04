@@ -35,16 +35,16 @@
             <div class="card">
               {{!-- Image cua the --}}
               <div class="main__product">
-                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..."></a></div>
+                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..." onclick="goToDetail('{{this._id}}')"></a></div>
                 <div class="btn__main-product">
-                  <button title="Xem chi tiet"><i class="fas fa-search"></i></button>
-                  <button title="Them vao gio hang"><i class="fas fa-cart-plus"></i></button>
+                  <button title="Xem chi tiet" onclick="goToDetail('{{this._id}}')"><i class="fas fa-search"></i></button>
+                  <button type="button" title="Them vao gio hang"  onclick="addToCart('{{this._id}}')"  ><i class="fas fa-cart-plus"></i></button>
                 </div>
               </div>
 
               {{!-- Body cua the --}}
               <div class="body__card">
-                 <h5 class="card-title"><a href="#">{{this.name}}</a></h5>
+                 <h5 class="card-title"><a href="#" onclick="goToDetail('{{this._id}}')">{{this.name}}</a></h5>
                  <div class="product-reviews">
                   <div class="star-reviews">
                     <i class="far fa-star"></i>

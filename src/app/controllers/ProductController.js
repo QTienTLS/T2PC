@@ -49,6 +49,12 @@ class ProductController {
            res.redirect('back');
         })
     }
+    showDetail(req, res, next) {
+        Product.findOne({ _id: req.params.id }, function (err, pro) {
+            if (err) console.log(err);
+            res.render('product/detail', { pro: mongooseToObject(pro) });
+        })
+    }
 }
 
 module.exports = new ProductController();
