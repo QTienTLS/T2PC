@@ -1,1 +1,33 @@
-<p>This is a fucking detail of {{pro.name}}</p>
+<div class="container">
+  <div class="row product__detail">
+    <div class="product__detail-top">
+        <div class="col-5 product__detail-top-left">
+            <div class="product__detail-img">
+                <img src="{{pro.img}}" alt="">
+            </div>
+            <div class="product__detail-img-mini">
+                <button><i class="fas fa-chevron-left"></i></button>
+                <img class="col-3" src="{{pro.img}}" alt="">
+                <img class="col-3" src="{{pro.img}}" alt="">
+                <img class="col-3" src="{{pro.img}}" alt="">
+                <button><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="col-7 product__detail-top-right">
+            <h4>{{pro.name}}</h4>
+            <div class="detail__product-reviews">
+                <div class="detail__star-reviews">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <div class="detail__evaluate">0 đánh giá</div>
+                </div>
+                {{!-- <div class="detail__evaluate">0 đánh giá</div> --}}
+                <div class="baohanh">Bảo hành 36 tháng</div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

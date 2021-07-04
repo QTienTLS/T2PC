@@ -1,0 +1,59 @@
+.container .product__detail {
+  font-family: ChakraPetch-Regular; }
+  .container .product__detail .product__detail-top {
+    padding: 1em 0;
+    display: flex; }
+    .container .product__detail .product__detail-top .product__detail-top-left {
+      background-color: white;
+      padding-right: 1em; }
+      .container .product__detail .product__detail-top .product__detail-top-left .product__detail-img {
+        border: 1px solid steelblue;
+        padding: 0.5em;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px; }
+        .container .product__detail .product__detail-top .product__detail-top-left .product__detail-img img {
+          max-width: 348px;
+          max-height: 348px;
+          width: auto;
+          width: auto; }
+      .container .product__detail .product__detail-top .product__detail-top-left .product__detail-img-mini {
+        display: flex;
+        margin-top: 1em;
+        justify-content: space-between;
+        align-items: center; }
+        .container .product__detail .product__detail-top .product__detail-top-left .product__detail-img-mini img {
+          cursor: pointer;
+          border-radius: 5px;
+          border: 1px solid steelblue;
+          max-height: 80%;
+          overflow-y: hidden; }
+        .container .product__detail .product__detail-top .product__detail-top-left .product__detail-img-mini img:hover {
+          border-color: #49b14d; }
+        .container .product__detail .product__detail-top .product__detail-top-left .product__detail-img-mini button {
+          padding: 1em 0.5em;
+          border: 1px solid white;
+          background-color: white;
+          color: #111; }
+    .container .product__detail .product__detail-top .product__detail-top-right {
+      padding-left: 1em; }
+      .container .product__detail .product__detail-top .product__detail-top-right h4 {
+        font-family: ChakraPetch-Bold;
+        font-size: 1.6em;
+        color: #29324e; }
+      .container .product__detail .product__detail-top .product__detail-top-right .detail__product-reviews {
+        display: flex;
+        justify-content: space-between; }
+        .container .product__detail .product__detail-top .product__detail-top-right .detail__product-reviews .detail__star-reviews {
+          display: flex;
+          margin-right: 1em;
+          color: #99a0ad; }
+          .container .product__detail .product__detail-top .product__detail-top-right .detail__product-reviews .detail__star-reviews i {
+            margin-left: 0.5em; }
+          .container .product__detail .product__detail-top .product__detail-top-right .detail__product-reviews .detail__star-reviews .detail__evaluate {
+            margin-left: 2em;
+            font-family: ChakraPetch-SemiBold;
+            color: #99a0ad; }
+        .container .product__detail .product__detail-top .product__detail-top-right .detail__product-reviews .baohanh {
+          font-family: ChakraPetch-Bold;
+          color: #ff8f02; }
