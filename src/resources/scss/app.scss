@@ -292,6 +292,20 @@ footer {
                 padding: 0 1em;
                 margin-left: 0;
                 margin-right: 0;
+                .content-hide{
+                    display: none;
+                    
+                }
+                .pro-node{
+                    // display: flex;
+                    flex-direction: row;
+                    height: 100px;
+                     border: 1px solid #333;
+                     margin-top: 5px;
+                     .name-price{
+                         width: 330px;
+                     }
+                }
                 .modal-body-right{
                     // background-color: gray;
                     background-color: white;
