@@ -1,0 +1,104 @@
+.main__show-all {
+  font-family: ChakraPetch-Regular; }
+  .main__show-all .a .all-product .list-product .header__list-product {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0; }
+    .main__show-all .a .all-product .list-product .header__list-product div span:first-child {
+      font-family: ChakraPetch-Bold;
+      margin-right: 1em; }
+  .main__show-all .a .all-product .list-product .list__sub-menu-product ul {
+    padding-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #49b14d; }
+    .main__show-all .a .all-product .list-product .list__sub-menu-product ul a {
+      padding: 0.5em 0;
+      text-align: center;
+      text-decoration: none;
+      width: 25%;
+      color: white;
+      font-family: ChakraPetch-SemiBold;
+      font-size: 1.2em; }
+    .main__show-all .a .all-product .list-product .list__sub-menu-product ul a:hover {
+      background-color: #009900; }
+  .main__show-all .a .all-product .list-product .list__all-product {
+    display: grid;
+    grid-template-columns: 32.5% 32.5% 32.5%;
+    column-gap: 0.65em;
+    row-gap: 0.65em; }
+    .main__show-all .a .all-product .list-product .list__all-product .product__in-list {
+      width: 100%; }
+      .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card {
+        text-decoration: none; }
+        .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product {
+          padding: 0 0.5em;
+          background-color: white;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom: 1px solid #ededed;
+          position: relative; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .btn__main-product {
+            position: absolute;
+            right: 0;
+            bottom: 1em;
+            border-radius: 25px;
+            background: #f0f3fc;
+            padding: 0.2em;
+            display: none; }
+            .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .btn__main-product button {
+              display: block;
+              background-color: #f0f3fc;
+              width: 2.5em;
+              height: 2.5em;
+              border-radius: 25px;
+              border: 0; }
+            .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .btn__main-product button:first-child {
+              margin-bottom: 0.5em; }
+            .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .btn__main-product button:hover {
+              background-color: #49b14d; }
+        .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product:hover .btn__main-product {
+          display: block;
+          right: 10px;
+          visibility: visible;
+          opacity: 1; }
+        .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card h5 {
+          height: 3em;
+          padding: 0.5em 0.5em 0 0.5em;
+          margin-bottom: 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card h5 a {
+            font-size: 1em;
+            font-family: ChakraPetch-SemiBold;
+            color: #000;
+            text-decoration: none; }
+        .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews {
+          display: flex;
+          padding: 0.2em 0.5em 0 0.5em; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews .star-reviews {
+            margin-right: 1em;
+            font-size: 0.9em;
+            color: #99a0ad; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews .evaluate {
+            color: #99a0ad;
+            font-family: ChakraPetch-SemiBold; }
+        .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product {
+          display: flex;
+          padding: 0.2em 0.5em; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product p {
+            margin-bottom: 0; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product .card-text {
+            margin-right: 1em;
+            font-size: 1em;
+            color: #f9495f;
+            font-family: ChakraPetch-Bold; }
+          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product .price {
+            font-family: ChakraPetch-SemiBoldItalic;
+            color: #99a0ad;
+            font-size: 0.8em;
+            text-decoration: line-through;
+            vertical-align: text-bottom; }
