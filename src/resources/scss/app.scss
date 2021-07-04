@@ -297,14 +297,106 @@ footer {
                     
                 }
                 .pro-node{
-                    // display: flex;
-                    flex-direction: row;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 0.5em;
+                    padding-right: 0.5em;
+                    align-items: center;
+                    border-radius: 5px;
+                    border: 1px solid #dee2e6;
+                    // flex-direction: row;
                     height: 100px;
-                     border: 1px solid #333;
+                    //  border: 1px solid #333;
                      margin-top: 5px;
                      .name-price{
-                         width: 330px;
-                     }
+                        //  width: 330px;
+                        padding: 0.9em 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .title__product-in-cart{
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            font-family: ChakraPetch-Regular;
+                            color: #005ec4;
+                        }
+                        .product__price-in-cart{
+                            margin-bottom: 0;
+                            font-family: ChakraPetch-Bold;
+                            color: #f9495f;
+                        }
+                    }
+                    .buttons_added{
+                        opacity:1;
+                        display:inline-block;
+                        display:-ms-inline-flexbox;
+                        display:inline-flex;
+                        white-space:nowrap;
+                        vertical-align:top;
+                        .is-form {
+                            overflow:hidden;
+                            position:relative;
+                            background-color:#f9f9f9;
+                            // background-color: green;
+                            height:2.2rem;
+                            width:1.9rem;
+                            padding:0;
+                            text-shadow:1px 1px 1px #fff;
+                            border:1px solid #ddd;
+                        }
+                        .minus {
+                            overflow:hidden;
+                            position:relative;
+                            background-color:#f9f9f9;
+                            height:2.2rem;
+                            width:1.9rem;
+                            padding:0;
+                            text-shadow:1px 1px 1px #fff;
+                            border:1px solid #ddd;
+                        }
+                        .is-form:focus,.input-text:focus {
+                            outline:none;
+                        }
+                        .minus {
+                            border-radius:4px 0 0 4px;
+                        }
+                        .plus {
+                            border-radius:0 4px 4px 0;
+                        }
+                        .input-qty {
+                            background-color:#fff;
+                            height:2.2rem;
+                            text-align:center;
+                            font-size:1rem;
+                            display:inline-block;
+                            vertical-align:top;
+                            margin:0;
+                            border-top:1px solid #ddd;
+                            border-bottom:1px solid #ddd;
+                            border-left:0;
+                            border-right:0;
+                            padding:0;
+                        }
+                        .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+                            -webkit-appearance:none;
+                            margin:0;
+                        }
+                        
+                    }
+                    button{
+                        padding: 0;
+                        height: 2.5em;
+                        width: 2.5em;
+                        border: none;
+                        background-color: $main-color;
+                        border-radius: 25px;
+                        i{
+                            font-size: 1em;
+                            color: white;
+                        }
+                    }
                 }
                 .modal-body-right{
                     // background-color: gray;
