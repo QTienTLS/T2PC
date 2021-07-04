@@ -1,64 +1,51 @@
-{{!-- Danh sách sản phẩm --}}
-<div class="product-main">
-
-  {{!-- Bộ lọc --}}
-  <div class="filter">
-    <div>BỘ LỌC SẢN PHẨM</div>
-
-    {{!--  --}}
-    <div class="filter-manufacturer">
-
-      {{!-- Chủ đề --}}
-      <div onclick="manufacturer()"class="manufacturer">Hãng sản xuất<i class="fas fa-angle-right"></i></div>
-
-      {{!-- Danh sách lọc theo chủ đề --}}
-      <ul id="main-manufacturer">
-        <label class="manufacturer-main">RAZER
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-        <label class="manufacturer-main">LG
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="manufacturer-main">T2PC Gaming
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="manufacturer-main">MSI
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="manufacturer-main">ACER
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="manufacturer-main">DELL
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-      </ul>
+<div class="container main__show-all">
+  <div class="row a">
+    <div class="col-3">
+      Column
     </div>
-  </div>
+    <div class="col-9 all-product">
+      <div class="list-product">
+        <div class="header__list-product">
+          <div>
+            <span>TẤT CẢ SẢN PHẨM</span>
+            <span>(100 Sản phẩm)</span>
+          </div>
+          <form action="">
+            <label for="">Sắp sếp theo:</label>
+            <select name="">
+              <option value="">Mới nhất</option>
+              <option value="">Giá (Thấp - Cao)</option>
+              <option value="">Giá (Cao - Thấp)</option>
+              <option value="">Tên (A - Z)</option>
+              <option value="">Tên (Z - A)</option>
+            </select>
+          </form>
+        </div>
+        <div class="list__sub-menu-product">
+          <ul>
+            <a href="#">Mới về</a>
+            <a href="#">Giảm giá</a>
+            <a href="#">Bán chạy</a>
+            <a href="#">Nổi bật</a>
+          </ul>
+        </div>
+        <div class="list__all-product">
+          {{#each products}}
+          <div class="product__in-list col-4">
+            <div class="card">
+              {{!-- Image cua the --}}
+              <div class="main__product">
+                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..."></a></div>
+                <div class="btn__main-product">
+                  <button title="Xem chi tiet"><i class="fas fa-search"></i></button>
+                  <button title="Them vao gio hang"><i class="fas fa-cart-plus"></i></button>
+                </div>
+              </div>
 
-  {{!-- Danh sách sản phẩm --}}
-  <div class="all-products">
-    {{#each products}}
-    <div class="list-all-products shadow">
-
-      {{!-- sản phẩm --}}
-        <a class="card" href="#">
-          {{!-- Thân của thẻ chứa sản phẩm --}}
-          <div class="body-card">
-            {{!-- Phần ảnh --}}
-            <div class="image-product">
-              <img src="{{this.img}}" class="card-img-top" alt="...">
-            </div>
-            {{!-- Phần thông tin và giá --}}
-            <div class="card-body">
-              <h5 class="card-title">{{this.name}}</h5>
-              <div class="card-bottom">
-                <div class="product-reviews">
+              {{!-- Body cua the --}}
+              <div class="body__card">
+                 <h5 class="card-title"><a href="#">{{this.name}}</a></h5>
+                 <div class="product-reviews">
                   <div class="star-reviews">
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
@@ -75,20 +62,9 @@
               </div>
             </div>
           </div>
-        </a>
-
-        {{!-- Nút mua --}}
-        <div class="btn-product">
-          <a class="btn-buy btn-xem" href="#">Chi tiết</a>
-          {{!-- <a class="btn-buy" href="#">Thêm vào giỏ</a> --}}
-          <button class="btn-buy btn__add" onclick="addToCart(event)" data-proID='{{this._id}}'>Thêm vào giỏ</button>
+          {{/each}}
         </div>
-
-        <div class="discount">
-          <span>-20%</span>
-        </div>
+      </div>
     </div>
-  {{/each}}
+  </div>
 </div>
-</div>
-
