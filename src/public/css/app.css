@@ -222,8 +222,8 @@ body {
     #modalCart .modal-dialog .modal-content .modal-body .pro-node .pro-node-img {
       padding: 0.5em; }
       #modalCart .modal-dialog .modal-content .modal-body .pro-node .pro-node-img img {
-        max-width: 64px;
-        max-height: 64px;
+        max-width: 80px;
+        max-height: 80px;
         width: auto;
         width: auto; }
     #modalCart .modal-dialog .modal-content .modal-body .pro-node .name-price {
