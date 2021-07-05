@@ -9,6 +9,10 @@ class SiteController {
             })
             .catch(next);
     }
+    deleteCart(req,res){
+        req.session.Cart = null;
+        res.redirect('back');
+    }
 }
 
 module.exports = new SiteController();
