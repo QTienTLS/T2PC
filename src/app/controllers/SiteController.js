@@ -9,7 +9,7 @@ class SiteController {
             })
             .catch(next);
     }
-    deleteCart(req,res){
+    deleteCart(req, res) {
         req.session.Cart = null;
         res.redirect('back');
     }

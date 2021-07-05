@@ -1,5 +1,5 @@
 @import 'var';
-.btn-maincolor{
+.btn-maincolor {
     background-color: $main-color;
 }
 body {
@@ -259,7 +259,6 @@ footer {
                 color: #333;
             }
         }
-
     }
     .login {
         display: flex;
@@ -278,13 +277,13 @@ footer {
     }
 }
 
-#modalCart{
+#modalCart {
     // width: 80em;
-    .modal-dialog{
+    .modal-dialog {
         // max-width: 62em;
-        .modal-content{
-            .modal-header{
-                .modal-title{
+        .modal-content {
+            .modal-header {
+                .modal-title {
                     font-family: ChakraPetch-Bold;
                 }
             }
@@ -292,11 +291,10 @@ footer {
                 padding: 0 1em;
                 margin-left: 0;
                 margin-right: 0;
-                .content-hide{
+                .content-hide {
                     display: none;
-                    
                 }
-                .pro-node{
+                .pro-node {
                     display: flex;
                     justify-content: space-between;
                     padding-left: 0.5em;
@@ -306,23 +304,23 @@ footer {
                     border: 1px solid #dee2e6;
                     height: 100px;
                     margin-top: 5px;
-                    .pro-node-img{
+                    .pro-node-img {
                         padding: 0.5em;
-                        img{
+                        img {
                             max-width: 80px;
                             max-height: 80px;
                             width: auto;
                             width: auto;
                         }
                     }
-                     .name-price{
+                    .name-price {
                         //  width: 330px;
                         padding: 0em 0;
                         // margin-bottom: 2em;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
-                        .title__product-in-cart{
+                        .title__product-in-cart {
                             display: -webkit-box;
                             -webkit-line-clamp: 3;
                             -webkit-box-orient: vertical;
@@ -331,115 +329,116 @@ footer {
                             color: #005ec4;
                             // margin-bottom: 2em;
                         }
-                        .product__price-in-cart{
+                        .product__price-in-cart {
                             margin-bottom: 0;
                             font-family: ChakraPetch-Bold;
                             color: #f9495f;
                         }
                     }
-                    .buttons_added{
-                        opacity:1;
-                        display:inline-block;
-                        display:-ms-inline-flexbox;
-                        display:inline-flex;
-                        white-space:nowrap;
-                        vertical-align:top;
+                    .buttons_added {
+                        opacity: 1;
+                        display: inline-block;
+                        display: -ms-inline-flexbox;
+                        display: inline-flex;
+                        white-space: nowrap;
+                        vertical-align: top;
                         .is-form {
-                            overflow:hidden;
-                            position:relative;
-                            background-color:#f9f9f9;
+                            overflow: hidden;
+                            position: relative;
+                            background-color: #f9f9f9;
                             // background-color: green;
-                            height:2.2rem;
-                            width:1.9rem;
-                            padding:0;
-                            text-shadow:1px 1px 1px #fff;
-                            border:1px solid #ddd;
+                            height: 2.2rem;
+                            width: 1.9rem;
+                            padding: 0;
+                            text-shadow: 1px 1px 1px #fff;
+                            border: 1px solid #ddd;
                         }
                         .minus {
-                            overflow:hidden;
-                            position:relative;
-                            background-color:#f9f9f9;
-                            height:2.2rem;
-                            width:1.9rem;
-                            padding:0;
-                            text-shadow:1px 1px 1px #fff;
-                            border:1px solid #ddd;
+                            overflow: hidden;
+                            position: relative;
+                            background-color: #f9f9f9;
+                            height: 2.2rem;
+                            width: 1.9rem;
+                            padding: 0;
+                            text-shadow: 1px 1px 1px #fff;
+                            border: 1px solid #ddd;
                         }
-                        .is-form:focus,.input-text:focus {
-                            outline:none;
+                        .is-form:focus,
+                        .input-text:focus {
+                            outline: none;
                         }
                         .minus {
-                            border-radius:4px 0 0 4px;
+                            border-radius: 4px 0 0 4px;
                         }
                         .plus {
-                            border-radius:0 4px 4px 0;
+                            border-radius: 0 4px 4px 0;
                         }
                         .input-qty {
-                            background-color:#fff;
-                            height:2.2rem;
-                            text-align:center;
-                            font-size:1rem;
-                            display:inline-block;
-                            vertical-align:top;
-                            margin:0;
-                            border-top:1px solid #ddd;
-                            border-bottom:1px solid #ddd;
-                            border-left:0;
-                            border-right:0;
-                            padding:0;
+                            background-color: #fff;
+                            height: 2.2rem;
+                            text-align: center;
+                            font-size: 1rem;
+                            display: inline-block;
+                            vertical-align: top;
+                            margin: 0;
+                            border-top: 1px solid #ddd;
+                            border-bottom: 1px solid #ddd;
+                            border-left: 0;
+                            border-right: 0;
+                            padding: 0;
                         }
-                        .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
-                            -webkit-appearance:none;
-                            margin:0;
+                        .input-qty::-webkit-outer-spin-button,
+                        .input-qty::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
                         }
-                        
                     }
-                    button{
+                    button {
                         padding: 0;
                         height: 2.5em;
                         width: 2.5em;
                         border: none;
                         background-color: $main-color;
                         border-radius: 25px;
-                        i{
+                        i {
                             font-size: 1em;
                             color: white;
                         }
                     }
                 }
-                .modal-body-right{
+                .modal-body-right {
                     // background-color: gray;
                     background-color: white;
-                    .modal__info-cart{
+                    .modal__info-cart {
                         background-color: #f0f3fc;
                         padding: 1em;
-                        h5{
+                        h5 {
                             font-family: ChakraPetch-Bold;
                         }
-                        .modal__info-cart-ft{
+                        .modal__info-cart-ft {
                             display: flex;
                             justify-content: space-between;
-                            .gtx{
+                            .gtx {
                                 font-family: ChakraPetch-SemiBold;
                                 margin-bottom: 10px;
                             }
-                            .gtx__1{
+                            .gtx__1 {
                                 font-family: ChakraPetch-SemiBold;
                                 color: blue;
                                 margin-bottom: 10px;
                             }
-                            .gtx__2{
+                            .gtx__2 {
                                 font-family: ChakraPetch-Bold;
                                 font-size: 1.2em;
                                 color: #f9495f;
                                 margin-bottom: 10px;
                             }
                         }
-                        p{
+                        p {
                             font-family: ChakraPetch-Light;
                             text-align: right;
                         }
-                        button{
+                        button {
                             display: block;
                             padding-top: 10px;
                             padding-bottom: 10px;
@@ -447,18 +446,18 @@ footer {
                             font-family: ChakraPetch-Bold;
                             margin-bottom: 1em;
                         }
-                        .btn__modal-dem{
+                        .btn__modal-dem {
                             background-color: $main-color;
                             border: $main-color;
                             color: white;
                             // font-family: ChakraPetch-Bold;
                         }
-                        .btn__modal-delete{
+                        .btn__modal-delete {
                             background: rgb(237, 27, 36);
                             color: white;
                             border: rgb(237, 27, 36);
                         }
-                        .btn__modal-view{
+                        .btn__modal-view {
                             color: #005ec4;
                             // margin-bottom: 16px;
                             background: #fff;
@@ -467,31 +466,31 @@ footer {
                         }
                     }
                 }
-                .modal__policy-cart{
+                .modal__policy-cart {
                     margin-top: 1em;
-                    ul{
+                    ul {
                         line-height: 2;
                         list-style: none;
                         padding-left: 1em;
-                        li{
+                        li {
                             // display: flex;
                             // justify-content: space-around;
                             font-size: 0.9em;
-                            .fa-check-circle{
+                            .fa-check-circle {
                                 color: rgb(39, 174, 96);
                                 padding-right: 0.5em;
                             }
                         }
                     }
                 }
-                .modal__pay-cart{
-                    ul{
+                .modal__pay-cart {
+                    ul {
                         padding-left: 1em;
                         list-style: none;
                         display: flex;
                         justify-content: space-between;
-                        li{
-                            img{
+                        li {
+                            img {
                                 max-width: 65px;
                                 max-height: 43px;
                                 width: auto;

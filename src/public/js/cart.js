@@ -33,6 +33,24 @@ modalCart.addEventListener('show.bs.modal', function (event) {
         ).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         //thanh số lượng
         var amountGr = cloneNode.childNodes[5];
+        amountGr.childNodes[1].addEventListener('click', function () {
+            var x = this.parentElement.childNodes[3];
+            x.value--;
+            changeAmount(x, i);
+        });
+        amountGr.childNodes[5].onclick = function () {
+            var x = this.parentElement.childNodes[3];
+            x.value++;
+            changeAmount(x, i);
+        };
+        amountGr.childNodes[3].onchange = function () {
+            changeAmount(this, i);
+        };
+        amountGr.childNodes[3].addEventListener('keyup', function (event) {
+            if (event.keyCode == 13) {
+                this.blur();
+            }
+        });
         amountGr.childNodes[3].value = amount[i];
         //nút xóa sản phẩm
         var btnDel = cloneNode.childNodes[7];
@@ -50,6 +68,34 @@ modalCart.addEventListener('show.bs.modal', function (event) {
         };
         mainList.appendChild(cloneNode);
     }
+    function changeAmount(e, oi) {
+        newAmount = parseInt(e.value);
+        //lấy tên sp đang thay đổi
+        var pro =
+            e.parentElement.parentElement.childNodes[7].getAttribute('namePro');
+        //xóa sản phẩm nếu amount đạt tới 0
+        var index = product.indexOf(pro);
+        if (newAmount <= 0) {
+            //ẩn hình ảnh hiển thị
+            mainList.childNodes[oi].style.display = 'none';
+            numPro -= amount[index];
+            product.splice(index, 1);
+            amount.splice(index, 1);
+            imglist.splice(index, 1);
+            price.splice(index, 1);
+            numRow--;
+        } else {
+            numPro += newAmount - amount[index];
+            amount[index] = newAmount;
+            e.parentElement.parentElement.childNodes[3].childNodes[3].innerHTML =
+                (price[index] * amount[index] + ' đ').replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    '.',
+                );
+        }
+        refeshModal();
+        e.value = newAmount;
+    }
     function refeshModal() {
         var newP = 0;
         for (let i = 0; i < numRow; i++) {
@@ -66,7 +112,7 @@ modalCart.addEventListener('show.bs.modal', function (event) {
 modalCart.addEventListener('hidden.bs.modal', function (event) {
     //refesh lại main-list
     var mainList = document.getElementById('main-list');
-    var root = document.getElementById('pro-node');
+    var root = document.getElementsByClassName('root-node')[0];
     mainList.innerHTML = '';
     mainList.appendChild(root);
 });

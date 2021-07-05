@@ -37,6 +37,7 @@ function addToCart(productID) {
 //hàm xem chi tiết sản phẩm
 function goToDetail(productID) {
     var formShip = document.forms['shipper'];
+    formShip.method = 'GET';
     formShip.action = '/product/' + productID + '/detail';
     formShip.submit();
 }
