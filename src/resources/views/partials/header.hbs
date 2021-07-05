@@ -84,10 +84,11 @@
                                         <script src="/js/cart.js"></script>
                                         <div id="main-list"> </div>
                                         <div class="pro-node root-node" id="pro-node" style="display: none;">
-                                            <div class="col-2 pro-node-img"><img src="" alt=""></div>
+                                            <div class="col-2 pro-node-img"><img src="" srctext='' alt=""></div>
                                             <div class="name-price col-6">
                                                 <p class="title__product-in-cart"></p>
                                                 <p class="product__price-in-cart"></p>
+                                                <p style="display: none;"></p>
                                             </div>
                                             <div class="buttons_added col-2">
                                                 <input class="minus is-form" type="button" value="-">
@@ -149,7 +150,15 @@
 
                             </div>
                         </div>
-
+                        <form action='/product/update-cart?_method=PUT' method="POST" name="new-cart" style="display: none;">
+                            <input type="text" name="product">
+                            <input type="text" name="amount">
+                            <input type="number" name="numRow">
+                            <input type="number" name="numPro">
+                            <input type="text" name='img'>
+                            <input type="text" name="price">
+                            <input type="number" name="totalPrice">
+                        </form>
                     </div>
                 </div>
 

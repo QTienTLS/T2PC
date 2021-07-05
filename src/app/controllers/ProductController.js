@@ -23,6 +23,7 @@ class ProductController {
                     numRow: 1,
                     price: [pro.price],
                     img: [pro.img],
+                    totalPrice: pro.price,
                 };
             } else {
                 var i;
@@ -41,6 +42,7 @@ class ProductController {
                     req.session.Cart.numRow++;
                 }
                 req.session.Cart.numPro++;
+                req.session.Cart.totalPrice += pro.price;
             }
 
             res.redirect('back');
@@ -51,6 +53,19 @@ class ProductController {
             if (err) console.log(err);
             res.render('product/detail', { pro: mongooseToObject(pro) });
         });
+    }
+    updateCart(req, res) {
+        req.session.Cart = {
+            product: req.body.product.split(','),
+            amount : req.body.amount.split(',').map((x) => +x),
+            numPro: parseInt(req.body.numPro),
+            numRow: parseInt(req.body.numRow),
+            price: req.body.price.split(',').map((x) => +x),
+            img: req.body.img.split(','),
+            totalPrice: parseInt(req.body.totalPrice),
+        }
+       res.redirect('back');
+        //res.json(req.session.Cart );
     }
 }
 
