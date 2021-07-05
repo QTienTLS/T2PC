@@ -1,0 +1,216 @@
+@font-face {
+  font-family: ChakraPetch-Bold;
+  src: url(../../public/font/ChakraPetch-Bold.ttf); }
+
+@font-face {
+  font-family: ChakraPetch-Medium;
+  src: url(../../public/font/ChakraPetch-Medium.ttf); }
+
+@font-face {
+  font-family: ChakraPetch-Regular;
+  src: url(../../public/font/ChakraPetch-Regular.ttf); }
+
+@font-face {
+  font-family: ChakraPetch-SemiBold;
+  src: url(../../public/font/ChakraPetch-SemiBold.ttf); }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.pay__container {
+  font-family: ChakraPetch-Regular; }
+  .pay__container .pay__header {
+    padding: 1em 0; }
+    .pay__container .pay__header h3 {
+      font-family: ChakraPetch-Medium;
+      color: #49b14d; }
+  .pay__container .pay-address {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #dddfe6; }
+    .pay__container .pay-address .pay__address {
+      padding-left: 0; }
+      .pay__container .pay-address .pay__address .pay__address-top {
+        margin: 0 auto;
+        height: 3px;
+        width: 100%;
+        background-position-x: -30px;
+        background-size: 116px 3px;
+        background-image: repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px); }
+      .pay__container .pay-address .pay__address .pay__address-main {
+        padding: 1em 0 1.5em 0; }
+        .pay__container .pay-address .pay__address .pay__address-main .style__customer {
+          display: flex;
+          justify-content: space-between; }
+          .pay__container .pay-address .pay__address .pay__address-main .style__customer p {
+            font-family: ChakraPetch-SemiBold; }
+          .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer {
+            display: flex;
+            justify-content: space-around; }
+            .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer i {
+              font-weight: bold; }
+          .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer :first-child {
+            background-color: white;
+            border: none; }
+            .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer :first-child i {
+              color: #005ec4; }
+          .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer :last-child {
+            background-color: white;
+            border: none;
+            color: #49b14d; }
+        .pay__container .pay-address .pay__address .pay__address-main .note-of-customer {
+          display: flex;
+          margin-top: 0.5em; }
+          .pay__container .pay-address .pay__address .pay__address-main .note-of-customer p {
+            font-family: ChakraPetch-SemiBold; }
+          .pay__container .pay-address .pay__address .pay__address-main .note-of-customer textarea {
+            background-color: #f0f3fc;
+            border: none;
+            padding: 0.5em;
+            outline: none;
+            border-radius: 5px; }
+      .pay__container .pay-address .pay__address .payments {
+        border-top: 1px solid #dddfe6;
+        margin-top: 1.5em; }
+        .pay__container .pay-address .pay__address .payments h5 {
+          padding: 0.5em 0;
+          font-family: ChakraPetch-Bold;
+          color: #49b14d; }
+        .pay__container .pay-address .pay__address .payments .payments_cod {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1em; }
+          .pay__container .pay-address .pay__address .payments .payments_cod span {
+            color: #005ec4;
+            font-family: ChakraPetch-SemiBold; }
+        .pay__container .pay-address .pay__address .payments .payments_baning {
+          display: flex;
+          justify-content: space-between; }
+          .pay__container .pay-address .pay__address .payments .payments_baning span {
+            color: red;
+            font-family: ChakraPetch-SemiBold; }
+    .pay__container .pay-address .pay__detail {
+      background-color: #f0f3fc;
+      padding: 1em; }
+      .pay__container .pay-address .pay__detail .pay__detail-cart {
+        border-bottom: 1px solid #dddfe6; }
+        .pay__container .pay-address .pay__detail .pay__detail-cart h5 {
+          font-family: ChakraPetch-SemiBold;
+          margin-bottom: 1em; }
+        .pay__container .pay-address .pay__detail .pay__detail-cart div {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0.5em; }
+          .pay__container .pay-address .pay__detail .pay__detail-cart div p {
+            margin-bottom: 0; }
+        .pay__container .pay-address .pay__detail .pay__detail-cart div :first-child {
+          font-family: ChakraPetch-SemiBold; }
+        .pay__container .pay-address .pay__detail .pay__detail-cart .amount__product :last-child {
+          color: #005ec4;
+          font-family: ChakraPetch-Bold;
+          font-size: 1.1rem; }
+        .pay__container .pay-address .pay__detail .pay__detail-cart .price__buy-product :last-child {
+          color: #f9495f;
+          font-family: ChakraPetch-Bold;
+          font-size: 1.1rem; }
+        .pay__container .pay-address .pay__detail .pay__detail-cart p {
+          text-align: end; }
+      .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product {
+        margin-top: 0.5em;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #dddfe6;
+        border-radius: 5px; }
+        .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .img-prd-in-cart .mini-img-prd-in-cart {
+          padding: 0.5em; }
+          .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .img-prd-in-cart .mini-img-prd-in-cart img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto; }
+        .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .name-product-in-cart {
+          padding: 0.5em;
+          border-left: 1px solid #dddfe6;
+          border-right: 1px solid #dddfe6; }
+          .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .name-product-in-cart .product-in-cart-first {
+            margin-bottom: 0px;
+            font-family: ChakraPetch-SemiBold; }
+          .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .name-product-in-cart .product-in-cart-last {
+            margin-bottom: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden; }
+        .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .amount-product-in-cart {
+          padding: 0.5em; }
+          .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .amount-product-in-cart p {
+            text-align: center;
+            margin-bottom: 0;
+            font-family: ChakraPetch-Bold; }
+        .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .amount-product-in-cart :last-child {
+          color: #005ec4;
+          margin-top: 1em; }
+        .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .into-money {
+          border-left: 1px solid #dddfe6;
+          padding: 0.5em; }
+          .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .into-money p {
+            text-align: center;
+            margin-bottom: 0;
+            font-family: ChakraPetch-Bold; }
+        .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .into-money :last-child {
+          color: #f9495f;
+          margin-top: 1em; }
+  .pay__container .pay__footer {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    padding: 1em 0;
+    border: 1px dashed #dddfe6; }
+    .pay__container .pay__footer p {
+      margin: 0;
+      padding: 0; }
+    .pay__container .pay__footer .snip1582 {
+      font-family: ChakraPetch-SemiBold;
+      background-color: #49b14d;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1em;
+      margin: 15px 40px;
+      outline: none;
+      padding: 12px 40px 10px;
+      position: relative;
+      text-transform: uppercase;
+      font-weight: 700; }
+    .pay__container .pay__footer .snip1582:before,
+    .pay__container .pay__footer .snip1582:after {
+      border-color: transparent;
+      -webkit-transition: all 0.25s;
+      transition: all 0.25s;
+      border-style: solid;
+      border-width: 0;
+      content: "";
+      height: 24px;
+      position: absolute;
+      width: 24px; }
+    .pay__container .pay__footer .snip1582:before {
+      border-color: #49b14d;
+      border-top-width: 2px;
+      left: 0px;
+      top: -5px; }
+    .pay__container .pay__footer .snip1582:after {
+      border-bottom-width: 2px;
+      border-color: #49b14d;
+      bottom: -5px;
+      right: 0px; }
+    .pay__container .pay__footer .snip1582:hover,
+    .pay__container .pay__footer .snip1582.hover {
+      background-color: #49b14d; }
+    .pay__container .pay__footer .snip1582:hover:before,
+    .pay__container .pay__footer .snip1582.hover:before,
+    .pay__container .pay__footer .snip1582:hover:after,
+    .pay__container .pay__footer .snip1582.hover:after {
+      height: 100%;
+      width: 100%; }

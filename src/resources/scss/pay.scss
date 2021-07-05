@@ -1,0 +1,284 @@
+@import 'var';
+@font-face {
+    font-family: ChakraPetch-Bold;
+    src: url(../../public/font/ChakraPetch-Bold.ttf);
+}
+@font-face {
+    font-family: ChakraPetch-Medium;
+    src: url(../../public/font/ChakraPetch-Medium.ttf);
+}
+@font-face {
+    font-family: ChakraPetch-Regular;
+    src: url(../../public/font/ChakraPetch-Regular.ttf);
+}
+@font-face {
+    font-family: ChakraPetch-SemiBold;
+    src: url(../../public/font/ChakraPetch-SemiBold.ttf);
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // font-family: ChakraPetch-Regular;
+}
+.pay__container{
+    font-family: ChakraPetch-Regular;
+    .pay__header{
+        padding: 1em 0;
+        h3{
+            font-family: ChakraPetch-Medium;
+            // padding: 0 0.5em;
+            color: $main-color;
+        }
+    }
+    .pay-address{
+        padding-bottom: 1em;
+        border-bottom: 1px solid $border-color;
+        .pay__address{
+            padding-left: 0;
+            .pay__address-top{
+                margin: 0 auto;
+                height: 3px;
+                width: 100%;
+                background-position-x: -30px;
+                background-size: 116px 3px;
+                background-image: repeating-linear-gradient(45deg,#6fa6d6,#6fa6d6 33px,transparent 0,transparent 41px,#f18d9b 0,#f18d9b 74px,transparent 0,transparent 82px);
+            }
+            .pay__address-main{
+                padding: 1em 0 1.5em 0;
+                .style__customer{
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                        font-family: ChakraPetch-SemiBold;
+                    }
+                    .btn__in-customer{
+                        display: flex;
+                        justify-content: space-around;
+                        i{
+                            font-weight: bold;
+                        }
+                    }
+                    .btn__in-customer :first-child{
+                        background-color: white;
+                        border: none;
+                        i{
+                            color: $blue-color;
+                        }
+                    }
+                    .btn__in-customer :last-child{
+                        background-color: white;
+                        border: none;
+                        color: $main-color;
+                    }
+                }
+                .note-of-customer{
+                    display: flex;
+                    margin-top: 0.5em;
+                    p{
+                        font-family: ChakraPetch-SemiBold;
+                    }
+                    textarea{
+                        background-color: #f0f3fc;
+                        border: none;
+                        padding: 0.5em;
+                        outline: none;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .payments{
+                border-top: 1px solid $border-color;
+                margin-top: 1.5em;
+                h5{
+                    padding: 0.5em 0;
+                    font-family: ChakraPetch-Bold;
+                    color: $main-color;
+                }
+                .payments_cod{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1em;
+                    span{
+                        color: $blue-color;
+                        font-family: ChakraPetch-SemiBold;
+                    }
+                }
+                .payments_baning{
+                    display: flex;
+                    justify-content: space-between;
+                    span{
+                        color: red;
+                        font-family: ChakraPetch-SemiBold;
+                    }
+                }
+                
+            }
+        }
+        .pay__detail{
+            background-color: #f0f3fc;
+            padding: 1em;
+            .pay__detail-cart{
+                border-bottom: 1px solid $border-color;
+                h5{
+                    font-family: ChakraPetch-SemiBold;
+                    margin-bottom: 1em;
+                }
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.5em;
+                    p{
+                        margin-bottom: 0;
+                    }
+                }
+                div :first-child{
+                    font-family: ChakraPetch-SemiBold;
+                }
+                .amount__product :last-child{
+                    color: $blue-color;
+                    font-family: ChakraPetch-Bold;
+                    font-size: 1.1rem;
+                }
+                .price__buy-product :last-child{
+                    color: $pink-color;
+                    font-family: ChakraPetch-Bold;
+                    font-size: 1.1rem;
+                }
+                p{
+                    text-align: end;
+                }
+            }
+            .list-product-in-cart{
+                .pay__list-product{
+                    margin-top: 0.5em;
+                    display: flex;
+                    justify-content: space-between;
+                    border: 1px solid $border-color;
+                    border-radius: 5px;
+                    .img-prd-in-cart{
+                        .mini-img-prd-in-cart{
+                            padding: 0.5em;
+                            img{
+                                max-width: 100%;
+                                max-height: 100%;
+                                width: auto;
+                                height: auto;
+                            }
+                        }
+                    }
+                    .name-product-in-cart{
+                        padding: 0.5em;
+                        border-left: 1px solid $border-color;
+                        border-right: 1px solid $border-color;
+                        .product-in-cart-first{
+                            margin-bottom: 0px;
+                            font-family: ChakraPetch-SemiBold;
+                        }
+                        .product-in-cart-last{
+                            margin-bottom: 0;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+                    }
+                    .amount-product-in-cart{
+                        padding: 0.5em;
+                        p{
+                            text-align: center;
+                            margin-bottom: 0;
+                            font-family: ChakraPetch-Bold;
+                        }
+                    }
+                    .amount-product-in-cart :last-child{
+                        color: $blue-color;
+                        margin-top: 1em;
+                    }
+                    .into-money{
+                        border-left: 1px solid $border-color;
+                        padding: 0.5em;
+                        p{
+                            text-align: center;
+                            margin-bottom: 0;
+                            font-family: ChakraPetch-Bold;
+                        }
+                        
+                    }
+                    .into-money :last-child{
+                        color: $pink-color;
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
+    }
+    .pay__footer{
+        margin-top: 2em;
+        display: flex;
+        align-items: center;
+        padding: 1em 0;
+        border: 1px dashed $border-color;
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        .snip1582 {
+            font-family: ChakraPetch-SemiBold;
+            background-color: $main-color;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            display: inline-block;
+            // font-size: 1em;
+            // font-size: 22px;
+            line-height: 1em;
+            margin: 15px 40px;
+            outline: none;
+            padding: 12px 40px 10px;
+            position: relative;
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+          
+          .snip1582:before,
+          .snip1582:after {
+            border-color: transparent;
+            -webkit-transition: all 0.25s;
+            transition: all 0.25s;
+            border-style: solid;
+            border-width: 0;
+            content: "";
+            height: 24px;
+            position: absolute;
+            width: 24px;
+          }
+          
+          .snip1582:before {
+            border-color: $main-color;
+            border-top-width: 2px;
+            left: 0px;
+            top: -5px;
+          }
+          
+          .snip1582:after {
+            border-bottom-width: 2px;
+            border-color: $main-color;
+            bottom: -5px;
+            right: 0px;
+          }
+          
+          .snip1582:hover,
+          .snip1582.hover {
+            background-color: $main-color;
+          }
+          
+          .snip1582:hover:before,
+          .snip1582.hover:before,
+          .snip1582:hover:after,
+          .snip1582.hover:after {
+            height: 100%;
+            width: 100%;
+          }
+   }
+}
