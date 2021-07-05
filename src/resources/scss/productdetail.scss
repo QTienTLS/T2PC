@@ -3,6 +3,7 @@
     .product__detail{
         font-family: ChakraPetch-Regular;
         padding: 0 0 1em 0;
+        margin-top: 1em;
         .product__detail-top{
             padding: 1em 0;
             display: flex;
@@ -28,6 +29,7 @@
                     margin-top: 3em;
                     justify-content: space-between;
                     align-items: center;
+                    // background-color: $line-color;
                     // padding: 0.5em;
                     // border: 1px solid steelblue;
                     img{
@@ -240,10 +242,13 @@
                 }
             }
         }
+
         .product__detail-policy__item{
             display: flex;
             justify-content: space-between;
-            border-bottom: 2px solid #dddfe6;
+            margin-top: 2em;
+            // border-bottom: 2px solid #dddfe6;
+            
             padding: 0em 0em 1em 0;
             .policy__item{
                 display: flex;
@@ -264,34 +269,113 @@
                 }
             }
         }
-        .product__detail-menu-mini{
-            background-color: #f0f3fc;
-            padding: 1em 0;
-            margin-top: 1em;
-            a{
-                padding: 1em;
-                text-decoration: none;
-                color: $text-color;
-                font-family: ChakraPetch-Bold;
-                font-size: 1.1em;
+
+        .seperate{
+            width: 100%;
+            padding: 2em 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .seperate__left{
+                width: 30%;
+                display: flex;
+                .seperate__square {
+                    width: 100%;
+                    height: 7px;
+                    background: $main-color;
+                }
+                .triangle_down {
+                    width: 0;
+                    height: 0;
+                    border-top:7px solid $main-color;
+                    border-left: 0px solid transparent;
+                    border-right: 7px solid transparent;
+                }
             }
-            a:hover{
-                background-color: $main-color;
-                color: white;
-            }
-        }
-        .content-description{
-            padding: 0;
             p{
-                text-align: center;
-                font-size: 16px!important;
-                line-height: 24px;
+                margin-bottom: 0;
+                font-family: ChakraPetch-Bold;
+                font-size: 1.4rem;
+                color: $main-color;
             }
-            div{
-                padding: 0.5em;
-                img{
-                    max-width: 100%;
-                    width: auto;
+            .seperate__right{
+                width: 30%;
+                display: flex;
+                .seperate__square {
+                    width: 100%;
+                    height: 7px;
+                    background: $main-color;
+                }
+                .triangle_up {
+                    width: 0;
+                    height: 0;
+                    border-bottom: 7px solid $main-color;
+                    border-left: 7px solid transparent;
+                    border-right: 0px solid transparent;
+                }
+            }
+            // .triangle_up {
+            //     width: 0;
+            //     height: 0;
+            //     border-bottom: 10px solid #f447ff;
+            //     border-left: 10px solid transparent;
+            //     border-right: 0px solid transparent;
+            // }
+        }
+
+        .product__detail-menu-mini{
+            .detail-menu-mini{
+                background-color: #f0f3fc;
+                // padding: 1em;
+                display: flex;
+                div{
+                    // padding: 1em;
+                    cursor: pointer;
+                    padding: 0.5em 1em;
+                    text-decoration: none;
+                    color: $main-color;
+                    font-family: ChakraPetch-Bold;
+                    font-size: 1.1em;
+                }
+                div:hover{
+                    background-color: $main-color;
+                    color: white;
+                }
+            }
+            .tabcontent{
+                display: none;
+            }
+            .content-description{
+                display: block;
+                padding: 0;
+                margin-top: 1em;
+                p{
+                    text-align: center;
+                    font-size: 16px!important;
+                    line-height: 24px;
+                }
+                div{
+                    padding: 0.5em;
+                    img{
+                        max-width: 100%;
+                        width: auto;
+                    }
+                }
+            }
+            .content-specification{
+                .content-specification-main{
+                    table{
+                        tbody{
+                            tr{
+                                td{
+                                    border: 1px solid $line-color;
+                                }
+                                td :first-child{
+                                    width: 250px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

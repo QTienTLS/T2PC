@@ -1,6 +1,7 @@
 .container .product__detail {
   font-family: ChakraPetch-Regular;
-  padding: 0 0 1em 0; }
+  padding: 0 0 1em 0;
+  margin-top: 1em; }
   .container .product__detail .product__detail-top {
     padding: 1em 0;
     display: flex; }
@@ -167,7 +168,7 @@
   .container .product__detail .product__detail-policy__item {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #dddfe6;
+    margin-top: 2em;
     padding: 0em 0em 1em 0; }
     .container .product__detail .product__detail-policy__item .policy__item {
       display: flex;
@@ -184,27 +185,72 @@
       .container .product__detail .product__detail-policy__item .policy__item p {
         text-align: center;
         margin-bottom: 0; }
-  .container .product__detail .product__detail-menu-mini {
+  .container .product__detail .seperate {
+    width: 100%;
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .container .product__detail .seperate .seperate__left {
+      width: 30%;
+      display: flex; }
+      .container .product__detail .seperate .seperate__left .seperate__square {
+        width: 100%;
+        height: 7px;
+        background: #49b14d; }
+      .container .product__detail .seperate .seperate__left .triangle_down {
+        width: 0;
+        height: 0;
+        border-top: 7px solid #49b14d;
+        border-left: 0px solid transparent;
+        border-right: 7px solid transparent; }
+    .container .product__detail .seperate p {
+      margin-bottom: 0;
+      font-family: ChakraPetch-Bold;
+      font-size: 1.4rem;
+      color: #49b14d; }
+    .container .product__detail .seperate .seperate__right {
+      width: 30%;
+      display: flex; }
+      .container .product__detail .seperate .seperate__right .seperate__square {
+        width: 100%;
+        height: 7px;
+        background: #49b14d; }
+      .container .product__detail .seperate .seperate__right .triangle_up {
+        width: 0;
+        height: 0;
+        border-bottom: 7px solid #49b14d;
+        border-left: 7px solid transparent;
+        border-right: 0px solid transparent; }
+  .container .product__detail .product__detail-menu-mini .detail-menu-mini {
     background-color: #f0f3fc;
-    padding: 1em 0;
-    margin-top: 1em; }
-    .container .product__detail .product__detail-menu-mini a {
-      padding: 1em;
+    display: flex; }
+    .container .product__detail .product__detail-menu-mini .detail-menu-mini div {
+      cursor: pointer;
+      padding: 0.5em 1em;
       text-decoration: none;
-      color: #29324e;
+      color: #49b14d;
       font-family: ChakraPetch-Bold;
       font-size: 1.1em; }
-    .container .product__detail .product__detail-menu-mini a:hover {
+    .container .product__detail .product__detail-menu-mini .detail-menu-mini div:hover {
       background-color: #49b14d;
       color: white; }
-  .container .product__detail .content-description {
-    padding: 0; }
-    .container .product__detail .content-description p {
+  .container .product__detail .product__detail-menu-mini .tabcontent {
+    display: none; }
+  .container .product__detail .product__detail-menu-mini .content-description {
+    display: block;
+    padding: 0;
+    margin-top: 1em; }
+    .container .product__detail .product__detail-menu-mini .content-description p {
       text-align: center;
       font-size: 16px !important;
       line-height: 24px; }
-    .container .product__detail .content-description div {
+    .container .product__detail .product__detail-menu-mini .content-description div {
       padding: 0.5em; }
-      .container .product__detail .content-description div img {
+      .container .product__detail .product__detail-menu-mini .content-description div img {
         max-width: 100%;
         width: auto; }
+  .container .product__detail .product__detail-menu-mini .content-specification .content-specification-main table tbody tr td {
+    border: 1px solid #dddfe6; }
+  .container .product__detail .product__detail-menu-mini .content-specification .content-specification-main table tbody tr td :first-child {
+    width: 250px; }

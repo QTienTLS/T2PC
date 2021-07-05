@@ -74,17 +74,87 @@
             <p>Hỗ trợ kĩ thuật online 7/7</p>
         </div>
     </div>
-    <ul class="product__detail-menu-mini">
-        <a href="#">Chi tiết sản phẩm</a>
-        <a href="#">Thông số kỹ thuật</a>
-        <a href="#">Video</a>
-        <a href="#">Đánh giá</a>
-    </ul>
-    <div class="content-description">
+    <div class="seperate">
+        <div class="seperate__left">
+            <div class="seperate__square"></div>
+            <div class="triangle_down"></div>
+        </div>
+        <p>THÔNG TIN SẢN PHẨM</p>
+        <div class="seperate__right">
+            <div class="triangle_up"></div>
+            <div class="seperate__square"></div>
+        </div>
+    </div>
+    <div class="product__detail-menu-mini">
+        <div class="detail-menu-mini">
+            <div class="tablinks" onclick="openMainDetail(event, 'productDetails')">Chi tiết sản phẩm</div>
+            <div class="tablinks" onclick="openMainDetail(event, 'specifications')">Thông số kỹ thuật</div>
+            <div class="tablinks" onclick="openMainDetail(event, 'video')">Video</div>
+            <div class="tablinks" onclick="openMainDetail(event, 'feedback')">Đánh giá</div>
+        </div>
+        
+        <div id="productDetails" class="tabcontent content-description">
+            <p>Laptop Asus ROG Strix G15 G513QE-HN015T là dòng Laptop có thiết kế cao cấp đến từ Asus với dòng VGA 3050 mang lại
+                hiệu năng cao trong quá trình sử dụng. Hiện sản phẩm đang được bán tại T2PC.
+            </p>
+            <div><img src="/img/description/laptop-asus-rog-strix-g15-g513qe.jpg" alt=""></div>
+        </div>
+        
+        <div id="specifications" class="tabcontent content-specification">
+            <div class="content-specification-main">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Thương hiệu</td>
+                            <td>ASUS</td>
+                        </tr>
+                        <tr>
+                            <td>Dòng</td>
+                            <td>ROG Strix G17</td>
+                        </tr>
+                        <tr>
+                            <td>Mẫu</td>
+                            <td>G713QM-K4113T</td>
+                        </tr>
+                        <tr>
+                            <td>Màu sắc</td>
+                            <td>Eclipse Gray</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="video" class="tabcontent">
+        </div>
+        
+        <div id="feedback" class="tabcontent">
+        </div>
+        
+        
+    </div>
+
+    {{!-- <div class="content-description">
         <p>Laptop Asus ROG Strix G15 G513QE-HN015T là dòng Laptop có thiết kế cao cấp đến từ Asus với dòng VGA 3050 mang lại
             hiệu năng cao trong quá trình sử dụng. Hiện sản phẩm đang được bán tại T2PC.
         </p>
         <div><img src="/img/description/laptop-asus-rog-strix-g15-g513qe.jpg" alt=""></div>
-    </div>
+    </div> --}}
   </div>
 </div>
+
+<script>
+    function openMainDetail(evt, openMainDetail) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(openMainDetail).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
