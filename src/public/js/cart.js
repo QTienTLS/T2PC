@@ -114,5 +114,7 @@ modalCart.addEventListener('hidden.bs.modal', function (event) {
     var mainList = document.getElementById('main-list');
     var root = document.getElementsByClassName('root-node')[0];
     mainList.innerHTML = '';
-    mainList.appendChild(root);
+    var cloneRoot =  root.cloneNode(true);
+     mainList.appendChild( cloneRoot );
+    
 });
