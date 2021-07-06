@@ -1,18 +1,18 @@
 @font-face {
   font-family: ChakraPetch-Bold;
-  src: url(../../public/font/ChakraPetch-Bold.ttf); }
+  src: url(\\font\\ChakraPetch-Bold.ttf); }
 
 @font-face {
   font-family: ChakraPetch-Medium;
-  src: url(../../public/font/ChakraPetch-Medium.ttf); }
+  src: url(\\font\\ChakraPetch-Medium.ttf); }
 
 @font-face {
   font-family: ChakraPetch-Regular;
-  src: url(../../public/font/ChakraPetch-Regular.ttf); }
+  src: url(\\font\\ChakraPetch-Regular.ttf); }
 
 @font-face {
   font-family: ChakraPetch-SemiBold;
-  src: url(../../public/font/ChakraPetch-SemiBold.ttf); }
+  src: url(\\font\\ChakraPetch-SemiBold.ttf); }
 
 body {
   margin: 0;
