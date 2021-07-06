@@ -64,7 +64,10 @@ class ProductController {
             img: req.body.img.split(','),
             totalPrice: parseInt(req.body.totalPrice),
         }
-       res.redirect('back');
+        if(req.params.route == 'back')
+            res.redirect('back');
+        else 
+            res.redirect('/account/checkout');
         //res.json(req.session.Cart );
     }
 }
