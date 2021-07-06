@@ -2,6 +2,7 @@
 //Modal cart
 var modalCart = document.getElementById('modalCart');
 modalCart.addEventListener('show.bs.modal', function (event) {
+    document.forms['new-cart'].action = '/product/back/update-cart?_method=PUT';
     var totalPrice = 0;
     var mainList = document.getElementById('main-list');
     var root = document.getElementById('pro-node');
@@ -161,5 +162,8 @@ function remindEmptyCart() {
     alert('Giỏ hàng của bạn hiện không có gì cả ! Hãy tiếp tục mua hàng !');
 }
 function checkout() {
-    window.location.href = '/account/checkout';
+    document.forms['new-cart'].action = '/product/checkout/update-cart?_method=PUT';
+
+    $('#modalCart').modal('hide');
+    //window.location.href = '/account/checkout';
 }
