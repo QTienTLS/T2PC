@@ -156,17 +156,55 @@
                 }
             }
             .main__discount-products{
-                // display: grid;
-                // grid-template-columns: auto auto auto auto;
-                // overflow: hidden;
-                // div{
-                //     img{
-                //         max-width: 100%;
-                //         min-height: 100%;
-                //         width: auto;
-                //         height: auto;
-                //     }
-                // }
+                .slick__slider-discount{
+                    overflow: hidden;
+                    position: relative;
+                    .img__brand{
+                        padding: 0.5em 0;
+                        display: flex;
+                        justify-content: center;
+                        height: 100px;
+                        border: 1px solid $border-color;
+                        img{
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+                    button{
+                        margin: 0;
+                        padding: 0;
+                        background: none;
+                        border: none;
+                        border-radius: 0;
+                        outline: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                      }
+                      .prev-arrow{
+                        left: -40px;
+                        width: 0;
+                        height: 0;
+                        border-left: 0 solid transparent;
+                        border-right: 15px solid #113463;
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
+                      }
+                      .next-arrow{
+                        right: -40px;
+                        width: 0;
+                        height: 0;
+                        border-right: 0 solid transparent;
+                        border-left: 15px solid #113463;
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
+                      }
+                      .slide-arrow{
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -15px;
+                      }
+                }
             }
 
         }
