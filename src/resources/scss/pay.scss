@@ -72,9 +72,10 @@ body{
                         font-family: ChakraPetch-SemiBold;
                     }
                     .btn__in-customer{
-                        display: flex;
-                        justify-content: space-around;
+                        justify-content: end;
+                        margin-left: 1em;
                         i{
+                            text-align: end;
                             font-weight: bold;
                         }
                     }
@@ -89,6 +90,11 @@ body{
                         background-color: white;
                         border: none;
                         color: $main-color;
+                    }
+                    input{
+                        padding-left: 5px;
+                        width: 60%;
+                        height: 30px;
                     }
                 }
                 .note-of-customer{

@@ -56,9 +56,10 @@ body {
           .pay__container .pay-address .pay__address .pay__address-main .style__customer p {
             font-family: ChakraPetch-SemiBold; }
           .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer {
-            display: flex;
-            justify-content: space-around; }
+            justify-content: end;
+            margin-left: 1em; }
             .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer i {
+              text-align: end;
               font-weight: bold; }
           .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer :first-child {
             background-color: white;
@@ -69,6 +70,10 @@ body {
             background-color: white;
             border: none;
             color: #49b14d; }
+          .pay__container .pay-address .pay__address .pay__address-main .style__customer input {
+            padding-left: 5px;
+            width: 60%;
+            height: 30px; }
         .pay__container .pay-address .pay__address .pay__address-main .note-of-customer {
           display: flex;
           justify-content: space-between;

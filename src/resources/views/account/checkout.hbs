@@ -14,35 +14,35 @@
                 <div class="pay__address-main">
                     <div class="local__address"><i class="fas fa-map-marked-alt"></i> Địa chỉ nhận hàng</div>
                     <div class="name-customer style__customer">
-                        <p class="col-3">Họ Và Tên người nhận: </p>
-                        <span class="col-7">Trần Thị Đời</span>
+                        <label class="col-3">Họ Và Tên người nhận: </label>
+                        <span id="nameCustomer" class="col-8">Trần Thị Đời</span>
                         <div class="col-1 btn__in-customer">
-                            <button><i class="fal fa-edit"></i></button>
-                            <button><i class="fas fa-check"></i></button>
+                            <button onclick="toInput($('#nameCustomer'));"><i class="fal fa-edit"></i></button>
+                            {{!-- <button><i class="fas fa-check"></i></button> --}}
                         </div>
                     </div>
                     <div class="address-customer style__customer">
-                        <p class="col-3">Số Điện Thoại người nhận: </p>
-                        <span class="col-7">0123 456 789</span>
+                        <label class="col-3">Số Điện Thoại người nhận: </label>
+                        <span id="phoneNumberCus" class="col-8">0123 456 789</span>
                         <div class="col-1 btn__in-customer">
-                            <button><i class="fal fa-edit"></i></button>
-                            <button><i class="fas fa-check"></i></button>
+                            <button onclick="toInput($('#phoneNumberCus'));"><i class="fal fa-edit"></i></button>
+                            {{!-- <button><i class="fas fa-check"></i></button> --}}
                         </div>
                     </div>
                     <div class="address-customer style__customer">
-                        <p class="col-3">Email: </p>
-                        <span class="col-7">ratgivanayno@gmail.com</span>
+                        <label class="col-3" for="email">Email:</label>
+                        <span id="emailCustomer" class="col-8">ratgivanayno@gmail.com</span>
                         <div class="col-1 btn__in-customer">
-                            <button><i class="fal fa-edit"></i></button>
-                            <button><i class="fas fa-check"></i></button>
+                            <button onclick="toInput($('#emailCustomer'));" ><i class="fal fa-edit"></i></button>
+                            {{!-- <button><i class="fas fa-check"></i></button> --}}
                         </div>
                     </div>
                     <div class="address-customer style__customer">
-                        <p class="col-3">Địa chỉ nhận hàng: </p>
-                        <span class="col-7">Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam</span>
+                        <label class="col-3">Địa chỉ nhận hàng: </label>
+                        <span id="addressCustomer" class="col-8">Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam</span>
                         <div class="col-1 btn__in-customer">
-                            <button><i class="fal fa-edit"></i></button>
-                            <button><i class="fas fa-check"></i></button>
+                            <button onclick="toInput($('#addressCustomer'));"><i class="fal fa-edit"></i></button>
+                            {{!-- <button><i class="fas fa-check"></i></button> --}}
                         </div>
                     </div>
                     <div class="note-of-customer">
@@ -55,14 +55,14 @@
                     <h5>HÌNH THỨC THANH TOÁN</h5>
                     <div class="payments_cod">
                         <div>
-                            <input type="radio" id="cod" name="fav_language" value="">
+                            <input type="radio" id="cod" name="fav_language" value="" checked="checked">
                             <label for="cod">Thanh toán khi giao hàng (COD)</label>
                         </div>
                         <span>Có thể sử dụng</span>
                     </div>
                     <div class="payments_baning">
                         <div>
-                            <!-- <input type="radio" id="banking" name="fav_language" value=""> -->
+                            <input disabled type="radio" id="banking" name="fav_language" value="">
                             <label for="banking">Thanh toán online (Internet Banking)</label>
                         </div>
                         <span>Đang cập nhật</span>
@@ -125,6 +125,7 @@
             <button class="col-2 snip1582">Đặt hàng</button>
         </div>
     </div>
+
     <script>
         var listImg = document.getElementById('list-img-checkout').innerHTML.split(',');
         var listAmount =  document.getElementById('list-amount-checkout').innerHTML.split(',').map((x) => +x);
@@ -140,3 +141,23 @@
         }
 
     </script>
+    <script>
+    function toInput(elem){
+        var input = $("<input>", {
+            val: elem.text(),
+            type: "text" });
+        elem.replaceWith(input);
+        input.select();
+    }
+    </script>
+
+    <script>
+    function toInput(elem){
+        var input = $("<input>", {
+            val: elem.text(),
+            type: "text" });
+        elem.replaceWith(input);
+        input.select();
+    }
+ </script>
+    
