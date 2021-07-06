@@ -146,6 +146,10 @@ class AccountController {
             })
             .catch(next);
     }
+    checkout(req,res,next)
+    {
+        res.render('account/checkout');
+    }
 }
 
 module.exports = new AccountController();

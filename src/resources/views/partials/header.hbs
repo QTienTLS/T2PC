@@ -81,7 +81,7 @@
                                         {{#unless session.Cart}}
                                         <p>Giỏ hàng của bạn chưa có sản phẩm nào ! Hãy tiếp tục mua hàng !</p>
                                         {{else}}
-                                        <script src="/js/cart.js"></script>
+                                        
                                         <div id="main-list"> </div>
                                         <div class="pro-node root-node" id="pro-node" style="display: none;">
                                             <div class="col-2 pro-node-img"><img src="" srctext='' alt=""></div>
@@ -115,8 +115,17 @@
                                                 <p class="gtx__2 currFormat"></p>
                                             </div>
                                             <p>Đã bao gồm VAT (Nếu có)</p>
-                                            <button class="btn__modal-dem"><i class="fad fa-money-check-alt"></i> CHI
-                                                TIẾT GIỎ HÀNG</button>
+                                            {{#unless session.User}}
+                                            <button class="btn__modal-dem" onclick="remindLogin()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA
+                                                HÀNG</button>
+                                            {{else}}
+                                            {{#unless session.Cart.numRow}}
+                                            <button class="btn__modal-dem" onclick="remindEmptyCart()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA
+                                                HÀNG</button>
+                                            {{else}}
+                                            <button class="btn__modal-dem" onclick="checkout()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA HÀNG</button>
+                                            {{/unless}}
+                                            {{/unless}}
                                             <button class="btn__modal-delete" onclick="window.location.href='/delete-cart'"><i class="fad fa-trash-alt"></i> XOÁ GIỎ
                                                 HÀNG</button>
                                             <button class="btn__modal-view" data-bs-dismiss="modal"><i
@@ -159,6 +168,7 @@
                             <input type="text" name="price">
                             <input type="number" name="totalPrice">
                         </form>
+                        <script src="/js/cart.js"></script>
                     </div>
                 </div>
 

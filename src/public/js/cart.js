@@ -152,3 +152,14 @@ modalCart.addEventListener('hidden.bs.modal', function (event) {
     var cloneRoot =  root.cloneNode(true);
      mainList.appendChild( cloneRoot );
 });
+function remindLogin() {
+    var x = confirm('Vui lòng đăng nhập để mua hàng ! ');
+    if (x)
+        window.location.href = '/account/login';
+}
+function remindEmptyCart() {
+    alert('Giỏ hàng của bạn hiện không có gì cả ! Hãy tiếp tục mua hàng !');
+}
+function checkout() {
+    window.location.href = '/account/checkout';
+}
