@@ -71,6 +71,7 @@ body {
             color: #49b14d; }
         .pay__container .pay-address .pay__address .pay__address-main .note-of-customer {
           display: flex;
+          justify-content: space-between;
           margin-top: 0.5em; }
           .pay__container .pay-address .pay__address .pay__address-main .note-of-customer p {
             font-family: ChakraPetch-SemiBold; }

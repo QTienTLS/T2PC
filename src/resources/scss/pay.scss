@@ -93,6 +93,7 @@ body{
                 }
                 .note-of-customer{
                     display: flex;
+                    justify-content: space-between;
                     margin-top: 0.5em;
                     p{
                         font-family: ChakraPetch-SemiBold;
