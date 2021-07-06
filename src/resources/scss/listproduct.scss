@@ -1,8 +1,138 @@
 @import 'var';
 
 .main__show-all {
+    padding-top: 2em;
     font-family: ChakraPetch-Regular;
     .a {
+        .filter{
+            // background-color: #f0f3fc;
+            padding-top: 1em;
+            h5{
+                font-family: ChakraPetch-SemiBold;
+                color: $main-color;
+                padding-bottom: 0.5em;
+            }
+            .filter-manufacturer{   
+                background-color: #f0f3fc;
+                padding-left: 0em;
+                padding-right: 0em;
+                .manufacturer{
+                    font-size: 1.2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    padding:0.5em 1em 0.5em 1em;
+                    font-family: ChakraPetch-SemiBold;
+                    .fa-angle-right {
+                    float: right;
+                    }
+                }
+                .main__mft {
+                    display: none;
+                    overflow-y: auto;
+                    margin: 0 auto;
+                    width: 95%;
+                    border-top: 1px solid cadetblue;
+                    padding-left: 1em;
+                    padding-bottom: 1px;
+                    .manufacturer-main {
+                        margin-top: 10px;
+                        display: block;
+                        position: relative;
+                        padding-left: 35px;
+                        margin-bottom: 5px;
+                        cursor: pointer;
+                        font-size: 1em;
+                        font-family: Roboto;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        input {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 0;
+                            width: 0;
+                        }
+                        .checkmark {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 20px;
+                            width: 20px;
+                            background-color: #eee;
+                        }
+                        .checkmark:after {
+                            content: '';
+                            position: absolute;
+                            display: none;
+                        }
+                        p{
+                            font-family: ChakraPetch-Medium;
+                        }
+                    }
+                    .manufacturer-main input:checked ~ .checkmark {
+                        background-color: #2196f3;
+                    }
+    
+                    .manufacturer-main input:checked ~ .checkmark:after {
+                        display: block;
+                    }
+    
+                    .manufacturer-main .checkmark:after {
+                        left: 8px;
+                        top: 4px;
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+
+            .sort-by-money{
+                margin-top: 1em;
+                padding-bottom: 0.01em;
+                margin-bottom: 1em;
+                .sort__by-mn{
+                    display: none;
+                    padding-left: 1em;
+                    padding-right: 1em;
+                    // display: flex;
+                    div{
+                        text-align: center;
+                        background-color: white;
+                        padding: 0.5em 0;
+                        margin-bottom: 0.5em;
+                        cursor: pointer;
+                        color: $main-color;
+                    }
+
+                    div :last-child{
+                        margin-bottom: 0;
+                    }
+                    div :hover{
+                        background-color: $main-color;
+                        color: white;
+                    }
+                }
+            }
+
+            .sort-by-intel{
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+            .sort-by-amd{
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+        }
+
         .all-product {
             .list-product {
                 .header__list-product {

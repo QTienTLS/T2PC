@@ -1,5 +1,106 @@
 .main__show-all {
+  padding-top: 2em;
   font-family: ChakraPetch-Regular; }
+  .main__show-all .a .filter {
+    padding-top: 1em; }
+    .main__show-all .a .filter h5 {
+      font-family: ChakraPetch-SemiBold;
+      color: #49b14d;
+      padding-bottom: 0.5em; }
+    .main__show-all .a .filter .filter-manufacturer {
+      background-color: #f0f3fc;
+      padding-left: 0em;
+      padding-right: 0em; }
+      .main__show-all .a .filter .filter-manufacturer .manufacturer {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 0.5em 1em 0.5em 1em;
+        font-family: ChakraPetch-SemiBold; }
+        .main__show-all .a .filter .filter-manufacturer .manufacturer .fa-angle-right {
+          float: right; }
+      .main__show-all .a .filter .filter-manufacturer .main__mft {
+        display: none;
+        overflow-y: auto;
+        margin: 0 auto;
+        width: 95%;
+        border-top: 1px solid cadetblue;
+        padding-left: 1em;
+        padding-bottom: 1px; }
+        .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main {
+          margin-top: 10px;
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 5px;
+          cursor: pointer;
+          font-size: 1em;
+          font-family: Roboto;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none; }
+          .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0; }
+          .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #eee; }
+          .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main .checkmark:after {
+            content: '';
+            position: absolute;
+            display: none; }
+          .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main p {
+            font-family: ChakraPetch-Medium; }
+        .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main input:checked ~ .checkmark {
+          background-color: #2196f3; }
+        .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main input:checked ~ .checkmark:after {
+          display: block; }
+        .main__show-all .a .filter .filter-manufacturer .main__mft .manufacturer-main .checkmark:after {
+          left: 8px;
+          top: 4px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
+    .main__show-all .a .filter .sort-by-money {
+      margin-top: 1em;
+      padding-bottom: 0.01em;
+      margin-bottom: 1em; }
+      .main__show-all .a .filter .sort-by-money .sort__by-mn {
+        display: none;
+        padding-left: 1em;
+        padding-right: 1em; }
+        .main__show-all .a .filter .sort-by-money .sort__by-mn div {
+          text-align: center;
+          background-color: white;
+          padding: 0.5em 0;
+          margin-bottom: 0.5em;
+          cursor: pointer;
+          color: #49b14d; }
+        .main__show-all .a .filter .sort-by-money .sort__by-mn div :last-child {
+          margin-bottom: 0; }
+        .main__show-all .a .filter .sort-by-money .sort__by-mn div :hover {
+          background-color: #49b14d;
+          color: white; }
+    .main__show-all .a .filter .sort-by-intel {
+      margin-top: 1em;
+      margin-bottom: 1em; }
+    .main__show-all .a .filter .sort-by-amd {
+      margin-top: 1em;
+      margin-bottom: 1em; }
   .main__show-all .a .all-product .list-product .header__list-product {
     display: flex;
     justify-content: space-between;

@@ -182,11 +182,12 @@
       .container .product__detail .product__detail-policy__item .policy__item i {
         font-size: 3em;
         text-decoration: inherit;
-        color: #29324e;
+        color: #006600;
         padding: 0 0.3em; }
       .container .product__detail .product__detail-policy__item .policy__item p {
         text-align: center;
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        color: #003300; }
   .container .product__detail .seperate {
     width: 100%;
     padding: 2em 0;

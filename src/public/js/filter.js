@@ -6,6 +6,60 @@ function manufacturer() {
         x.style.display = 'none';
     }
 }
+
+function sortByMoney() {
+    var x = document.getElementById('sortByMoney');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function sortByInch() {
+    var x = document.getElementById('sortByInch');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function sortByIntel() {
+    var x = document.getElementById('sortByIntel');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function nVidia() {
+    var x = document.getElementById('nVidia');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function amd() {
+    var x = document.getElementById('amd');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function psu() {
+    var x = document.getElementById('psu');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
 //Định dạng ngày giờ
 var timeString = document.getElementsByClassName('timeFormat');
 var time;
