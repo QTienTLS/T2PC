@@ -1,157 +1,164 @@
 @import 'var';
 
-// danh mục sản phẩm
-.container-product {
-    width: 100%;
-    margin: 0 auto;
-    .ls-product {
-        //  Phần title bên trên
-        .ls-product-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2em 0;
-            // Hàng kẻ bên trái
-            .line-left {
-                display: flex;
-                width: 35%;
-                .rectangle {
+.main-home{
+    .main__home{
+        .container-product {
+            width: 100%;
+            margin: 0 auto;
+            .ls-product {
+                //  Phần title bên trên
+                .seperate {
                     width: 100%;
-                    height: 11px;
-                    background: #dddfe6;
-                }
-                .triangle_down {
-                    border-top: 11px solid #dddfe6;
-                    border-right: 7px solid transparent;
-                }
-            }
-
-            // hàng kẻ bên phải
-            .line-right {
-                display: flex;
-                width: 35%;
-                .rectangle {
-                    width: 100%;
-                    height: 11px;
-                    background: #dddfe6;
-                }
-                .triangle_down-right {
-                    border-bottom: 11px solid #dddfe6;
-                    border-left: 7px solid transparent;
-                }
-            }
-
-            // Title
-            .title-lspd {
-                font-family: Roboto;
-                font-weight: bold;
-                font-size: 1.5em;
-            }
-        }
-
-        // Các mục của ls product
-        .ls-product-main {
-            display: grid;
-            grid-column-gap: 30px;
-            grid-row-gap: 30px;
-            grid-template-columns: 23% 23% 23% 23%;
-            grid-template-rows: 8em 8em;
-            a {
-                position: relative;
-                overflow: hidden;
-                text-decoration: none;
-                font-family: Roboto;
-                font-size: 1.2em;
-                background-color: $main-color;
-                .detail-lspm {
+                    padding: 2em 0;
                     display: flex;
-                    padding: 1em 0 1em 1em;
-                    color: white;
-                    .tilte-lspm {
+                    align-items: center;
+                    justify-content: space-between;
+                    .seperate__left {
+                        width: 30%;
+                        display: flex;
+                        .seperate__square {
+                            width: 100%;
+                            height: 7px;
+                            background: $border-color;
+                        }
+                        .triangle_down {
+                            width: 0;
+                            height: 0;
+                            border-top: 7px solid $border-color;
+                            border-left: 0px solid transparent;
+                            border-right: 7px solid transparent;
+                        }
+                    }
+                    p {
+                        margin-bottom: 0;
+                        font-family: ChakraPetch-Bold;
+                        font-size: 1.4rem;
+                        color: $text-color;
+                    }
+                    .seperate__right {
+                        width: 30%;
+                        display: flex;
+                        .seperate__square {
+                            width: 100%;
+                            height: 7px;
+                            background: $border-color;
+                        }
+                        .triangle_up {
+                            width: 0;
+                            height: 0;
+                            border-bottom: 7px solid $border-color;
+                            border-left: 7px solid transparent;
+                            border-right: 0px solid transparent;
+                        }
+                    }
+                }
+        
+                // Các mục của ls product
+                .ls-product-main {
+                    display: grid;
+                    grid-column-gap: 30px;
+                    grid-row-gap: 30px;
+                    grid-template-columns: 23% 23% 23% 23%;
+                    grid-template-rows: 8em 8em;
+                    a {
                         position: relative;
-                        z-index: 1;
-                    }
-                    img {
-                        position: absolute;
-                        top: 10%;
-                        left: 60%;
-                        max-width: 199px;
-                        max-height: 99px;
-                        width: auto;
-                        height: auto;
-                        z-index: 1;
-                    }
-                    .shape {
-                        border-style: solid;
-                        border-width: 0 0 132px 34.656px;
-                        position: absolute;
-                        top: 0;
-                        left: 52%;
-                        width: 100%;
                         overflow: hidden;
+                        text-decoration: none;
+                        font-family: Roboto;
+                        font-size: 1.2em;
+                        background-color: $main-color;
+                        .detail-lspm {
+                            display: flex;
+                            padding: 1em 0 1em 1em;
+                            color: white;
+                            .tilte-lspm {
+                                position: relative;
+                                z-index: 1;
+                            }
+                            img {
+                                position: absolute;
+                                top: 10%;
+                                left: 60%;
+                                max-width: 199px;
+                                max-height: 99px;
+                                width: auto;
+                                height: auto;
+                                z-index: 1;
+                            }
+                            .shape {
+                                border-style: solid;
+                                border-width: 0 0 132px 34.656px;
+                                position: absolute;
+                                top: 0;
+                                left: 52%;
+                                width: 100%;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                    a:hover img {
+                        left: 52%;
+                        transition-duration: 0.3s;
+                    }
+                    a:hover .shape {
+                        left: 42%;
+                        transition-duration: 0.3s;
                     }
                 }
             }
-            a:hover img {
-                left: 52%;
-                transition-duration: 0.3s;
-            }
-            a:hover .shape {
-                left: 42%;
-                transition-duration: 0.3s;
-            }
-        }
-    }
-}
-
-.discount-products {
-    width: 100%;
-    margin: 0 auto;
-    .ls-discount {
-        //  Phần title bên trên
-        .ls-discount-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2em 0;
-            // Hàng kẻ bên trái
-            .line-left {
-                display: flex;
-                width: 35%;
-                .rectangle {
-                    width: 100%;
-                    height: 11px;
-                    background: #dddfe6;
-                }
-                .triangle_down {
-                    border-top: 11px solid #dddfe6;
-                    border-right: 7px solid transparent;
-                }
-            }
-
-            // hàng kẻ bên phải
-            .line-right {
-                display: flex;
-                width: 35%;
-                .rectangle {
-                    width: 100%;
-                    height: 11px;
-                    background: #dddfe6;
-                }
-                .triangle_down-right {
-                    border-bottom: 11px solid #dddfe6;
-                    border-left: 7px solid transparent;
-                }
-            }
-
-            // Title
-            .title-lspd {
-                font-family: Roboto;
-                font-weight: bold;
-                font-size: 1.5em;
-            }
         }
 
-        //Phần danh sách các sản phẩm giảm giá
+        .discount-products{
+            //  Phần title bên trên
+            .seperate {
+                width: 100%;
+                padding: 2em 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .seperate__left {
+                    width: 30%;
+                    display: flex;
+                    .seperate__square {
+                        width: 100%;
+                        height: 7px;
+                        background: $border-color;
+                    }
+                    .triangle_down {
+                        width: 0;
+                        height: 0;
+                        border-top: 7px solid $border-color;
+                        border-left: 0px solid transparent;
+                        border-right: 7px solid transparent;
+                    }
+                }
+                p {
+                    margin-bottom: 0;
+                    font-family: ChakraPetch-Bold;
+                    font-size: 1.4rem;
+                    color: $text-color;
+                }
+                .seperate__right {
+                    width: 30%;
+                    display: flex;
+                    .seperate__square {
+                        width: 100%;
+                        height: 7px;
+                        background: $border-color;
+                    }
+                    .triangle_up {
+                        width: 0;
+                        height: 0;
+                        border-bottom: 7px solid $border-color;
+                        border-left: 7px solid transparent;
+                        border-right: 0px solid transparent;
+                    }
+                }
+            }
+            .main__discount-products{
+
+            }
+
+        }
     }
 }

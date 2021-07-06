@@ -20,11 +20,13 @@ body {
   box-sizing: border-box; }
 
 .pay__container {
-  font-family: ChakraPetch-Regular; }
+  font-family: ChakraPetch-Regular;
+  padding: 1em 0; }
   .pay__container .pay__header {
     padding: 1em 0; }
     .pay__container .pay__header h3 {
       font-family: ChakraPetch-Medium;
+      padding: 0;
       color: #49b14d; }
   .pay__container .pay-address {
     padding-bottom: 1em;
@@ -39,7 +41,15 @@ body {
         background-size: 116px 3px;
         background-image: repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px); }
       .pay__container .pay-address .pay__address .pay__address-main {
-        padding: 1em 0 1.5em 0; }
+        border-left: 1px solid #dddfe6;
+        border-right: 1px solid #dddfe6;
+        padding: 1em 1em 1.5em 1em; }
+        .pay__container .pay-address .pay__address .pay__address-main .local__address {
+          color: #49b14d;
+          font-family: ChakraPetch-Bold;
+          margin-bottom: 1em; }
+          .pay__container .pay-address .pay__address .pay__address-main .local__address .fa-map-marked-alt {
+            margin-right: 1em; }
         .pay__container .pay-address .pay__address .pay__address-main .style__customer {
           display: flex;
           justify-content: space-between; }
@@ -71,10 +81,12 @@ body {
             outline: none;
             border-radius: 5px; }
       .pay__container .pay-address .pay__address .payments {
+        border: 1px solid #dddfe6;
         border-top: 1px solid #dddfe6;
-        margin-top: 1.5em; }
+        margin-top: 1.5em;
+        padding: 1em; }
         .pay__container .pay-address .pay__address .payments h5 {
-          padding: 0.5em 0;
+          padding: 0 0 0.5em 0;
           font-family: ChakraPetch-Bold;
           color: #49b14d; }
         .pay__container .pay-address .pay__address .payments .payments_cod {
@@ -117,7 +129,7 @@ body {
         .pay__container .pay-address .pay__detail .pay__detail-cart p {
           text-align: end; }
       .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product {
-        margin-top: 0.5em;
+        margin-top: 1em;
         display: flex;
         justify-content: space-between;
         border: 1px solid #dddfe6;
@@ -165,11 +177,13 @@ body {
     margin-top: 2em;
     display: flex;
     align-items: center;
-    padding: 1em 0;
+    padding: 1em;
     border: 1px dashed #dddfe6; }
     .pay__container .pay__footer p {
       margin: 0;
       padding: 0; }
+      .pay__container .pay__footer p span {
+        font-family: ChakraPetch-SemiBold; }
     .pay__container .pay__footer .snip1582 {
       font-family: ChakraPetch-SemiBold;
       background-color: #49b14d;
@@ -178,7 +192,6 @@ body {
       cursor: pointer;
       display: inline-block;
       line-height: 1em;
-      margin: 15px 40px;
       outline: none;
       padding: 12px 40px 10px;
       position: relative;

@@ -154,9 +154,10 @@ body {
 
 #slide-event {
   margin-top: 1.5em;
-  margin-bottom: 2em;
-  max-width: 1200px;
-  max-height: 600px;
+  margin-bottom: 1em;
+  max-width: 1092px;
+  max-height: 541px;
+  padding: 0;
   width: auto;
   height: auto;
   left: 50%;

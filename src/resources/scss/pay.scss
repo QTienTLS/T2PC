@@ -23,17 +23,26 @@ body{
 }
 .pay__container{
     font-family: ChakraPetch-Regular;
+    padding: 1em 0;
+
+    // Title
     .pay__header{
         padding: 1em 0;
         h3{
             font-family: ChakraPetch-Medium;
             // padding: 0 0.5em;
+            padding: 0;
             color: $main-color;
         }
     }
+
+    // Thông tin khách hàng và hàng hoá
     .pay-address{
+        // border-left: 1px solid $border-color;
         padding-bottom: 1em;
         border-bottom: 1px solid $border-color;
+
+        // Địa chỉ khách hàng
         .pay__address{
             padding-left: 0;
             .pay__address-top{
@@ -45,7 +54,17 @@ body{
                 background-image: repeating-linear-gradient(45deg,#6fa6d6,#6fa6d6 33px,transparent 0,transparent 41px,#f18d9b 0,#f18d9b 74px,transparent 0,transparent 82px);
             }
             .pay__address-main{
-                padding: 1em 0 1.5em 0;
+                border-left: 1px solid $border-color;
+                border-right: 1px solid $border-color;
+                padding: 1em 1em 1.5em 1em;
+                .local__address{
+                    color: $main-color;
+                    font-family: ChakraPetch-Bold;
+                    margin-bottom: 1em;
+                    .fa-map-marked-alt{
+                        margin-right: 1em;
+                    }
+                }
                 .style__customer{
                     display: flex;
                     justify-content: space-between;
@@ -88,10 +107,12 @@ body{
                 }
             }
             .payments{
+                border: 1px solid $border-color;
                 border-top: 1px solid $border-color;
                 margin-top: 1.5em;
+                padding: 1em;
                 h5{
-                    padding: 0.5em 0;
+                    padding: 0 0 0.5em 0;
                     font-family: ChakraPetch-Bold;
                     color: $main-color;
                 }
@@ -115,6 +136,8 @@ body{
                 
             }
         }
+
+        // Thông tin giỏ hàng và các sản phẩm
         .pay__detail{
             background-color: #f0f3fc;
             padding: 1em;
@@ -151,7 +174,7 @@ body{
             }
             .list-product-in-cart{
                 .pay__list-product{
-                    margin-top: 0.5em;
+                    margin-top: 1em;
                     display: flex;
                     justify-content: space-between;
                     border: 1px solid $border-color;
@@ -213,15 +236,20 @@ body{
             }
         }
     }
+
+    // Button đặt hàng
     .pay__footer{
         margin-top: 2em;
         display: flex;
         align-items: center;
-        padding: 1em 0;
+        padding:1em;
         border: 1px dashed $border-color;
         p{
             margin: 0;
             padding: 0;
+            span{
+                font-family: ChakraPetch-SemiBold;
+            }
         }
         .snip1582 {
             font-family: ChakraPetch-SemiBold;
@@ -230,10 +258,7 @@ body{
             color: #ffffff;
             cursor: pointer;
             display: inline-block;
-            // font-size: 1em;
-            // font-size: 22px;
             line-height: 1em;
-            margin: 15px 40px;
             outline: none;
             padding: 12px 40px 10px;
             position: relative;

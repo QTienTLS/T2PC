@@ -1,134 +1,143 @@
-{{!-- Xong banner event --}}
-<div id="slide-event" class="carousel slide carousel-dark shadow" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    {{#each events}}
-    {{#if @first}}
-    <button type="button" data-bs-target="#slide-event" data-bs-slide-to="0" class="active" aria-current="true"
-      aria-label="Slide 1"></button>
-    {{else}}
-    <button type="button" data-bs-target="#slide-event" data-bs-slide-to="{{@index}}" aria-label="Slide 2"></button>
-    {{/if}}
-    {{/each}}
-  </div>
-  <div class="carousel-inner">
-    {{#each events}}
-    {{#if @first}}
-    <div class="carousel-item active" data-bs-interval="3000">
-      <a href="{{this.link}}" target="_blank">
-        <img src="{{this.img}}" class="d-block w-100" alt="...">
-      </a>
+<div class="container main-home">
+  <div class="row main__home">
+    {{!--slide-event --}}
+    <div id="slide-event" class="carousel slide carousel-dark shadow" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {{#each events}}
+        {{#if @first}}
+        <button type="button" data-bs-target="#slide-event" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        {{else}}
+        <button type="button" data-bs-target="#slide-event" data-bs-slide-to="{{@index}}" aria-label="Slide 2"></button>
+        {{/if}}
+        {{/each}}
+      </div>
+      <div class="carousel-inner">
+        {{#each events}}
+        {{#if @first}}
+        <div class="carousel-item active" data-bs-interval="3000">
+          <a href="{{this.link}}" target="_blank">
+            <img src="{{this.img}}" class="d-block w-100" alt="...">
+          </a>
+        </div>
+        {{else}}
+        <div class="carousel-item" data-bs-interval="3000">
+          <a href="{{this.link}}" target="_blank">
+            <img src="{{this.img}}" class="d-block w-100" alt="...">
+          </a>
+        </div>
+        {{/if}}
+        {{/each}}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#slide-event" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden ">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#slide-event" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    {{else}}
-    <div class="carousel-item" data-bs-interval="3000">
-      <a href="{{this.link}}" target="_blank">
-        <img src="{{this.img}}" class="d-block w-100" alt="...">
-      </a>
-    </div>
-    {{/if}}
-    {{/each}}
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#slide-event" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden ">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#slide-event" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
-{{!-- Danh mục sản phẩm --}}
-<div class="container-product">
-  {{!-- Phần title bên trên --}}
-  <div class="ls-product">
-    <div class="ls-product-top">
-        <div class="line-left">
-          <div class="rectangle"></div>
-          <div class="triangle_down"></div>
+    {{!-- danh mục sản phẩm --}}
+    <div class="container-product">
+      {{!-- Phần title bên trên --}}
+      <div class="ls-product">
+        <div class="seperate">
+          <div class="seperate__left">
+            <div class="seperate__square"></div>
+            <div class="triangle_down"></div>
+          </div>
+          <p>THÔNG TIN SẢN PHẨM</p>
+          <div class="seperate__right">
+            <div class="triangle_up"></div>
+            <div class="seperate__square"></div>
+          </div>
         </div>
-        <div class="title-lspd">DANH MỤC SẢN PHẨM</div>
-        <div class="line-right">
-          <div class="triangle_down-right"></div>
-          <div class="rectangle"></div>
-        </div>
-    </div>
     
-    {{!-- Phần danh sách bên dưới --}}
-    <div class="ls-product-main">
-      <a href="#">
-        <div class="detail-lspm">
-          <div class="tilte-lspm">GAMING<br>WORKSTATION<br>PC</div>
-          <img src="img/ls-product/gear.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(255, 143, 2);"></div>
+        {{!-- Phần danh sách bên dưới --}}
+        <div class="ls-product-main">
+          <a href="#">
+            <div class="detail-lspm">
+              <div class="tilte-lspm">GAMING<br>WORKSTATION<br>PC</div>
+              <img src="img/ls-product/gear.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(255, 143, 2);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>LAPTOP<br>GAMING</div>
+              <img src="img/ls-product/gaming-laptop.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(255, 242, 0);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>GANING<br>GEAR</div>
+              <img src="img/ls-product/gaming-gear.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(30, 236, 24);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>PHỤ KIỆN<br>TẢN NHIỆT PC</div>
+              <img src="img/ls-product/phu-kien.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(142, 7, 239);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>LINH KIỆN<br>MÁY TÍNH</div>
+              <img src="img/ls-product/linh-kien.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(0, 249, 201);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>MÀN HÌNH<br>MÁY TÍNH</div>
+              <img src="img/ls-product/man-hinh.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(249, 73, 95);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>BÀN GHẾ<br>GAMING</div>
+              <img src="img/ls-product/ban-ghe.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(102, 93, 234);"></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="detail-lspm">
+              <div>THIẾT BỊ MẠNG</div>
+              <img src="img/ls-product/thiet-bi-mang.png" alt="">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(241, 232, 155);"></div>
+            </div>
+          </a>
         </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>LAPTOP<br>GAMING</div>
-          <img src="img/ls-product/gaming-laptop.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(255, 242, 0);"></div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>GANING<br>GEAR</div>
-          <img src="img/ls-product/gaming-gear.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(30, 236, 24);"></div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>PHỤ KIỆN<br>TẢN NHIỆT PC</div>
-          <img src="img/ls-product/phu-kien.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(142, 7, 239);"></div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>LINH KIỆN<br>MÁY TÍNH</div>
-          <img src="img/ls-product/linh-kien.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(0, 249, 201);"></div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>MÀN HÌNH<br>MÁY TÍNH</div>
-          <img src="img/ls-product/man-hinh.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(249, 73, 95);"></div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>BÀN GHẾ<br>GAMING</div>
-          <img src="img/ls-product/ban-ghe.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(102, 93, 234);"></div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="detail-lspm">
-          <div>THIẾT BỊ MẠNG</div>
-          <img src="img/ls-product/thiet-bi-mang.png" alt="">
-          <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(241, 232, 155);"></div>
-        </div>
-      </a>
+      </div>
     </div>
-  </div>
-</div>
 
-{{!-- Sản phẩm giảm giá --}}
-<div class="discount-products">
-  {{!-- Phần title bên trên --}}
-  <div class="ls-discount">
-    <div class="ls-discount-top">
-        <div class="line-left">
-          <div class="rectangle"></div>
+    {{!--  --}}
+    <div class="discount-products">
+      <div class="seperate">
+        <div class="seperate__left">
+          <div class="seperate__square"></div>
           <div class="triangle_down"></div>
         </div>
-        <div class="title-lspd">SẢN PHẨM GIẢM GIÁ</div>
-        <div class="line-right">
-          <div class="triangle_down-right"></div>
-          <div class="rectangle"></div>
+        <p>SẢN PHẨM GIẢM GIÁ</p>
+        <div class="seperate__right">
+          <div class="triangle_up"></div>
+          <div class="seperate__square"></div>
         </div>
+      </div>
+      {{!-- <div class="main__discount-products autoplay">
+        <div><img src="img/ls-product/gear.png" alt=""></div>
+        <div><img src="img/ls-product/gear.png" alt=""></div>
+        <div><img src="img/ls-product/gear.png" alt=""></div>
+        <div><img src="img/ls-product/gear.png" alt=""></div>
+        <div><img src="img/ls-product/gear.png" alt=""></div>
+      </div> --}}
     </div>
+
   </div>
 </div>

@@ -122,7 +122,7 @@
             color: black; }
           .container .product__detail .product__detail-top .product__detail-top-right .buttons__added__cart .buttons__added .input__qty {
             background-color: #fff;
-            heigh: 2.8rem;
+            height: 2.8rem;
             width: 4em;
             text-align: center;
             font-size: 1rem;
@@ -224,35 +224,36 @@
         border-bottom: 7px solid #49b14d;
         border-left: 7px solid transparent;
         border-right: 0px solid transparent; }
-  .container .product__detail .product__detail-menu-mini .detail-menu-mini {
-    background-color: #f0f3fc;
-    display: flex; }
-    .container .product__detail .product__detail-menu-mini .detail-menu-mini div {
-      cursor: pointer;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      color: #49b14d;
-      font-family: ChakraPetch-Bold;
-      font-size: 1.1em; }
-    .container .product__detail .product__detail-menu-mini .detail-menu-mini div:hover {
-      background-color: #49b14d;
-      color: white; }
-  .container .product__detail .product__detail-menu-mini .tabcontent {
-    display: none; }
-  .container .product__detail .product__detail-menu-mini .content-description {
-    display: block;
-    padding: 0;
-    margin-top: 1em; }
-    .container .product__detail .product__detail-menu-mini .content-description p {
-      text-align: center;
-      font-size: 16px !important;
-      line-height: 24px; }
-    .container .product__detail .product__detail-menu-mini .content-description div {
-      padding: 0.5em; }
+  .container .product__detail .product__detail-menu-mini {
+    padding-left: 0;
+    padding-right: 0; }
+    .container .product__detail .product__detail-menu-mini .detail-menu-mini {
+      background-color: #f0f3fc;
+      display: flex; }
+      .container .product__detail .product__detail-menu-mini .detail-menu-mini div {
+        cursor: pointer;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        color: #49b14d;
+        font-family: ChakraPetch-Bold;
+        font-size: 1.1em; }
+      .container .product__detail .product__detail-menu-mini .detail-menu-mini div:hover {
+        background-color: #49b14d;
+        color: white; }
+    .container .product__detail .product__detail-menu-mini .tabcontent {
+      display: none; }
+    .container .product__detail .product__detail-menu-mini .content-description {
+      display: block;
+      padding: 0;
+      margin-top: 1em; }
+      .container .product__detail .product__detail-menu-mini .content-description p {
+        text-align: center;
+        font-size: 16px !important;
+        line-height: 24px; }
       .container .product__detail .product__detail-menu-mini .content-description div img {
         max-width: 100%;
         width: auto; }
-  .container .product__detail .product__detail-menu-mini .content-specification .content-specification-main table tbody tr td {
-    border: 1px solid #dddfe6; }
-  .container .product__detail .product__detail-menu-mini .content-specification .content-specification-main table tbody tr td :first-child {
-    width: 250px; }
+    .container .product__detail .product__detail-menu-mini .content-specification .content-specification-main table tbody tr td {
+      border: 1px solid #dddfe6; }
+    .container .product__detail .product__detail-menu-mini .content-specification .content-specification-main table tbody tr td :first-child {
+      width: 250px; }

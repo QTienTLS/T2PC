@@ -14,18 +14,24 @@
 </head>
 <body>
     <div class="container pay__container">
+
+        <!-- Phâng title - Thanh toán hoá đơn-->
         <div class="row pay__header">
             <h3>Thanh toán đơn hàng</h3>
         </div>
+
+        <!-- Thông tin khách hàng và hàng hoá -->
         <div class="row pay-address">
+
+            <!-- Địa chỉ nhận hàng -->
             <div class="col-6 pay__address">
                 <div class="pay__address-top"></div>
                 <div class="pay__address-main">
-                    <div><i class="fas fa-map-marked-alt"></i> Địa chỉ nhận hàng</div>
+                    <div class="local__address"><i class="fas fa-map-marked-alt"></i> Địa chỉ nhận hàng</div>
                     <div class="name-customer style__customer">
                         <p class="col-3">Họ Và Tên: </p>
                         <span class="col-7">Trần Thị Đời</span>
-                        <div class="col-2 btn__in-customer">
+                        <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
                             <button><i class="fas fa-check"></i></button>
                         </div>
@@ -33,7 +39,7 @@
                     <div class="address-customer style__customer">
                         <p class="col-3">Số Điện Thoại: </p>
                         <span class="col-7">0123 456 789</span>
-                        <div class="col-2 btn__in-customer">
+                        <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
                             <button><i class="fas fa-check"></i></button>
                         </div>
@@ -41,7 +47,7 @@
                     <div class="address-customer style__customer">
                         <p class="col-3">Email: </p>
                         <span class="col-7">ratgivanayno@gmail.com</span>
-                        <div class="col-2 btn__in-customer">
+                        <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
                             <button><i class="fas fa-check"></i></button>
                         </div>
@@ -49,7 +55,7 @@
                     <div class="address-customer style__customer">
                         <p class="col-3">Địa chỉ: </p>
                         <span class="col-7">Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam</span>
-                        <div class="col-2 btn__in-customer">
+                        <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
                             <button><i class="fas fa-check"></i></button>
                         </div>
@@ -78,7 +84,11 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Giỏ hàng thanh toán-->
             <div class="col-6 pay__detail">
+
+                <!-- Thông tin giỏ hàng -->
                 <div class="pay__detail-cart">
                     <h5>THÔNG TIN GIỎ HÀNG</h5>
                     <div class="amount__product">
@@ -91,6 +101,8 @@
                     </div>
                     <p>Đã bao gồm VAT (Nếu có)</p>
                 </div>
+
+                <!-- Danh sách sản phẩm -->
                 <div class="list-product-in-cart">
                     <div class="pay__list-product">
                         <div class="col-2 img-prd-in-cart">
@@ -146,26 +158,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- Button đặt hàng -->
         <div class="row pay__footer">
-            <p class="col-9">Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản của T2PC</p>
+            <p class="col-10">Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <span>Điều khoản của T2PC</span></p>
             <button class="col-2 snip1582">Đặt hàng</button>
         </div>
     </div>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
 </body>
 </html>
