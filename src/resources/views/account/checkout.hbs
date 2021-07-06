@@ -14,7 +14,7 @@
                 <div class="pay__address-main">
                     <div class="local__address"><i class="fas fa-map-marked-alt"></i> Địa chỉ nhận hàng</div>
                     <div class="name-customer style__customer">
-                        <p class="col-3">Họ Và Tên: </p>
+                        <p class="col-3">Họ Và Tên người nhận: </p>
                         <span class="col-7">Trần Thị Đời</span>
                         <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="address-customer style__customer">
-                        <p class="col-3">Số Điện Thoại: </p>
+                        <p class="col-3">Số Điện Thoại người nhận: </p>
                         <span class="col-7">0123 456 789</span>
                         <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="address-customer style__customer">
-                        <p class="col-3">Địa chỉ: </p>
+                        <p class="col-3">Địa chỉ nhận hàng: </p>
                         <span class="col-7">Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam</span>
                         <div class="col-1 btn__in-customer">
                             <button><i class="fal fa-edit"></i></button>
@@ -78,68 +78,43 @@
                     <h5>THÔNG TIN GIỎ HÀNG</h5>
                     <div class="amount__product">
                         <p>Số lượng sản phẩm</p>
-                        <p>12</p>
+                        <p>{{session.Cart.numPro}}</p>
                     </div>
                     <div class="price__buy-product">
                         <p>Tổng chi phí</p>
-                        <p>23.456.789.JQK đ</p>
+                        <p class="currFormat">{{session.Cart.totalPrice}} đ</p>
                     </div>
                     <p>Đã bao gồm VAT (Nếu có)</p>
                 </div>
-
+                {{!-- Form lấy dữ liệu --}}
+                <div class="form-hide" style="display: none;">
+                    <div id="list-img-checkout">{{session.Cart.img}}</div>
+                    <div id="list-name-checkout">{{session.Cart.product}}</div>
+                    <div id="list-amount-checkout">{{session.Cart.amount}}</div>
+                    <div id="list-price-checkout">{{session.Cart.price}}</div>
+                    {{!-- <div id="list-amount-checkout">{{session.Cart.amount}}</div> --}}
+                </div>
                 <!-- Danh sách sản phẩm -->
                 <div class="list-product-in-cart">
+                    {{#times session.Cart.numRow}}
                     <div class="pay__list-product">
                         <div class="col-2 img-prd-in-cart">
-                            <div class="mini-img-prd-in-cart"><img src="../../public/img/products/card-man-hinh-asus-rtx-3060-v2-1-228x228.png" alt=""></div>
+                            <div class="mini-img-prd-in-cart"><img class="img-checkout" src="" alt=""></div>
                         </div>
                         <div class="col-4 name-product-in-cart">
                             <p class="product-in-cart-first">Tên sản phẩm</p>
-                            <p class="product-in-cart-last">Laptop Asus ROG Strix G15 G513QC-HN015T R7 5800H/ 8GB/ 512GB/ RTX 3050/ Win 10</p>
+                            <p class="product-in-cart-last"></p>
                         </div>
                         <div class="col-2 amount-product-in-cart">
                             <p>Số lượng</p>
-                            <p>2</p>
+                            <p class="amount-product-checkout"></p>
                         </div>
                         <div class="col-4 into-money">
                             <p>Thành tiền</p>
-                            <p>12.345.678.789 đ</p>
+                            <p class="total-price-each-pro currFormat"></p>
                         </div>
-                    </div>
-                    <div class="pay__list-product">
-                        <div class="col-2 img-prd-in-cart">
-                            <div class="mini-img-prd-in-cart"><img src="../../public/img/products/card-man-hinh-asus-rtx-3060-v2-1-228x228.png" alt=""></div>
-                        </div>
-                        <div class="col-4 name-product-in-cart">
-                            <p class="product-in-cart-first">Tên sản phẩm</p>
-                            <p class="product-in-cart-last">Laptop Asus ROG Strix G15 G513QC-HN015T R7 5800H/ 8GB/ 512GB/ RTX 3050/ Win 10</p>
-                        </div>
-                        <div class="col-2 amount-product-in-cart">
-                            <p>Số lượng</p>
-                            <p>2</p>
-                        </div>
-                        <div class="col-4 into-money">
-                            <p>Thành tiền</p>
-                            <p>12.345.678.789 đ</p>
-                        </div>
-                    </div>
-                    <div class="pay__list-product">
-                        <div class="col-2 img-prd-in-cart">
-                            <div class="mini-img-prd-in-cart"><img src="../../public/img/products/card-man-hinh-asus-rtx-3060-v2-1-228x228.png" alt=""></div>
-                        </div>
-                        <div class="col-4 name-product-in-cart">
-                            <p class="product-in-cart-first">Tên sản phẩm</p>
-                            <p class="product-in-cart-last">Laptop Asus ROG Strix G15 G513QC-HN015T R7 5800H/ 8GB/ 512GB/ RTX 3050/ Win 10</p>
-                        </div>
-                        <div class="col-2 amount-product-in-cart">
-                            <p>Số lượng</p>
-                            <p>2</p>
-                        </div>
-                        <div class="col-4 into-money">
-                            <p>Thành tiền</p>
-                            <p>12.345.678.789 đ</p>
-                        </div>
-                    </div>
+                    </div> 
+                    {{/times}}                                   
                 </div>
             </div>
         </div>
@@ -150,3 +125,18 @@
             <button class="col-2 snip1582">Đặt hàng</button>
         </div>
     </div>
+    <script>
+        var listImg = document.getElementById('list-img-checkout').innerHTML.split(',');
+        var listAmount =  document.getElementById('list-amount-checkout').innerHTML.split(',').map((x) => +x);
+        var listPrice =  document.getElementById('list-price-checkout').innerHTML.split(',').map((x) => +x);
+        var mainList = document.getElementsByClassName('list-product-in-cart')[0];
+        for(let i=1; i<= mainList.childNodes.length; i+=2)
+        {   
+            var index = (i-1)/2;
+            document.getElementsByClassName('img-checkout')[index].src = listImg[index];
+            document.getElementsByClassName('product-in-cart-last')[index].innerHTML = document.getElementById('list-name-checkout').innerHTML.split(',')[index];
+            document.getElementsByClassName('amount-product-checkout')[index].innerHTML = listAmount[index];
+             document.getElementsByClassName('total-price-each-pro')[index].innerHTML = listAmount[index] * listPrice[index] + ' đ';
+        }
+
+    </script>
