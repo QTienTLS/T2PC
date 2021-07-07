@@ -63,9 +63,9 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4"><i class="fas fa-gifts"></i> Quản lý sự kiện</h1>
+                <h1 class="mt-4"><i class="fas fa-computer-speaker"></i> Quản lý sản phẩm</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Banner</li>
+                    <li class="breadcrumb-item active">Product</li>
                 </ol>
                 <button type="button" class="btn btn-success btn-themmoi" id="btn-add-event" onclick="addEvent()">Thêm
                     mới</button>
@@ -99,36 +99,42 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        Danh sách sự kiện
+                        Danh sách sản phẩm đang bày bán
                     </div>
                     <div class="card-body">
 
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th>Số thứ tự</th>
-                                    <th>Tên sự kiện</th>
-                                    <th>Hình ảnh banner</th>
-                                    <th>link</th>
-                                    <th>hành động</th>
+                                    <th>Số thứ tự <i class="fal fa-sort-circle"></i></th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm <i class="fal fa-sort-circle"></i></th>
+                                    <th>Chủng loại <i class="fal fa-sort-circle"></i></th>
+                                    <th>Giá gốc <i class="fal fa-sort-circle"></i></th>
+                                    <th>Giá bày bán <i class="fal fa-sort-circle"></i></th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Số thứ tự</th>
-                                    <th>Tên sự kiện</th>
-                                    <th>Hình ảnh banner</th>
-                                    <th>link</th>
-                                    <th>hành động</th>
+                                  <th>Số thứ tự <i class="fal fa-sort-circle"></i></th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm <i class="fal fa-sort-circle"></i></th>
+                                    <th>Chủng loại <i class="fal fa-sort-circle"></i></th>
+                                    <th>Giá gốc <i class="fal fa-sort-circle"></i></th>
+                                    <th>Giá bày bán <i class="fal fa-sort-circle"></i></th>
+                                    <th>Hành động</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                {{#each events}}
+                                {{#each products}}
                                 <tr>
                                     <td>{{sum @index 1}}</td>
-                                    <td>{{this.name}}</td>
                                     <td><img src="{{this.img}}" alt="" style="width: 10em"></td>
-                                    <td>{{this.link}}</td>
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.type}}</td>
+                                    <td class="currFormat">{{this.price}} đ</td>
+                                    <td class="currFormat">{{this.price}} đ</td>
                                     <td>
                                         <button type="button" style="margin: 1em 1em;" class="btn btn-danger"
                                             data-bs-toggle="modal" data-bs-target="#modalXoa"
@@ -191,16 +197,16 @@
                                         <input type="file" name="updateImg" class="form-control" id="updateImg">
                                     </div>
                                     <div class="mb-3 col">
-                                         
+
                                         <img src="" id="currentImg" alt="" style="width: 15em">
                                     </div>
                                 </div>
-                               
+
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                             <button type="submit" id="btn-update-event" class="btn btn-warning">Cập nhật</button>
+                            <button type="submit" id="btn-update-event" class="btn btn-warning">Cập nhật</button>
                         </div>
                     </div>
                 </div>
@@ -219,8 +225,7 @@
             </div>
         </footer>
     </div>
-    {{!-- form ẩn để xóa event --}}
-    <form name="form-del-event" method="post"></form>
+
 </div>
 <script src="/js/dashboard.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -229,55 +234,3 @@
 {{else}}
 {{>404}}
 {{/if}}
-<script>
-    function addEvent() {
-        if (document.getElementById('form-add-event').style.display == 'none') {
-            document.getElementById('form-add-event').style.display = 'block';
-            document.getElementById('btn-add-event').innerHTML = 'Hoàn thành'
-        }
-
-        else {
-            document.getElementById('form-add-event').style.display = 'none';
-            document.getElementById('btn-add-event').innerHTML = 'Thêm mới';
-        }
-
-
-    }
-
-    var exampleModal = document.getElementById('modalXoa');
-    var eventId, eventName, eventLink, eventImg;
-    var formDelEvent = document.forms['form-del-event'];
-    var btnEventXoa = document.getElementById('btn-delete-event');
-    var btnEventUpdate = document.getElementById('btn-update-event');
-    var upModal = document.getElementById('modalCapNhat');
-    var formUpdateEvent = document.forms['form-update-event'];
-    exampleModal.addEventListener('show.bs.modal', function (event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget;
-        // Extract info from data-bs-* attributes
-        eventId = button.getAttribute('data-bs-eventID');
-
-    })
-
-    btnEventXoa.onclick = function () {
-        formDelEvent.action = '/admin/event/' + eventId + '?_method=DELETE';
-        formDelEvent.submit();
-    }
-    upModal.addEventListener('show.bs.modal', function (event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget;
-        // Extract info from data-bs-* attributes
-        eventId = button.getAttribute('data-bs-eventID');
-        eventName = button.getAttribute('data-bs-eventName');
-        eventImg = button.getAttribute('data-bs-eventImg');
-        eventLink = button.getAttribute('data-bs-eventLink');
-        document.getElementById('currentImg').src = eventImg;
-        document.getElementById('update-name').value = eventName;
-        document.getElementById('update-link').value = eventLink;
-    }) 
-    btnEventUpdate.onclick = function(){
-      formUpdateEvent.action = '/admin/event/' + eventId + '?_method=PUT';
-      formUpdateEvent.submit();
-    }
-    
-</script>

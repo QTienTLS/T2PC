@@ -7,5 +7,6 @@ router.get('/event', adminController.event);
 router.post('/event/add-event', adminController.addEvent);
 router.delete('/event/:id', adminController.delEvent);
 router.put('/event/:id', adminController.updateEvent);
+router.get('/product', adminController.showProduct);
 
 module.exports = router;
