@@ -238,15 +238,39 @@
                                 .product-reviews {
                                     display: flex;
                                     padding: 0.2em 0.5em 0 0.5em;
+                                    justify-content: space-between;
                                     .star-reviews {
                                         margin-right: 1em;
                                         font-size: 0.9em;
                                         color: #99a0ad;
                                     }
-                                    .evaluate {
-                                        color: #99a0ad;
-                                        font-family: ChakraPetch-SemiBold;
+                                    // .evaluate {
+                                    //     color: #99a0ad;
+                                    //     font-family: ChakraPetch-SemiBold;
+                                    // }
+                                    .views{
+                                        position: relative;
+                                        margin-right: 0.5em;
+                                        cursor: pointer;
+                                        // color: $text-color;
+                                        p{
+                                            margin-bottom: 0;
+                                        }
+                                        .tatal-views{
+                                            position: absolute;
+                                            display: none;
+                                            color: $pink-color;
+                                            width: 110px;
+                                            top: 0;
+                                            right: 15px;
+                                            font-family: ChakraPetch-SemiBold;
+                                        }
                                     }
+                                    .views:hover .tatal-views{
+                                        display: block;
+
+                                    }
+
                                 }
                                 .mn-product {
                                     display: flex;
