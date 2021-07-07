@@ -95,3 +95,6 @@ function goToDetail(productID) {
     formShip.action = '/product/' + productID + '/detail';
     formShip.submit();
 }
+
+
+// Button trái phải của các nhãn hàng

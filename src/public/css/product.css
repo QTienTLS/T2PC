@@ -93,10 +93,12 @@
             padding: 5px; }
             .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .product-reviews {
               color: #99a0ad;
-              display: flex;
               margin-bottom: 3px; }
-              .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .product-reviews .evaluate {
+              .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .product-reviews .views {
+                cursor: pointer;
                 margin-left: 10px; }
+                .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .product-reviews .views p {
+                  margin-bottom: 0; }
             .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .mn-product {
               display: flex; }
               .product-main .all-products .list-all-products .card .body-card .card-body .card-bottom .mn-product .card-text {
