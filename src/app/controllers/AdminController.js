@@ -1,5 +1,6 @@
 const session = require('express-session');
 const Event = require('../models/Event');
+const Product = require('../models/Product');
 const { mongooseToObject } = require('../../tools/mongoose');
 const { mutipleMongooseToObject } = require('../../tools/mongoose');
 const { countDocuments } = require('../models/Event');
@@ -121,6 +122,16 @@ class AdminController {
                 .then(() => res.redirect('/admin/event'))
                 .catch(next);
         });
+    }
+    showProduct(req, res) {
+        Product.find({}, function (err, pro) {
+            if (err) console.log(err);
+            check = {
+                opendashboard: true,
+            };
+            var products = mutipleMongooseToObject(pro);
+            res.render('admin-dashboard/product', {products,check});
+        })
     }
 }
 
