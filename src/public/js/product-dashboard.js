@@ -17,7 +17,9 @@ function chooseInput(v){
     {
         if(sl[i].id == v)
             sl[i].style.display = 'block';
-        else
+        else{
         sl[i].style.display = 'none';
+        sl[i].value = '';
+        }
     }
 }
