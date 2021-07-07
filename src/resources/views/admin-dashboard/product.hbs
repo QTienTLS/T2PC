@@ -67,34 +67,96 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Product</li>
                 </ol>
-                <button type="button" class="btn btn-success btn-themmoi" id="btn-add-event" onclick="addEvent()">Thêm
+                <button type="button" class="btn btn-success btn-themmoi" data-bs-toggle="modal"
+                    data-bs-target="#modalAddProduct">Thêm
                     mới</button>
-                {{!-- Form thêm mới hiện ra khi bấm vào nút 'thêm mới' --}}
-                <div class="form-add" id="form-add-event" style="display: none;">
-                    <form method="POST" action="/admin/event/add-event" enctype="multipart/form-data" name="add-event">
-                        <div class="row">
-                            <div class="mb-3 col">
-                                <label for="exampleInputEmail1" class="form-label">Tên sự kiện</label>
-                                <input type="text" class="form-control" id="inputEventName" name="inputEventName">
-
+                {{!-- Form thêm mới sản phẩm --}}
+                <div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog  modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm mới nào bạn ơiiii</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
-                            <div class="mb-3 col">
-                                <label for="exampleInputEmail1" class="form-label">Hình ảnh banner</label>
-                                <input type="file" name="addImg" class="form-control" id="uploadImg">
-
+                            <div class="modal-body">
+                                {{!-- Nội dung chính --}}
+                                <form method="POST" action="/admin/addproduct" name="form-add-product">
+                                    <div class="row  ">
+                                        <div class="form-floating col-6 mb-3">
+                                            <input class="form-control" id="inputProName" type="text"
+                                                placeholder="Tên sản phẩm" name="inputProName" />
+                                            <label for="inputProName">Tên sản phẩm</label>
+                                        </div>
+                                        <div class="form-floating col-6 mb-3">     
+                                            <select  class="form-select" name="type" onchange="chooseInput(value)" id="proType">
+                                                <option value="cpu">CPU-Bộ vi xử lí</option>
+                                                <option value="mainboard">Mainboard-Bo mạch chủ</option>
+                                                <option value="ram">Ram-Bộ nhớ trong</option>
+                                                <option value="hdd">HDD-Ổ cứng</option>
+                                                <option value="ssd">SSD-Ổ cứng thể rắn</option>
+                                                <option value="vga">VGA-Card màn hình</option>
+                                                <option value="case">Case-Vỏ máy tính</option>
+                                                <option value="psu">PSU-Nguồn máy tính</option>
+                                                <option value="laptop-gaming">Laptop gaming</option>
+                                                <option value="laptop-normal">Laptop văn phòng</option>
+                                                <option value="macbook">Macbook</option>
+                                                <option value="monitor-gaming">Màn hình gaming</option>
+                                                <option value="monitor-design">Màn hình làm đồ họa</option>
+                                                <option value="monitor-vp">Màn hình văn phòng</option>
+                                                <option value="keyboard">Bàn phím cơ</option>
+                                                <option value="mousepad">Bàn di chuột</option>
+                                                <option value="chair">Bàn, ghế gaming</option>
+                                                <option value="mouse">Chuột gaming</option>
+                                                <option value="microphone">Microphone</option>
+                                                <option value="headphone">Tai nghe gaming</option>
+                                                <option value="joy">Tay cầm chơi game</option>
+                                                <option value="speaker">Loa nghe nhạc</option>
+                                                <option value="cooler-air">Tản nhiệt khí PC</option>
+                                                <option value="cooler-water">Tản nhiệt nước PC</option>
+                                                <option value="fan">Quạt tản nhiệt PC</option>
+                                                <option value="pcgaming">Gaming PC</option>
+                                                <option value="pcworkstation">Workstation PC</option>
+                                            </select>
+                                             <label for="proType">Chủng loại</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-floating col-3 mb-3">
+                                            <input class="form-control" id="inputOriginPrice" type="text"
+                                                placeholder="Giá gốc" name="inputOriginPrice" />
+                                            <label for="inputOriginPrice">Giá gốc</label>
+                                        </div>
+                                        <div class="form-floating col-3 mb-3">
+                                            <input class="form-control" id="inputPrice" type="text"
+                                                placeholder="Giá gốc" name="inputPrice" />
+                                            <label for="inputPrice">Giá bán</label>
+                                        </div>
+                                        <div class="form-floating col-6 mb-3">     
+                                            <select class="form-select brand-select" name="brand" id="cpu">
+                                                 <option value="intel">Intel</option>
+                                                 <option value="amd">AMD</option>
+                                            </select>
+                                            <select class="form-select brand-select" name="brand" id="mainboard">
+                                                 <option value="nzxt">NZXT</option>
+                                                 <option value="msi">MSI</option>
+                                                 <option value="asrock">ASROCK</option>
+                                                 <option value="gigabyte">GIGABYTE</option>
+                                                 <option value="asus">ASUS</option>
+                                            </select>
+                                             <label for="proType">Hãng sx</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thôi chả thêm
+                                    nữa</button>
+                                <button type="button" id="btnSubmit" class="btn btn-success">Thêm thì thêm</button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="mb-3 col-sm-8">
-                                <label for="exampleInputEmail1" class="form-label">Link tới sự kiện</label>
-                                <input type="text" name="inputLink" class="form-control" id="exampleInputEmail1">
-
-                            </div>
-                            <div class="col-sm-4" style=" display: flex;align-items: center; justify-content: center;">
-                                <button type="submit" class="btn btn-primary btn-lg btn-add">Thêm</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -117,7 +179,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                  <th>Số thứ tự <i class="fal fa-sort-circle"></i></th>
+                                    <th>Số thứ tự <i class="fal fa-sort-circle"></i></th>
                                     <th>Hình ảnh</th>
                                     <th>Tên sản phẩm <i class="fal fa-sort-circle"></i></th>
                                     <th>Chủng loại <i class="fal fa-sort-circle"></i></th>
@@ -170,47 +232,6 @@
                     </div>
                 </div>
             </div>
-            {{!-- Modal update sự kiện --}}
-            <div class="modal fade" id="modalCapNhat" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Cập nhật sự kiện đang diễn ra</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form name='form-update-event' method="POST" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="mb-3 col">
-                                        <label for="update-name" class="col-form-label">Tên sự kiện</label>
-                                        <input type="text" name="updateName" class="form-control" id="update-name">
-                                    </div>
-                                    <div class="mb-3 col">
-                                        <label for="update-link" class="col-form-label">đường link</label>
-                                        <input type="text" name="updateLink" class="form-control" id="update-link">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="mb-3 col">
-                                        <label for="updateImg" class="col-form-label">Hình ảnh banner</label>
-                                        <input type="file" name="updateImg" class="form-control" id="updateImg">
-                                    </div>
-                                    <div class="mb-3 col">
-
-                                        <img src="" id="currentImg" alt="" style="width: 15em">
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="submit" id="btn-update-event" class="btn btn-warning">Cập nhật</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
@@ -227,6 +248,7 @@
     </div>
 
 </div>
+<script src="/js/product-dashboard.js"></script>
 <script src="/js/dashboard.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
