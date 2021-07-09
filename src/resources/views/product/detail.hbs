@@ -35,21 +35,32 @@
             </div>
             <div class="detail__product-price">
                 <p>Giá sản phẩm:</p>
-                <p class="currFormat detail__product-price-cls">{{pro.price}} đ</p>
+                {{#if pro.discount}}
+                <p class="currFormat detail__product-price-cls">{{pro.originPrice}} đ</p>
+                {{/if}}
                 <p class="currFormat">{{pro.price}} đ</p>
             </div>
             <div class="short-desc">
-                <p>- Bộ nhớ: 12GB GDDR6X</p>
-                <p>- Bus bộ nhớ: 192-bit</p>
-                <p>- Xung nhịp bộ nhớ: 15 Gbps</p>
-                <p>- Xung nhịp GPU Boost: 1837 MHz</p>
-                <p>- Chuẩn giao tiếp: PCI-E 4.0</p>
-                <p>- Cuda Core: 3584</p>
-                <p>- Công suất nguồn đề nghị: 550W</p>
-                <p>- Cổng xuất hình: 1 x HDMI 2.1; DisplayPort 1.4a x 3</p>
+                <p style="display: none;" id="rawSpec">{{pro.spec}}</p>
             </div>
+            <script>
+                //hiện thông số kĩ thuật
+                var spec = document.getElementById('rawSpec').innerHTML.split(',');
+                var x = document.getElementsByClassName("short-desc")[0];
+                for(let i = 0; i<spec.length;i++)
+                {
+                       var orow = document.createElement('p');
+                orow.innerHTML = '- ' + spec[i];
+                x.appendChild(orow);
+                }
+             
+            </script>
             <div class="status__quantity">
+                {{#if pro.stored}}
                 <p class="stastus"><span><i class="fa fa-circle"></i>CÒN HÀNG</span></p>
+                {{else}}
+                <p class="stastus"><span><i class="fa fa-circle"></i>HẾT HÀNG</span></p>
+                {{/if}}
             </div>
             <div class="buttons__added__cart">
                 <div class="col-3 buttons__added">
@@ -107,10 +118,9 @@
         
         {{!-- Chi tiết sản phẩm --}}
         <div id="productDetails" class="tabcontent content-description">
-            <p>Laptop Asus ROG Strix G15 G513QE-HN015T là dòng Laptop có thiết kế cao cấp đến từ Asus với dòng VGA 3050 mang lại
-                hiệu năng cao trong quá trình sử dụng. Hiện sản phẩm đang được bán tại T2PC.
+            <p> {{pro.description}}
             </p>
-            <div><img src="/img/description/laptop-asus-rog-strix-g15-g513qe.jpg" alt=""></div>
+            <div><img src="{{pro.desImg}}" alt=""></div>
         </div>
         
         {{!-- Thông số kỹ thuật --}}
