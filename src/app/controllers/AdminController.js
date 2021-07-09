@@ -156,7 +156,7 @@ class AdminController {
         })
     }
 
-    addProduct(req,res,next){
+    addFullProduct(req,res,next){
         var addPro = multer({ storage: diskStorageforProduct })
         .fields([{ name: 'inputProImg' }, { name: 'inputDesImg' }]);
 
@@ -177,13 +177,37 @@ class AdminController {
             spec: req.body.inputSpec.replace(/(\r\n|\n|\r)/gm,",").split(/,+/),
 
         };
-        //res.json(newPro.spec);
-        //newPro.spec.splice(0, 1);
-        // for(let i=0; i<newPro.spec.length;i++)
-        // {   
-        //     newPro.spec[i] = newPro.spec[i].trim();
-        // }
-        
+        newPro.discount =Math.round( ((newPro.originPrice - newPro.price)/newPro.originPrice)*100 ) ;
+        const pro = new Product(newPro);
+        pro.save();
+        req.session.curentAdd = {
+            type: req.body.type,
+            brand: req.body.brand,
+        };
+        res.redirect('back');
+      });
+    }
+    addSemiProduct(req,res,next){
+        var addPro = multer({ storage: diskStorageforProduct })
+        .single('inputProImg');
+
+        addPro(req, res, function(error){
+               if (error) {
+                   return res.send(`Error when trying to upload: ${error}`);
+           }
+           var newPro = {
+           img : '\\img\\products\\' + req.files['inputProImg'][0].filename,
+           desImg :  '',
+           price : parseInt(req.body.inputPrice),
+           originPrice: parseInt(req.body.inputOriginPrice),
+           stored:  parseInt(req.body.inputStored),
+           description: req.body.inputDescription,
+            brand: req.body.brand,
+            type: req.body.type,
+            name: req.body.inputProName,
+            spec: req.body.inputSpec.replace(/(\r\n|\n|\r)/gm,",").split(/,+/),
+
+        };
         newPro.discount =Math.round( ((newPro.originPrice - newPro.price)/newPro.originPrice)*100 ) ;
         const pro = new Product(newPro);
         pro.save();
