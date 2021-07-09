@@ -135,6 +135,7 @@
 
         .all-product {
             .list-product {
+                margin-bottom: 1em;
                 .header__list-product {
                     display: flex;
                     justify-content: space-between;
@@ -178,10 +179,12 @@
                     .product__in-list {
                         width: 100%;
                         .card {
+                            // overflow: hidden;
                             // width: 263px;
                             // background-color: yellowgreen;
                             text-decoration: none;
                             .main__product {
+                                overflow: hidden;
                                 padding: 0 0.5em;
                                 background-color: white;
                                 border-top-left-radius: 5px;
