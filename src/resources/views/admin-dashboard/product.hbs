@@ -82,12 +82,15 @@
                             </div>
                             <div class="modal-body">
                                 {{!-- Nội dung chính --}}
-                                <form method="POST" action="/admin/addproduct" name="form-add-product">
+                                <form method="POST" action="/admin/addproduct" enctype="multipart/form-data" name="form-add-product">
                                     <div class="row  ">
                                         <div class="form-floating col-6 mb-3">
                                             <input class="form-control" id="inputProName" type="text"
                                                 placeholder="Tên sản phẩm" name="inputProName" />
                                             <label for="inputProName">Tên sản phẩm</label>
+                                        </div>
+                                        <div id="pre-choose-type" style="display: none;" data-type ='{{session.curentAdd.type}}'
+                                        data-brand= '{{session.curentAdd.brand}}'>               
                                         </div>
                                         <div class="form-floating col-6 mb-3">
                                             <select class="form-select" name="type" onchange="chooseInput(value)"
@@ -376,13 +379,32 @@
                                     <div class="row">
                                         <div class="mb-3 col-3">
                                             <label for="inputGroupFile02">Hình ảnh sản phẩm</label>
-                                            <input type="file" name="img" onchange="showPreviewOne(event)" class="form-control" id="inputImg">
-                                          
+                                            <input type="file" name="inputProImg"
+                                                class="form-control" id="inputProImg">
+
+                                        </div>
+                                        <div class="mb-3 col-3">
+                                            <label for="inputGroupFile02">Hình ảnh phần mô tả</label>
+                                            <input type="file" name="inputDesImg" class="form-control" id="inputDesImg">
+
+                                        </div>
+                                        <div class="form-floating mb-3 col-6">
+                                            <input class="form-control" id="inputStored" type="number"
+                                                placeholder="Số lượng nhập vào" name="inputStored" />
+                                            <label for="inputPrice">Số lượng nhập vào</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3 mb-3">
-                                            <img src="/img/55ce2914eb911fcf4680.jpg" id="previewImg" alt="">
+                                        <div class="col-6 form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="inputSpec" name='inputSpec' style="height: 320px"></textarea>
+                                            <label for="floatingTextarea2">Thông số chi tiết</label>
+                                        </div>
+                                        <div class="col-6 form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="inputDescription" name="inputDescription"
+                                                style="height: 320px"></textarea>
+                                            <label for="floatingTextarea2">Mô tả sản phẩm</label>
                                         </div>
                                     </div>
                                 </form>
@@ -432,7 +454,7 @@
                                     <td><img src="{{this.img}}" alt="" style="width: 10em"></td>
                                     <td>{{this.name}}</td>
                                     <td>{{this.type}}</td>
-                                    <td class="currFormat">{{this.price}} đ</td>
+                                    <td class="currFormat">{{this.originPrice}} đ</td>
                                     <td class="currFormat">{{this.price}} đ</td>
                                     <td>
                                         <button type="button" style="margin: 1em 1em;" class="btn btn-danger"

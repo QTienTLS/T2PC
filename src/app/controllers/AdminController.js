@@ -16,17 +16,39 @@ const diskStorageforEvent = multer.diskStorage({
         callback(null, path.join(`${__dirname}../../../public/img/banner`));
     },
     filename: (req, file, callback) => {
-        // Mình ví dụ chỉ cho phép tải lên các loại ảnh png & jpg
+        // chỉ cho phép tải lên các loại ảnh png & jpg
         let math = ['image/png', 'image/jpeg'];
         if (math.indexOf(file.mimetype) === -1) {
             let errorMess = `The file <strong>${file.originalname}</strong> is invalid. Only allowed to upload image jpeg or png.`;
             return callback(errorMess, null);
         }
-        // Tên của file thì mình nối thêm một cái nhãn thời gian để đảm bảo không bị trùng.
+        // Tên của file nối thêm một cái nhãn thời gian để đảm bảo không bị trùng.
         let filename = `${Date.now()}-T2PC-${file.originalname}`;
         callback(null, filename);
     },
 });
+// lưu trữ ảnh sản phẩm
+const diskStorageforProduct = multer.diskStorage({
+    destination: (req, file, callback) => {
+        // Định nghĩa nơi file upload sẽ được lưu lại
+        if(file.fieldname == 'inputProImg')
+        callback(null, path.join(`${__dirname}../../../public/img/products`));
+        else if(file.fieldname == 'inputDesImg')
+        callback(null, path.join(`${__dirname}../../../public/img/description`));
+    },
+    filename: (req, file, callback) => {
+        // chỉ cho phép tải lên các loại ảnh png & jpg
+        let math = ['image/png', 'image/jpeg'];
+        if (math.indexOf(file.mimetype) === -1) {
+            let errorMess = `The file <strong>${file.originalname}</strong> is invalid. Only allowed to upload image jpeg or png.`;
+            return callback(errorMess, null);
+        }
+        // Tên của file nối thêm một cái nhãn thời gian để đảm bảo không bị trùng.
+        let filename = `${Date.now()}-T2PC-${file.originalname}`;
+        callback(null, filename);
+    },
+});
+
 var check;
 
 class AdminController {
@@ -132,6 +154,43 @@ class AdminController {
             var products = mutipleMongooseToObject(pro);
             res.render('admin-dashboard/product', {products,check});
         })
+    }
+
+    addProduct(req,res,next){
+        var addPro = multer({ storage: diskStorageforProduct })
+        .fields([{ name: 'inputProImg' }, { name: 'inputDesImg' }]);
+
+        addPro(req, res, function(error){
+               if (error) {
+                   return res.send(`Error when trying to upload: ${error}`);
+           }
+           var newPro = {
+           img : '\\img\\products\\' + req.files['inputProImg'][0].filename,
+           desImg :  '\\img\\description\\' + req.files['inputDesImg'][0].filename,
+           price : parseInt(req.body.inputPrice),
+           originPrice: parseInt(req.body.inputOriginPrice),
+           stored:  parseInt(req.body.inputStored),
+           description: req.body.inputDescription,
+            brand: req.body.brand,
+            type: req.body.type,
+            name: req.body.inputProName,
+            spec: req.body.inputSpec.split('-'),
+
+        };
+        newPro.spec.splice(0, 1);
+        for(let i=0; i<newPro.spec.length;i++)
+        {
+            newPro.spec[i] = newPro.spec[i].trim();
+        }
+        newPro.discount =Math.round( ((newPro.originPrice - newPro.price)/newPro.originPrice)*100 ) ;
+        const pro = new Product(newPro);
+        pro.save();
+        req.session.curentAdd = {
+            type: req.body.type,
+            brand: req.body.brand,
+        };
+        res.redirect('back');
+      });
     }
 }
 

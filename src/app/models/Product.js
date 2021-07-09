@@ -5,7 +5,7 @@ const Product = new Schema({
     name: { type: String, maxLength: 255, unique:true },
     img: { type: String, maxLength: 255 },
     type: { type: String, maxLength: 255 },
-    brand: { type: String, maxLength: 6 },
+    brand: { type: String, maxLength: 255 },
     price: { type: Number },
     originPrice: {type: Number},
     discount: {type: Number},
@@ -13,6 +13,7 @@ const Product = new Schema({
     description: {type: String},
     desImg: {type: String},
     spec: [],
+    stored: {type: Number},
 },{ timestamps: true},);
 
 module.exports = mongoose.model('Product', Product);
