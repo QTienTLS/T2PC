@@ -174,14 +174,16 @@ class AdminController {
             brand: req.body.brand,
             type: req.body.type,
             name: req.body.inputProName,
-            spec: req.body.inputSpec.split('-'),
+            spec: req.body.inputSpec.replace(/(\r\n|\n|\r)/gm,",").split(/,+/),
 
         };
-        newPro.spec.splice(0, 1);
-        for(let i=0; i<newPro.spec.length;i++)
-        {
-            newPro.spec[i] = newPro.spec[i].trim();
-        }
+        //res.json(newPro.spec);
+        //newPro.spec.splice(0, 1);
+        // for(let i=0; i<newPro.spec.length;i++)
+        // {   
+        //     newPro.spec[i] = newPro.spec[i].trim();
+        // }
+        
         newPro.discount =Math.round( ((newPro.originPrice - newPro.price)/newPro.originPrice)*100 ) ;
         const pro = new Product(newPro);
         pro.save();
