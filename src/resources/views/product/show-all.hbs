@@ -265,14 +265,15 @@
                     <i class="far fa-star"></i>
                   </div>
                   <div class="views">
-                    <p><i class="fas fa-eye"></i></p>
-                    <p class="tatal-views">500.000 View</p>
+                    <p class="tatal-views">{{this.views}} <i class="fas fa-eye"></i></p>
                   </div>
                   {{!-- <div class="evaluate">0 đánh giá</div> --}}
                 </div>
                 <div class="mn-product">
                   <p id="money-product" class="card-text currFormat">{{this.price}} đ</p>
-                  <p class="price currFormat">{{this.price}} đ</p>
+                  {{#if this.discount}}
+                  <p class="price currFormat">{{this.originPrice}} đ</p>
+                  {{/if}}
                 </div>
               </div>
             </div>

@@ -51,7 +51,12 @@ class ProductController {
     showDetail(req, res, next) {
         Product.findOne({ _id: req.params.id }, function (err, pro) {
             if (err) console.log(err);
-            res.render('product/detail', { pro: mongooseToObject(pro) });
+            pro =  mongooseToObject(pro);
+            pro.views++;
+            // res.render('product/detail', { pro: mongooseToObject(pro) });
+            Product.updateOne({ _id: req.params.id }, pro)
+            .then(() => res.render('product/detail',{pro}))
+            .catch(next);
         });
     }
     updateCart(req, res) {
