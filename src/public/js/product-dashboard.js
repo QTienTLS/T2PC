@@ -5,6 +5,8 @@ modalAddPro.addEventListener('show.bs.modal', function (event) {
     var btnsubmit = document.getElementById('btnSubmit');
     var formAdd = document.forms['form-add-product'];
     btnsubmit.onclick = function () {
+        if(!document.getElementById('inputDesImg').value)
+        formAdd.action = "/admin/addsproduct";
         formAdd.submit();
     }
     //tự chọn value cho loại sp và hãng đang chọn

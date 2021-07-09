@@ -8,6 +8,7 @@ router.post('/event/add-event', adminController.addEvent);
 router.delete('/event/:id', adminController.delEvent);
 router.put('/event/:id', adminController.updateEvent);
 router.get('/product', adminController.showProduct);
-router.post('/addproduct', adminController.addProduct);
+router.post('/addproduct', adminController.addFullProduct);
+router.post('/addsproduct', adminController.addSemiProduct);
 
 module.exports = router;
