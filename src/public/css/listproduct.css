@@ -193,14 +193,10 @@
               margin-bottom: 0; }
             .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews .views .tatal-views {
               position: absolute;
-              display: none;
-              color: #f9495f;
               width: 110px;
               top: 0;
-              right: 15px;
+              right: -50px;
               font-family: ChakraPetch-SemiBold; }
-          .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews .views:hover .tatal-views {
-            display: block; }
         .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product {
           display: flex;
           padding: 0.2em 0.5em; }
