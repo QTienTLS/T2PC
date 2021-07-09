@@ -4,28 +4,28 @@
     padding-top: 2em;
     font-family: ChakraPetch-Regular;
     .a {
-        .filter{
+        .filter {
             // background-color: #f0f3fc;
             padding-top: 1em;
-            h5{
+            h5 {
                 font-family: ChakraPetch-SemiBold;
                 color: $main-color;
                 padding-bottom: 0.5em;
             }
-            .filter-manufacturer{   
+            .filter-manufacturer {
                 background-color: #f0f3fc;
                 padding-left: 0em;
                 padding-right: 0em;
-                .manufacturer{
+                .manufacturer {
                     font-size: 1.2rem;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     cursor: pointer;
-                    padding:0.5em 1em 0.5em 1em;
+                    padding: 0.5em 1em 0.5em 1em;
                     font-family: ChakraPetch-SemiBold;
                     .fa-angle-right {
-                    float: right;
+                        float: right;
                     }
                 }
                 .main__mft {
@@ -69,18 +69,18 @@
                             position: absolute;
                             display: none;
                         }
-                        p{
+                        p {
                             font-family: ChakraPetch-Medium;
                         }
                     }
                     .manufacturer-main input:checked ~ .checkmark {
                         background-color: #2196f3;
                     }
-    
+
                     .manufacturer-main input:checked ~ .checkmark:after {
                         display: block;
                     }
-    
+
                     .manufacturer-main .checkmark:after {
                         left: 8px;
                         top: 4px;
@@ -95,16 +95,16 @@
                 }
             }
 
-            .sort-by-money{
+            .sort-by-money {
                 margin-top: 1em;
                 padding-bottom: 0.01em;
                 margin-bottom: 1em;
-                .sort__by-mn{
+                .sort__by-mn {
                     display: none;
                     padding-left: 1em;
                     padding-right: 1em;
                     // display: flex;
-                    div{
+                    div {
                         text-align: center;
                         background-color: white;
                         padding: 0.5em 0;
@@ -113,21 +113,21 @@
                         color: $main-color;
                     }
 
-                    div :last-child{
+                    div :last-child {
                         margin-bottom: 0;
                     }
-                    div :hover{
+                    div :hover {
                         background-color: $main-color;
                         color: white;
                     }
                 }
             }
 
-            .sort-by-intel{
+            .sort-by-intel {
                 margin-top: 1em;
                 margin-bottom: 1em;
             }
-            .sort-by-amd{
+            .sort-by-amd {
                 margin-top: 1em;
                 margin-bottom: 1em;
             }
@@ -252,15 +252,15 @@
                                     //     color: #99a0ad;
                                     //     font-family: ChakraPetch-SemiBold;
                                     // }
-                                    .views{
+                                    .views {
                                         position: relative;
                                         margin-right: 0.5em;
                                         cursor: pointer;
                                         // color: $text-color;
-                                        p{
+                                        p {
                                             margin-bottom: 0;
                                         }
-                                        .tatal-views{
+                                        .tatal-views {
                                             position: absolute;
                                             //display: none;
                                             //color: $pink-color;
@@ -270,8 +270,6 @@
                                             font-family: ChakraPetch-SemiBold;
                                         }
                                     }
-                 
-
                                 }
                                 .mn-product {
                                     // overflow: hidden;

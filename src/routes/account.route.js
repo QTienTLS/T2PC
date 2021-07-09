@@ -10,6 +10,6 @@ router.get('/log-out', accountController.logout);
 router.get('/detail', accountController.detail);
 router.put('/:id/change-avt', accountController.changeAvt);
 router.put('/:id/update', accountController.updateAcc);
-router.get('/checkout',accountController.checkout);
+router.get('/checkout', accountController.checkout);
 
 module.exports = router;

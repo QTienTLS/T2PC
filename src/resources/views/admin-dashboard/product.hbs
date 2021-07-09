@@ -68,12 +68,12 @@
                     <li class="breadcrumb-item active">Product</li>
                 </ol>
                 <button type="button" class="btn btn-success btn-themmoi" data-bs-toggle="modal"
-                    data-bs-target="#modalAddProduct">Thêm
+                    data-bs-target="#modalAddProduct" data-bs-action='add'>Thêm
                     mới</button>
                 {{!-- Form thêm mới sản phẩm --}}
                 <div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog  modal-xl">
+                    <div class="modal-dialog modal-xl ">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm mới nào bạn ơiiii</h5>
@@ -410,7 +410,7 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thôi chả thêm
+                                <button type="button" id="btnCancel" class="btn btn-secondary" data-bs-dismiss="modal">Thôi chả thêm
                                     nữa</button>
                                 <button type="button" id="btnSubmit" class="btn btn-success">Thêm thì thêm</button>
                             </div>
@@ -459,11 +459,15 @@
                                     <td>
                                         <button type="button" style="margin: 1em 1em;" class="btn btn-danger"
                                             data-bs-toggle="modal" data-bs-target="#modalXoa"
-                                            data-bs-eventID='{{this._id}}'>Xóa</button>
+                                            data-bs-proID='{{this._id}}'>Xóa</button>
                                         <button type="button" style="margin: 1em 1em;" class="btn btn-warning"
-                                            data-bs-toggle="modal" data-bs-target="#modalCapNhat"
-                                            data-bs-eventID='{{this._id}}' data-bs-eventName='{{this.name}}'
-                                            data-bs-eventLink={{this.link}} data-bs-eventImg={{this.img}}>Sửa</button>
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#modalAddProduct" data-bs-action='update'
+                                            data-bs-proID='{{this._id}}' data-bs-proName='{{this.name}}'
+                                            data-bs-proType='{{this.type}}' data-bs-proBrand='{{this.brand}}'
+                                            data-bs-proPrice='{{this.price}}' data-bs-proOriginPrice='{{this.originPrice}}'
+                                            data-bs-proSpec='{{this.spec}}' data-bs-proDes='{{this.description}}'
+                                            data-bs-proStored='{{this.stored}}' >Sửa</button>
                                     </td>
                                 </tr>
                                 {{/each}}
@@ -482,11 +486,11 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Bạn chắc chắn muốn xóa sự kiện này ? Sự kiện sẽ bị xóa vĩnh viễn
+                            Bạn chắc chắn muốn xóa sản phẩm này ? Sản phẩm sẽ bị xóa vĩnh viễn
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="button" id="btn-delete-event" class="btn btn-danger">Chắc chắn! Xóa</button>
+                            <button type="button" id="btn-delete-product" class="btn btn-danger">Chắc chắn! Xóa</button>
                         </div>
                     </div>
                 </div>

@@ -116,31 +116,49 @@ modalCart.addEventListener('hidden.bs.modal', function (event) {
     var mainList = document.getElementById('main-list');
     var root = document.getElementsByClassName('root-node')[0];
     var updatedCart = {
-        product:[],
+        product: [],
         amount: [],
         price: [],
         img: [],
-        totalPrice:0,
-        numPro:0,
-        numRow:0,
-    }
-    for(let i=0;i<mainList.childNodes.length;i++){
-        if(mainList.childNodes[i] && mainList.childNodes[i].style.display!='none' )
-        {
-            updatedCart.product.push(mainList.childNodes[i].childNodes[3].childNodes[1].innerHTML);
-            updatedCart.amount.push(parseInt(mainList.childNodes[i].childNodes[5].childNodes[3].value));
-            updatedCart.price.push(parseInt(mainList.childNodes[i].childNodes[3].childNodes[5].innerHTML));
-            updatedCart.img.push(mainList.childNodes[i].childNodes[1].childNodes[0].getAttribute('src'));
-            updatedCart.totalPrice += updatedCart.amount[i]* updatedCart.price[i];
-            updatedCart.numRow ++;
+        totalPrice: 0,
+        numPro: 0,
+        numRow: 0,
+    };
+    for (let i = 0; i < mainList.childNodes.length; i++) {
+        if (
+            mainList.childNodes[i] &&
+            mainList.childNodes[i].style.display != 'none'
+        ) {
+            updatedCart.product.push(
+                mainList.childNodes[i].childNodes[3].childNodes[1].innerHTML,
+            );
+            updatedCart.amount.push(
+                parseInt(
+                    mainList.childNodes[i].childNodes[5].childNodes[3].value,
+                ),
+            );
+            updatedCart.price.push(
+                parseInt(
+                    mainList.childNodes[i].childNodes[3].childNodes[5]
+                        .innerHTML,
+                ),
+            );
+            updatedCart.img.push(
+                mainList.childNodes[i].childNodes[1].childNodes[0].getAttribute(
+                    'src',
+                ),
+            );
+            updatedCart.totalPrice +=
+                updatedCart.amount[i] * updatedCart.price[i];
+            updatedCart.numRow++;
         }
-        updatedCart.numPro = document.getElementsByClassName('gtx__1')[0].innerHTML;
+        updatedCart.numPro =
+            document.getElementsByClassName('gtx__1')[0].innerHTML;
     }
-    console.log(updatedCart.numPro,updatedCart.numRow);
+    console.log(updatedCart.numPro, updatedCart.numRow);
     //lấy form gửi lên sever
     var formCart = document.forms['new-cart'];
-    if(!formCart)
-        console.log('lỗi');
+    if (!formCart) console.log('lỗi');
     formCart.childNodes[1].value = updatedCart.product;
     formCart.childNodes[3].value = updatedCart.amount;
     formCart.childNodes[5].value = updatedCart.numRow;
@@ -148,21 +166,21 @@ modalCart.addEventListener('hidden.bs.modal', function (event) {
     formCart.childNodes[9].value = updatedCart.img;
     formCart.childNodes[11].value = updatedCart.price;
     formCart.childNodes[13].value = updatedCart.totalPrice;
-    formCart.submit(); 
+    formCart.submit();
     mainList.innerHTML = '';
-    var cloneRoot =  root.cloneNode(true);
-     mainList.appendChild( cloneRoot );
+    var cloneRoot = root.cloneNode(true);
+    mainList.appendChild(cloneRoot);
 });
 function remindLogin() {
     var x = confirm('Vui lòng đăng nhập để mua hàng ! ');
-    if (x)
-        window.location.href = '/account/login';
+    if (x) window.location.href = '/account/login';
 }
 function remindEmptyCart() {
     alert('Giỏ hàng của bạn hiện không có gì cả ! Hãy tiếp tục mua hàng !');
 }
 function checkout() {
-    document.forms['new-cart'].action = '/product/checkout/update-cart?_method=PUT';
+    document.forms['new-cart'].action =
+        '/product/checkout/update-cart?_method=PUT';
 
     $('#modalCart').modal('hide');
     //window.location.href = '/account/checkout';

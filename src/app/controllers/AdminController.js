@@ -31,10 +31,16 @@ const diskStorageforEvent = multer.diskStorage({
 const diskStorageforProduct = multer.diskStorage({
     destination: (req, file, callback) => {
         // Định nghĩa nơi file upload sẽ được lưu lại
-        if(file.fieldname == 'inputProImg')
-        callback(null, path.join(`${__dirname}../../../public/img/products`));
-        else if(file.fieldname == 'inputDesImg')
-        callback(null, path.join(`${__dirname}../../../public/img/description`));
+        if (file.fieldname == 'inputProImg')
+            callback(
+                null,
+                path.join(`${__dirname}../../../public/img/products`),
+            );
+        else if (file.fieldname == 'inputDesImg')
+            callback(
+                null,
+                path.join(`${__dirname}../../../public/img/description`),
+            );
     },
     filename: (req, file, callback) => {
         // chỉ cho phép tải lên các loại ảnh png & jpg
@@ -152,71 +158,170 @@ class AdminController {
                 opendashboard: true,
             };
             var products = mutipleMongooseToObject(pro);
-            res.render('admin-dashboard/product', {products,check});
-        })
+            res.render('admin-dashboard/product', { products, check });
+        });
     }
 
-    addFullProduct(req,res,next){
-        var addPro = multer({ storage: diskStorageforProduct })
-        .fields([{ name: 'inputProImg' }, { name: 'inputDesImg' }]);
+    addFullProduct(req, res, next) {
+        var addPro = multer({ storage: diskStorageforProduct }).fields([
+            { name: 'inputProImg' },
+            { name: 'inputDesImg' },
+        ]);
 
-        addPro(req, res, function(error){
-               if (error) {
-                   return res.send(`Error when trying to upload: ${error}`);
-           }
-           var newPro = {
-           img : '\\img\\products\\' + req.files['inputProImg'][0].filename,
-           desImg :  '\\img\\description\\' + req.files['inputDesImg'][0].filename,
-           price : parseInt(req.body.inputPrice),
-           originPrice: parseInt(req.body.inputOriginPrice),
-           stored:  parseInt(req.body.inputStored),
-           description: req.body.inputDescription,
-            brand: req.body.brand,
-            type: req.body.type,
-            name: req.body.inputProName,
-            spec: req.body.inputSpec.replace(/(\r\n|\n|\r)/gm,",").split(/,+/),
-
-        };
-        newPro.discount =Math.round( ((newPro.originPrice - newPro.price)/newPro.originPrice)*100 ) ;
-        const pro = new Product(newPro);
-        pro.save();
-        req.session.curentAdd = {
-            type: req.body.type,
-            brand: req.body.brand,
-        };
-        res.redirect('back');
-      });
+        addPro(req, res, function (error) {
+            if (error) {
+                return res.send(`Error when trying to upload: ${error}`);
+            }
+            var newPro = {
+                img: '\\img\\products\\' + req.files['inputProImg'][0].filename,
+                desImg:
+                    '\\img\\description\\' +
+                    req.files['inputDesImg'][0].filename,
+                price: parseInt(req.body.inputPrice),
+                originPrice: parseInt(req.body.inputOriginPrice),
+                stored: parseInt(req.body.inputStored),
+                description: req.body.inputDescription,
+                brand: req.body.brand,
+                type: req.body.type,
+                name: req.body.inputProName,
+                spec: req.body.inputSpec
+                    .replace(/(\r\n|\n|\r)/gm, ',')
+                    .split(/,+/),
+            };
+            newPro.discount = Math.round(
+                ((newPro.originPrice - newPro.price) / newPro.originPrice) *
+                    100,
+            );
+            const pro = new Product(newPro);
+            pro.save();
+            req.session.curentAdd = {
+                type: req.body.type,
+                brand: req.body.brand,
+            };
+            res.redirect('back');
+        });
     }
-    addSemiProduct(req,res,next){
-        var addPro = multer({ storage: diskStorageforProduct })
-        .single('inputProImg');
+    addSemiProduct(req, res, next) {
+        var addPro = multer({ storage: diskStorageforProduct }).single(
+            'inputProImg',
+        );
 
-        addPro(req, res, function(error){
-               if (error) {
-                   return res.send(`Error when trying to upload: ${error}`);
-           }
-           var newPro = {
-           img : '\\img\\products\\' + req.file.filename,
-           desImg :  '',
-           price : parseInt(req.body.inputPrice),
-           originPrice: parseInt(req.body.inputOriginPrice),
-           stored:  parseInt(req.body.inputStored),
-           description: req.body.inputDescription,
-            brand: req.body.brand,
-            type: req.body.type,
-            name: req.body.inputProName,
-            spec: req.body.inputSpec.replace(/(\r\n|\n|\r)/gm,",").split(/,+/),
+        addPro(req, res, function (error) {
+            if (error) {
+                return res.send(`Error when trying to upload: ${error}`);
+            }
+            var newPro = {
+                img: '\\img\\products\\' + req.file.filename,
+                desImg: '',
+                price: parseInt(req.body.inputPrice),
+                originPrice: parseInt(req.body.inputOriginPrice),
+                stored: parseInt(req.body.inputStored),
+                description: req.body.inputDescription,
+                brand: req.body.brand,
+                type: req.body.type,
+                name: req.body.inputProName,
+                spec: req.body.inputSpec
+                    .replace(/(\r\n|\n|\r)/gm, ',')
+                    .split(/,+/),
+            };
+            newPro.discount = Math.round(
+                ((newPro.originPrice - newPro.price) / newPro.originPrice) *
+                    100,
+            );
+            const pro = new Product(newPro);
+            pro.save();
+            req.session.curentAdd = {
+                type: req.body.type,
+                brand: req.body.brand,
+            };
+            res.redirect('back');
+        });
+    }
+    delPro(req, res, next) {
+        Product.findOneAndDelete({ _id: req.params.id }, function (err, p) {
+            if (err) console.log(err);
+            var fs = require('fs');
+            fs.unlink(
+                path.join(`${__dirname}..\\..\\..\\public` + p.img),
+                function (err) {
+                    if (err) throw err;
+                },
+            );
+            if (p.desImg)
+                fs.unlink(
+                    path.join(`${__dirname}..\\..\\..\\public` + p.desImg),
+                    function (err) {
+                        if (err) throw err;
+                    },
+                );
+            res.redirect('back');
+        });
+    }
+    updatePro(req,res,next)
+    {
+        var fs = require('fs');
+        var addPro;
+        switch( req.params.op){
+            case '1':
+                addPro = multer().none();
+                break;
+            case '2':
+                addPro = multer({ storage: diskStorageforProduct }).single('inputProImg',);
+                break;
+            case '3':
+                addPro = multer({ storage: diskStorageforProduct }).single('inputDesImg',);
+                break;
+            case '4': 
+                addPro = multer({ storage: diskStorageforProduct }).fields([
+                    { name: 'inputProImg' },
+                    { name: 'inputDesImg' },
+                ]);
+                break;
+        };
+        addPro(req, res, function (error) {
+            if (error) {
+                return res.send(`Error when trying to upload: ${error}`);
+            }
+            var newPro = {
+                price: parseInt(req.body.inputPrice),
+                originPrice: parseInt(req.body.inputOriginPrice),
+                stored: parseInt(req.body.inputStored),
+                description: req.body.inputDescription,
+                brand: req.body.brand,
+                type: req.body.type,
+                name: req.body.inputProName,
+                spec: req.body.inputSpec
+                    .replace(/(\r\n|\n|\r)/gm, ',')
+                    .split(/,+/),
+            };
+            if(req.params.op ==  '2')
+            {
+                newPro.img =  '\\img\\products\\' + req.file.filename;
+            }
+            else if(req.params.op ==  '3')
+                newPro.desImg =  '\\img\\description\\' + req.file.filename;
+            else if(req.params.op ==  '4')
+            {
+                newPro.img = '\\img\\products\\' + req.files['inputProImg'][0].filename;
+                newPro.desImg =
+                    '\\img\\description\\' +
+                    req.files['inputDesImg'][0].filename;
+            }
+            newPro.discount = Math.round(
+                ((newPro.originPrice - newPro.price) / newPro.originPrice) *
+                    100,
+            );
+            Product.updateOne({_id: req.params.id}, newPro)
+                .then(() => {
+                    req.session.curentAdd = {
+                        type: req.body.type,
+                        brand: req.body.brand,
+                    };
+                    res.redirect('back');
+                })
+                .catch(next);
+        });
 
-        };
-        newPro.discount =Math.round( ((newPro.originPrice - newPro.price)/newPro.originPrice)*100 ) ;
-        const pro = new Product(newPro);
-        pro.save();
-        req.session.curentAdd = {
-            type: req.body.type,
-            brand: req.body.brand,
-        };
-        res.redirect('back');
-      });
     }
 }
 

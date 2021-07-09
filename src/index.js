@@ -45,10 +45,11 @@ app.engine(
             neq: (a, b) => a != b,
             eq: (a, b) => a == b,
             get_length: (a) => a.length,
-            times: (n,block) => { var accum = '';
-            for(var i = 0; i < n; ++i)
-                accum += block.fn(i);
-            return accum;}
+            times: (n, block) => {
+                var accum = '';
+                for (var i = 0; i < n; ++i) accum += block.fn(i);
+                return accum;
+            },
         },
     }),
 );
