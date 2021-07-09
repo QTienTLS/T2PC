@@ -196,7 +196,7 @@ class AdminController {
                    return res.send(`Error when trying to upload: ${error}`);
            }
            var newPro = {
-           img : '\\img\\products\\' + req.files['inputProImg'][0].filename,
+           img : '\\img\\products\\' + req.file.filename,
            desImg :  '',
            price : parseInt(req.body.inputPrice),
            originPrice: parseInt(req.body.inputOriginPrice),
