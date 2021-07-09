@@ -179,7 +179,7 @@
                     .product__in-list {
                         width: 100%;
                         .card {
-                            // overflow: hidden;
+                            overflow: hidden;
                             // width: 263px;
                             // background-color: yellowgreen;
                             text-decoration: none;
@@ -223,6 +223,7 @@
                                 opacity: 1;
                             }
                             .body__card {
+                                // overflow: hidden;
                                 h5 {
                                     height: 3em;
                                     padding: 0.5em 0.5em 0 0.5em;
@@ -273,6 +274,7 @@
 
                                 }
                                 .mn-product {
+                                    // overflow: hidden;
                                     display: flex;
                                     padding: 0.2em 0.5em;
                                     // vertical-align: text-bottom;
@@ -292,6 +294,21 @@
                                         // text-align: center;
                                         text-decoration: line-through;
                                         vertical-align: text-bottom;
+                                    }
+                                    .discount {
+                                        display: flex;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background: #f9495f;
+                                        color: #fff;
+                                        width: 65px;
+                                        height: 32px;
+                                        transform: skew(-12deg);
+                                        align-items: center;
+                                        justify-content: center;
+                                        // overflow: hidden;
+                                        margin-left: -5px;
                                     }
                                 }
                             }

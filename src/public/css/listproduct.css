@@ -134,6 +134,7 @@
       .main__show-all .a .all-product .list-product .list__all-product .product__in-list {
         width: 100%; }
         .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card {
+          overflow: hidden;
           text-decoration: none; }
           .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product {
             overflow: hidden;
@@ -196,14 +197,10 @@
                 margin-bottom: 0; }
               .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews .views .tatal-views {
                 position: absolute;
-                display: none;
-                color: #f9495f;
                 width: 110px;
                 top: 0;
-                right: 15px;
+                right: -50px;
                 font-family: ChakraPetch-SemiBold; }
-            .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .product-reviews .views:hover .tatal-views {
-              display: block; }
           .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product {
             display: flex;
             padding: 0.2em 0.5em; }
@@ -220,3 +217,16 @@
               font-size: 0.8em;
               text-decoration: line-through;
               vertical-align: text-bottom; }
+            .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .body__card .mn-product .discount {
+              display: flex;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background: #f9495f;
+              color: #fff;
+              width: 65px;
+              height: 32px;
+              transform: skew(-12deg);
+              align-items: center;
+              justify-content: center;
+              margin-left: -5px; }
