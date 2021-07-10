@@ -233,8 +233,9 @@ body {
       flex-direction: column;
       justify-content: space-between; }
       #modalCart .modal-dialog .modal-content .modal-body .pro-node .name-price .title__product-in-cart {
+        margin-bottom: 0;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
         font-family: ChakraPetch-Regular;
@@ -243,6 +244,8 @@ body {
         margin-bottom: 0;
         font-family: ChakraPetch-Bold;
         color: #f9495f; }
+      #modalCart .modal-dialog .modal-content .modal-body .pro-node .name-price .gross {
+        margin-bottom: 0; }
     #modalCart .modal-dialog .modal-content .modal-body .pro-node .buttons_added {
       opacity: 1;
       display: inline-block;
