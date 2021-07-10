@@ -291,8 +291,8 @@ class AdminController {
                 type: req.body.type,
                 name: req.body.inputProName,
                 spec: req.body.inputSpec
-                    .replace(/(\r\n|\n|\r)/gm, ',')
-                    .split(/,+/),
+                .replace(/(\r\n|\n|\r)/gm, '~')
+                .split(/~+/),
             };
             if(req.params.op ==  '2')
             {
