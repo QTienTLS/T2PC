@@ -15,11 +15,12 @@ class ProductController {
     addToCart(req, res, next) {
         Product.findOne({ _id: req.params.id }, function (err, pro) {
             if (err) res.send(err);
+            var n = parseInt(req.params.n);
             if (!req.session.Cart) {
                 req.session.Cart = {
                     product: [pro.name],
-                    amount: [1],
-                    numPro: 1,
+                    amount: [n],
+                    numPro: n,
                     numRow: 1,
                     price: [pro.price],
                     img: [pro.img],
@@ -30,7 +31,7 @@ class ProductController {
                 var isPush = true;
                 for (i = 0; i < req.session.Cart.product.length; i++) {
                     if (pro.name === req.session.Cart.product[i]) {
-                        req.session.Cart.amount[i]++;
+                        req.session.Cart.amount[i]+=n;
                         isPush = false;
                     }
                 }
@@ -38,10 +39,10 @@ class ProductController {
                     req.session.Cart.product.push(pro.name);
                     req.session.Cart.price.push(pro.price);
                     req.session.Cart.img.push(pro.img);
-                    req.session.Cart.amount.push(1);
+                    req.session.Cart.amount.push(n);
                     req.session.Cart.numRow++;
                 }
-                req.session.Cart.numPro++;
+                req.session.Cart.numPro+=n;
                 req.session.Cart.totalPrice += pro.price;
             }
 

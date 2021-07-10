@@ -80,14 +80,19 @@ for (let i = 0; i < currency.length; i++) {
         .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 //hàm thêm sản phẩm vào giỏ hàng
-function addToCart(productID) {
+function addToCart(productID,n) {
     // var btn = event.target;
     // var productID = btn.getAttribute('proid');
     // console.log(productID);
     var formShip = document.forms['shipper'];
-    formShip.action = '/product/' + productID + '/addtocart';
+    formShip.action = '/product/' + productID +'/'+n + '/addtocart';
     formShip.submit();
 }
+function detailToCart(id){
+    //alert('ad');
+    var n = document.getElementById('amount-d-cart').value;
+    addToCart(id,n);
+ }
 //hàm xem chi tiết sản phẩm
 function goToDetail(productID) {
     var formShip = document.forms['shipper'];
@@ -96,4 +101,4 @@ function goToDetail(productID) {
     formShip.submit();
 }
 
-// Button trái phải của các nhãn hàng
+
