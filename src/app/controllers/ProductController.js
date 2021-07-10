@@ -54,9 +54,14 @@ class ProductController {
             if (err) console.log(err);
             pro = mongooseToObject(pro);
             pro.views++;
+            var  n =  pro.spec.length;
+            var proSpec = pro.spec[0];
+            for(let i =1;i<n;i++)
+                proSpec = proSpec + '~' + pro.spec[i];
+            var x = {sp: proSpec,};
             // res.render('product/detail', { pro: mongooseToObject(pro) });
             Product.updateOne({ _id: req.params.id }, pro)
-                .then(() => res.render('product/detail', { pro }))
+                .then(() => res.render('product/detail', { pro,x }))
                 .catch(next);
         });
     }

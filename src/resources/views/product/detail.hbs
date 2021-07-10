@@ -41,11 +41,11 @@
                 <p class="currFormat">{{pro.price}} đ</p>
             </div>
             <div class="short-desc">
-                <p style="display: none;" id="rawSpec">{{pro.spec}}</p>
+                <p style="display: none;" id="rawSpec">{{x.sp}}</p>
             </div>
             <script>
                 //hiện thông số kĩ thuật
-                var spec = document.getElementById('rawSpec').innerHTML.split(',');
+                var spec = document.getElementById('rawSpec').innerHTML.split('~');
                 var x = document.getElementsByClassName("short-desc")[0];
                 for(let i = 0; i<spec.length;i++)
                 {
