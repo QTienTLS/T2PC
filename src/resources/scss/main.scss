@@ -22,6 +22,7 @@
                             width: 100%;
                             height: 7px;
                             background: $border-color;
+                            // background-image: repeating-linear-gradient(-45deg,$border-color,$border-color 33px,transparent 0,transparent 41px,$border-color 0,$border-color 74px,transparent 0,transparent 82px);
                         }
                         .triangle_down {
                             width: 0;
