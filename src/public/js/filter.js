@@ -96,5 +96,4 @@ function goToDetail(productID) {
     formShip.submit();
 }
 
-
 // Button trái phải của các nhãn hàng

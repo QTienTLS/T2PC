@@ -10,5 +10,7 @@ router.put('/event/:id', adminController.updateEvent);
 router.get('/product', adminController.showProduct);
 router.post('/addproduct', adminController.addFullProduct);
 router.post('/addsproduct', adminController.addSemiProduct);
+router.delete('/product/:id', adminController.delPro);
+router.put('/product/:op/:id',adminController.updatePro);
 
 module.exports = router;

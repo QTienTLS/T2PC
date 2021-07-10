@@ -146,8 +146,7 @@ class AccountController {
             })
             .catch(next);
     }
-    checkout(req,res,next)
-    {
+    checkout(req, res, next) {
         res.render('account/checkout');
     }
 }

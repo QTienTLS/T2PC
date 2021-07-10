@@ -51,28 +51,26 @@ class ProductController {
     showDetail(req, res, next) {
         Product.findOne({ _id: req.params.id }, function (err, pro) {
             if (err) console.log(err);
-            pro =  mongooseToObject(pro);
+            pro = mongooseToObject(pro);
             pro.views++;
             // res.render('product/detail', { pro: mongooseToObject(pro) });
             Product.updateOne({ _id: req.params.id }, pro)
-            .then(() => res.render('product/detail',{pro}))
-            .catch(next);
+                .then(() => res.render('product/detail', { pro }))
+                .catch(next);
         });
     }
     updateCart(req, res) {
         req.session.Cart = {
             product: req.body.product.split(','),
-            amount : req.body.amount.split(',').map((x) => +x),
+            amount: req.body.amount.split(',').map((x) => +x),
             numPro: parseInt(req.body.numPro),
             numRow: parseInt(req.body.numRow),
             price: req.body.price.split(',').map((x) => +x),
             img: req.body.img.split(','),
             totalPrice: parseInt(req.body.totalPrice),
-        }
-        if(req.params.route == 'back')
-            res.redirect('back');
-        else 
-            res.redirect('/account/checkout');
+        };
+        if (req.params.route == 'back') res.redirect('back');
+        else res.redirect('/account/checkout');
         //res.json(req.session.Cart );
     }
 }
