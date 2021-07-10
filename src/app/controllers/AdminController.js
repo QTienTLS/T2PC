@@ -185,8 +185,8 @@ class AdminController {
                 type: req.body.type,
                 name: req.body.inputProName,
                 spec: req.body.inputSpec
-                    .replace(/(\r\n|\n|\r)/gm, ',')
-                    .split(/,+/),
+                .replace(/(\r\n|\n|\r)/gm, '~')
+                .split(/~+/),
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
@@ -221,8 +221,8 @@ class AdminController {
                 type: req.body.type,
                 name: req.body.inputProName,
                 spec: req.body.inputSpec
-                    .replace(/(\r\n|\n|\r)/gm, ',')
-                    .split(/,+/),
+                    .replace(/(\r\n|\n|\r)/gm, '~')
+                    .split(/~+/),
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
