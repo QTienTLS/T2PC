@@ -8,7 +8,7 @@
       },
     "scripts": {
         "format": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss} ",
-        "start": "node src\\index.js",
+        "start": "node ./src/index.js",
         "test": "nodemon --inspect src/index.js",
         "convert": "node-sass --watch src/resources/scss --output src/public/css"
     },
