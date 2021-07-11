@@ -122,6 +122,7 @@ modalCart.addEventListener('show.bs.modal', function (event) {
                 sessionStorage.numPro = parseInt(sessionStorage.numPro) - cart.amount[index];
                 sessionStorage.totalPrice = parseInt(sessionStorage.totalPrice) - cart.amount[index] * cart.price[index];
                 cart.proName.splice(index, 1);
+                cart.id.splice(index,1);
                 cart.amount.splice(index, 1);
                 cart.img.splice(index, 1);
                 cart.price.splice(index, 1);
@@ -145,6 +146,7 @@ modalCart.addEventListener('show.bs.modal', function (event) {
                 sessionStorage.numPro = parseInt(sessionStorage.numPro) - cart.amount[index];
                 sessionStorage.totalPrice = parseInt(sessionStorage.totalPrice) - cart.amount[index] * cart.price[index];
                 cart.proName.splice(index, 1);
+                cart.id.splice(index,1);
                 cart.amount.splice(index, 1);
                 cart.img.splice(index, 1);
                 cart.price.splice(index, 1);
@@ -190,14 +192,25 @@ function remindEmptyCart() {
     alert('Giỏ hàng của bạn hiện không có gì cả ! Hãy tiếp tục mua hàng !');
 }
 function checkout() {
+    var numPro = parseInt(sessionStorage.numPro);
+    if(!numPro)
+    alert('Giỏ hàng của bạn hiện không có gì cả ! Hãy tiếp tục mua hàng !');
+    else{
     document.forms['new-cart'].action =
-        '/product/checkout/update-cart?_method=PUT';
-
-    $('#modalCart').modal('hide');
+        '/account/checkout';
+    var cart = JSON.parse(sessionStorage.getItem('Cart'));
+    $('#id-checkout').val(cart.id);
+    $('#amount-checkout').val(cart.amount);
+    $('#num-checkout').val(numPro);
+    $('#totalPrice-checkout').val(parseInt(sessionStorage.totalPrice));
+    document.forms['new-cart'].submit();
     //window.location.href = '/account/checkout';
+    }
 }
 function delCart() {
     sessionStorage.removeItem('Cart');
-    sessionStorage.removeItem('numPro');
-    sessionStorage.removeItem('totalPrice');
+    sessionStorage.numPro = 0;
+    sessionStorage.totalPrice = 0;
+    mainList.innerHTML = '';
+    refeshModal();
 }

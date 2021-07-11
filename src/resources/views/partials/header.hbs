@@ -105,12 +105,7 @@
                                             <button class="btn__modal-dem" onclick="remindLogin()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA
                                                 HÀNG</button>
                                             {{else}}
-                                            {{#unless session.Cart.numRow}}
-                                            <button class="btn__modal-dem" onclick="remindEmptyCart()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA
-                                                HÀNG</button>
-                                            {{else}}
                                             <button class="btn__modal-dem" onclick="checkout()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA HÀNG</button>
-                                            {{/unless}}
                                             {{/unless}}
                                             <button class="btn__modal-delete" onclick="delCart()"><i class="fad fa-trash-alt"></i> XOÁ GIỎ
                                                 HÀNG</button>
@@ -145,14 +140,11 @@
 
                             </div>
                         </div>
-                        <form action='/product/update-cart?_method=PUT_route=back' method="POST" name="new-cart" style="display: none;">
-                            <input type="text" name="product">
-                            <input type="text" name="amount">
-                            <input type="number" name="numRow">
-                            <input type="number" name="numPro">
-                            <input type="text" name='img'>
-                            <input type="text" name="price">
-                            <input type="number" name="totalPrice">
+                        <form method="POST" name="new-cart" style="display: none;">
+                            <input type="text" id="id-checkout" name="id">
+                            <input type="text" id="amount-checkout" name="amount">
+                            <input type="number" id="num-checkout" name="numPro">
+                            <input type="number" id="totalPrice-checkout" name="totalPrice">
                         </form>
                         <script src="/js/cart.js"></script>
                     </div>

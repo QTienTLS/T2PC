@@ -1,8 +1,10 @@
 const bcryt = require('bcrypt');
 const Account = require('../models/Account');
+const Product = require('../models/Product');
 const session = require('express-session');
 const path = require('path');
 const { mongooseToObject } = require('../../tools/mongoose');
+const {mutipleMongooseToObject} = require('../../tools/mongoose');
 const multer = require('multer');
 
 //khởi tạo biến cấu hình cho lưu trữ ảnh đại diện
@@ -147,7 +149,15 @@ class AccountController {
             .catch(next);
     }
     checkout(req, res, next) {
-        res.render('account/checkout');
+        var cart = req.body;
+        cart.id  = cart.id.split(',');
+        Product.find({_id: cart.id},function(err,pros){
+            pros = mutipleMongooseToObject(pros);
+            res.json(pros);
+        })
+        //console.log(cart.proName);
+       //res.json(cart.id);
+       // res.render('account/checkout');
     }
 }
 
