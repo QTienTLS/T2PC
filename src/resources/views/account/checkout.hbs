@@ -15,7 +15,7 @@
                     <div class="local__address"><i class="fas fa-map-marked-alt"></i> Địa chỉ nhận hàng</div>
                     <div class="name-customer style__customer">
                         <label class="col-3">Họ Và Tên người nhận: </label>
-                        <span id="nameCustomer" class="col-8">Trần Thị Đời</span>
+                        <span id="nameCustomer" class="col-8">{{acc.name}}</span>
                         <div class="col-1 btn__in-customer">
                             <button onclick="toInput($('#nameCustomer'));"><i class="fal fa-edit"></i></button>
                             {{!-- <button><i class="fas fa-check"></i></button> --}}
@@ -23,7 +23,7 @@
                     </div>
                     <div class="address-customer style__customer">
                         <label class="col-3">Số Điện Thoại người nhận: </label>
-                        <span id="phoneNumberCus" class="col-8">0123 456 789</span>
+                        <span id="phoneNumberCus" class="col-8">{{acc.phone}}</span>
                         <div class="col-1 btn__in-customer">
                             <button onclick="toInput($('#phoneNumberCus'));"><i class="fal fa-edit"></i></button>
                             {{!-- <button><i class="fas fa-check"></i></button> --}}
@@ -31,7 +31,7 @@
                     </div>
                     <div class="address-customer style__customer">
                         <label class="col-3" for="email">Email:</label>
-                        <span id="emailCustomer" class="col-8">ratgivanayno@gmail.com</span>
+                        <span id="emailCustomer" class="col-8">{{acc.email}}</span>
                         <div class="col-1 btn__in-customer">
                             <button onclick="toInput($('#emailCustomer'));" ><i class="fal fa-edit"></i></button>
                             {{!-- <button><i class="fas fa-check"></i></button> --}}
@@ -39,7 +39,7 @@
                     </div>
                     <div class="address-customer style__customer">
                         <label class="col-3">Địa chỉ nhận hàng: </label>
-                        <span id="addressCustomer" class="col-8">Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam Học viện Nông nghiệp Việt Nam</span>
+                        <span id="addressCustomer" class="col-8">{{acc.address}}</span>
                         <div class="col-1 btn__in-customer">
                             <button onclick="toInput($('#addressCustomer'));"><i class="fal fa-edit"></i></button>
                             {{!-- <button><i class="fas fa-check"></i></button> --}}
@@ -78,43 +78,37 @@
                     <h5>THÔNG TIN GIỎ HÀNG</h5>
                     <div class="amount__product">
                         <p>Số lượng sản phẩm</p>
-                        <p>{{session.Cart.numPro}}</p>
+                        <p>{{totalAmount}}</p>
                     </div>
                     <div class="price__buy-product">
                         <p>Tổng chi phí</p>
-                        <p class="currFormat">{{session.Cart.totalPrice}} đ</p>
+                        <p class="currFormat">{{totalPrice}} đ</p>
                     </div>
                     <p>Đã bao gồm VAT (Nếu có)</p>
                 </div>
-                {{!-- Form lấy dữ liệu --}}
-                <div class="form-hide" style="display: none;">
-                    <div id="list-img-checkout">{{session.Cart.img}}</div>
-                    <div id="list-name-checkout">{{session.Cart.product}}</div>
-                    <div id="list-amount-checkout">{{session.Cart.amount}}</div>
-                    <div id="list-price-checkout">{{session.Cart.price}}</div>
-                    {{!-- <div id="list-amount-checkout">{{session.Cart.amount}}</div> --}}
-                </div>
+      
+                
                 <!-- Danh sách sản phẩm -->
                 <div class="list-product-in-cart">
-                    {{#times session.Cart.numRow}}
+                    {{#each pros}}
                     <div class="pay__list-product">
                         <div class="col-2 img-prd-in-cart">
-                            <div class="mini-img-prd-in-cart"><img class="img-checkout" src="" alt=""></div>
+                            <div class="mini-img-prd-in-cart"><img class="img-checkout" src="{{this.img}}" alt=""></div>
                         </div>
                         <div class="col-4 name-product-in-cart">
                             <p class="product-in-cart-first">Tên sản phẩm</p>
-                            <p class="product-in-cart-last"></p>
+                            <p class="product-in-cart-last">{{this.name}}</p>
                         </div>
                         <div class="col-2 amount-product-in-cart">
                             <p>Số lượng</p>
-                            <p class="amount-product-checkout"></p>
+                            <p class="amount-product-checkout">{{this.amount}}</p>
                         </div>
                         <div class="col-4 into-money">
                             <p>Thành tiền</p>
-                            <p class="total-price-each-pro currFormat"></p>
+                            <p class="total-price-each-pro currFormat">{{mul this.amount this.price}}</p>
                         </div>
                     </div> 
-                    {{/times}}                                   
+                    {{/each}}                                   
                 </div>
             </div>
         </div>
@@ -126,21 +120,6 @@
         </div>
     </div>
 
-    <script>
-        var listImg = document.getElementById('list-img-checkout').innerHTML.split(',');
-        var listAmount =  document.getElementById('list-amount-checkout').innerHTML.split(',').map((x) => +x);
-        var listPrice =  document.getElementById('list-price-checkout').innerHTML.split(',').map((x) => +x);
-        var mainList = document.getElementsByClassName('list-product-in-cart')[0];
-        for(let i=1; i<= mainList.childNodes.length; i+=2)
-        {   
-            var index = (i-1)/2;
-            document.getElementsByClassName('img-checkout')[index].src = listImg[index];
-            document.getElementsByClassName('product-in-cart-last')[index].innerHTML = document.getElementById('list-name-checkout').innerHTML.split(',')[index];
-            document.getElementsByClassName('amount-product-checkout')[index].innerHTML = listAmount[index];
-             document.getElementsByClassName('total-price-each-pro')[index].innerHTML = listAmount[index] * listPrice[index] + ' đ';
-        }
-
-    </script>
     <script>
     function toInput(elem){
         var input = $("<input>", {

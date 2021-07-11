@@ -148,17 +148,30 @@ class AccountController {
             })
             .catch(next);
     }
-    checkout(req, res, next) {
+async checkout(req, res, next) {
         var cart = req.body;
         cart.id  = cart.id.split(',');
-        Product.find({_id: cart.id},function(err,pros){
-            pros = mutipleMongooseToObject(pros);
-            res.json(pros);
+        cart.amount = cart.amount.split(',');
+        var pros =[];
+        for(let i=0;i<cart.id.length;i++)
+        {
+            var pro = await Product.findById(cart.id[i]);
+            var nPro = {
+                name: pro.name,
+                img: pro.img,
+                price: pro.price,
+                id: pro.id,
+                amount: cart.amount[i],
+            }
+            pros.push(nPro);
+        }
+        var totalAmount = cart.numPro;
+        var totalPrice = cart.totalPrice;
+        Account.findById(req.session.User.id,function(err,acc){
+            acc = mongooseToObject(acc);
+            res.render('account/checkout',{pros,acc,totalAmount,totalPrice});
         })
-        //console.log(cart.proName);
-       //res.json(cart.id);
-       // res.render('account/checkout');
-    }
+        
 }
-
+}
 module.exports = new AccountController();
