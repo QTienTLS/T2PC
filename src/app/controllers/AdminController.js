@@ -185,8 +185,8 @@ class AdminController {
                 type: req.body.type,
                 name: req.body.inputProName,
                 spec: req.body.inputSpec
-                .replace(/(\r\n|\n|\r)/gm, '~')
-                .split(/~+/),
+                    .replace(/(\r\n|\n|\r)/gm, '~')
+                    .split(/~+/),
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
@@ -257,27 +257,30 @@ class AdminController {
             res.redirect('back');
         });
     }
-    updatePro(req,res,next)
-    {
+    updatePro(req, res, next) {
         var fs = require('fs');
         var addPro;
-        switch( req.params.op){
+        switch (req.params.op) {
             case '1':
                 addPro = multer().none();
                 break;
             case '2':
-                addPro = multer({ storage: diskStorageforProduct }).single('inputProImg',);
+                addPro = multer({ storage: diskStorageforProduct }).single(
+                    'inputProImg',
+                );
                 break;
             case '3':
-                addPro = multer({ storage: diskStorageforProduct }).single('inputDesImg',);
+                addPro = multer({ storage: diskStorageforProduct }).single(
+                    'inputDesImg',
+                );
                 break;
-            case '4': 
+            case '4':
                 addPro = multer({ storage: diskStorageforProduct }).fields([
                     { name: 'inputProImg' },
                     { name: 'inputDesImg' },
                 ]);
                 break;
-        };
+        }
         addPro(req, res, function (error) {
             if (error) {
                 return res.send(`Error when trying to upload: ${error}`);
@@ -291,18 +294,16 @@ class AdminController {
                 type: req.body.type,
                 name: req.body.inputProName,
                 spec: req.body.inputSpec
-                .replace(/(\r\n|\n|\r)/gm, '~')
-                .split(/~+/),
+                    .replace(/(\r\n|\n|\r)/gm, '~')
+                    .split(/~+/),
             };
-            if(req.params.op ==  '2')
-            {
-                newPro.img =  '\\img\\products\\' + req.file.filename;
-            }
-            else if(req.params.op ==  '3')
-                newPro.desImg =  '\\img\\description\\' + req.file.filename;
-            else if(req.params.op ==  '4')
-            {
-                newPro.img = '\\img\\products\\' + req.files['inputProImg'][0].filename;
+            if (req.params.op == '2') {
+                newPro.img = '\\img\\products\\' + req.file.filename;
+            } else if (req.params.op == '3')
+                newPro.desImg = '\\img\\description\\' + req.file.filename;
+            else if (req.params.op == '4') {
+                newPro.img =
+                    '\\img\\products\\' + req.files['inputProImg'][0].filename;
                 newPro.desImg =
                     '\\img\\description\\' +
                     req.files['inputDesImg'][0].filename;
@@ -311,7 +312,7 @@ class AdminController {
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
                     100,
             );
-            Product.updateOne({_id: req.params.id}, newPro)
+            Product.updateOne({ _id: req.params.id }, newPro)
                 .then(() => {
                     req.session.curentAdd = {
                         type: req.body.type,
@@ -321,7 +322,6 @@ class AdminController {
                 })
                 .catch(next);
         });
-
     }
 }
 

@@ -246,11 +246,16 @@
             <div class="card">
               {{!-- Image cua the --}}
               <div class="main__product">
+                {{#unless this.stored}}
+                <h3>Hết hàng</h3>
+                {{/unless}}
                 <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..." onclick="goToDetail('{{this._id}}')"></a></div>
                 <div class="btn__main-product">
                   <button title="Xem chi tiet" onclick="goToDetail('{{this._id}}')"><i class="fas fa-search"></i></button>
-                  <button type="button" title="Them vao gio hang"  onclick="addToCart('{{this._id}}',1)"  ><i class="fas fa-cart-plus"></i></button>
-                </div>
+                  {{#if this.stored}}
+                  <button type="button"  title="Them vao gio hang" data-img='{{this.img}}' onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)"  ><i class="fas fa-cart-plus"></i></button>
+                  {{/if}}
+            </div>
               </div>
 
               {{!-- Body cua the --}}
