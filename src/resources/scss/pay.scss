@@ -78,6 +78,9 @@ body {
                 .style__customer {
                     display: flex;
                     justify-content: space-between;
+                    label{
+                        font-family: ChakraPetch-Bold; 
+                    }
                     p {
                         font-family: ChakraPetch-SemiBold;
                     }
