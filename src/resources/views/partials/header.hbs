@@ -50,12 +50,8 @@
                 {{!-- Giỏ hàng --}}
                 <div class="cart">
                     <button class="cart-in dropbtn" data-bs-toggle="modal" data-bs-target='#modalCart'>
-                        <i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span>
-                        {{#unless session.Cart}}
-                        <p class="numProduct">0</p>
-                        {{else}}
-                        <p class="numProduct">{{session.Cart.numPro}}</p>
-                        {{/unless}}
+                        <i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span>                 
+                        <p class="numProduct"></p>         
                     </button>
                     {{!-- Modal hiện thông tin giỏ hàng --}}
                     <div class="modal fade" id="modalCart" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -70,26 +66,15 @@
                                 </div>
                                 <div class="modal-body row">
                                     <div class="col-7">
-                                        <div class="content-hide">
-                                            <div id="product-list">{{session.Cart.product}}</div>
-                                            <div id="amount-list">{{session.Cart.amount}}</div>
-                                            <div id="numPro-cart">{{session.Cart.numPro}}</div>
-                                            <div id="numRow-cart">{{session.Cart.numRow}}</div>
-                                            <div id="price-list">{{session.Cart.price}}</div>
-                                            <div id="image-list">{{session.Cart.img}}</div>
-                                        </div>
-                                        {{#unless session.Cart}}
-                                        <p>Giỏ hàng của bạn chưa có sản phẩm nào ! Hãy tiếp tục mua hàng !</p>
-                                        {{else}}
-                                        
+                                        <p id="nothing-in-cart-warning" style="display: none;">Giỏ hàng của bạn chưa có sản phẩm nào ! Hãy tiếp tục mua hàng !</p>
+
                                         <div id="main-list"> </div>
                                         <div class="pro-node root-node" id="pro-node" style="display: none;">
                                             <div class="col-2 pro-node-img"><img src="" srctext='' alt=""></div>
                                             <div class="name-price col-6">
                                                 <p class="title__product-in-cart"></p>
                                                 <p class="product__price-in-cart"></p>
-                                                <p style="display: none;"></p>
-                                                <p class="gross">Còn 20 sản phẩm</p>
+                                                <p class="gross"></p>
                                             </div>
                                             <div class="buttons_added col-2">
                                                 <input class="minus is-form" type="button" value="-">
@@ -100,7 +85,7 @@
                                             <button class="col-1"><i class="far fa-trash-alt"></i></button>
                                             {{!-- <button class="col-1">XOÁ</button> --}}
                                         </div>
-                                        {{/unless}}
+                                        
                                     </div>
                                     <div class="col-5 modal-body-right">
 
@@ -120,14 +105,9 @@
                                             <button class="btn__modal-dem" onclick="remindLogin()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA
                                                 HÀNG</button>
                                             {{else}}
-                                            {{#unless session.Cart.numRow}}
-                                            <button class="btn__modal-dem" onclick="remindEmptyCart()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA
-                                                HÀNG</button>
-                                            {{else}}
                                             <button class="btn__modal-dem" onclick="checkout()"><i class="fad fa-money-check-alt"></i> TIẾN HÀNH MUA HÀNG</button>
                                             {{/unless}}
-                                            {{/unless}}
-                                            <button class="btn__modal-delete" onclick="window.location.href='/delete-cart'"><i class="fad fa-trash-alt"></i> XOÁ GIỎ
+                                            <button class="btn__modal-delete" onclick="delCart()"><i class="fad fa-trash-alt"></i> XOÁ GIỎ
                                                 HÀNG</button>
                                             <button class="btn__modal-view" data-bs-dismiss="modal"><i
                                                     class="fad fa-store"></i> XEM SẢN PHẨM KHÁC</button>
@@ -160,14 +140,11 @@
 
                             </div>
                         </div>
-                        <form action='/product/update-cart?_method=PUT_route=back' method="POST" name="new-cart" style="display: none;">
-                            <input type="text" name="product">
-                            <input type="text" name="amount">
-                            <input type="number" name="numRow">
-                            <input type="number" name="numPro">
-                            <input type="text" name='img'>
-                            <input type="text" name="price">
-                            <input type="number" name="totalPrice">
+                        <form method="POST" name="new-cart" style="display: none;">
+                            <input type="text" id="id-checkout" name="id">
+                            <input type="text" id="amount-checkout" name="amount">
+                            <input type="number" id="num-checkout" name="numPro">
+                            <input type="number" id="totalPrice-checkout" name="totalPrice">
                         </form>
                         <script src="/js/cart.js"></script>
                     </div>
