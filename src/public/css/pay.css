@@ -1,6 +1,6 @@
 @font-face {
   font-family: ChakraPetch-Bold;
-  src: url(\\font\\ChakraPetch-Bold.ttf); }
+  src: url(../../public/font/ChakraPetch-Bold.ttf); }
 
 @font-face {
   font-family: ChakraPetch-Medium;
@@ -54,7 +54,7 @@ body {
           display: flex;
           justify-content: space-between; }
           .pay__container .pay-address .pay__address .pay__address-main .style__customer label {
-            font-family: ChakraPetch-Bold; }
+            font-family: ChakraPetch-SemiBold; }
           .pay__container .pay-address .pay__address .pay__address-main .style__customer p {
             font-family: ChakraPetch-SemiBold; }
           .pay__container .pay-address .pay__address .pay__address-main .style__customer .btn__in-customer {
@@ -238,3 +238,25 @@ body {
     .pay__container .pay__footer .snip1582.hover:after {
       height: 100%;
       width: 100%; }
+
+.container-order__notice {
+  padding: 1.2em 0 0em 0; }
+  .container-order__notice .order__notice-img {
+    text-align: center;
+    font-size: 10rem;
+    color: #49b14d; }
+  .container-order__notice .notification__order {
+    text-align: center; }
+    .container-order__notice .notification__order h2 {
+      font-family: ChakraPetch-Bold;
+      color: #49b14d;
+      padding: 0.5em 0; }
+    .container-order__notice .notification__order p {
+      font-family: ChakraPetch-Bold; }
+  .container-order__notice .way__back__home {
+    display: flex;
+    justify-content: center;
+    font-family: ChakraPetch-Bold;
+    font-size: 1.2rem; }
+    .container-order__notice .way__back__home a {
+      text-decoration: none; }
