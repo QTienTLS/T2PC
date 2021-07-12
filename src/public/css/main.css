@@ -58,7 +58,8 @@
         color: white; }
         .main-home .main__home .container-product .ls-product .ls-product-main a .detail-lspm .tilte-lspm {
           position: relative;
-          z-index: 1; }
+          z-index: 1;
+          font-family: ChakraPetch-SemiBold; }
         .main-home .main__home .container-product .ls-product .ls-product-main a .detail-lspm img {
           position: absolute;
           top: 10%;
