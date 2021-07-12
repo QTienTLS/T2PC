@@ -327,3 +327,33 @@ body {
         }
     }
 }
+
+.container-order__notice{
+    padding: 0 0 1.5em 0;
+    font-family: ChakraPetch-Bold;
+    .order__notice-img{
+        text-align: center;
+        font-size: 10rem;
+        color: $main-color;
+    }
+    .notification__order{
+        text-align: center;
+        h2{
+            font-family: ChakraPetch-Bold;
+            color: $main-color;
+            padding-bottom: 0.5em;
+        }
+        .tks{
+            margin-bottom: 0em;
+        }
+        // p{
+        //     font-family: ChakraPetch-Bold;
+        // }
+    }
+    .way__back__home{
+        text-align: center;
+        a{
+            text-decoration: none;
+        }
+    }
+}

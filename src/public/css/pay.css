@@ -238,3 +238,23 @@ body {
     .pay__container .pay__footer .snip1582.hover:after {
       height: 100%;
       width: 100%; }
+
+.container-order__notice {
+  padding: 0 0 1.5em 0;
+  font-family: ChakraPetch-Bold; }
+  .container-order__notice .order__notice-img {
+    text-align: center;
+    font-size: 10rem;
+    color: #49b14d; }
+  .container-order__notice .notification__order {
+    text-align: center; }
+    .container-order__notice .notification__order h2 {
+      font-family: ChakraPetch-Bold;
+      color: #49b14d;
+      padding-bottom: 0.5em; }
+    .container-order__notice .notification__order .tks {
+      margin-bottom: 0em; }
+  .container-order__notice .way__back__home {
+    text-align: center; }
+    .container-order__notice .way__back__home a {
+      text-decoration: none; }

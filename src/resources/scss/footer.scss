@@ -1,11 +1,9 @@
 #footer-id {
     position: relative;
-    // bottom: -10em;
+    font-family: ChakraPetch-Regular;
     width: 100%;
-    // max-width: 1920px;
     margin: 0 auto;
     background-color: #333;
-    // margin-top: 3em;
     .footer-main {
         width: 85%;
         max-width: 1728px;
@@ -27,10 +25,6 @@
             }
             .address {
                 padding-top: 10px;
-                p {
-                    font-family: Roboto;
-                    font-size: 14px;
-                }
             }
             .footer-social {
                 a {
@@ -60,12 +54,13 @@
                     }
                 }
                 h6 {
-                    font-size: 18px;
+                    font-family: ChakraPetch-SemiBold;
+                    // font-size: 18px;
                 }
-                a {
-                    font-size: 15px;
-                    font-weight: normal;
-                }
+                // a {
+                //     font-size: 14px;
+                //     font-weight: normal;
+                // }
             }
         }
     }

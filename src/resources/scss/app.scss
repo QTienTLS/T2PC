@@ -29,6 +29,7 @@ footer {
                 display: flex;
                 .follow {
                     color: white;
+                    font-family: ChakraPetch-SemiBold;
                 }
                 .social-network {
                     color: white;
@@ -50,7 +51,7 @@ footer {
                 div {
                     span {
                         color: white;
-                        font-family: Roboto;
+                        font-family: ChakraPetch-SemiBold;
                     }
                     a {
                         text-decoration: none;
@@ -67,6 +68,7 @@ footer {
         max-width: 85%;
         margin: 0 auto;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         padding: 0.5em 0.3em;
         .sidenav__mobile {
@@ -84,12 +86,12 @@ footer {
             }
         }
         .search {
-            margin-top: 6px;
-            margin-left: 3em;
+            // margin-top: 6px;
+            // margin-left: 3em;
             // width: 20vw;
             form {
                 input {
-                    padding: 0.7em 0.7em;
+                    padding: 1em 0.7em;
                     width: 25vw;
                     border: none;
                     outline: none;
@@ -240,7 +242,7 @@ footer {
             border-radius: 5px;
             border-color: white;
             color: white;
-            padding: 15px 22px;
+            padding: 7px 22px;
             text-align: center;
             font-size: 16px;
             //margin-left: 20em;
@@ -253,8 +255,12 @@ footer {
             justify-items: center;
             .numProduct {
                 background-color: yellow;
-                padding: 2px 9px;
+                padding: 2px 2px;
                 position: relative;
+                font-size: 0.9rem;
+                font-weight: bold;
+                min-width: 25px;
+                min-height: 25px;
                 left: 2px;
                 border-radius: 50%;
                 color: #333;
@@ -268,7 +274,7 @@ footer {
         .color-r {
             text-decoration: none;
             color: white;
-            font-family: Roboto;
+            font-family: ChakraPetch-SemiBold;
             margin-left: 0.7em;
             clear: both;
         }

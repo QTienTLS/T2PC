@@ -1,5 +1,6 @@
 #footer-id {
   position: relative;
+  font-family: ChakraPetch-Regular;
   width: 100%;
   margin: 0 auto;
   background-color: #333; }
@@ -22,9 +23,6 @@
           max-height: auto; }
       #footer-id .footer-main .gt .address {
         padding-top: 10px; }
-        #footer-id .footer-main .gt .address p {
-          font-family: Roboto;
-          font-size: 14px; }
       #footer-id .footer-main .gt .footer-social a {
         font-size: large;
         margin-right: 10px; }
@@ -43,7 +41,4 @@
         #footer-id .footer-main .ft-main div .ft-content a:hover {
           color: white; }
       #footer-id .footer-main .ft-main div h6 {
-        font-size: 18px; }
-      #footer-id .footer-main .ft-main div a {
-        font-size: 15px;
-        font-weight: normal; }
+        font-family: ChakraPetch-SemiBold; }
