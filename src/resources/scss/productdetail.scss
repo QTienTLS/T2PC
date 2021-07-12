@@ -135,7 +135,13 @@
                             }
                         }
                     }
+                    .stastus__end{
+                        span{
+                            color: red;
+                        }
+                    }
                 }
+
                 .buttons__added__cart {
                     display: flex;
                     align-items: center;

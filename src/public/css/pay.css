@@ -162,6 +162,9 @@ body {
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden; }
+            .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .name-product-in-cart .product-in-cart-last a {
+              text-decoration: none;
+              color: black; }
         .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .amount-product-in-cart {
           padding: 0.5em; }
           .pay__container .pay-address .pay__detail .list-product-in-cart .pay__list-product .amount-product-in-cart p {

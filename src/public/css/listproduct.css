@@ -163,6 +163,10 @@
                 margin-bottom: 0.5em; }
               .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .btn__main-product button:hover {
                 background-color: #49b14d; }
+            .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product h3 {
+              position: absolute;
+              top: 0;
+              right: 0; }
           .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product:hover .btn__main-product {
             display: block;
             right: 10px;

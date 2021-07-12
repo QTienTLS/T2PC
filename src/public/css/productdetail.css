@@ -82,6 +82,8 @@
         font-family: ChakraPetch-SemiBold; }
         .container .product__detail .product__detail-top .product__detail-top-right .status__quantity .stastus span i {
           margin-right: 0.5em; }
+      .container .product__detail .product__detail-top .product__detail-top-right .status__quantity .stastus__end span {
+        color: red; }
       .container .product__detail .product__detail-top .product__detail-top-right .buttons__added__cart {
         display: flex;
         align-items: center;

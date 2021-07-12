@@ -214,6 +214,11 @@
                                         background-color: $main-color;
                                     }
                                 }
+                                h3{
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                }
                             }
 
                             .main__product:hover .btn__main-product {

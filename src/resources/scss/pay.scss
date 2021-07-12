@@ -223,6 +223,8 @@ body {
                             -webkit-line-clamp: 2;
                             -webkit-box-orient: vertical;
                             overflow: hidden;
+                            a{ text-decoration: none;
+                            color: black;}
                         }
                     }
                     .amount-product-in-cart {
