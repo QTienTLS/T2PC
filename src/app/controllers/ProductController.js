@@ -28,6 +28,13 @@ class ProductController {
                 .catch(next);
         });
     }
+    showByType(req,res){
+        var protype = req.params.type;
+        Product.find({type: protype},function(err,pros){
+            pros = mutipleMongooseToObject(pros);
+            res.render('product/product-list',{pros});
+        })
+    }
 }
 
 module.exports = new ProductController();
