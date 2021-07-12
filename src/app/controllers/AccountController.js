@@ -1,6 +1,7 @@
 const bcryt = require('bcrypt');
 const Account = require('../models/Account');
 const Product = require('../models/Product');
+const Order = require('../models/Order');
 const session = require('express-session');
 const path = require('path');
 const { mongooseToObject } = require('../../tools/mongoose');
@@ -174,7 +175,12 @@ async checkout(req, res, next) {
         
 }
 submitOrder(req,res){
-    res.json(req.body);
+    var order = new Order(req.body);
+    order.listProID = req.body.listProID.split(',');
+    order.amount = req.body.amount.split(',').map(x=>+x);
+    order.save();
+   //res.json(order);
+    res.render('account/done-order');
 }
 }
 module.exports = new AccountController();

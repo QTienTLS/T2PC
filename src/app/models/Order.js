@@ -9,11 +9,11 @@ const Order = new Schema(
         nameReceiver: { type: String, required: true },
         status: { type: Number, default: 0 },
         userNote: { type: String },
-        adminNote: { type: String },
+        adminNote: { type: String, default: '' },
         totalPrice: { type: Number },
         paymentMethod: { type: String, default: 'COD' },
         address: { type: String },
-        phone: { type: Number },
+        phone: { type: String },
         email: { type: String },
 
     },

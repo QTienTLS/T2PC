@@ -116,6 +116,7 @@
         <input type="text" id="address" name="address">
         <input type="text" id="phone" name="phone">
         <input type="text" id="email" name="email">
+        <input type="text" id="amount" name="amount">
     </form>
 </div>
 <script>
@@ -135,6 +136,7 @@
         $('#userNote').val(note);
         $('#listProID').val(cart.id);
         $('#totalPrice').val(sessionStorage.totalPrice);
+        $('#amount').val(cart.amount);
         //validate các trường thông tin
         if (!name || !phone || !address) {
             alert('Thông tin giao hàng thiếu hoặc không hợp lệ ! Quý khách vui lòng kiểm tra lại');
