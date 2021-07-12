@@ -173,5 +173,8 @@ async checkout(req, res, next) {
         })
         
 }
+submitOrder(req,res){
+    res.json(req.body);
+}
 }
 module.exports = new AccountController();

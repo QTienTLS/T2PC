@@ -11,5 +11,6 @@ router.get('/detail', accountController.detail);
 router.put('/:id/change-avt', accountController.changeAvt);
 router.put('/:id/update', accountController.updateAcc);
 router.post('/checkout', accountController.checkout);
+router.post('/submit-order', accountController.submitOrder);
 
 module.exports = router;
