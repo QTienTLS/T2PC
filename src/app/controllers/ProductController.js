@@ -35,6 +35,9 @@ class ProductController {
             res.render('product/product-list',{pros});
         })
     }
+    showLinhKien(req, res) {
+        res.render('product/linhkien-submenu');
+    }
 }
 
 module.exports = new ProductController();
