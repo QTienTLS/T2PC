@@ -1,7 +1,7 @@
 @import 'var';
 @font-face {
     font-family: ChakraPetch-Bold;
-    src: url(\\font\\ChakraPetch-Bold.ttf);
+    src: url(../../public/font/ChakraPetch-Bold.ttf);
 }
 @font-face {
     font-family: ChakraPetch-Medium;
@@ -79,7 +79,7 @@ body {
                     display: flex;
                     justify-content: space-between;
                     label{
-                        font-family: ChakraPetch-Bold; 
+                        font-family: ChakraPetch-SemiBold; 
                     }
                     p {
                         font-family: ChakraPetch-SemiBold;
@@ -324,6 +324,35 @@ body {
         .snip1582.hover:after {
             height: 100%;
             width: 100%;
+        }
+    }
+}
+
+.container-order__notice{
+    padding: 1.2em 0 0em 0;
+    .order__notice-img{
+        text-align: center;
+        font-size: 10rem;
+        color: $main-color;
+    }
+    .notification__order{
+        text-align: center;
+        h2{
+            font-family: ChakraPetch-Bold;
+            color: $main-color;
+            padding: 0.5em 0;
+        }
+        p{
+            font-family: ChakraPetch-Bold;
+        }
+    }
+    .way__back__home{
+        display: flex;
+        justify-content: center;
+        font-family: ChakraPetch-Bold;
+        font-size: 1.2rem;
+        a{
+            text-decoration: none;
         }
     }
 }
