@@ -16,6 +16,11 @@ var totalPrice = document.getElementsByClassName('gtx__2')[0];
 //hàm thêm sản phẩm vào giỏ hàng
 function addToCart(productID, proName, price, stored, btn, n) {
     // var btn = document.getElementById(id);
+    if(stored<n)
+    {
+        alert('Bạn đã nhập quá số lượng hàng cho phép ! Vui lòng kiểm tra lại');
+        return;
+    }
     img = btn.getAttribute('data-img');
 
     n = parseInt(n);
@@ -39,6 +44,11 @@ function addToCart(productID, proName, price, stored, btn, n) {
         var isPush = true;
         for (let i = 0; i < cartObj.proName.length; i++) {
             if (proName == cartObj.proName[i]) {
+                if(cartObj.stored[i] < n + cartObj.amount[i])
+                {
+                    alert('Bạn đã nhập quá số lượng hàng cho phép ! Vui lòng kiểm tra lại');
+                    return;
+                }
                 cartObj.amount[i] += n;
                 isPush = false;
                 break;
@@ -213,4 +223,9 @@ function delCart() {
     sessionStorage.totalPrice = 0;
     mainList.innerHTML = '';
     refeshModal();
+}
+function detailToCart(id,name,price,stored,btn) {
+    //alert('ad');
+    var n = document.getElementById('amount-d-cart').value;
+    addToCart(id,name,price,stored,btn, n);
 }
