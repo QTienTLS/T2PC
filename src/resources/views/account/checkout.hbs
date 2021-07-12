@@ -142,6 +142,10 @@
             alert('Thông tin giao hàng thiếu hoặc không hợp lệ ! Quý khách vui lòng kiểm tra lại');
             return;
         }
+        //xóa giỏ hàng
+        sessionStorage.removeItem('Cart');
+        sessionStorage.numPro = 0;
+        sessionStorage.totalPrice = 0;
         document.forms['submitOder'].submit();
     }
 </script>
