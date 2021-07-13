@@ -246,10 +246,12 @@
             <div class="card">
               {{!-- Image cua the --}}
               <div class="main__product">
-                {{#unless this.stored}}
-                <h3>Hết hàng</h3>
-                {{/unless}}
-                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..." onclick="goToDetail('{{this._id}}')"></a></div>
+                {{!-- Hết hàng --}}
+                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..." onclick="goToDetail('{{this._id}}')"></a>
+                  {{#unless this.stored}}
+                  <h3>Hết hàng</h3>
+                  {{/unless}}
+                </div>
                 <div class="btn__main-product">
                   <button title="Xem chi tiet" onclick="goToDetail('{{this._id}}')"><i class="fas fa-search"></i></button>
                   {{#if this.stored}}
