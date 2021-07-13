@@ -190,11 +190,14 @@ body {
     align-items: center;
     padding: 1em;
     border: 1px dashed #dddfe6; }
-    .pay__container .pay__footer p {
+    .pay__container .pay__footer .pay__footer-main p {
       margin: 0;
       padding: 0; }
-      .pay__container .pay__footer p span {
+      .pay__container .pay__footer .pay__footer-main p span {
         font-family: ChakraPetch-SemiBold; }
+    .pay__container .pay__footer .pay__footer-main ul {
+      list-style: none;
+      font-family: ChakraPetch-Medium; }
     .pay__container .pay__footer .snip1582 {
       font-family: ChakraPetch-SemiBold;
       background-color: #49b14d;
@@ -207,7 +210,9 @@ body {
       padding: 12px 40px 10px;
       position: relative;
       text-transform: uppercase;
-      font-weight: 700; }
+      font-weight: 700;
+      margin: 0 auto;
+      width: 170px; }
     .pay__container .pay__footer .snip1582:before,
     .pay__container .pay__footer .snip1582:after {
       border-color: transparent;

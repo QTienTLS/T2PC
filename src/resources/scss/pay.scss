@@ -264,11 +264,17 @@ body {
         align-items: center;
         padding: 1em;
         border: 1px dashed $border-color;
-        p {
-            margin: 0;
-            padding: 0;
-            span {
-                font-family: ChakraPetch-SemiBold;
+        .pay__footer-main{
+            p {
+                margin: 0;
+                padding: 0;
+                span {
+                    font-family: ChakraPetch-SemiBold;
+                }
+            }
+            ul{
+                list-style: none;
+                font-family: ChakraPetch-Medium;
             }
         }
         .snip1582 {
@@ -284,6 +290,8 @@ body {
             position: relative;
             text-transform: uppercase;
             font-weight: 700;
+            margin: 0 auto;
+            width: 170px;
         }
 
         .snip1582:before,
