@@ -1,6 +1,8 @@
 const session = require('express-session');
 const Event = require('../models/Event');
 const Product = require('../models/Product');
+const Order = require('../models/Order');
+const Account = require('../models/Account');
 const { mongooseToObject } = require('../../tools/mongoose');
 const { mutipleMongooseToObject } = require('../../tools/mongoose');
 const { countDocuments } = require('../models/Event');
@@ -55,20 +57,23 @@ const diskStorageforProduct = multer.diskStorage({
     },
 });
 
-var check;
+var check= {
+    opendashboard: true,
+};
 
 class AdminController {
-    dashboard(req, res) {
+async    dashboard(req, res) {
         check = {
             opendashboard: true,
         };
-
-        res.render('admin-dashboard/dashboard', { check });
+       var numPro = await Product.countDocuments({});
+       var numAcc = await Account.countDocuments({});
+       var numOrder = await Order.countDocuments({status: 3});
+       var numOrderFail = await Order.countDocuments({status: 4});
+        res.render('admin-dashboard/dashboard', { check,numPro,numAcc,numOrder,numOrderFail });
     }
     event(req, res, next) {
-        check = {
-            opendashboard: true,
-        };
+       
         Event.find({})
             .then((events) => {
                 res.render('admin-dashboard/event', {
@@ -154,9 +159,7 @@ class AdminController {
     showProduct(req, res) {
         Product.find({}, function (err, pro) {
             if (err) console.log(err);
-            check = {
-                opendashboard: true,
-            };
+          
             var products = mutipleMongooseToObject(pro);
             res.render('admin-dashboard/product', { products, check });
         });
@@ -323,6 +326,37 @@ class AdminController {
                 .catch(next);
         });
     }
+async  goToOrder(req,res){
+        var link = 'admin-dashboard/' + req.params.link;
+        var status;
+        if(req.params.link=='pending')
+            status = 0;
+        var orders = await  Order.find({status: status}); 
+        orders = mutipleMongooseToObject(orders); 
+        for(let i=0; i<orders.length;i++)
+        {
+            if(orders[i-1] && orders[i-1].userID == orders[i].userID)
+                orders[i].acc = orders[i-1].acc;
+            else{
+            var acc = await Account.findOne({_id: orders[i].userID});
+            acc = mongooseToObject(acc);
+            orders[i].acc = acc;
+            }
+        }
+        res.render(link,{check,orders});
+    }
+  async  banUser(req,res){
+        var reason = req.body.why;
+        var update = {
+            reasonBan : reason,
+            status : 2,
+        }
+      let doc = await Account.findOneAndUpdate({_id: req.params.id},update);
+            
+         res.redirect('back'); 
+        }
+      
+    
 }
 
 module.exports = new AdminController();

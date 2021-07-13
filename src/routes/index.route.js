@@ -8,7 +8,12 @@ function route(app) {
     app.use('/', siteRouter);
     app.use('/news', newsRouter);
     app.use('/account', accountRouter);
-    app.use('/admin', adminRouter);
+    app.use('/admin',function checkAdmin(req,res,next){
+        if(!req.session.User || req.session.User.role != 'admin')
+        res.render('partials/404');
+        else
+         next();
+    },adminRouter);
     app.use('/product', productRouter);
 }
 
