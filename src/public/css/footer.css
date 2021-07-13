@@ -23,6 +23,8 @@
           max-height: auto; }
       #footer-id .footer-main .gt .address {
         padding-top: 10px; }
+        #footer-id .footer-main .gt .address p strong {
+          font-size: 0.8; }
       #footer-id .footer-main .gt .footer-social a {
         font-size: large;
         margin-right: 10px; }

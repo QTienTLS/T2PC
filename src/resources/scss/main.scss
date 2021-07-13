@@ -289,7 +289,103 @@
                     font-size: 1.5rem;
                 }
             }
+
+            .see__more{
+                display: flex;
+                justify-content: center;
+                margin-top: 1em;
+                .snip1582 {
+                    font-family: ChakraPetch-SemiBold;
+                    background-color: $main-color;
+                    border: none;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    line-height: 1em;
+                    outline: none;
+                    padding: 12px 40px 10px;
+                    position: relative;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+        
+                .snip1582:before,
+                .snip1582:after {
+                    border-color: transparent;
+                    -webkit-transition: all 0.25s;
+                    transition: all 0.25s;
+                    border-style: solid;
+                    border-width: 0;
+                    content: '';
+                    height: 24px;
+                    position: absolute;
+                    width: 24px;
+                }
+        
+                .snip1582:before {
+                    border-color: $main-color;
+                    border-top-width: 2px;
+                    left: 0px;
+                    top: -5px;
+                }
+        
+                .snip1582:after {
+                    border-bottom-width: 2px;
+                    border-color: $main-color;
+                    bottom: -5px;
+                    right: 0px;
+                }
+        
+                .snip1582:hover,
+                .snip1582.hover {
+                    background-color: $main-color;
+                }
+        
+                .snip1582:hover:before,
+                .snip1582.hover:before,
+                .snip1582:hover:after,
+                .snip1582.hover:after {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            button{
+                margin: 0 auto;
+            }
         }
+
+        // Giới thiệu T2PC
+        .introduce{
+            display: flex;
+            background: $main-color;
+            .introduction{
+                padding: 2em 2em;
+            }
+            .introduction :first-child{
+                font-family: ChakraPetch-Bold;
+                font-size: 1.5rem;
+                color: white;
+            }
+            .introduction :last-child{
+                font-family: ChakraPetch-Medium;
+                color: white;
+                margin-bottom: 0;
+            }
+            
+
+            // .img__introduce{
+            //     padding: 2em 2em 2em 0;
+            //     // border-radius: 5px;
+            //     img{
+            //         max-width: 100%;
+            //         max-height: 100%;
+            //         width: auto;
+            //         height: auto;
+            //         border-radius: 5px;
+            //     }
+            // }
+        }
+
         .brand-products {
             padding-bottom: 2em;
             //  Phần title bên trên
@@ -343,6 +439,7 @@
                     overflow: hidden;
                     position: relative;
                     .img__brand {
+                        margin: 2px;
                         padding: 0.5em 0;
                         display: flex;
                         justify-content: center;

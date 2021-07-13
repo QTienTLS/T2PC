@@ -1,0 +1,132 @@
+@import 'var';
+.main__sub-menu{
+    margin-top: 1em;
+    // Banner-submenu
+    .banner__submenu{
+        img{
+            width: 100%;
+        }
+    }
+    //  Phần title bên trên
+    .seperate {
+        width: 100%;
+        padding: 2em 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .seperate__left {
+            width: 30%;
+            display: flex;
+            .seperate__square {
+                width: 100%;
+                height: 7px;
+                background: $border-color;
+                // background-image: repeating-linear-gradient(-45deg,$border-color,$border-color 33px,transparent 0,transparent 41px,$border-color 0,$border-color 74px,transparent 0,transparent 82px);
+            }
+            .triangle_down {
+                width: 0;
+                height: 0;
+                border-top: 7px solid $border-color;
+                border-left: 0px solid transparent;
+                border-right: 7px solid transparent;
+            }
+        }
+        p {
+            margin-bottom: 0;
+            font-family: ChakraPetch-Bold;
+            font-size: 1.4rem;
+            color: $text-color;
+        }
+        .seperate__right {
+            width: 30%;
+            display: flex;
+            .seperate__square {
+                width: 100%;
+                height: 7px;
+                background: $border-color;
+            }
+            .triangle_up {
+                width: 0;
+                height: 0;
+                border-bottom: 7px solid $border-color;
+                border-left: 7px solid transparent;
+                border-right: 0px solid transparent;
+            }
+        }
+    }
+    // Main submenu
+    .block__content{
+        display: grid;
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        a{
+            border-radius: 5px;
+            background: $main-color;
+            color: white;
+            text-decoration: none;
+            font-family: ChakraPetch-SemiBold;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5em 1em;
+            position: relative;
+            overflow: hidden;
+            span{
+                padding-top: 1em;
+            }
+            .img-detail__submenu{
+                float: right;
+                z-index: 2;
+                img{
+                    max-width: 100%;
+                    max-height: 110px;
+                    width: auto;
+                    height: auto;
+                }
+                
+            }
+        }
+        .list__cat__item::after{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 60px;
+            height: 150%;
+            background: $pink-color;
+            right: 20px;
+            top: -15px;
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+
+    }
+    // THông tin về các hình thức thanh toán và trợ
+    .product__detail-policy__item {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2em;
+        padding: 0em 0em 1em 0;
+        
+
+        .policy__item {
+            display: flex;
+            padding: 0.8em;
+            width: 22%;
+            background-color: #f0f3fc;
+            align-items: center;
+            justify-content: center;
+            i {
+                font-size: 3em;
+                text-decoration: inherit;
+                color: #006600;
+                padding: 0 0.3em;
+            }
+            p {
+                text-align: center;
+                margin-bottom: 0;
+                color: #003300;
+            }
+        }
+    }
+}
