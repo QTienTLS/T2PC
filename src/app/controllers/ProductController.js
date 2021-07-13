@@ -35,8 +35,9 @@ class ProductController {
             res.render('product/product-list',{pros});
         })
     }
-    showLinhKien(req, res) {
-        res.render('product/linhkien-submenu');
+    showSubmenu(req, res) {
+        var link = 'product/' + req.params.menu;
+        res.render(link);
     }
 }
 
