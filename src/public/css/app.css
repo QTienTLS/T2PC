@@ -81,7 +81,8 @@ body {
         position: relative; }
         #header-id #nav-bar .menu-nav-bar .list-menu .tilte-menu {
           padding: 0.7em 0;
-          margin-right: 3em; }
+          margin-right: 3em;
+          font-family: ChakraPetch-SemiBold; }
           #header-id #nav-bar .menu-nav-bar .list-menu .tilte-menu a {
             padding: 1em 0;
             text-decoration: none;

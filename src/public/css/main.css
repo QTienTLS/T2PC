@@ -58,7 +58,8 @@
         color: white; }
         .main-home .main__home .container-product .ls-product .ls-product-main a .detail-lspm .tilte-lspm {
           position: relative;
-          z-index: 1; }
+          z-index: 1;
+          font-family: ChakraPetch-SemiBold; }
         .main-home .main__home .container-product .ls-product .ls-product-main a .detail-lspm img {
           position: absolute;
           top: 10%;
@@ -198,6 +199,69 @@
     padding: 20px 5px; }
     .main-home .main__home .discount__product .next_next i {
       font-size: 1.5rem; }
+  .main-home .main__home .discount__product .see__more {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em; }
+    .main-home .main__home .discount__product .see__more .snip1582 {
+      font-family: ChakraPetch-SemiBold;
+      background-color: #49b14d;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1em;
+      outline: none;
+      padding: 12px 40px 10px;
+      position: relative;
+      text-transform: uppercase;
+      font-weight: 700; }
+    .main-home .main__home .discount__product .see__more .snip1582:before,
+    .main-home .main__home .discount__product .see__more .snip1582:after {
+      border-color: transparent;
+      -webkit-transition: all 0.25s;
+      transition: all 0.25s;
+      border-style: solid;
+      border-width: 0;
+      content: '';
+      height: 24px;
+      position: absolute;
+      width: 24px; }
+    .main-home .main__home .discount__product .see__more .snip1582:before {
+      border-color: #49b14d;
+      border-top-width: 2px;
+      left: 0px;
+      top: -5px; }
+    .main-home .main__home .discount__product .see__more .snip1582:after {
+      border-bottom-width: 2px;
+      border-color: #49b14d;
+      bottom: -5px;
+      right: 0px; }
+    .main-home .main__home .discount__product .see__more .snip1582:hover,
+    .main-home .main__home .discount__product .see__more .snip1582.hover {
+      background-color: #49b14d; }
+    .main-home .main__home .discount__product .see__more .snip1582:hover:before,
+    .main-home .main__home .discount__product .see__more .snip1582.hover:before,
+    .main-home .main__home .discount__product .see__more .snip1582:hover:after,
+    .main-home .main__home .discount__product .see__more .snip1582.hover:after {
+      height: 100%;
+      width: 100%; }
+  .main-home .main__home .discount__product button {
+    margin: 0 auto; }
+
+.main-home .main__home .introduce {
+  display: flex;
+  background: #49b14d; }
+  .main-home .main__home .introduce .introduction {
+    padding: 2em 2em; }
+  .main-home .main__home .introduce .introduction :first-child {
+    font-family: ChakraPetch-Bold;
+    font-size: 1.5rem;
+    color: white; }
+  .main-home .main__home .introduce .introduction :last-child {
+    font-family: ChakraPetch-Medium;
+    color: white;
+    margin-bottom: 0; }
 
 .main-home .main__home .brand-products {
   padding-bottom: 2em; }
@@ -242,6 +306,7 @@
     overflow: hidden;
     position: relative; }
     .main-home .main__home .brand-products .main__discount-products .slider-discount .img__brand {
+      margin: 2px;
       padding: 0.5em 0;
       display: flex;
       justify-content: center;
