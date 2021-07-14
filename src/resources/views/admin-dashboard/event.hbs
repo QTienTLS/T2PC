@@ -33,7 +33,7 @@
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
-                 <div class="nav">
+                <div class="nav">
                     <div class="sb-sidenav-menu-heading">Danh mục quản lý</div>
                     <a class="nav-link" href="/admin">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -51,24 +51,29 @@
                         <div class="sb-nav-link-icon"><i class="fad fa-computer-speaker"></i></div>
                         Sản phẩm
                     </a>
-                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        <div class="sb-nav-link-icon"><i class="fad fa-money-bill-wave"></i></div>
-                                        Đơn hàng
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="/admin/order/pending">
-                                                <div class="sb-nav-link-icon"><i class="fad fa-spinner"></i></div>
-                                                Đơn hàng chờ xử lí</a>
-                                            <a class="nav-link" href="/admin/order/done">
-                                                 <div class="sb-nav-link-icon"><i class="fad fa-file-check"></i></div>
-                                                Đã hoàn thành</a>
-                                            <a class="nav-link" href="/admin/order/canceled">
-                                                 <div class="sb-nav-link-icon"><i class="fad fa-trash"></i></div>
-                                                Đã bị hủy</a>
-                                        </nav>
-                                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+                        aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fad fa-money-bill-wave"></i></div>
+                        Đơn hàng
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/admin/order/pending">
+                                <div class="sb-nav-link-icon"><i class="fad fa-spinner"></i></div>
+                                Đơn hàng chờ xử lí
+                            </a>
+                            <a class="nav-link" href="/admin/order/done">
+                                <div class="sb-nav-link-icon"><i class="fad fa-file-check"></i></div>
+                                Đã hoàn thành
+                            </a>
+                            <a class="nav-link" href="/admin/order/canceled">
+                                <div class="sb-nav-link-icon"><i class="fad fa-trash"></i></div>
+                                Đã bị hủy
+                            </a>
+                        </nav>
+                    </div>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
@@ -208,16 +213,16 @@
                                         <input type="file" name="updateImg" class="form-control" id="updateImg">
                                     </div>
                                     <div class="mb-3 col">
-                                         
+
                                         <img src="" id="currentImg" alt="" style="width: 15em">
                                     </div>
                                 </div>
-                               
+
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                             <button type="submit" id="btn-update-event" class="btn btn-warning">Cập nhật</button>
+                            <button type="submit" id="btn-update-event" class="btn btn-warning">Cập nhật</button>
                         </div>
                     </div>
                 </div>
@@ -291,10 +296,10 @@
         document.getElementById('currentImg').src = eventImg;
         document.getElementById('update-name').value = eventName;
         document.getElementById('update-link').value = eventLink;
-    }) 
-    btnEventUpdate.onclick = function(){
-      formUpdateEvent.action = '/admin/event/' + eventId + '?_method=PUT';
-      formUpdateEvent.submit();
+    })
+    btnEventUpdate.onclick = function () {
+        formUpdateEvent.action = '/admin/event/' + eventId + '?_method=PUT';
+        formUpdateEvent.submit();
     }
-    
+
 </script>

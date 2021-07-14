@@ -100,6 +100,7 @@ body {
             border-right: 1px solid cadetblue;
             border-bottom: 1px solid cadetblue; }
             #header-id #nav-bar .menu-nav-bar .list-menu .tilte-menu .submenu .menu-mini {
+              cursor: pointer;
               width: 20%;
               padding: 0.6em 0.5em;
               border-left: 1px solid cadetblue;
