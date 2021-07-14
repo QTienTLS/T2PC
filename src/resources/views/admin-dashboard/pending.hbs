@@ -50,14 +50,14 @@
                         <div class="sb-nav-link-icon"><i class="fad fa-computer-speaker"></i></div>
                         Sản phẩm
                     </a>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"
-                        aria-expanded="false" aria-controls="pagesCollapseAuth">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fad fa-money-bill-wave"></i></div>
                         Đơn hàng
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordionPages">
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="/admin/order/pending">
                                 <div class="sb-nav-link-icon"><i class="fad fa-spinner"></i></div>
@@ -129,18 +129,17 @@
                                             data-bs-createdAt="{{this.acc.createdAt}}"
                                             data-bs-email="{{this.acc.email}}" data-bs-phone="{{this.acc.phone}}"
                                             data-bs-totalSpend="{{this.acc.totalSpend}}"
-                                            data-bs-status="{{this.acc.status}}"
-                                            data-bs-id="{{this.acc._id}}" id="btn-user-detail">Chi tiết</button>
+                                            data-bs-status="{{this.acc.status}}" data-bs-id="{{this.acc._id}}"
+                                            id="btn-user-detail">Chi tiết</button>
                                     </td>
                                     <td>{{this.userNote}}</td>
                                     <td class="currFormat">{{this.totalPrice}} đ</td>
                                     <td>
                                         <button type="button" style="margin: 1em 1em;" class="btn btn-danger"
-                                            data-bs-toggle="modal" data-bs-target="#modalHuydon"
-                                           >Hủy đơn</button>
+                                            data-bs-toggle="modal" data-bs-target="#modalHuydon">Hủy đơn</button>
                                         <button type="button" style="margin: 1em 1em;" class="btn btn-warning"
-                                            data-bs-toggle="modal" data-bs-target="#modalChitietdon"
-                                            >Chi tiết đơn hàng</button>
+                                            data-bs-toggle="modal" data-bs-target="#modalChitietdon">Chi tiết đơn
+                                            hàng</button>
                                     </td>
                                 </tr>
                                 {{/each}}
@@ -234,6 +233,27 @@
                             </div>
                         </div>
                         <!-- Modal chi tiết user-->
+                        <!-- Modal chi tiết đơn hàng-->
+                        <div class="modal fade" id="modalChitietdon" tabindex="-1" aria-labelledby="modalUserLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg" style="max-width: 62em">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalUserLabel">Chi tiết đơn hàng</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal chi tiết đơn hàng-->
                         {{!-- Thuật toán xử lí modal User --}}
                         <script>
                             function openBanUser() {
@@ -250,10 +270,10 @@
                                     alert('Vui lòng điền lí do khóa tài khoản !');
                                     return;
                                 }
-                                else{
+                                else {
                                     var userid = document.getElementById('btn-user-detail').getAttribute('data-bs-id');
                                     var form = document.forms['shipper'];
-                                     var inputreason = document.createElement('input');
+                                    var inputreason = document.createElement('input');
                                     inputreason.name = 'why';
                                     inputreason.value = whyban.value;
                                     form.appendChild(inputreason);
@@ -295,7 +315,7 @@
                                         statusPanel.innerHTML = ' <i class="fad fa-user-slash"></i> đã bị khóa';
                                         statusPanel.style.color = 'red';
                                 }
-                                
+
                             })
                         </script>
                         {{!-- Thuật toán xử lí modal User --}}

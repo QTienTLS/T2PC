@@ -57,23 +57,23 @@ const diskStorageforProduct = multer.diskStorage({
     },
 });
 
-var check= {
+var check = {
     opendashboard: true,
 };
 
 class AdminController {
-async    dashboard(req, res) {
+    async dashboard(req, res) {
         check = {
             opendashboard: true,
         };
-       var numPro = await Product.countDocuments({});
-       var numAcc = await Account.countDocuments({});
-       var numOrder = await Order.countDocuments({status: 3});
-       var numOrderFail = await Order.countDocuments({status: 4});
-        res.render('admin-dashboard/dashboard', { check,numPro,numAcc,numOrder,numOrderFail });
+        var numPro = await Product.countDocuments({});
+        var numAcc = await Account.countDocuments({});
+        var numOrder = await Order.countDocuments({ status: 3 });
+        var numOrderFail = await Order.countDocuments({ status: 4 });
+        res.render('admin-dashboard/dashboard', { check, numPro, numAcc, numOrder, numOrderFail });
     }
     event(req, res, next) {
-       
+
         Event.find({})
             .then((events) => {
                 res.render('admin-dashboard/event', {
@@ -159,7 +159,7 @@ async    dashboard(req, res) {
     showProduct(req, res) {
         Product.find({}, function (err, pro) {
             if (err) console.log(err);
-          
+
             var products = mutipleMongooseToObject(pro);
             res.render('admin-dashboard/product', { products, check });
         });
@@ -193,7 +193,7 @@ async    dashboard(req, res) {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -229,7 +229,7 @@ async    dashboard(req, res) {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -313,7 +313,7 @@ async    dashboard(req, res) {
             }
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             Product.updateOne({ _id: req.params.id }, newPro)
                 .then(() => {
@@ -326,37 +326,35 @@ async    dashboard(req, res) {
                 .catch(next);
         });
     }
-async  goToOrder(req,res){
+    async goToOrder(req, res) {
         var link = 'admin-dashboard/' + req.params.link;
         var status;
-        if(req.params.link=='pending')
+        if (req.params.link == 'pending')
             status = 0;
-        var orders = await  Order.find({status: status}); 
-        orders = mutipleMongooseToObject(orders); 
-        for(let i=0; i<orders.length;i++)
-        {
-            if(orders[i-1] && orders[i-1].userID == orders[i].userID)
-                orders[i].acc = orders[i-1].acc;
-            else{
-            var acc = await Account.findOne({_id: orders[i].userID});
-            acc = mongooseToObject(acc);
-            orders[i].acc = acc;
+        var orders = await Order.find({ status: status });
+        orders = mutipleMongooseToObject(orders);
+        for (let i = 0; i < orders.length; i++) {
+            if (orders[i - 1] && orders[i - 1].userID == orders[i].userID)
+                orders[i].acc = orders[i - 1].acc;
+            else {
+                var acc = await Account.findOne({ _id: orders[i].userID });
+                acc = mongooseToObject(acc);
+                orders[i].acc = acc;
             }
         }
-        res.render(link,{check,orders});
+        res.render(link, { check, orders });
     }
-  async  banUser(req,res){
+    async banUser(req, res,next) {
         var reason = req.body.why;
         var update = {
-            reasonBan : reason,
-            status : 2,
+            reasonBan: reason,
+            status: 2,
         }
-      let doc = await Account.findOneAndUpdate({_id: req.params.id},update);
-            
-         res.redirect('back'); 
-        }
-      
-    
+        Account.updateOne({_id: req.params.id},update)
+        .then(() =>  res.redirect('back'))
+        .catch(next);
+       
+    }
 }
 
 module.exports = new AdminController();
