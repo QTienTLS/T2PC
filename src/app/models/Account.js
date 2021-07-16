@@ -14,8 +14,8 @@ const Account = new Schema(
         totalSpend: { type: Number, default: 0 },
         nationalId: { type: String },
         address: { type: String },
-        status: {type: Number, default: 0},
-        reasonBan: {type: String},
+        status: { type: Number, default: 0 },
+        reasonBan: { type: String },
     },
     { timestamps: true },
 );

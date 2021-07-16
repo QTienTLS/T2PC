@@ -11747,3 +11747,22 @@ body {
         }
     }
 }
+.tborder__username{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+}
+.btn-circle{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+#avt-user{
+    height: 8em;
+    width: 8em;
+    background-color: $main-color;
+    border-radius: 50%;
+}

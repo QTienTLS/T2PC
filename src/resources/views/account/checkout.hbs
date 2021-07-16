@@ -118,6 +118,9 @@
     {{!-- Form submit order --}}
     <form action="/account/submit-order" method="POST" name="submitOder" style="display: none;">
         <input type="text" id="listProID" name="listProID">
+        <input type="text" id="listPro" name="listPro">
+        <input type="text" id="listProImg" name="listProImg">
+        <input type="text" id="listProPrice" name="listProPrice">
         <input type="text" id="userID" name="userID" value="{{session.User.id}}">
         <input type="text" id="nameReceiver" name="nameReceiver">
         <input type="text" id="userNote" name="userNote">
@@ -146,6 +149,9 @@
         $('#listProID').val(cart.id);
         $('#totalPrice').val(sessionStorage.totalPrice);
         $('#amount').val(cart.amount);
+        $('#listPro').val(cart.proName.join('`'));
+        $('#listProImg').val(cart.img);
+        $('#listProPrice').val(cart.price);
         //validate các trường thông tin
         if (!name || !phone || !address) {
             alert('Thông tin giao hàng thiếu hoặc không hợp lệ ! Quý khách vui lòng kiểm tra lại');

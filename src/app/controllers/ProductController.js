@@ -28,12 +28,12 @@ class ProductController {
                 .catch(next);
         });
     }
-    showByType(req,res){
+    showByType(req, res) {
         var protype = req.params.type;
-        Product.find({type: protype},function(err,pros){
+        Product.find({ type: protype }, function (err, pros) {
             pros = mutipleMongooseToObject(pros);
-            res.render('product/product-list',{pros});
-        })
+            res.render('product/product-list', { pros });
+        });
     }
     showSubmenu(req, res) {
         var link = 'product/' + req.params.menu;

@@ -290,7 +290,7 @@
                 }
             }
 
-            .see__more{
+            .see__more {
                 display: flex;
                 justify-content: center;
                 margin-top: 1em;
@@ -308,7 +308,7 @@
                     text-transform: uppercase;
                     font-weight: 700;
                 }
-        
+
                 .snip1582:before,
                 .snip1582:after {
                     border-color: transparent;
@@ -321,26 +321,26 @@
                     position: absolute;
                     width: 24px;
                 }
-        
+
                 .snip1582:before {
                     border-color: $main-color;
                     border-top-width: 2px;
                     left: 0px;
                     top: -5px;
                 }
-        
+
                 .snip1582:after {
                     border-bottom-width: 2px;
                     border-color: $main-color;
                     bottom: -5px;
                     right: 0px;
                 }
-        
+
                 .snip1582:hover,
                 .snip1582.hover {
                     background-color: $main-color;
                 }
-        
+
                 .snip1582:hover:before,
                 .snip1582.hover:before,
                 .snip1582:hover:after,
@@ -349,29 +349,28 @@
                     width: 100%;
                 }
             }
-            button{
+            button {
                 margin: 0 auto;
             }
         }
 
         // Giới thiệu T2PC
-        .introduce{
+        .introduce {
             display: flex;
             background: $main-color;
-            .introduction{
+            .introduction {
                 padding: 2em 2em;
             }
-            .introduction :first-child{
+            .introduction :first-child {
                 font-family: ChakraPetch-Bold;
                 font-size: 1.5rem;
                 color: white;
             }
-            .introduction :last-child{
+            .introduction :last-child {
                 font-family: ChakraPetch-Medium;
                 color: white;
                 margin-bottom: 0;
             }
-            
 
             // .img__introduce{
             //     padding: 2em 2em 2em 0;

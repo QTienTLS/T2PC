@@ -70,10 +70,15 @@ class AdminController {
         var numAcc = await Account.countDocuments({});
         var numOrder = await Order.countDocuments({ status: 3 });
         var numOrderFail = await Order.countDocuments({ status: 4 });
-        res.render('admin-dashboard/dashboard', { check, numPro, numAcc, numOrder, numOrderFail });
+        res.render('admin-dashboard/dashboard', {
+            check,
+            numPro,
+            numAcc,
+            numOrder,
+            numOrderFail,
+        });
     }
     event(req, res, next) {
-
         Event.find({})
             .then((events) => {
                 res.render('admin-dashboard/event', {
@@ -193,7 +198,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                100,
+                    100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -229,7 +234,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                100,
+                    100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -313,7 +318,7 @@ class AdminController {
             }
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                100,
+                    100,
             );
             Product.updateOne({ _id: req.params.id }, newPro)
                 .then(() => {
@@ -329,8 +334,7 @@ class AdminController {
     async goToOrder(req, res) {
         var link = 'admin-dashboard/' + req.params.link;
         var status;
-        if (req.params.link == 'pending')
-            status = 0;
+        if (req.params.link == 'pending') status = 0;
         var orders = await Order.find({ status: status });
         orders = mutipleMongooseToObject(orders);
         for (let i = 0; i < orders.length; i++) {
@@ -344,17 +348,16 @@ class AdminController {
         }
         res.render(link, { check, orders });
     }
-    async banUser(req, res,next) {
+  async  banUser(req, res, next) {
         var reason = req.body.why;
         var update = {
             reasonBan: reason,
             status: 2,
-        }
-        Account.updateOne({_id: req.params.id},update)
-        .then(() =>  res.redirect('back'))
-        .catch(next);
-       
-    }
+        };
+        // res.send(req.params.id);
+        var acc = await Account.updateOne({_id:req.params.id},update);
+        res.redirect('back');
+      }
 }
 
 module.exports = new AdminController();

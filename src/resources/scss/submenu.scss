@@ -1,9 +1,9 @@
 @import 'var';
-.main__sub-menu{
+.main__sub-menu {
     margin-top: 1em;
     // Banner-submenu
-    .banner__submenu{
-        img{
+    .banner__submenu {
+        img {
             width: 100%;
         }
     }
@@ -55,12 +55,12 @@
         }
     }
     // Main submenu
-    .block__content{
+    .block__content {
         display: grid;
         grid-column-gap: 8px;
         grid-row-gap: 8px;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        a{
+        a {
             border-radius: 5px;
             background: $main-color;
             color: white;
@@ -72,23 +72,22 @@
             padding: 0.5em 1em;
             position: relative;
             overflow: hidden;
-            span{
+            span {
                 padding-top: 1em;
             }
-            .img-detail__submenu{
+            .img-detail__submenu {
                 float: right;
                 z-index: 2;
-                img{
+                img {
                     max-width: 100%;
                     max-height: 110px;
                     width: auto;
                     height: auto;
                 }
-                
             }
         }
-        .list__cat__item::after{
-            content: "";
+        .list__cat__item::after {
+            content: '';
             display: block;
             position: absolute;
             width: 60px;
@@ -99,7 +98,6 @@
             transform: rotate(15deg);
             z-index: 0;
         }
-
     }
     // THông tin về các hình thức thanh toán và trợ
     .product__detail-policy__item {
@@ -107,7 +105,6 @@
         justify-content: space-between;
         margin-top: 2em;
         padding: 0em 0em 1em 0;
-        
 
         .policy__item {
             display: flex;

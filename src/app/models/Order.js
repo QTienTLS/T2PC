@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 const Order = new Schema(
     {
         listProID: [],
+        listPro: [],
+        listImg: [],
+        listPrice: [],
         amount: [],
         userID: { type: String, required: true },
         nameReceiver: { type: String, required: true },
@@ -15,7 +18,6 @@ const Order = new Schema(
         address: { type: String },
         phone: { type: String },
         email: { type: String },
-
     },
     { timestamps: true },
 );

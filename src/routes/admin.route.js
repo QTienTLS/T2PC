@@ -12,7 +12,7 @@ router.post('/addproduct', adminController.addFullProduct);
 router.post('/addsproduct', adminController.addSemiProduct);
 router.delete('/product/:id', adminController.delPro);
 router.put('/product/:op/:id', adminController.updatePro);
-router.get('/order/:link',adminController.goToOrder);
-router.put('/banuser/:id',adminController.banUser);
+router.get('/order/:link', adminController.goToOrder);
+router.put('/banuser/:id', adminController.banUser);
 
 module.exports = router;

@@ -122,24 +122,25 @@
                                 <tr>
                                     <td>{{sum @index 1}}</td>
                                     <td class="timeFormat2">{{this.createdAt}}</td>
-                                    <td>{{this.acc.username}}
-                                        <button class="btn btn-success" data-bs-toggle="modal"
+                                    <td class="tborder__username">
+                                        <p>{{this.acc.username}}</p>
+                                        <button class="btn btn-info btn-circle" data-bs-toggle="modal" title="Chi tiết tài khoản"
                                             data-bs-target="#modalUser" data-bs-avt="{{this.acc.img}}"
                                             data-bs-username="{{this.acc.username}}" data-bs-name="{{this.acc.name}}"
                                             data-bs-createdAt="{{this.acc.createdAt}}"
                                             data-bs-email="{{this.acc.email}}" data-bs-phone="{{this.acc.phone}}"
                                             data-bs-totalSpend="{{this.acc.totalSpend}}"
                                             data-bs-status="{{this.acc.status}}" data-bs-id="{{this.acc._id}}"
-                                            id="btn-user-detail">Chi tiết</button>
+                                            id="btn-user-detail"><i class="fas fa-user-tie"></i></button>
                                     </td>
                                     <td>{{this.userNote}}</td>
                                     <td class="currFormat">{{this.totalPrice}} đ</td>
                                     <td>
-                                        <button type="button" style="margin: 1em 1em;" class="btn btn-danger"
-                                            data-bs-toggle="modal" data-bs-target="#modalHuydon">Hủy đơn</button>
-                                        <button type="button" style="margin: 1em 1em;" class="btn btn-warning"
-                                            data-bs-toggle="modal" data-bs-target="#modalChitietdon">Chi tiết đơn
-                                            hàng</button>
+                                        <button type="button" title="Hủy đơn hàng" style="margin: 1em 1em;" class="btn btn-danger btn-circle"
+                                            data-bs-toggle="modal" data-bs-target="#modalHuydon"><i class="fas fa-align-slash"></i></button>
+                                        <button type="button" style="margin: 1em 1em;" title="Chi tiết đơn hàng" class="btn btn-success btn-circle"
+                                            data-bs-toggle="modal" data-bs-target="#modalChitietdon">
+                                            <i class="fas fa-folder-open"></i></button>
                                     </td>
                                 </tr>
                                 {{/each}}
@@ -158,7 +159,7 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-3">
-                                                <img style="height: 8em;" id="avt-user" src="" alt="">
+                                                <img  id="avt-user" src="" alt="">
                                             </div>
                                             <div class="col-9">
                                                 <div class="row">
@@ -202,8 +203,9 @@
                                                 <p id="status-user"></p>
                                             </div>
                                         </div>
-                                        <div class="row" id='banGroup' style="display: none;">
+                                        <div class="row" id='banGroup'>
                                             <div class="col-2">
+                                                <div id="get-user-id" style="display: none;"></div>
                                                 <button onclick="openBanUser()" class="btn btn-danger">Khóa tài
                                                     khoản</button>
                                             </div>
@@ -271,13 +273,14 @@
                                     return;
                                 }
                                 else {
-                                    var userid = document.getElementById('btn-user-detail').getAttribute('data-bs-id');
+                                    var userid = document.getElementById('get-user-id').innerHTML;
                                     var form = document.forms['shipper'];
                                     var inputreason = document.createElement('input');
                                     inputreason.name = 'why';
                                     inputreason.value = whyban.value;
                                     form.appendChild(inputreason);
                                     form.action = '/admin/banuser/' + userid + '?_method=PUT';
+                                    
                                     form.submit();
                                 }
                             };
@@ -291,6 +294,7 @@
                                 document.getElementById('email-user').value = btn.getAttribute('data-bs-email');
                                 document.getElementById('spend-user').value = btn.getAttribute('data-bs-totalSpend') + ' đ';
                                 document.getElementById('phone-user').value = btn.getAttribute('data-bs-phone');
+                                document.getElementById('get-user-id').innerHTML = btn.getAttribute('data-bs-id');
                                 var timeString = document.getElementById('ngaytao-user');
                                 timeString.value = btn.getAttribute('data-bs-createdAt');
                                 var time = new Date(timeString.value);

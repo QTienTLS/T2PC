@@ -78,8 +78,8 @@ body {
                 .style__customer {
                     display: flex;
                     justify-content: space-between;
-                    label{
-                        font-family: ChakraPetch-Bold; 
+                    label {
+                        font-family: ChakraPetch-Bold;
                     }
                     p {
                         font-family: ChakraPetch-SemiBold;
@@ -223,8 +223,10 @@ body {
                             -webkit-line-clamp: 2;
                             -webkit-box-orient: vertical;
                             overflow: hidden;
-                            a{ text-decoration: none;
-                            color: black;}
+                            a {
+                                text-decoration: none;
+                                color: black;
+                            }
                         }
                     }
                     .amount-product-in-cart {
@@ -264,7 +266,7 @@ body {
         align-items: center;
         padding: 1em;
         border: 1px dashed $border-color;
-        .pay__footer-main{
+        .pay__footer-main {
             p {
                 margin: 0;
                 padding: 0;
@@ -272,11 +274,11 @@ body {
                     font-family: ChakraPetch-SemiBold;
                 }
             }
-            ul{
+            ul {
                 list-style: none;
                 font-family: ChakraPetch-Medium;
-                li{
-                    i{
+                li {
+                    i {
                         color: $main-color;
                     }
                 }
@@ -341,31 +343,31 @@ body {
     }
 }
 
-.container-order__notice{
+.container-order__notice {
     padding: 0 0 1.5em 0;
     font-family: ChakraPetch-Bold;
-    .order__notice-img{
+    .order__notice-img {
         text-align: center;
         font-size: 10rem;
         color: $main-color;
     }
-    .notification__order{
+    .notification__order {
         text-align: center;
-        h2{
+        h2 {
             font-family: ChakraPetch-Bold;
             color: $main-color;
             padding-bottom: 0.5em;
         }
-        .tks{
+        .tks {
             margin-bottom: 0em;
         }
         // p{
         //     font-family: ChakraPetch-Bold;
         // }
     }
-    .way__back__home{
+    .way__back__home {
         text-align: center;
-        a{
+        a {
             text-decoration: none;
         }
     }

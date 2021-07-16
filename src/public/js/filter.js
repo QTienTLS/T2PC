@@ -81,7 +81,7 @@ for (var i = 0; i < timeString2.length; i++) {
     let hour = time.getHours();
     let m = time.getMinutes();
     let s = time.getSeconds();
-    time =hour + ':' + m + ':' + s + ' ngày ' + day + '-' + month + '-' + year;
+    time = hour + ':' + m + ':' + s + ' ngày ' + day + '-' + month + '-' + year;
     timeString2[i].innerHTML = time;
     //console.log(time);
 }
@@ -92,7 +92,6 @@ for (let i = 0; i < currency.length; i++) {
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
-
 
 //hàm xem chi tiết sản phẩm
 function goToDetail(productID) {

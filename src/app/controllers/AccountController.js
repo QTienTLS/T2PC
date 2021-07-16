@@ -5,7 +5,7 @@ const Order = require('../models/Order');
 const session = require('express-session');
 const path = require('path');
 const { mongooseToObject } = require('../../tools/mongoose');
-const {mutipleMongooseToObject} = require('../../tools/mongoose');
+const { mutipleMongooseToObject } = require('../../tools/mongoose');
 const multer = require('multer');
 
 //khởi tạo biến cấu hình cho lưu trữ ảnh đại diện
@@ -149,13 +149,12 @@ class AccountController {
             })
             .catch(next);
     }
-async checkout(req, res, next) {
+    async checkout(req, res, next) {
         var cart = req.body;
-        cart.id  = cart.id.split(',');
+        cart.id = cart.id.split(',');
         cart.amount = cart.amount.split(',');
-        var pros =[];
-        for(let i=0;i<cart.id.length;i++)
-        {
+        var pros = [];
+        for (let i = 0; i < cart.id.length; i++) {
             var pro = await Product.findById(cart.id[i]);
             var nPro = {
                 name: pro.name,
@@ -163,24 +162,31 @@ async checkout(req, res, next) {
                 price: pro.price,
                 id: pro.id,
                 amount: cart.amount[i],
-            }
+            };
             pros.push(nPro);
         }
         var totalAmount = cart.numPro;
         var totalPrice = cart.totalPrice;
-        Account.findById(req.session.User.id,function(err,acc){
+        Account.findById(req.session.User.id, function (err, acc) {
             acc = mongooseToObject(acc);
-            res.render('account/checkout',{pros,acc,totalAmount,totalPrice});
-        })
-        
-}
-submitOrder(req,res){
-    var order = new Order(req.body);
-    order.listProID = req.body.listProID.split(',');
-    order.amount = req.body.amount.split(',').map(x=>+x);
-    order.save();
-   //res.json(order);
-    res.render('account/done-order');
-}
+            res.render('account/checkout', {
+                pros,
+                acc,
+                totalAmount,
+                totalPrice,
+            });
+        });
+    }
+    submitOrder(req, res) {
+        var order = new Order(req.body);
+        order.listProID = req.body.listProID.split(',');
+        order.listPro = req.body.listPro.split('`');
+        order.listImg = req.body.listProImg.split(',');
+        order.listPrice = req.body.listProPrice.split(',').map((x) => +x);
+        order.amount = req.body.amount.split(',').map((x) => +x);
+        order.save();
+        //res.json(order);
+        res.render('account/done-order');
+    }
 }
 module.exports = new AccountController();
