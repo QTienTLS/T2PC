@@ -199,7 +199,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -235,7 +235,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -319,7 +319,7 @@ class AdminController {
             }
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             Product.updateOne({ _id: req.params.id }, newPro)
                 .then(() => {
@@ -337,6 +337,8 @@ class AdminController {
         var status;
         if (req.params.link == 'pending') status = 0;
         else if (req.params.link == 'shipping') status = 1;
+        else if(req.params.link == 'done') status = 3;
+        else if(req.params.link == 'canceled') status = 2;
         var orders = await Order.find({ status: status });
         orders = mutipleMongooseToObject(orders);
         for (let i = 0; i < orders.length; i++) {
@@ -351,48 +353,53 @@ class AdminController {
         }
         res.render(link, { check, orders });
     }
-  async  banUser(req, res, next) {
+    async banUser(req, res, next) {
         var reason = req.body.why;
         var update = {
             reasonBan: reason,
             status: 2,
         };
         // res.send(req.params.id);
-        var acc = await Account.updateOne({_id:req.params.id},update);
+        var acc = await Account.updateOne({ _id: req.params.id }, update);
         res.redirect('back');
-      }
+    }
     updateOrder(req, res, next) {
-            var update = {
-                status: req.params.status,
-            }
-            if(req.body.adminnote)
-                update.adminNote += '`' +  req.body.adminnote;
-            else 
-                update.adminNote = '';
-            Order.findOneAndUpdate({ _id: req.params.id }, update)
-                .then((order) => {
-                    order = mongooseToObject(order);
-                    var n = order.listPro.length;
-                    if(req.params.status==1){
+        var update = {
+            status: req.params.status,
+        }
+        if (req.body.adminNote)
+            if (update.adminNote)
+                update.adminNote += '`' + req.body.adminNote;
+            else
+                update.adminNote = req.body.adminNote;
+
+        Order.findOneAndUpdate({ _id: req.params.id }, update)
+            .then((order) => {
+                order = mongooseToObject(order);
+                var n = order.listPro.length;
+                if (req.params.status == 1) {
                     for (let i = 0; i < n; i++) {
                         Product.findOne({ _id: order.listProID[i] }, function (err, pro) {
                             if (err) console.log(err);
                             pro.stored -= order.amount[i];
                             pro.save();
                         })
-                    }}
-                    else if(req.params.status==3)
-                        Account.findOne({_id: order.userID},function(err,acc){
-                            if (err) console.log(err);
-                            acc.totalSpend += order.totalPrice;
-                            acc.save();
-                        })
-                    res.redirect('back');
-                })
-                .catch(next);
+                    }
+                }
+                else if (req.params.status == 3)
+                    Account.findOne({ _id: order.userID }, function (err, acc) {
+                        if (err) console.log(err);
+                        acc.totalSpend += order.totalPrice;
+                        acc.save();
+                    })
 
-        }
+
+                res.redirect('back');
+            })
+            .catch(next);
+
     }
+}
 
 
 module.exports = new AdminController();
