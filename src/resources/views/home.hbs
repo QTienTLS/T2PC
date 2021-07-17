@@ -334,24 +334,22 @@
       </div>
       <div class="main__brand-products container">
         <div class="slider-discount row">
-          <div class="img__brand col-lg-2"><img src="/img/brand/dareu.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/hp.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/Kingston.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/Logitech.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/galxx.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/ada-228x228.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/fuhlenjpg.jpg" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/Razer.png" alt=""></div>
-          <div class="img__brand col-lg-2"><img src="/img/brand/dell.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/dareu.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/hp.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/Kingston.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/Logitech.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/galxx.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/ada-228x228.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/fuhlenjpg.jpg" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/Razer.png" alt=""></div>
+          <div class="img__brand"><img src="/img/brand/dell.png" alt=""></div>
         </div>
+        <div class="arrow_prev"><i class="fas fa-angle-right"></i></div>
+        <div class="next_next"><i class="fas fa-angle-left"></i></div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 
 <script src="/js/jquery/dist/jquery.slim.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -371,10 +369,13 @@
 <script>
   $(document).ready(function () {
     $('.slider-discount').slick({
+      
       slidesToShow: 6,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 1000,
+      prevArrow: '.arrow_prev',
+      nextArrow: '.next_next',
     });
   })
 </script>

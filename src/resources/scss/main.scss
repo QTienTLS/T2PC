@@ -433,56 +433,34 @@
                     }
                 }
             }
-            .main__discount-products {
-                .slider-discount {
-                    overflow: hidden;
-                    position: relative;
-                    .img__brand {
-                        margin: 2px;
-                        padding: 0.5em 0;
-                        display: flex;
-                        justify-content: center;
-                        height: 100px;
+            .main__brand-products{
+                padding: 20px;
+                position: relative;
+                .slider-discount{
+                    .img__brand{
+                        // width: 180px;
+                        margin: 5px;
+                        padding: 10px 50px;
                         border: 1px solid $border-color;
-                        img {
+                        img{
                             max-width: 100%;
                             max-height: 100%;
                         }
                     }
-                    button {
-                        margin: 0;
-                        padding: 0;
-                        background: none;
-                        border: none;
-                        border-radius: 0;
-                        outline: none;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        appearance: none;
-                    }
-                    .prev-arrow {
-                        left: -40px;
-                        width: 0;
-                        height: 0;
-                        border-left: 0 solid transparent;
-                        border-right: 15px solid #113463;
-                        border-top: 10px solid transparent;
-                        border-bottom: 10px solid transparent;
-                    }
-                    .next-arrow {
-                        right: -40px;
-                        width: 0;
-                        height: 0;
-                        border-right: 0 solid transparent;
-                        border-left: 15px solid #113463;
-                        border-top: 10px solid transparent;
-                        border-bottom: 10px solid transparent;
-                    }
-                    .slide-arrow {
-                        position: absolute;
-                        top: 50%;
-                        margin-top: -15px;
-                    }
+                }
+                .arrow_prev{
+                    position: absolute;
+                    top: 38%;
+                    right: -15px;
+                    color: #99a0ad;
+                    font-size: 1.5rem;
+                }
+                .next_next{
+                    position: absolute;
+                    top: 38%;
+                    left: -15px;
+                    color: #99a0ad;
+                    font-size: 1.5rem;
                 }
             }
         }
