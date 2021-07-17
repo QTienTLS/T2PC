@@ -257,7 +257,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div id="modalChitietdon-root-node" class="modalChitietdon-product">
-                                            <img src="" alt="">
+                                            <div class="img__modalChitietdon"><img src="" alt=""></div>
                                             <div id="pro-name"></div>
                                             <div id="amount-pro">
                                                 <p>Số lượng</p>
@@ -274,7 +274,7 @@
                                             <div class="col-7" id="modalChitietdon-pro-list">
 
                                             </div>
-                                            <div class="col-5">
+                                            <div class="col-5 info__Chitietdon-pro-list">
                                                 <div class="form-floating mb-3">
                                                     <input type="email" class="form-control"
                                                         id="modalChitietdon-name-receiver"
@@ -432,7 +432,7 @@
                                 for (let i = 0; i < proName.length; i++) {
                                     var cloneNode = root.cloneNode(true);
                                     cloneNode.removeAttribute('id');
-                                    cloneNode.childNodes[1].src = proImg[i];
+                                    cloneNode.childNodes[1].childNodes[0].src = proImg[i];
                                     cloneNode.childNodes[3].innerHTML = proName[i];
                                     cloneNode.childNodes[5].childNodes[3].innerHTML = amount[i];
                                     cloneNode.childNodes[7].childNodes[3].innerHTML = (price[i] + ' đ').replace(/\B(?=(\d{3})+(?!\d))/g, '.');

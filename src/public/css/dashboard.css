@@ -1667,7 +1667,7 @@ progress {
   border-width: 0;
   border-inline-end-width: 1px;
   border-radius: 0;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
 @media (prefers-reduced-motion: reduce) {
   .form-control::file-selector-button,
@@ -1692,8 +1692,8 @@ progress {
   border-width: 0;
   border-inline-end-width: 1px;
   border-radius: 0;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
 @media (prefers-reduced-motion: reduce) {
   .form-control::-webkit-file-upload-button,
@@ -1966,8 +1966,8 @@ textarea.form-control-lg {
   background-color: #0d6efd;
   border: 0;
   border-radius: 1rem;
-  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;
   appearance: none; }
 
@@ -1994,8 +1994,8 @@ textarea.form-control-lg {
   background-color: #0d6efd;
   border: 0;
   border-radius: 1rem;
-  -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -moz-appearance: none;
   appearance: none; }
 
@@ -2450,7 +2450,7 @@ textarea.is-invalid.dataTable-input {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
 @media (prefers-reduced-motion: reduce) {
   .btn {
@@ -3478,7 +3478,7 @@ fieldset:disabled .btn {
   padding: 0.5rem 1rem;
   color: #0d6efd;
   text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; }
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; }
 
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
@@ -3981,7 +3981,7 @@ fieldset:disabled .btn {
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease; }
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease; }
 
 @media (prefers-reduced-motion: reduce) {
   .accordion-button {
@@ -4103,7 +4103,7 @@ fieldset:disabled .btn {
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
 @media (prefers-reduced-motion: reduce) {
   .page-link,
@@ -8774,25 +8774,52 @@ body {
 #modalChitietdon #modalChitietdon-root-node {
   display: none; }
 
+#modalChitietdon .modal-dialog .modal-content .modal-header h5 {
+  font-family: ChakraPetch-Bold;
+  color: #49b14d; }
+
 #modalChitietdon .modalChitietdon-product {
   background-color: #f0f3fc;
   display: flex;
-  border: 1px solid #c1c1c1; }
-  #modalChitietdon .modalChitietdon-product img {
-    flex: 1;
-    height: 8em;
-    background-color: #0a53be;
-    border-right: 1px solid #c1c1c1; }
+  border: 1px solid #dddfe6;
+  border-radius: 5px;
+  margin-bottom: 16px; }
+  #modalChitietdon .modalChitietdon-product .img__modalChitietdon {
+    padding: 10px;
+    border-right: 1px solid #dddfe6; }
+    #modalChitietdon .modalChitietdon-product .img__modalChitietdon img {
+      max-width: 100px;
+      max-height: 100px;
+      width: auto;
+      height: auto; }
   #modalChitietdon .modalChitietdon-product #pro-name {
     flex: 3;
-    border-right: 1px solid #c1c1c1; }
+    border-right: 1px solid #dddfe6;
+    padding: 10px;
+    font-family: ChakraPetch-SemiBold;
+    color: #005ec4; }
   #modalChitietdon .modalChitietdon-product #amount-pro {
-    padding: auto 10px;
-    flex: 1;
-    border-right: 1px solid #c1c1c1; }
+    padding: 10px;
+    text-align: center;
+    flex: 1.5;
+    border-right: 1px solid #dddfe6;
+    font-family: ChakraPetch-Bold; }
+    #modalChitietdon .modalChitietdon-product #amount-pro div {
+      color: #f9495f; }
   #modalChitietdon .modalChitietdon-product #price-pro {
-    flex: 2; }
+    padding: 5px;
+    flex: 2;
+    text-align: center;
+    font-family: ChakraPetch-Bold; }
+    #modalChitietdon .modalChitietdon-product #price-pro div {
+      color: #f9495f; }
 
 #modalChitietdon #modalChitietdon-pro-list {
   overflow: auto;
   height: 30em; }
+
+#modalChitietdon .info__Chitietdon-pro-list .form-floating input {
+  font-family: ChakraPetch-SemiBold; }
+
+#modalChitietdon .info__Chitietdon-pro-list .form-floating label {
+  font-family: ChakraPetch-Regular; }
