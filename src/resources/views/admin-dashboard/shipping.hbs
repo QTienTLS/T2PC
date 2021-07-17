@@ -88,9 +88,9 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4"><i class="fad fa-spinner"></i> Đơn hàng chờ xử lí</h1>
+                <h1 class="mt-4"><i class="fas fa-shipping-fast"></i> Đơn hàng đang giao</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Pending order</li>
+                    <li class="breadcrumb-item active">Delivering</li>
                 </ol>
 
                 <div class="card mb-4">
@@ -148,8 +148,8 @@
                                             data-bs-address="{{this.address}}" data-bs-phone="{{this.phone}}"
                                             data-bs-nameReceiver="{{this.nameReceiver}}" data-bs-id="{{this._id}}">
                                             <i class="fas fa-folder-open"></i></button>
-                                        <button type="button" title="Hủy đơn hàng" style="margin: 1em 1em;"
-                                            class="btn btn-danger btn-circle" data-bs-toggle="modal" data-bs-id="{{this._id}}"
+                                            <button type="button" title="Hủy đơn hàng" style="margin: 1em 1em;"
+                                            class="btn btn-danger btn-circle" data-bs-toggle="modal"
                                             data-bs-target="#modalHuydon"><i class="fas fa-align-slash"></i></button>
                                     </td>
                                 </tr>
@@ -303,51 +303,14 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Đóng</button>
-                                        <button type="button" id="modalChitietdon-btn-submit" class="btn btn-success"><i
-                                                class="fad fa-check"></i> Xác nhận đơn hàng</button>
+                                             <button type="button" id="modalChitietdon-btn-submit" class="btn btn-success"><i class="fad fa-check"></i> 
+                                             Khách đã nhận được hàng
+                                             </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Modal chi tiết đơn hàng-->
-                        {{!-- Modal hủy đơn hàng --}}
-                        <div class="modal fade" id="modalHuydon" tabindex="-1" aria-labelledby="modalUserLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog" style="max-width: 62em">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalUserLabel">Hủy đơn hàng</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" name="adminNote">
-                                              <input type="radio" name="adminNote" checked='true'
-                                              value=" Lý do: Thông tin nhận hàng không phù hợp (địa chỉ không tồn tại hoặc nằm ngoài lãnh thổ Việt Nam, số điện thoại không liên lạc được...)"
-                                              > Lý do: Thông tin nhận hàng không phù hợp (địa chỉ không tồn tại hoặc nằm ngoài lãnh thổ Việt Nam, số điện thoại không liên lạc được...)<br> <br>
-                                               <input type="radio" name="adminNote" 
-                                              value=" Lý do: Tài khoản người dùng đã bị khóa hoặc chưa kích hoạt, vui lòng kiểm tra email để kích hoạt tài khoản !"
-                                              > Lý do: Tài khoản người dùng đã bị khóa hoặc chưa kích hoạt, vui lòng kiểm tra email để kích hoạt tài khoản !<br> <br>
-                                              <input type="radio" name="adminNote" 
-                                              value=" Lý do: Sản phẩm trong đơn hàng đã hết hoặc gặp vấn đề không mong muốn (chúng tôi rất xin lỗi về sự cố này ! )"
-                                              > Lý do: Sản phẩm trong đơn hàng đã hết hoặc gặp vấn đề không mong muốn (chúng tôi rất xin lỗi về sự cố này ! )<br> <br>
-                                              <input type="radio" name="adminNote" 
-                                              value=" Lý do khác"
-                                              > Lý do khác <br> <br>
-                                            <textarea class="form-control" placeholder="Lý do khác" id="admin-note"
-                                                style="height: 100px" readonly></textarea>
-                                          
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Đóng</button>
-                                        <button type="button" class="btn btn-danger">Xác nhận hủy đơn</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{!-- Modal hủy đơn hàng --}}
                         {{!-- Thuật toán xử lí modal User --}}
                         <script>
                             function openBanUser() {
@@ -438,15 +401,15 @@
                                     cloneNode.childNodes[7].childNodes[3].innerHTML = (price[i] + ' đ').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                                     mainList.appendChild(cloneNode);
                                 }
-                                document.getElementById('modalChitietdon-btn-submit').addEventListener('click', function () {
+                                document.getElementById('modalChitietdon-btn-submit').addEventListener('click',function(){
                                     var form = document.forms['shipper'];
                                     var idOrder = btn.getAttribute('data-bs-id');
                                     var adminNote = document.createElement('input');
-                                    adminNote.setAttribute('name', 'adminnote');
+                                    adminNote.setAttribute('name','adminnote');
                                     adminNote.value = document.getElementById('admin-note').value;
                                     form.appendChild(adminNote);
-                                    form.action = '/admin/update-order/1/' + idOrder + '?_method=PUT';
-                                    form.submit();
+                                    form.action = '/admin/update-order/3/' + idOrder + '?_method=PUT';
+                                    form.submit(); 
 
                                 })
                             })
@@ -456,16 +419,6 @@
                             })
                         </script>
                         {{!-- Thuật toán xử lí duyệt đơn --}}
-                        {{!-- Thuật toán xử lí hủy đơn --}}
-                        <script>
-                            var modalHuydon = document.getElementById('modalHuydon');
-                            modalHuydon.addEventListener('show.bs.modal',function(event){
-                                var btn = event.relatedTarget;
-                                var id = btn.getAttribute('data-bs-id');
-
-                            })
-                        </script>
-                        {{!-- Thuật toán xử lí hủy đơn --}}
                     </div>
                 </div>
             </div>

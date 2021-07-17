@@ -8770,3 +8770,29 @@ body {
   width: 8em;
   background-color: #49b14d;
   border-radius: 50%; }
+
+#modalChitietdon #modalChitietdon-root-node {
+  display: none; }
+
+#modalChitietdon .modalChitietdon-product {
+  background-color: #f0f3fc;
+  display: flex;
+  border: 1px solid #c1c1c1; }
+  #modalChitietdon .modalChitietdon-product img {
+    flex: 1;
+    height: 8em;
+    background-color: #0a53be;
+    border-right: 1px solid #c1c1c1; }
+  #modalChitietdon .modalChitietdon-product #pro-name {
+    flex: 3;
+    border-right: 1px solid #c1c1c1; }
+  #modalChitietdon .modalChitietdon-product #amount-pro {
+    padding: auto 10px;
+    flex: 1;
+    border-right: 1px solid #c1c1c1; }
+  #modalChitietdon .modalChitietdon-product #price-pro {
+    flex: 2; }
+
+#modalChitietdon #modalChitietdon-pro-list {
+  overflow: auto;
+  height: 30em; }

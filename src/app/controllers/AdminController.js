@@ -8,6 +8,7 @@ const { mutipleMongooseToObject } = require('../../tools/mongoose');
 const { countDocuments } = require('../models/Event');
 const path = require('path');
 const multer = require('multer');
+const { resolveSoa } = require('dns');
 
 var formData;
 
@@ -335,6 +336,7 @@ class AdminController {
         var link = 'admin-dashboard/' + req.params.link;
         var status;
         if (req.params.link == 'pending') status = 0;
+        else if (req.params.link == 'shipping') status = 1;
         var orders = await Order.find({ status: status });
         orders = mutipleMongooseToObject(orders);
         for (let i = 0; i < orders.length; i++) {
@@ -345,6 +347,7 @@ class AdminController {
                 acc = mongooseToObject(acc);
                 orders[i].acc = acc;
             }
+            orders[i].proNameString = orders[i].listPro.join('`');
         }
         res.render(link, { check, orders });
     }
@@ -358,6 +361,38 @@ class AdminController {
         var acc = await Account.updateOne({_id:req.params.id},update);
         res.redirect('back');
       }
-}
+    updateOrder(req, res, next) {
+            var update = {
+                status: req.params.status,
+            }
+            if(req.body.adminnote)
+                update.adminNote += '`' +  req.body.adminnote;
+            else 
+                update.adminNote = '';
+            Order.findOneAndUpdate({ _id: req.params.id }, update)
+                .then((order) => {
+                    order = mongooseToObject(order);
+                    var n = order.listPro.length;
+                    if(req.params.status==1){
+                    for (let i = 0; i < n; i++) {
+                        Product.findOne({ _id: order.listProID[i] }, function (err, pro) {
+                            if (err) console.log(err);
+                            pro.stored -= order.amount[i];
+                            pro.save();
+                        })
+                    }}
+                    else if(req.params.status==3)
+                        Account.findOne({_id: order.userID},function(err,acc){
+                            if (err) console.log(err);
+                            acc.totalSpend += order.totalPrice;
+                            acc.save();
+                        })
+                    res.redirect('back');
+                })
+                .catch(next);
+
+        }
+    }
+
 
 module.exports = new AdminController();

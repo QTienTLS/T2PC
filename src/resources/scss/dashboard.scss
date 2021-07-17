@@ -11766,3 +11766,35 @@ body {
     background-color: $main-color;
     border-radius: 50%;
 }
+#modalChitietdon{
+    #modalChitietdon-root-node{
+        display: none;
+    }
+    .modalChitietdon-product{
+        background-color: #f0f3fc;
+        display: flex;
+        border: 1px solid #c1c1c1;
+        img{
+            flex: 1;
+            height: 8em;
+            background-color: #0a53be;
+            border-right: 1px solid #c1c1c1;
+        }
+        #pro-name{
+            flex: 3;
+            border-right: 1px solid #c1c1c1;
+        }
+        #amount-pro{
+            padding: auto 10px;
+            flex: 1;
+            border-right: 1px solid #c1c1c1;
+        }
+        #price-pro{
+            flex: 2;
+        }
+    }
+    #modalChitietdon-pro-list{
+        overflow: auto;
+        height: 30em;
+    }
+}
