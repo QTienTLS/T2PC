@@ -29,62 +29,7 @@
     </ul>
 </nav>
 <div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Danh mục quản lý</div>
-                    <a class="nav-link" href="/admin">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
-                    </a>
-                    <a class="nav-link" href="/admin/event">
-                        <div class="sb-nav-link-icon"><i class="fas fa-gifts"></i></div>
-                        Sự kiện
-                    </a>
-                    <a class="nav-link" href="/admin">
-                        <div class="sb-nav-link-icon"><i class="far fa-user-circle"></i></div>
-                        Tài khoản
-                    </a>
-                    <a class="nav-link" href="/admin/product">
-                        <div class="sb-nav-link-icon"><i class="fad fa-computer-speaker"></i></div>
-                        Sản phẩm
-                    </a>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-                        aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fad fa-money-bill-wave"></i></div>
-                        Đơn hàng
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/admin/order/pending">
-                                <div class="sb-nav-link-icon"><i class="fad fa-spinner"></i></div>
-                                Đơn hàng chờ xử lí
-                            </a>
-                            <a class="nav-link" href="/admin/order/shipping">
-                                <div class="sb-nav-link-icon"><i class="fas fa-shipping-fast"></i></div>
-                                Đơn đang giao
-                            </a>
-                            <a class="nav-link" href="/admin/order/done">
-                                <div class="sb-nav-link-icon"><i class="fad fa-file-check"></i></div>
-                                Đã hoàn thành
-                            </a>
-                            <a class="nav-link" href="/admin/order/canceled">
-                                <div class="sb-nav-link-icon"><i class="fad fa-trash"></i></div>
-                                Đã bị hủy
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="sb-sidenav-footer">
-                <div class="small">Chào mừng boss <i class="far fa-grin-squint"></i>:</div>
-                {{session.User.name}}
-            </div>
-        </nav>
-    </div>
+   {{>sidenav}}
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
@@ -321,7 +266,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" name="adminNote">
+                                        <form method="POST" name="adminNoteForm">
                                               <input type="radio" name="adminNote" checked='true'
                                               value=" Lý do: Thông tin nhận hàng không phù hợp (địa chỉ không tồn tại hoặc nằm ngoài lãnh thổ Việt Nam, số điện thoại không liên lạc được...)"
                                               > Lý do: Thông tin nhận hàng không phù hợp (địa chỉ không tồn tại hoặc nằm ngoài lãnh thổ Việt Nam, số điện thoại không liên lạc được...)<br> <br>
@@ -332,17 +277,17 @@
                                               value=" Lý do: Sản phẩm trong đơn hàng đã hết hoặc gặp vấn đề không mong muốn (chúng tôi rất xin lỗi về sự cố này ! )"
                                               > Lý do: Sản phẩm trong đơn hàng đã hết hoặc gặp vấn đề không mong muốn (chúng tôi rất xin lỗi về sự cố này ! )<br> <br>
                                               <input type="radio" name="adminNote" 
-                                              value=" Lý do khác"
+                                              value="other"
                                               > Lý do khác <br> <br>
-                                            <textarea class="form-control" placeholder="Lý do khác" id="admin-note"
-                                                style="height: 100px" readonly></textarea>
+                                            <textarea class="form-control" placeholder="Lý do khác" id="other-reason"
+                                                style="height: 100px" ></textarea>
                                           
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Đóng</button>
-                                        <button type="button" class="btn btn-danger">Xác nhận hủy đơn</button>
+                                        <button type="button" id="modalHuydon__btn-submit" class="btn btn-danger">Xác nhận hủy đơn</button>
                                     </div>
                                 </div>
                             </div>
@@ -384,7 +329,7 @@
                                 document.getElementById('username-user').value = btn.getAttribute('data-bs-username');
                                 document.getElementById('name-user').value = btn.getAttribute('data-bs-name');
                                 document.getElementById('email-user').value = btn.getAttribute('data-bs-email');
-                                document.getElementById('spend-user').value = btn.getAttribute('data-bs-totalSpend') + ' đ';
+                                document.getElementById('spend-user').value =(btn.getAttribute('data-bs-totalSpend') + ' đ').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                                 document.getElementById('phone-user').value = btn.getAttribute('data-bs-phone');
                                 document.getElementById('get-user-id').innerHTML = btn.getAttribute('data-bs-id');
                                 var timeString = document.getElementById('ngaytao-user');
@@ -442,8 +387,10 @@
                                     var form = document.forms['shipper'];
                                     var idOrder = btn.getAttribute('data-bs-id');
                                     var adminNote = document.createElement('input');
-                                    adminNote.setAttribute('name', 'adminnote');
+                                    adminNote.setAttribute('name', 'adminNote');
                                     adminNote.value = document.getElementById('admin-note').value;
+                                    if(!adminNote.value)
+                                        adminNote.value = 'Đơn hàng đã được xác nhận ! Hàng đang được giao tới bạn';
                                     form.appendChild(adminNote);
                                     form.action = '/admin/update-order/1/' + idOrder + '?_method=PUT';
                                     form.submit();
@@ -462,7 +409,24 @@
                             modalHuydon.addEventListener('show.bs.modal',function(event){
                                 var btn = event.relatedTarget;
                                 var id = btn.getAttribute('data-bs-id');
-
+                                var adminNote = document.adminNoteForm.adminNote;
+                                adminNote[0].checked = true;
+                                document.adminNoteForm.action = '/admin/update-order/2/' + id + '?_method=PUT';
+                                var edit = document.getElementById('other-reason');   
+                                  edit.setAttribute('readonly',true);   
+                                for(let i=0;i<adminNote.length;i++)      
+                                adminNote[i].addEventListener('change',function(){
+                                   if(this.checked && this.value == 'other')
+                                    edit.removeAttribute('readonly');
+                                    else
+                                    edit.setAttribute('readonly',true);
+                                })
+                                var btnsubmit = document.getElementById('modalHuydon__btn-submit');
+                                btnsubmit.onclick = function(){
+                                    if(adminNote[3].checked)
+                                        adminNote[3].value = edit.value;
+                                    document.adminNoteForm.submit();
+                                }
                             })
                         </script>
                         {{!-- Thuật toán xử lí hủy đơn --}}
