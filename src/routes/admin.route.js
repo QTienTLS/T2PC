@@ -16,4 +16,5 @@ router.get('/order/:link', adminController.goToOrder);
 router.put('/banuser/:id', adminController.banUser);
 router.put('/update-order/:status/:id', adminController.updateOrder);
 
+
 module.exports = router;

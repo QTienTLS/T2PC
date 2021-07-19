@@ -738,6 +738,18 @@ footer {
         }
     }
 }
+.status{
+
+}
+.status-pending{
+    color: mediumorchid;
+}
+.status-success{
+    color: green;
+}
+.status-danger{
+    color: tomato;
+}
 @media screen and (max-width: 85em) {
     .login-cart {
         .login {

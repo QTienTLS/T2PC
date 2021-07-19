@@ -339,6 +339,7 @@ class AdminController {
         else if (req.params.link == 'shipping') status = 1;
         else if(req.params.link == 'done') status = 3;
         else if(req.params.link == 'canceled') status = 2;
+        else if (req.params.link == 'cancel-request') status = 4;
         var orders = await Order.find({ status: status });
         orders = mutipleMongooseToObject(orders);
         for (let i = 0; i < orders.length; i++) {
@@ -390,6 +391,7 @@ class AdminController {
                     Account.findOne({ _id: order.userID }, function (err, acc) {
                         if (err) console.log(err);
                         acc.totalSpend += order.totalPrice;
+                        acc.adminNote = 'Đơn hàng đã hoàn thành ! Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi';
                         acc.save();
                     })
 
