@@ -135,12 +135,16 @@
       </div>
       <div class="slider__discount">
         <div class="main__slider">
+          {{#each discountPro}}
           <div class="item">
             <div class="img-item">
-              <img src="/img/products/1-228x228.jpg" alt="">
+              <img src="{{this.img}}" alt="">
             </div>
+            <div class="discount">
+              <span>{{this.discount}}%</span>
+          </div>
             <div class="title-discount__product">
-              <h5><a href="#">Máy Chiếu Mini Bỏ Túi Kiêm Pin Dự Phòng Asus ZenBeam Go E1Z</a></h5>
+              <h5><a href="/product/{{this._id}}/detail">{{this.name}}</a></h5>
             </div>
             <div class="reviews-discount__product">
               <div class="star-reviews">
@@ -153,98 +157,14 @@
               <div class="evaluate">0 đánh giá</div>
             </div>
             <div class="price-discount__product">
-              <p class="price__selling">23.456.789 đ</p>
-              <p class="price__old">87.654.321 đ</p>
+              <p class="price__selling currFormat">{{this.price}} đ</p>
+              <p class="price__old currFormat">{{this.originPrice}} đ</p>
+              {{this.views}}
             </div>
+            
           </div>
-          <div class="item">
-            <div class="img-item">
-              <img src="/img/products/1-228x228.jpg" alt="">
-            </div>
-            <div class="title-discount__product">
-              <h5><a href="#">Máy Chiếu Mini Bỏ Túi Kiêm Pin Dự Phòng Asus ZenBeam Go E1Z</a></h5>
-            </div>
-            <div class="reviews-discount__product">
-              <div class="star-reviews">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="evaluate">0 đánh giá</div>
-            </div>
-            <div class="price-discount__product">
-              <p class="price__selling">23.456.789 đ</p>
-              <p class="price__old">87.654.321 đ</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="img-item">
-              <img src="/img/products/1-228x228.jpg" alt="">
-            </div>
-            <div class="title-discount__product">
-              <h5><a href="#">Máy Chiếu Mini Bỏ Túi Kiêm Pin Dự Phòng Asus ZenBeam Go E1Z</a></h5>
-            </div>
-            <div class="reviews-discount__product">
-              <div class="star-reviews">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="evaluate">0 đánh giá</div>
-            </div>
-            <div class="price-discount__product">
-              <p class="price__selling">23.456.789 đ</p>
-              <p class="price__old">87.654.321 đ</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="img-item">
-              <img src="/img/products/1-228x228.jpg" alt="">
-            </div>
-            <div class="title-discount__product">
-              <h5><a href="#">Máy Chiếu Mini Bỏ Túi Kiêm Pin Dự Phòng Asus ZenBeam Go E1Z</a></h5>
-            </div>
-            <div class="reviews-discount__product">
-              <div class="star-reviews">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="evaluate">0 đánh giá</div>
-            </div>
-            <div class="price-discount__product">
-              <p class="price__selling">23.456.789 đ</p>
-              <p class="price__old">87.654.321 đ</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="img-item">
-              <img src="/img/products/1-228x228.jpg" alt="">
-            </div>
-            <div class="title-discount__product">
-              <h5><a href="#">Máy Chiếu Mini Bỏ Túi Kiêm Pin Dự Phòng Asus ZenBeam Go E1Z</a></h5>
-            </div>
-            <div class="reviews-discount__product">
-              <div class="star-reviews">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="evaluate">0 đánh giá</div>
-            </div>
-            <div class="price-discount__product">
-              <p class="price__selling">23.456.789 đ</p>
-              <p class="price__old">87.654.321 đ</p>
-            </div>
-          </div>
+      
+          {{/each}}
         </div>
         <p class="arrow_prev">
           <i class="fas fa-angle-double-left"></i>

@@ -177,16 +177,28 @@ class AccountController {
             });
         });
     }
-    submitOrder(req, res) {
-        var order = new Order(req.body);
-        order.listProID = req.body.listProID.split(',');
-        order.listPro = req.body.listPro.split('`');
-        order.listImg = req.body.listProImg.split(',');
-        order.listPrice = req.body.listProPrice.split(',').map((x) => +x);
-        order.amount = req.body.amount.split(',').map((x) => +x);
-        order.save();
-        //res.json(order);
-        res.render('account/done-order');
+    submitOrder(req, res, next) {
+        Account.findById(req.session.User.id)
+            .then((acc) => {
+                if (acc.status == 2) {
+                    var lido = { x: acc.reasonBan };
+                    console.log(lido.x);
+                    res.render('account/banned',{lido});
+                }
+                else {
+                    var order = new Order(req.body);
+                    order.listProID = req.body.listProID.split(',');
+                    order.listPro = req.body.listPro.split('`');
+                    order.listImg = req.body.listProImg.split(',');
+                    order.listPrice = req.body.listProPrice.split(',').map((x) => +x);
+                    order.amount = req.body.amount.split(',').map((x) => +x);
+                    order.save();
+                    //res.json(order);
+                    res.render('account/done-order');
+                }
+            })
+            .catch(next);
+
     }
     pendingCart(req, res, next) {
         if (!req.session.User) res.render('partials/404');
