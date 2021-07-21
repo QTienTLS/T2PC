@@ -328,7 +328,7 @@
         .new__product{
             .slider__discount {
                 position: relative;
-                .main__slider {
+                .main__slider-newProduct {
                     overflow: hidden;
                     .item {
                         width: 300px;
@@ -511,6 +511,8 @@
             //  Phần title bên trên 
             .main__brand-products{
                 position: relative;
+                padding-left: 15px;
+                padding-right: 15px;
                 .slider-discount{
                     .img__brand{
                         // width: 180px;
@@ -522,6 +524,23 @@
                             max-height: 100%;
                         }
                     }
+                }
+                .arrow_prev{
+                    position: absolute;
+                    top: 35%;
+                    right: -15px;
+                    color: #99a0ad;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+
+                .next_next{
+                    position: absolute;
+                    top: 35%;
+                    left: -15px;
+                    color: #99a0ad;
+                    font-size: 1.5rem;
+                    cursor: pointer;
                 }
             }
         }
