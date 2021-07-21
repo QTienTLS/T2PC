@@ -375,7 +375,7 @@ class AdminController {
             else
                 update.adminNote = req.body.adminNote;
 
-        Order.findOneAndUpdate({ _id: req.params.id }, update)
+        Order.findOne({ _id: req.params.id })
             .then((order) => {
                 order = mongooseToObject(order);
                 var n = order.listPro.length;
@@ -418,6 +418,9 @@ class AdminController {
                         .catch(next);
                     }
                 }
+                order.status = update.status;
+                order.adminNote = update.adminNote;
+                order.save();
                 res.redirect('back');
             })
             .catch(next);
