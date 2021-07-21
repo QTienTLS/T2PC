@@ -189,7 +189,11 @@
           <div class="triangle_up"></div>
           <div class="seperate__square"></div>
         </div>
-
+        
+        {{#each newPro}}
+          <div>{{this.name}}</div>
+          <img src="{{this.img}}" alt="">
+        {{/each}}
       </div>
       <div class="see__more">
         <button class="snip1582">XEM THÊM</button>
