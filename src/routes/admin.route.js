@@ -15,5 +15,6 @@ router.put('/product/:op/:id', adminController.updatePro);
 router.get('/order/:link', adminController.goToOrder);
 router.put('/banuser/:id', adminController.banUser);
 router.put('/update-order/:status/:id', adminController.updateOrder);
+router.get('/find-topseller', adminController.findTopSeller);
 
 module.exports = router;

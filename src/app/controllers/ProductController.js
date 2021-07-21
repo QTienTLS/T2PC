@@ -13,20 +13,16 @@ class ProductController {
             .catch(next);
     }
 
-    showDetail(req, res, next) {
-        Product.findOne({ _id: req.params.id }, function (err, pro) {
-            if (err) console.log(err);
-            pro = mongooseToObject(pro);
-            pro.views++;
-            var n = pro.spec.length;
-            var proSpec = pro.spec[0];
-            for (let i = 1; i < n; i++) proSpec = proSpec + '~' + pro.spec[i];
-            var x = { sp: proSpec };
-            // res.render('product/detail', { pro: mongooseToObject(pro) });
-            Product.updateOne({ _id: req.params.id }, pro)
-                .then(() => res.render('product/detail', { pro, x }))
-                .catch(next);
-        });
+    async showDetail(req, res, next) {
+        var pro = await Product.findOne({ _id: req.params.id });
+        pro.views++;
+        pro.save();
+        pro = mongooseToObject(pro);
+        var n = pro.spec.length;
+        var proSpec = pro.spec[0];
+        for (let i = 1; i < n; i++) proSpec = proSpec + '~' + pro.spec[i];
+        var x = { sp: proSpec };
+        res.render('product/detail', { pro, x })
     }
     showByType(req, res) {
         var protype = req.params.type;

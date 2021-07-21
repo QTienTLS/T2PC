@@ -200,7 +200,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -236,7 +236,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -320,7 +320,7 @@ class AdminController {
             }
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                    100,
+                100,
             );
             Product.updateOne({ _id: req.params.id }, newPro)
                 .then(() => {
@@ -425,6 +425,23 @@ class AdminController {
                 res.redirect('back');
             })
             .catch(next);
+    }
+async    findTopSeller(req, res) {
+        var allpro = await Product.find({});
+        for(let i = 0; i < allpro.length; i++){
+            allpro[i].topseller = 0;
+            allpro[i].save();
+        }
+        var topSeller = await ProductSold.find({})
+            .sort({ year: 'desc', month: 'desc', sold: 'desc' })
+            .limit(6);
+        topSeller = mutipleMongooseToObject(topSeller);
+        for(let i = 0; i < 6; i++) {
+            var pro = await Product.findById(topSeller[i].proID);
+            pro.topseller = 1;
+            pro.save();
+        }
+        res.redirect('back');
     }
 }
 
