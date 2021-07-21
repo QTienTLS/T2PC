@@ -1,4 +1,3 @@
-
 <div class="container account-detail">
 
     {{!-- --}}
@@ -56,28 +55,10 @@
     </div>
     <div class=" account-detail-content shadow row">
         <div id="acc-menu-side" class="col-3">
-            <a href="/account/detail" class="tab tab-active"><i class="fas fa-info-circle fa-2x" style="color: rgb(54, 12, 243);"></i>
-                <p>Thông tin tài khoản</p>
-            </a>
-            <a class="tab"><i class="fad fa-sack-dollar fa-2x" style="color: darkgreen;"></i>
-                <p> Đơn hàng đã hoàn thành</p>
-            </a>
-            <a class="tab"><i class="fad fa-shopping-cart fa-2x" style='color: olive'></i>
-                <p>Đơn hàng đang xử lí</p>
-            </a>
-            <a class="tab"><i class="fad fa-heart-circle fa-2x" style="color: tomato;"></i>
-                <p>Sản phẩm yêu thích</p>
-            </a>
-            <a class="tab"><i class="fad fa-key fa-2x" style="color: 
-            blueviolet;"></i>
-                <p>Thay đổi mật khẩu</p>
-            </a>
-            <a class="tab"><i class="fad fa-envelope-open-text fa-2x" style="color: rgb(19, 95, 100);"></i>
-                <p>Thay đổi email</p>
-            </a>
+           {{>account-menu}}
         </div>
         <div id="acc-content" class="col-9">
-           
+
             <form method="POST" action="/account/{{acc._id}}/update?_method=PUT">
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -93,8 +74,8 @@
                                 name="name" value="{{acc.name}}" readonly />
                             <label for="inputName">Họ tên</label>
                         </div>
-                    
-                        
+
+
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -105,7 +86,7 @@
                                 readonly />
                             <label for="inputNationalID">Số căn cước công dân</label>
                         </div>
-                         
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating ">
@@ -113,7 +94,7 @@
                                 name="phone" value={{acc.phone}} readonly />
                             <label for="inputFirstName">Số điện thoại</label>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -135,10 +116,11 @@
                 </div>
 
                 <div class="mt-4 mb-0">
-                    <div class="d-grid"><button type="submit" class="btn btn-primary btn-block" id="btn-submit" style="display: none;">
+                    <div class="d-grid"><button type="submit" class="btn btn-primary btn-block" id="btn-submit"
+                            style="display: none;">
                             Cập nhật tài khoản
                         </button></div>
-                        <div class="btn-fix" id="btn-fix"><i class="fas fa-tools fa-2x"></i></div>
+                    <div class="btn-fix" id="btn-fix"><i class="fas fa-tools fa-2x"></i></div>
                 </div>
             </form>
         </div>
@@ -159,6 +141,7 @@
         formChangeAvt.submit();
     }
     //Sự kiện hiện nút menu khi hover
+    document.getElementById('account__detail').classList.add('tab-active');
     var tabMenu = document.getElementsByClassName('tab');
     var currentTab;
     for (let i = 0; i < tabMenu.length; i++) {
@@ -175,16 +158,14 @@
             }
         }
     }
-//click nút fix thông tin
-var btnFix = document.getElementById('btn-fix');
-btnFix.onclick = function(){
-    btnFix.style.display = 'none';
-    document.getElementById('btn-submit').style.display = 'block';
-    document.getElementById('inputName').removeAttribute('readonly');
-    document.getElementById('inputNationalID').removeAttribute('readonly');
-    document.getElementById('inputPhoneNumber').removeAttribute('readonly');
-    document.getElementById('inputAddress').removeAttribute('readonly');
-}
+    //click nút fix thông tin
+    var btnFix = document.getElementById('btn-fix');
+    btnFix.onclick = function () {
+        btnFix.style.display = 'none';
+        document.getElementById('btn-submit').style.display = 'block';
+        document.getElementById('inputName').removeAttribute('readonly');
+        document.getElementById('inputNationalID').removeAttribute('readonly');
+        document.getElementById('inputPhoneNumber').removeAttribute('readonly');
+        document.getElementById('inputAddress').removeAttribute('readonly');
+    }
 </script>
-
-

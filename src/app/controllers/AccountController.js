@@ -43,7 +43,7 @@ class AccountController {
         formData.password = bcryt.hashSync(
             formData.password,
             salt,
-            function (err, hash) {},
+            function (err, hash) { },
         );
         const account = new Account(formData);
         account.save();
@@ -177,16 +177,106 @@ class AccountController {
             });
         });
     }
-    submitOrder(req, res) {
-        var order = new Order(req.body);
-        order.listProID = req.body.listProID.split(',');
-        order.listPro = req.body.listPro.split('`');
-        order.listImg = req.body.listProImg.split(',');
-        order.listPrice = req.body.listProPrice.split(',').map((x) => +x);
-        order.amount = req.body.amount.split(',').map((x) => +x);
-        order.save();
-        //res.json(order);
-        res.render('account/done-order');
+    submitOrder(req, res, next) {
+        Account.findById(req.session.User.id)
+            .then((acc) => {
+                if (acc.status == 2) {
+                    var lido = { x: acc.reasonBan };
+                    console.log(lido.x);
+                    res.render('account/banned',{lido});
+                }
+                else {
+                    var order = new Order(req.body);
+                    order.listProID = req.body.listProID.split(',');
+                    order.listPro = req.body.listPro.split('`');
+                    order.listImg = req.body.listProImg.split(',');
+                    order.listPrice = req.body.listProPrice.split(',').map((x) => +x);
+                    order.amount = req.body.amount.split(',').map((x) => +x);
+                    order.save();
+                    //res.json(order);
+                    res.render('account/done-order');
+                }
+            })
+            .catch(next);
+
+    }
+    pendingCart(req, res, next) {
+        if (!req.session.User) res.render('partials/404');
+        else {
+            var userID = req.session.User.id;
+            Account.findOne({ _id: userID })
+                .then((acc) => {
+                    Order.find({ userID: userID, status: [0, 1, 4] })
+                        .then((orders) => {
+                            orders = mutipleMongooseToObject(orders);
+                            for (let i = 0; i < orders.length; i++) {
+                                orders[i].proNameString = orders[i].listPro.join('`');
+                            }
+                            res.render('account/pendingorder', { acc: mongooseToObject(acc), orders });
+                        })
+                        .catch(next);
+                })
+                .catch(next);
+        }
+    }
+    cancelOrder(req, res, next) {
+        if (!req.session.User.id) {
+            res.send('something went wrong !!');
+        }
+        var userID = req.session.User.id;
+        var orderID = req.params.id;
+        Order.findById(orderID)
+            .then((order) => {
+                if (userID != order.userID) {
+                    res.send('something went wrong !!');
+                }
+                else {
+                    order.userNote = req.body.userNote;
+                    order.adminNote = 'Yêu cầu huỷ của bạn đang được xử lí ! Vui lòng đợi phản hồi từ T2PC.\nĐơn hàng huỷ thành công sẽ xuất hiện ở mục "Đơn hàng đã huỷ"';
+                    order.status = 4;
+                    order.save();
+                    res.redirect('back');
+                }
+            })
+            .catch(next);
+    }
+    canceledOrder(req, res, next) {
+        if (!req.session.User) res.render('partials/404');
+        else {
+            var userID = req.session.User.id;
+            Account.findOne({ _id: userID })
+                .then((acc) => {
+                    Order.find({ userID: userID, status: 2 })
+                        .then((orders) => {
+                            orders = mutipleMongooseToObject(orders);
+                            for (let i = 0; i < orders.length; i++) {
+                                orders[i].proNameString = orders[i].listPro.join('`');
+                            }
+                            res.render('account/canceledorder', { acc: mongooseToObject(acc), orders });
+                        })
+                        .catch(next);
+                })
+                .catch(next);
+        }
+    }
+    finishOrder(req, res, next) {
+        if (!req.session.User) res.render('partials/404');
+        else {
+            var userID = req.session.User.id;
+            Account.findOne({ _id: userID })
+                .then((acc) => {
+                    Order.find({ userID: userID, status: 3 })
+                        .then((orders) => {
+                            orders = mutipleMongooseToObject(orders);
+                            for (let i = 0; i < orders.length; i++) {
+                                orders[i].proNameString = orders[i].listPro.join('`');
+                            }
+                            res.render('account/finishorder', { acc: mongooseToObject(acc), orders });
+                        })
+                        .catch(next);
+                })
+                .catch(next);
+        }
     }
 }
 module.exports = new AccountController();

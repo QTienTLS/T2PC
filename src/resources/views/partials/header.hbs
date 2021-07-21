@@ -1,4 +1,3 @@
-
 <div id="header-id">
     <div id="header-main">
         {{!-- phần header trên --}}
@@ -48,8 +47,8 @@
                 {{!-- Giỏ hàng --}}
                 <div class="cart">
                     <button class="cart-in dropbtn" data-bs-toggle="modal" data-bs-target='#modalCart'>
-                        <i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span>                 
-                        <p class="numProduct"></p>         
+                        <i class="fad fa-shopping-cart"></i><span>Giỏ hàng</span>
+                        <p class="numProduct"></p>
                     </button>
                     {{!-- Modal hiện thông tin giỏ hàng --}}
                     <div class="modal fade" id="modalCart" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -64,7 +63,8 @@
                                 </div>
                                 <div class="modal-body row">
                                     <div class="col-7">
-                                        <p id="nothing-in-cart-warning" style="display: none;">Giỏ hàng của bạn chưa có sản phẩm nào ! Hãy tiếp tục mua hàng !</p>
+                                        <p id="nothing-in-cart-warning" style="display: none;">Giỏ hàng của bạn chưa có
+                                            sản phẩm nào ! Hãy tiếp tục mua hàng !</p>
 
                                         <div id="main-list"> </div>
                                         <div class="pro-node root-node" id="pro-node" style="display: none;">
@@ -83,7 +83,7 @@
                                             <button class="col-1"><i class="far fa-trash-alt"></i></button>
                                             {{!-- <button class="col-1">XOÁ</button> --}}
                                         </div>
-                                        
+
                                     </div>
                                     <div class="col-5 modal-body-right">
 
@@ -156,13 +156,13 @@
                         Xin chào, {{session.User.name}} <i class="fas fa-caret-down"></i>
                     </button>
                     <div id="userDropdown" class="dropdown-user">
-                        <a href="#"><i class="fad fa-history"></i> Lịch sử mua hàng</a>
+                        <a href="/account/finish-order"><i class="fad fa-history"></i> Lịch sử mua hàng</a>
                         {{#if (eq session.User.role 'admin')}}
                         <a href="/admin"><i class="fad fa-tools"></i> Quản lí website</a>
                         {{/if}}
 
                         <a href="/account/detail"><i class="fad fa-user-cog"></i> Thông tin cá nhân</a>
-
+                        <a href="/account/pending-order"><i class="fad fa-shopping-cart"></i> Đơn hàng đang xử lí</a>
                         <a href="#"><i class="fad fa-thumbs-up"></i> Sản phẩm yêu thích</a>
                         <a href="/account/log-out"><i class="fad fa-sign-out"></i> Đăng xuất</a>
                     </div>
@@ -235,10 +235,10 @@
                                 </div>
                             </ul>
                         </li>
-                        <li class="menu-mini" href="/product/macbook/list" ><a class="link-menu-mn" href="/product/macbook/list">MACBOOK<i
+                        <li class="menu-mini" href="/product/macbook/list"><a class="link-menu-mn" href="/product/macbook/list">MACBOOK<i
                                     class="fas fa-angle-right"></i></a></li>
-                        <li class="menu-mini"><a class="link-menu-mn" href="/product/submenu/linhkien-submenu">LINH KIỆN MÁY TÍNH<i
-                                    class="fas fa-angle-right"></i></a>
+                        <li class="menu-mini"><a class="link-menu-mn" href="/product/submenu/linhkien-submenu">LINH KIỆN
+                                MÁY TÍNH<i class="fas fa-angle-right"></i></a>
                             <ul class="detail-sb-menu">
                                 <h4 class="title-sb-menu">LINH KIỆN MÁY TÍNH</h4>
                                 <div class="container-sb-menu">

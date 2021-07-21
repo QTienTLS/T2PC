@@ -33,16 +33,18 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4"><i class="fad fa-spinner"></i> Đơn hàng chờ xử lí</h1>
+                <h1 class="mt-4"><i class="fas fa-check-circle"></i> Đơn hàng đã hoàn thành</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Pending order</li>
+                    <li class="breadcrumb-item active">Done order</li>
                 </ol>
+
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         Danh sách sự kiện
                     </div>
                     <div class="card-body">
+
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
@@ -91,10 +93,8 @@
                                             data-bs-address="{{this.address}}" data-bs-phone="{{this.phone}}"
                                             data-bs-nameReceiver="{{this.nameReceiver}}" data-bs-id="{{this._id}}">
                                             <i class="fas fa-folder-open"></i></button>
-                                        <button type="button" title="Hủy đơn hàng" style="margin: 1em 1em;"
-                                            class="btn btn-danger btn-circle" data-bs-toggle="modal"
-                                            data-bs-id="{{this._id}}" data-bs-target="#modalHuydon"><i
-                                                class="fas fa-align-slash"></i></button>
+                                            
+
                                     </td>
                                 </tr>
                                 {{/each}}
@@ -218,7 +218,7 @@
                                             <div class="col-7" id="modalChitietdon-pro-list">
 
                                             </div>
-                                            <div class="col-5 info__Chitietdon-pro-list">
+                                            <div class="col-5">
                                                 <div class="form-floating mb-3">
                                                     <input type="email" class="form-control"
                                                         id="modalChitietdon-name-receiver"
@@ -236,64 +236,19 @@
                                                         readonly>
                                                     <label for="floatingInput">Địa chỉ nhận hàng</label>
                                                 </div>
-                                                <div class="form-floating">
-                                                    <textarea class="form-control" placeholder="Leave a comment here"
-                                                        id="admin-note" style="height: 100px"></textarea>
-                                                    <label for="floatingTextarea2">Lời nhắn tới user</label>
-                                                </div>
+                                                <p style="color: green;"><i class="fas fa-check-circle"></i> Đơn hàng đã giao thành công ! </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Đóng</button>
-                                        <button type="button" id="modalChitietdon-btn-submit" class="btn btn-success"><i
-                                                class="fad fa-check"></i> Xác nhận đơn hàng</button>
+                                            
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Modal chi tiết đơn hàng-->
-                        {{!-- Modal hủy đơn hàng --}}
-                        <div class="modal fade" id="modalHuydon" tabindex="-1" aria-labelledby="modalUserLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog" style="max-width: 62em">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalUserLabel">Hủy đơn hàng</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" name="adminNoteForm">
-                                            <input type="radio" name="adminNote" checked='true'
-                                                value=" Lý do: Thông tin nhận hàng không phù hợp (địa chỉ không tồn tại hoặc nằm ngoài lãnh thổ Việt Nam, số điện thoại không liên lạc được...)">
-                                            Lý do: Thông tin nhận hàng không phù hợp (địa chỉ không tồn tại hoặc nằm
-                                            ngoài lãnh thổ Việt Nam, số điện thoại không liên lạc được...)<br> <br>
-                                            <input type="radio" name="adminNote"
-                                                value=" Lý do: Tài khoản người dùng đã bị khóa hoặc chưa kích hoạt, vui lòng kiểm tra email để kích hoạt tài khoản !">
-                                            Lý do: Tài khoản người dùng đã bị khóa hoặc chưa kích hoạt, vui lòng kiểm
-                                            tra email để kích hoạt tài khoản !<br> <br>
-                                            <input type="radio" name="adminNote"
-                                                value=" Lý do: Sản phẩm trong đơn hàng đã hết hoặc gặp vấn đề không mong muốn (chúng tôi rất xin lỗi về sự cố này ! )">
-                                            Lý do: Sản phẩm trong đơn hàng đã hết hoặc gặp vấn đề không mong muốn (chúng
-                                            tôi rất xin lỗi về sự cố này ! )<br> <br>
-                                            <input type="radio" name="adminNote" value="other"> Lý do khác <br> <br>
-                                            <textarea class="form-control" placeholder="Lý do khác" id="other-reason"
-                                                style="height: 100px"></textarea>
-
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Đóng</button>
-                                        <button type="button" id="modalHuydon__btn-submit" class="btn btn-danger">Xác
-                                            nhận hủy đơn</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{!-- Modal hủy đơn hàng --}}
                         {{!-- Thuật toán xử lí modal User --}}
                         <script>
                             function openBanUser() {
@@ -384,19 +339,7 @@
                                     cloneNode.childNodes[7].childNodes[3].innerHTML = (price[i] + ' đ').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                                     mainList.appendChild(cloneNode);
                                 }
-                                document.getElementById('modalChitietdon-btn-submit').addEventListener('click', function () {
-                                    var form = document.forms['shipper'];
-                                    var idOrder = btn.getAttribute('data-bs-id');
-                                    var adminNote = document.createElement('input');
-                                    adminNote.setAttribute('name', 'adminNote');
-                                    adminNote.value = document.getElementById('admin-note').value;
-                                    if (!adminNote.value)
-                                        adminNote.value = 'Đơn hàng đã được xác nhận ! Hàng đang được giao tới bạn';
-                                    form.appendChild(adminNote);
-                                    form.action = '/admin/update-order/1/' + idOrder + '?_method=PUT';
-                                    form.submit();
-
-                                })
+                                
                             })
                             modalChitietdon.addEventListener('hidden.bs.modal', function () {
                                 var mainList = document.getElementById('modalChitietdon-pro-list');
@@ -404,33 +347,6 @@
                             })
                         </script>
                         {{!-- Thuật toán xử lí duyệt đơn --}}
-                        {{!-- Thuật toán xử lí hủy đơn --}}
-                        <script>
-                            var modalHuydon = document.getElementById('modalHuydon');
-                            modalHuydon.addEventListener('show.bs.modal', function (event) {
-                                var btn = event.relatedTarget;
-                                var id = btn.getAttribute('data-bs-id');
-                                var adminNote = document.adminNoteForm.adminNote;
-                                adminNote[0].checked = true;
-                                document.adminNoteForm.action = '/admin/update-order/2/' + id + '?_method=PUT';
-                                var edit = document.getElementById('other-reason');
-                                edit.setAttribute('readonly', true);
-                                for (let i = 0; i < adminNote.length; i++)
-                                    adminNote[i].addEventListener('change', function () {
-                                        if (this.checked && this.value == 'other')
-                                            edit.removeAttribute('readonly');
-                                        else
-                                            edit.setAttribute('readonly', true);
-                                    })
-                                var btnsubmit = document.getElementById('modalHuydon__btn-submit');
-                                btnsubmit.onclick = function () {
-                                    if (adminNote[3].checked)
-                                        adminNote[3].value = edit.value;
-                                    document.adminNoteForm.submit();
-                                }
-                            })
-                        </script>
-                        {{!-- Thuật toán xử lí hủy đơn --}}
                     </div>
                 </div>
             </div>
