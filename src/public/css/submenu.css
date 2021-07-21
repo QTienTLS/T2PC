@@ -67,7 +67,7 @@
           width: auto;
           height: auto; }
     .main__sub-menu .block__content .list__cat__item::after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       width: 60px;

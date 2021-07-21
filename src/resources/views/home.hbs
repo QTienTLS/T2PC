@@ -120,7 +120,7 @@
     </div>
 
     {{!-- Các sản phẩm giảm giá --}}
-    <div class="style__slider discount__product">
+    <div class="style__slider">
       <div class="seperate">
         <div class="seperate__left">
           <div class="seperate__square"></div>
@@ -133,9 +133,8 @@
         </div>
 
       </div>
-
-      <div class="slider__discount">
-        <div class="all__slider">
+      <div class="slider__mini">
+        <div class="main__slider">
           {{#each discountPro}}
           <div class="item">
             <div class="img-item">
@@ -180,8 +179,7 @@
     </div>
 
     {{!-- Sản phẩm mới về --}}
-    <div class="style__slider new__product">
-      {{!-- Titile --}}
+    <div class="style__slider">
       <div class="seperate">
         <div class="seperate__left">
           <div class="seperate__square"></div>
@@ -194,9 +192,8 @@
         </div>
       </div>
 
-      {{!-- Listproduct --}}
-      <div class="slider__discount">
-        <div  class="all__slider">
+      <div class="slider__mini">
+        <div  class="main__slider">
           {{#each newPro}}
           <div class="item">
             <div class="img-item">
@@ -244,7 +241,7 @@
     </div>
     
     {{!-- Sản phẩm bán chạy --}}
-    <div class="style__slider top__product">
+    <div class="style__slider">
       <div class="seperate">
         <div class="seperate__left">
           <div class="seperate__square"></div>
@@ -259,8 +256,8 @@
       </div>
 
       {{!-- Product --}}
-      <div class="slider__discount">
-        <div  class="all__slider">
+      <div class="slider__mini">
+        <div  class="main__slider">
           {{#each topSellerPro}}
           <div class="item">
             <div class="img-item">
@@ -351,8 +348,8 @@
           <div class="img__brand"><img src="/img/brand/Razer.png" alt=""></div>
           <div class="img__brand"><img src="/img/brand/dell.png" alt=""></div>
         </div>
-        <div class="arrow_prev"><i class="fas fa-angle-right"></i></div>
-        <div class="next_next"><i class="fas fa-angle-left"></i></div>
+        <span class="arrow_prev"><i class="fal fa-angle-left"></i></span>
+        <span class="next_next"><i class="fal fa-angle-right"></i></i></span>
       </div>
     </div>
   </div>
@@ -362,7 +359,7 @@
 
 <script> //Slide sản phẩm giảm giá
   $(document).ready(function () {
-    $('.all__slider').slick({
+    $('.main__slider').slick({
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,

@@ -2,117 +2,6 @@
 
 .main-home {
     .main__home {
-        .style__slider {
-            margin-bottom: 2em;
-            .seperate {
-                width: 100%;
-                padding: 2em 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                .seperate__left {
-                    width: 30%;
-                    display: flex;
-                    .seperate__square {
-                        width: 100%;
-                        height: 7px;
-                        background: $border-color;
-                    }
-                    .triangle_down {
-                        width: 0;
-                        height: 0;
-                        border-top: 7px solid $border-color;
-                        border-left: 0px solid transparent;
-                        border-right: 7px solid transparent;
-                    }
-                }
-                p {
-                    margin-bottom: 0;
-                    font-family: ChakraPetch-Bold;
-                    font-size: 1.4rem;
-                    color: $text-color;
-                }
-                .seperate__right {
-                    width: 30%;
-                    display: flex;
-                    .seperate__square {
-                        width: 100%;
-                        height: 7px;
-                        background: $border-color;
-                    }
-                    .triangle_up {
-                        width: 0;
-                        height: 0;
-                        border-bottom: 7px solid $border-color;
-                        border-left: 7px solid transparent;
-                        border-right: 0px solid transparent;
-                    }
-                }
-            }
-            .see__more {
-                display: flex;
-                justify-content: center;
-                margin-top: 2em;
-                .snip1582 {
-                    font-family: ChakraPetch-SemiBold;
-                    background-color: $main-color;
-                    border: none;
-                    color: #ffffff;
-                    cursor: pointer;
-                    display: inline-block;
-                    line-height: 1em;
-                    outline: none;
-                    padding: 12px 40px 10px;
-                    position: relative;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                }
-
-                .snip1582:before,
-                .snip1582:after {
-                    border-color: transparent;
-                    -webkit-transition: all 0.25s;
-                    transition: all 0.25s;
-                    border-style: solid;
-                    border-width: 0;
-                    content: '';
-                    height: 24px;
-                    position: absolute;
-                    width: 24px;
-                }
-
-                .snip1582:before {
-                    border-color: $main-color;
-                    border-top-width: 2px;
-                    left: 0px;
-                    top: -5px;
-                }
-
-                .snip1582:after {
-                    border-bottom-width: 2px;
-                    border-color: $main-color;
-                    bottom: -5px;
-                    right: 0px;
-                }
-
-                .snip1582:hover,
-                .snip1582.hover {
-                    background-color: $main-color;
-                }
-
-                .snip1582:hover:before,
-                .snip1582.hover:before,
-                .snip1582:hover:after,
-                .snip1582.hover:after {
-                    height: 100%;
-                    width: 100%;
-                }
-            }
-            button {
-                margin: 0 auto;
-            }
-        }
-
         // Danh mục sản phẩm
         .container-product {
             width: 100%;
@@ -175,161 +64,57 @@
             }
         }
 
-        // Sản phẩm giảm giá
-        .discount__product {
-            .slider__discount {
-                position: relative;
-                
-
-                .slick-prev {
-                    position: absolute;
-                    top: 38%;
-                    right: -15px;
-                    color: #99a0ad;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                }
-
-                .slick-next {
-                    position: absolute;
-                    top: 38%;
-                    // left: -15px;
-                    color: #99a0ad;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                }
-            }
-        }
-        .all__slider {
-            overflow: hidden;
-            .item {
-                width: 300px;
-                border-radius: 5px;
-                border: 1px solid $border-color;
-                margin: 0 1em;
-                overflow: hidden;
-                position: relative;
-                .img-item {
-                    position: relative;
-                    padding: 0.5em;
-                    border-bottom: 1px solid $border-color;
-                    img {
-                        max-width: 100%;
-                        max-height: 80%;
-                        width: auto;
-                        height: auto;
-                    }
-                    .btn__main-product {
-                        position: absolute;
-                        right: 0;
-                        bottom: 1em;
-                        border-radius: 25px;
-                        background: #f0f3fc;
-                        padding: 0.2em;
-                        display: none;
-                        button {
-                            display: block;
-                            background-color: #f0f3fc;
-                            width: 2.5em;
-                            height: 2.5em;
-                            border-radius: 25px;
-                            border: 0;
-                        }
-                        button:first-child {
-                            margin-bottom: 0.5em;
-                        }
-                        button:hover {
-                            background-color: $main-color;
-                        }
-                    }
-                }
-                .img-item:hover .btn__main-product {
-                    display: block;
-                    right: 10px;
-                    visibility: visible;
-                    opacity: 1;
-                }
-                .discount {
+        //style slider product mini
+        .style__slider {
+            margin-bottom: 1.5em;
+            .seperate {
+                width: 100%;
+                padding: 2em 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .seperate__left {
+                    width: 30%;
                     display: flex;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background: #f9495f;
-                    color: #fff;
-                    width: 65px;
-                    height: 32px;
-                    transform: skew(-12deg);
-                    align-items: center;
-                    justify-content: center;
-                    // overflow: hidden;
-                    margin-left: -5px;
-                }
-                .title-discount__product {
-                    padding: 0.5em 0.7em 0 0.7em;
-                    h5 {
-                        font-family: ChakraPetch-Bold;
-                        margin-bottom: 0;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        a {
-                            text-decoration: none;
-                            color: black;
-                        }
+                    .seperate__square {
+                        width: 100%;
+                        height: 7px;
+                        background: $border-color;
+                    }
+                    .triangle_down {
+                        width: 0;
+                        height: 0;
+                        border-top: 7px solid $border-color;
+                        border-left: 0px solid transparent;
+                        border-right: 7px solid transparent;
                     }
                 }
-                .reviews-discount__product {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 0 0.7em 0 0.7em;
-                    align-items: center;
-                    .star-reviews {
-                        margin-right: 1em;
-                        i {
-                            font-size: 0.8rem;
-                            color: #99a0ad;
-                        }
-                    }
-                    .views {
-                        margin-bottom: 0;
-                        margin-right: 0.5em;
-                        font-family: ChakraPetch-Bold;
-                        i {
-                            margin-left: 5px;
-                        }
-                    }
-                }
-                .price-discount__product {
-                    display: flex;
-                    // justify-content: space-between;
-                    align-items: center;
-                    padding: 0 0.7em 0.5em 0.7em;
-                    p {
-                        margin-bottom: 0;
-                    }
-                }
-                .price__selling {
-                    color: $pink-color;
+                p {
+                    margin-bottom: 0;
                     font-family: ChakraPetch-Bold;
-                    font-size: 1.1rem;
-                    margin-right: 10px;
+                    font-size: 1.4rem;
+                    color: $text-color;
                 }
-
-                .price__old {
-                    color: #99a0ad;
-                    font-family: ChakraPetch-SemiBoldItalic;
-                    font-size: 0.9rem;
-                    text-decoration: line-through;
-                    // vertical-align: text-bottom;
+                .seperate__right {
+                    width: 30%;
+                    display: flex;
+                    .seperate__square {
+                        width: 100%;
+                        height: 7px;
+                        background: $border-color;
+                    }
+                    .triangle_up {
+                        width: 0;
+                        height: 0;
+                        border-bottom: 7px solid $border-color;
+                        border-left: 7px solid transparent;
+                        border-right: 0px solid transparent;
+                    }
                 }
             }
-        }
-        .new__product {
-            .slider__discount {
+            .slider__mini {
                 position: relative;
-                .all__slider {
-                    overflow: hidden;
+                .main__slider{
                     .item {
                         width: 300px;
                         border-radius: 5px;
@@ -453,7 +238,6 @@
                         }
                     }
                 }
-
                 .slick-prev {
                     position: absolute;
                     top: 38%;
@@ -471,6 +255,68 @@
                     font-size: 1.5rem;
                     cursor: pointer;
                 }
+            }
+            .see__more {
+                display: flex;
+                justify-content: center;
+                margin-top: 2em;
+                .snip1582 {
+                    font-family: ChakraPetch-SemiBold;
+                    background-color: $main-color;
+                    border: none;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    line-height: 1em;
+                    outline: none;
+                    padding: 12px 40px 10px;
+                    position: relative;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+
+                .snip1582:before,
+                .snip1582:after {
+                    border-color: transparent;
+                    -webkit-transition: all 0.25s;
+                    transition: all 0.25s;
+                    border-style: solid;
+                    border-width: 0;
+                    content: '';
+                    height: 24px;
+                    position: absolute;
+                    width: 24px;
+                }
+
+                .snip1582:before {
+                    border-color: $main-color;
+                    border-top-width: 2px;
+                    left: 0px;
+                    top: -5px;
+                }
+
+                .snip1582:after {
+                    border-bottom-width: 2px;
+                    border-color: $main-color;
+                    bottom: -5px;
+                    right: 0px;
+                }
+
+                .snip1582:hover,
+                .snip1582.hover {
+                    background-color: $main-color;
+                }
+
+                .snip1582:hover:before,
+                .snip1582.hover:before,
+                .snip1582:hover:after,
+                .snip1582.hover:after {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            button {
+                margin: 0 auto;
             }
         }
 
@@ -492,17 +338,6 @@
                 margin-bottom: 0;
             }
 
-            // .img__introduce{
-            //     padding: 2em 2em 2em 0;
-            //     // border-radius: 5px;
-            //     img{
-            //         max-width: 100%;
-            //         max-height: 100%;
-            //         width: auto;
-            //         height: auto;
-            //         border-radius: 5px;
-            //     }
-            // }
         }
 
         //Các thương hiệu
@@ -511,6 +346,8 @@
             //  Phần title bên trên
             .main__brand-products {
                 position: relative;
+                padding-left: 20px;
+                padding-right: 20px;
                 .slider-discount {
                     .img__brand {
                         // width: 180px;
@@ -522,6 +359,23 @@
                             max-height: 100%;
                         }
                     }
+                }
+
+                .arrow_prev{
+                    position: absolute;
+                    top: 35%;
+                    left: -10px;
+                    color: #99a0ad;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+                .next_next{
+                    position: absolute;
+                    top: 35%;
+                    right: -10px;
+                    color: #99a0ad;
+                    font-size: 1.5rem;
+                    cursor: pointer;
                 }
             }
         }
