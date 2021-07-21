@@ -135,14 +135,14 @@
       </div>
 
       <div class="slider__discount">
-        <div class="main__slider">
+        <div class="all__slider main__slider">
           {{#each discountPro}}
           <div class="item">
             <div class="img-item">
               <img src="{{this.img}}" alt="">
               <div class="btn__main-product">
                   <button onclick="goToDetail('{{this._id}}')" title="Xem chi tiết"  ><i class="fas fa-search"></i></button>
-                  <button onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)" title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
+                  <button data-img='{{this.img}}' onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)" title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
                 </div>
             </div>
             <div class="discount">
@@ -196,14 +196,14 @@
 
       {{!-- Listproduct --}}
       <div class="slider__discount">
-        <div class="main__slider">
+        <div dir="rtl" class="all__slider newPro__slider">
           {{#each newPro}}
           <div class="item">
             <div class="img-item">
               <img src="{{this.img}}" alt="">
               <div class="btn__main-product">
                   <button onclick="goToDetail('{{this._id}}')" title="Xem chi tiết"  ><i class="fas fa-search"></i></button>
-                  <button onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)" title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
+                  <button data-img='{{this.img}}' onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)" title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
                 </div>
             </div>
             {{#if this.discount}}
@@ -226,7 +226,9 @@
             </div>
             <div class="price-discount__product">
               <p class="price__selling currFormat">{{this.price}} đ</p>
+              {{#if this.discount}}
               <p class="price__old currFormat">{{this.originPrice}} đ</p>
+              {{/if}}
             </div>
           </div>
           {{/each}}
@@ -321,6 +323,16 @@
 <script> //Slide sản phẩm giảm giá
   $(document).ready(function () {
     $('.main__slider').slick({
+      
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1000,
+      prevArrow: '.slick-prev',
+      nextArrow: '.slick-next',
+    });
+    $('.newPro__slider').slick({
+      rtl:true,
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,

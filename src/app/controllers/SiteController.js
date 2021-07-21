@@ -10,7 +10,7 @@ class SiteController {
                 Product.find({discount: {$gt: 0}}).limit(6).sort({discount: 'desc'})
                 .then((discountPro) =>{
                     discountPro = mutipleMongooseToObject(discountPro);
-                    Product.find({}).limit(6).sort({createdAt:'desc' })
+                    Product.find({}).limit(6).sort({ updatedAt: 'desc' })
                     .then((newPro) =>{
                         newPro = mutipleMongooseToObject(newPro);
                         res.render('home',{events,discountPro,newPro});
