@@ -3,6 +3,7 @@ const Event = require('../models/Event');
 const Product = require('../models/Product');
 const Order = require('../models/Order');
 const Account = require('../models/Account');
+const ProductSold = require('../models/ProductSold');
 const { mongooseToObject } = require('../../tools/mongoose');
 const { mutipleMongooseToObject } = require('../../tools/mongoose');
 const { countDocuments } = require('../models/Event');
@@ -387,15 +388,36 @@ class AdminController {
                         })
                     }
                 }
-                else if (req.params.status == 3)
+                else if (req.params.status == 3){
                     Account.findOne({ _id: order.userID }, function (err, acc) {
                         if (err) console.log(err);
                         acc.totalSpend += order.totalPrice;
                         acc.adminNote = 'Đơn hàng đã hoàn thành ! Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi';
                         acc.save();
                     })
-
-
+                    for(let i = 0; i < n; i++)
+                    {
+                        var d = new Date();
+                        ProductSold.findOne({proId: order.listProID[i], month: d.getMonth() + 1, year: d.getFullYear() })
+                        .then((proSold) =>
+                        {
+                            if(!proSold)
+                            {
+                                var newProSold = new ProductSold();
+                                newProSold.proID = order.listProID[i];
+                                newProSold.sold = order.amount[i];
+                                newProSold.month = d.getMonth() +1;
+                                newProSold.year = d.getFullYear();
+                                newProSold.save();
+                            }
+                            else{
+                                proSold.sold += order.amount[i];
+                                proSold.save();
+                            }
+                        })
+                        .catch(next);
+                    }
+                }
                 res.redirect('back');
             })
             .catch(next);
