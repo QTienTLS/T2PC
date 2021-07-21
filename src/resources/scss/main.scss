@@ -170,9 +170,12 @@
                         width: 300px;
                         border-radius: 5px;
                         border: 1px solid $border-color;
-                        margin: 0 0.5em;
+                        margin: 0 1em;
+                        overflow: hidden;
+                        position: relative;
                         .img-item {
-                            padding: 1px;
+                            position: relative;
+                            padding: 0.5em;
                             border-bottom: 1px solid $border-color;
                             img {
                                 max-width: 100%;
@@ -180,10 +183,55 @@
                                 width: auto;
                                 height: auto;
                             }
+                            .btn__main-product{
+                                position: absolute;
+                                right: 0;
+                                bottom: 1em;
+                                border-radius: 25px;
+                                background: #f0f3fc;
+                                padding: 0.2em;
+                                display: none;
+                                button {
+                                    display: block;
+                                    background-color: #f0f3fc;
+                                    width: 2.5em;
+                                    height: 2.5em;
+                                    border-radius: 25px;
+                                    border: 0;
+                                }
+                                button:first-child {
+                                    margin-bottom: 0.5em;
+                                }
+                                button:hover {
+                                    background-color: $main-color;
+                                }
+                            }
+                        }
+                        .img-item:hover .btn__main-product {
+                            display: block;
+                            right: 10px;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                        .discount {
+                            display: flex;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            background: #f9495f;
+                            color: #fff;
+                            width: 65px;
+                            height: 32px;
+                            transform: skew(-12deg);
+                            align-items: center;
+                            justify-content: center;
+                            // overflow: hidden;
+                            margin-left: -5px;
                         }
                         .title-discount__product {
-                            padding: 0.5em 0.5em 0 0.5em;
+                            padding: 0.5em 0.7em 0 0.7em;
                             h5 {
+                                font-family: ChakraPetch-Bold;
                                 margin-bottom: 0;
                                 display: -webkit-box;
                                 -webkit-line-clamp: 2;
@@ -197,7 +245,8 @@
                         }
                         .reviews-discount__product {
                             display: flex;
-                            padding: 0 0.5em 0 0.5em;
+                            justify-content: space-between;
+                            padding: 0 0.7em 0 0.7em;
                             align-items: center;
                             .star-reviews {
                                 margin-right: 1em;
@@ -206,14 +255,15 @@
                                     color: #99a0ad;
                                 }
                             }
-                            .evaluate {
-                                text-align: center;
-                                font-size: 1em;
-                                color: #99a0ad;
-                                font-family: ChakraPetch-SemiBold;
+                            .views {
+                                margin-bottom: 0;
+                                margin-right: 0.5em;
+                                font-family: ChakraPetch-Bold;
+                                i {
+                                margin-left: 5px;
+                                }
                             }
                         }
-
                         .price-discount__product {
                             display: flex;
                             // justify-content: space-between;
@@ -223,14 +273,14 @@
                                 margin-bottom: 0;
                             }
                         }
-                        .price-discount__product :first-child {
+                        .price__selling {
                             color: $pink-color;
                             font-family: ChakraPetch-Bold;
                             font-size: 1.1rem;
                             margin-right: 10px;
                         }
 
-                        .price-discount__product :last-child {
+                        .price__old {
                             color: #99a0ad;
                             font-family: ChakraPetch-SemiBoldItalic;
                             font-size: 0.9rem;
@@ -238,62 +288,31 @@
                             // vertical-align: text-bottom;
                         }
                     }
-
-                    // .item :first-child{
-                    //     margin-right: 0;
-                    // }
-
-                    // .item:hover{
-                    //     border: 1px solid red;
-                    //     background-color: royalblue;
-                    // }
                 }
 
-                // .arrow_prev{
-                //     position: absolute;
-                //     left: 0;
-                //     // top: 50%;
-                // }
-
-                // .next_next{
-                //     position: absolute;
-                //     right: 0;
-                //     // top: 0;
-                // }
-            }
-            .arrow_prev {
-                color: $border-color;
-                cursor: pointer;
-                position: absolute;
-                // top: 50%;
-                top: 35%;
-                left: 5px;
-                // background-color: brown;
-                padding: 20px 5px;
-                // padding: 10em 5px;
-                i {
+                .slick-prev{
+                    position: absolute;
+                    top: 38%;
+                    right: -15px;
+                    color: #99a0ad;
                     font-size: 1.5rem;
+                    cursor: pointer;
                 }
-            }
 
-            .next_next {
-                color: $border-color;
-                cursor: pointer;
-                position: absolute;
-                // top: 50%;
-                top: 35%;
-                right: 5px;
-                // background-color: brown;
-                padding: 20px 5px;
-                i {
+                .slick-next{
+                    position: absolute;
+                    top: 38%;
+                    // left: -15px;
+                    color: #99a0ad;
                     font-size: 1.5rem;
+                    cursor: pointer;
                 }
             }
 
             .see__more {
                 display: flex;
                 justify-content: center;
-                margin-top: 1em;
+                margin-top: 2em;
                 .snip1582 {
                     font-family: ChakraPetch-SemiBold;
                     background-color: $main-color;
@@ -385,6 +404,7 @@
             // }
         }
 
+        //Các thương hiệu
         .brand-products {
             padding-bottom: 2em;
             //  Phần title bên trên
@@ -454,6 +474,7 @@
                     right: -15px;
                     color: #99a0ad;
                     font-size: 1.5rem;
+                    cursor: pointer;
                 }
                 .next_next{
                     position: absolute;
@@ -461,6 +482,7 @@
                     left: -15px;
                     color: #99a0ad;
                     font-size: 1.5rem;
+                    cursor: pointer;
                 }
             }
         }

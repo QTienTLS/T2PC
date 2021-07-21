@@ -139,10 +139,14 @@
           <div class="item">
             <div class="img-item">
               <img src="{{this.img}}" alt="">
+              <div class="btn__main-product">
+                  <button><i class="fas fa-search"></i></button>
+                  <button><i class="fas fa-cart-plus"></i></button>
+                </div>
             </div>
             <div class="discount">
               <span>{{this.discount}}%</span>
-          </div>
+            </div>
             <div class="title-discount__product">
               <h5><a href="/product/{{this._id}}/detail">{{this.name}}</a></h5>
             </div>
@@ -154,24 +158,19 @@
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
               </div>
-              <div class="evaluate">0 đánh giá</div>
+              <p class="views">{{this.views}}<i class="fas fa-eye"></i></p>
             </div>
             <div class="price-discount__product">
               <p class="price__selling currFormat">{{this.price}} đ</p>
               <p class="price__old currFormat">{{this.originPrice}} đ</p>
-              {{this.views}}
             </div>
-            
+      
           </div>
       
           {{/each}}
         </div>
-        <p class="arrow_prev">
-          <i class="fas fa-angle-double-left"></i>
-        </p>
-        <p class="next_next">
-          <i class="fas fa-angle-double-right"></i>
-        </p>
+        <p type="button" class="slick-prev"><i class="fal fa-angle-left"></i></p>
+        <p type="button" class="slick-next"><i class="fal fa-angle-right"></i></p>
       </div>
       <div class="see__more">
         <button class="snip1582">XEM THÊM</button>
@@ -272,23 +271,23 @@
 </div>
 <script src="/js/jquery/dist/jquery.slim.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+
+<script> //Slide sản phẩm giảm giá
   $(document).ready(function () {
     $('.main__slider').slick({
-      infinite: true,
       slidesToShow: 4,
       slidesToScroll: 1,
-      speed: 300,
-      prevArrow: '.arrow_prev',
-      nextArrow: '.next_next',
+      autoplay: true,
+      autoplaySpeed: 1000,
+      prevArrow: '.slick-prev',
+      nextArrow: '.slick-next',
     });
   });
 </script>
 
-<script>
+<script>  //Slide các nhãn hàng
   $(document).ready(function () {
     $('.slider-discount').slick({
-      
       slidesToShow: 6,
       slidesToScroll: 1,
       autoplay: true,

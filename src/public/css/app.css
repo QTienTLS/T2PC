@@ -413,7 +413,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  font-family: ChakraPetch-Regular; }
   .account-detail .account-detail-header {
     height: 18.5em; }
     .account-detail .account-detail-header .bg-user {
@@ -435,8 +436,8 @@ body {
       padding: 10px 0;
       height: 15%;
       display: flex;
+      justify-content: center;
       list-style: none;
-      margin-left: 13.2em;
       position: relative;
       left: 50%;
       transform: translateX(-50%); }
@@ -480,13 +481,16 @@ body {
       .account-detail #user-avt .avt-acc #btn-change-avt p {
         margin: auto; }
     .account-detail #user-avt .info-acc {
-      margin-top: 2.5em;
+      margin-top: 3.5em;
       margin-left: 1.5em;
-      width: 200px; }
+      width: 250px; }
       .account-detail #user-avt .info-acc p {
-        font-weight: bold;
-        font-size: 1.25em;
+        font-family: ChakraPetch-Bold;
         color: white; }
+    .account-detail #user-avt .info-acc:first-child {
+      margin-bottom: 0px; }
+    .account-detail #user-avt .info-acc:last-child {
+      margin-bottom: 0; }
   .account-detail #user-avt:hover #btn-change-avt {
     display: flex; }
   .account-detail .account-detail-content {
@@ -546,6 +550,8 @@ body {
         transform: translateX(-50%); }
       .account-detail .account-detail-content #acc-content form {
         margin-top: 6em; }
+        .account-detail .account-detail-content #acc-content form .address__user .form-floating label {
+          padding-left: 24px; }
 
 .status-pending {
   color: mediumorchid; }

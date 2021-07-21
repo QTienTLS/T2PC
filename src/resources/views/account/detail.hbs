@@ -58,9 +58,8 @@
            {{>account-menu}}
         </div>
         <div id="acc-content" class="col-9">
-
             <form method="POST" action="/account/{{acc._id}}/update?_method=PUT">
-                <div class="row mb-3">
+                <div class="row mb-3 main-post">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control " id="inputFirstName" type="text"
@@ -97,7 +96,7 @@
 
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3 address__user">
 
                     <div class="form-floating mb-3 mb-md-0">
                         <input class="form-control" id="inputAddress" type="text" placeholder="Địa chỉ của bạn"
