@@ -2,121 +2,8 @@
 
 .main-home {
     .main__home {
-        // Danh mục sản phẩm
-        .container-product {
-            width: 100%;
-            margin: 0 auto;
-            .ls-product {
-                //  Phần title bên trên
-                .seperate {
-                    width: 100%;
-                    padding: 2em 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    .seperate__left {
-                        width: 30%;
-                        display: flex;
-                        .seperate__square {
-                            width: 100%;
-                            height: 7px;
-                            background: $border-color;
-                            // background-image: repeating-linear-gradient(-45deg,$border-color,$border-color 33px,transparent 0,transparent 41px,$border-color 0,$border-color 74px,transparent 0,transparent 82px);
-                        }
-                        .triangle_down {
-                            width: 0;
-                            height: 0;
-                            border-top: 7px solid $border-color;
-                            border-left: 0px solid transparent;
-                            border-right: 7px solid transparent;
-                        }
-                    }
-                    p {
-                        margin-bottom: 0;
-                        font-family: ChakraPetch-Bold;
-                        font-size: 1.4rem;
-                        color: $text-color;
-                    }
-                    .seperate__right {
-                        width: 30%;
-                        display: flex;
-                        .seperate__square {
-                            width: 100%;
-                            height: 7px;
-                            background: $border-color;
-                        }
-                        .triangle_up {
-                            width: 0;
-                            height: 0;
-                            border-bottom: 7px solid $border-color;
-                            border-left: 7px solid transparent;
-                            border-right: 0px solid transparent;
-                        }
-                    }
-                }
-
-                // Các mục của ls product
-                .ls-product-main {
-                    display: grid;
-                    grid-column-gap: 8px;
-                    grid-row-gap: 8px;
-                    grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
-                    grid-template-rows: 8em 8em;
-                    a {
-                        border-radius: 5px;
-                        position: relative;
-                        overflow: hidden;
-                        text-decoration: none;
-                        font-family: Roboto;
-                        font-size: 1.2em;
-                        background-color: $main-color;
-                        .detail-lspm {
-                            display: flex;
-                            padding: 1em 0 1em 1em;
-                            color: white;
-                            .tilte-lspm {
-                                position: relative;
-                                z-index: 1;
-                                font-family: ChakraPetch-SemiBold;
-                            }
-                            img {
-                                position: absolute;
-                                top: 10%;
-                                left: 60%;
-                                max-width: 199px;
-                                max-height: 99px;
-                                width: auto;
-                                height: auto;
-                                z-index: 1;
-                            }
-                            .shape {
-                                border-style: solid;
-                                border-width: 0 0 132px 34.656px;
-                                position: absolute;
-                                top: 0;
-                                left: 52%;
-                                width: 100%;
-                                overflow: hidden;
-                            }
-                        }
-                    }
-                    a:hover img {
-                        left: 52%;
-                        transition-duration: 0.3s;
-                    }
-                    a:hover .shape {
-                        left: 42%;
-                        transition-duration: 0.3s;
-                    }
-                }
-            }
-        }
-
-        // Sản phẩm giảm giá
-        .discount__product {
-            padding-bottom: 2em;
-            // position: relative;
-            //  Phần title bên trên
+        .style__slider{
+            margin-bottom: 2em;
             .seperate {
                 width: 100%;
                 padding: 2em 0;
@@ -162,6 +49,134 @@
                     }
                 }
             }
+            .see__more {
+                display: flex;
+                justify-content: center;
+                margin-top: 2em;
+                .snip1582 {
+                    font-family: ChakraPetch-SemiBold;
+                    background-color: $main-color;
+                    border: none;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    line-height: 1em;
+                    outline: none;
+                    padding: 12px 40px 10px;
+                    position: relative;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+
+                .snip1582:before,
+                .snip1582:after {
+                    border-color: transparent;
+                    -webkit-transition: all 0.25s;
+                    transition: all 0.25s;
+                    border-style: solid;
+                    border-width: 0;
+                    content: '';
+                    height: 24px;
+                    position: absolute;
+                    width: 24px;
+                }
+
+                .snip1582:before {
+                    border-color: $main-color;
+                    border-top-width: 2px;
+                    left: 0px;
+                    top: -5px;
+                }
+
+                .snip1582:after {
+                    border-bottom-width: 2px;
+                    border-color: $main-color;
+                    bottom: -5px;
+                    right: 0px;
+                }
+
+                .snip1582:hover,
+                .snip1582.hover {
+                    background-color: $main-color;
+                }
+
+                .snip1582:hover:before,
+                .snip1582.hover:before,
+                .snip1582:hover:after,
+                .snip1582.hover:after {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            button {
+                margin: 0 auto;
+            }
+        }
+
+        // Danh mục sản phẩm
+        .container-product {
+            width: 100%;
+            margin: 0 auto;
+            .ls-product {
+                // Các mục của ls product
+                .ls-product-main {
+                    display: grid;
+                    grid-column-gap: 8px;
+                    grid-row-gap: 8px;
+                    grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
+                    grid-template-rows: 8em 8em;
+                    a {
+                        border-radius: 5px;
+                        position: relative;
+                        overflow: hidden;
+                        text-decoration: none;
+                        font-family: Roboto;
+                        font-size: 1.2em;
+                        background-color: $main-color;
+                        .detail-lspm {
+                            display: flex;
+                            padding: 1em 0 1em 1em;
+                            color: white;
+                            .tilte-lspm {
+                                position: relative;
+                                z-index: 1;
+                                font-family: ChakraPetch-SemiBold;
+                            }
+                            img {
+                                position: absolute;
+                                top: 10%;
+                                left: 60%;
+                                max-width: 199px;
+                                max-height: 99px;
+                                width: auto;
+                                height: auto;
+                                z-index: 1;
+                            }
+                            .shape {
+                                border-style: solid;
+                                border-width: 0 0 132px 34.656px;
+                                position: absolute;
+                                top: -1px;
+                                left: 52%;
+                                width: 100%;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                    a:hover img {
+                        left: 52%;
+                        transition-duration: 0.3s;
+                    }
+                    a:hover .shape {
+                        left: 42%;
+                        transition-duration: 0.3s;
+                    }
+                }
+            }
+        }
+
+        // Sản phẩm giảm giá
+        .discount__product {
             .slider__discount {
                 position: relative;
                 .main__slider {
@@ -268,7 +283,7 @@
                             display: flex;
                             // justify-content: space-between;
                             align-items: center;
-                            padding: 0 0.5em 0.5em 0.5em;
+                            padding: 0 0.7em 0.5em 0.7em;
                             p {
                                 margin-bottom: 0;
                             }
@@ -308,69 +323,6 @@
                     cursor: pointer;
                 }
             }
-
-            .see__more {
-                display: flex;
-                justify-content: center;
-                margin-top: 2em;
-                .snip1582 {
-                    font-family: ChakraPetch-SemiBold;
-                    background-color: $main-color;
-                    border: none;
-                    color: #ffffff;
-                    cursor: pointer;
-                    display: inline-block;
-                    line-height: 1em;
-                    outline: none;
-                    padding: 12px 40px 10px;
-                    position: relative;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                }
-
-                .snip1582:before,
-                .snip1582:after {
-                    border-color: transparent;
-                    -webkit-transition: all 0.25s;
-                    transition: all 0.25s;
-                    border-style: solid;
-                    border-width: 0;
-                    content: '';
-                    height: 24px;
-                    position: absolute;
-                    width: 24px;
-                }
-
-                .snip1582:before {
-                    border-color: $main-color;
-                    border-top-width: 2px;
-                    left: 0px;
-                    top: -5px;
-                }
-
-                .snip1582:after {
-                    border-bottom-width: 2px;
-                    border-color: $main-color;
-                    bottom: -5px;
-                    right: 0px;
-                }
-
-                .snip1582:hover,
-                .snip1582.hover {
-                    background-color: $main-color;
-                }
-
-                .snip1582:hover:before,
-                .snip1582.hover:before,
-                .snip1582:hover:after,
-                .snip1582.hover:after {
-                    height: 100%;
-                    width: 100%;
-                }
-            }
-            button {
-                margin: 0 auto;
-            }
         }
 
         // Giới thiệu T2PC
@@ -407,54 +359,8 @@
         //Các thương hiệu
         .brand-products {
             padding-bottom: 2em;
-            //  Phần title bên trên
-            .seperate {
-                width: 100%;
-                padding: 2em 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                .seperate__left {
-                    width: 30%;
-                    display: flex;
-                    .seperate__square {
-                        width: 100%;
-                        height: 7px;
-                        background: $border-color;
-                    }
-                    .triangle_down {
-                        width: 0;
-                        height: 0;
-                        border-top: 7px solid $border-color;
-                        border-left: 0px solid transparent;
-                        border-right: 7px solid transparent;
-                    }
-                }
-                p {
-                    margin-bottom: 0;
-                    font-family: ChakraPetch-Bold;
-                    font-size: 1.4rem;
-                    color: $text-color;
-                }
-                .seperate__right {
-                    width: 30%;
-                    display: flex;
-                    .seperate__square {
-                        width: 100%;
-                        height: 7px;
-                        background: $border-color;
-                    }
-                    .triangle_up {
-                        width: 0;
-                        height: 0;
-                        border-bottom: 7px solid $border-color;
-                        border-left: 7px solid transparent;
-                        border-right: 0px solid transparent;
-                    }
-                }
-            }
+            //  Phần title bên trên 
             .main__brand-products{
-                padding: 20px;
                 position: relative;
                 .slider-discount{
                     .img__brand{
@@ -470,7 +376,7 @@
                 }
                 .arrow_prev{
                     position: absolute;
-                    top: 38%;
+                    top: 30%;
                     right: -15px;
                     color: #99a0ad;
                     font-size: 1.5rem;
@@ -478,7 +384,7 @@
                 }
                 .next_next{
                     position: absolute;
-                    top: 38%;
+                    top: 30%;
                     left: -15px;
                     color: #99a0ad;
                     font-size: 1.5rem;

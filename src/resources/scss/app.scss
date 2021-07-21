@@ -785,3 +785,18 @@ footer {
         }
     }
 }
+
+.banned{
+    font-family: ChakraPetch-Bold;
+    margin-top: 32px;
+    text-align: center;
+    p{
+        font-size: 1.5rem;
+    }
+}
+.banned:first-child{
+    i{
+        color: #EE0000;
+        font-size: 10rem;
+    }
+}
