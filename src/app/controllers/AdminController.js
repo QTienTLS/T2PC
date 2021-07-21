@@ -200,7 +200,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                100,
+                    100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -236,7 +236,7 @@ class AdminController {
             };
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                100,
+                    100,
             );
             const pro = new Product(newPro);
             pro.save();
@@ -320,7 +320,7 @@ class AdminController {
             }
             newPro.discount = Math.round(
                 ((newPro.originPrice - newPro.price) / newPro.originPrice) *
-                100,
+                    100,
             );
             Product.updateOne({ _id: req.params.id }, newPro)
                 .then(() => {
@@ -338,8 +338,8 @@ class AdminController {
         var status;
         if (req.params.link == 'pending') status = 0;
         else if (req.params.link == 'shipping') status = 1;
-        else if(req.params.link == 'done') status = 3;
-        else if(req.params.link == 'canceled') status = 2;
+        else if (req.params.link == 'done') status = 3;
+        else if (req.params.link == 'canceled') status = 2;
         else if (req.params.link == 'cancel-request') status = 4;
         var orders = await Order.find({ status: status });
         orders = mutipleMongooseToObject(orders);
@@ -368,62 +368,64 @@ class AdminController {
     updateOrder(req, res, next) {
         var update = {
             status: req.params.status,
-        }
-        if (req.body.adminNote)
-            if (update.adminNote)
-                update.adminNote += '`' + req.body.adminNote;
-            else
-                update.adminNote = req.body.adminNote;
+        };
+        if (req.body.adminNote) update.adminNote += req.body.adminNote;
+        else
+            update.adminNote =
+                'Đơn hàng đã hoàn thành ! Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi';
 
-        Order.findOneAndUpdate({ _id: req.params.id }, update)
+        Order.findOne({ _id: req.params.id })
             .then((order) => {
+                order.status = update.status;
+                order.adminNote = update.adminNote;
+                order.save();
                 order = mongooseToObject(order);
                 var n = order.listPro.length;
                 if (req.params.status == 1) {
                     for (let i = 0; i < n; i++) {
-                        Product.findOne({ _id: order.listProID[i] }, function (err, pro) {
-                            if (err) console.log(err);
-                            pro.stored -= order.amount[i];
-                            pro.save();
-                        })
+                        Product.findOne(
+                            { _id: order.listProID[i] },
+                            function (err, pro) {
+                                if (err) console.log(err);
+                                pro.stored -= order.amount[i];
+                                pro.save();
+                            },
+                        );
                     }
-                }
-                else if (req.params.status == 3){
+                } else if (req.params.status == 3) {
                     Account.findOne({ _id: order.userID }, function (err, acc) {
                         if (err) console.log(err);
                         acc.totalSpend += order.totalPrice;
-                        acc.adminNote = 'Đơn hàng đã hoàn thành ! Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi';
                         acc.save();
-                    })
-                    for(let i = 0; i < n; i++)
-                    {
+                    });
+                    for (let i = 0; i < n; i++) {
                         var d = new Date();
-                        ProductSold.findOne({proId: order.listProID[i], month: d.getMonth() + 1, year: d.getFullYear() })
-                        .then((proSold) =>
-                        {
-                            if(!proSold)
-                            {
-                                var newProSold = new ProductSold();
-                                newProSold.proID = order.listProID[i];
-                                newProSold.sold = order.amount[i];
-                                newProSold.month = d.getMonth() +1;
-                                newProSold.year = d.getFullYear();
-                                newProSold.save();
-                            }
-                            else{
-                                proSold.sold += order.amount[i];
-                                proSold.save();
-                            }
+                        ProductSold.findOne({
+                            proID: order.listProID[i],
+                            month: d.getMonth() + 1,
+                            year: d.getFullYear(),
                         })
-                        .catch(next);
+                            .then((proSold) => {
+                                if (!proSold) {
+                                    var newProSold = new ProductSold();
+                                    newProSold.proID = order.listProID[i];
+                                    newProSold.sold = order.amount[i];
+                                    newProSold.month = d.getMonth() + 1;
+                                    newProSold.year = d.getFullYear();
+                                    newProSold.save();
+                                } else {
+                                    proSold.sold += order.amount[i];
+                                    proSold.save();
+                                }
+                            })
+                            .catch(next);
                     }
                 }
+
                 res.redirect('back');
             })
             .catch(next);
-
     }
 }
-
 
 module.exports = new AdminController();

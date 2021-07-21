@@ -43,7 +43,7 @@ class AccountController {
         formData.password = bcryt.hashSync(
             formData.password,
             salt,
-            function (err, hash) { },
+            function (err, hash) {},
         );
         const account = new Account(formData);
         account.save();
@@ -183,14 +183,15 @@ class AccountController {
                 if (acc.status == 2) {
                     var lido = { x: acc.reasonBan };
                     console.log(lido.x);
-                    res.render('account/banned',{lido});
-                }
-                else {
+                    res.render('account/banned', { lido });
+                } else {
                     var order = new Order(req.body);
                     order.listProID = req.body.listProID.split(',');
                     order.listPro = req.body.listPro.split('`');
                     order.listImg = req.body.listProImg.split(',');
-                    order.listPrice = req.body.listProPrice.split(',').map((x) => +x);
+                    order.listPrice = req.body.listProPrice
+                        .split(',')
+                        .map((x) => +x);
                     order.amount = req.body.amount.split(',').map((x) => +x);
                     order.save();
                     //res.json(order);
@@ -198,7 +199,6 @@ class AccountController {
                 }
             })
             .catch(next);
-
     }
     pendingCart(req, res, next) {
         if (!req.session.User) res.render('partials/404');
@@ -210,9 +210,13 @@ class AccountController {
                         .then((orders) => {
                             orders = mutipleMongooseToObject(orders);
                             for (let i = 0; i < orders.length; i++) {
-                                orders[i].proNameString = orders[i].listPro.join('`');
+                                orders[i].proNameString =
+                                    orders[i].listPro.join('`');
                             }
-                            res.render('account/pendingorder', { acc: mongooseToObject(acc), orders });
+                            res.render('account/pendingorder', {
+                                acc: mongooseToObject(acc),
+                                orders,
+                            });
                         })
                         .catch(next);
                 })
@@ -229,10 +233,10 @@ class AccountController {
             .then((order) => {
                 if (userID != order.userID) {
                     res.send('something went wrong !!');
-                }
-                else {
+                } else {
                     order.userNote = req.body.userNote;
-                    order.adminNote = 'Yêu cầu huỷ của bạn đang được xử lí ! Vui lòng đợi phản hồi từ T2PC.\nĐơn hàng huỷ thành công sẽ xuất hiện ở mục "Đơn hàng đã huỷ"';
+                    order.adminNote =
+                        'Yêu cầu huỷ của bạn đang được xử lí ! Vui lòng đợi phản hồi từ T2PC.\nĐơn hàng huỷ thành công sẽ xuất hiện ở mục "Đơn hàng đã huỷ"';
                     order.status = 4;
                     order.save();
                     res.redirect('back');
@@ -250,9 +254,13 @@ class AccountController {
                         .then((orders) => {
                             orders = mutipleMongooseToObject(orders);
                             for (let i = 0; i < orders.length; i++) {
-                                orders[i].proNameString = orders[i].listPro.join('`');
+                                orders[i].proNameString =
+                                    orders[i].listPro.join('`');
                             }
-                            res.render('account/canceledorder', { acc: mongooseToObject(acc), orders });
+                            res.render('account/canceledorder', {
+                                acc: mongooseToObject(acc),
+                                orders,
+                            });
                         })
                         .catch(next);
                 })
@@ -269,9 +277,13 @@ class AccountController {
                         .then((orders) => {
                             orders = mutipleMongooseToObject(orders);
                             for (let i = 0; i < orders.length; i++) {
-                                orders[i].proNameString = orders[i].listPro.join('`');
+                                orders[i].proNameString =
+                                    orders[i].listPro.join('`');
                             }
-                            res.render('account/finishorder', { acc: mongooseToObject(acc), orders });
+                            res.render('account/finishorder', {
+                                acc: mongooseToObject(acc),
+                                orders,
+                            });
                         })
                         .catch(next);
                 })

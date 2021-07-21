@@ -11747,27 +11747,25 @@ body {
         }
     }
 }
-.tborder__username{
+.tborder__username {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    
-    
 }
-.btn-circle{
+.btn-circle {
     width: 3em;
     height: 3em;
     border-radius: 50%;
 }
-#avt-user{
+#avt-user {
     height: 8em;
     width: 8em;
     background-color: $main-color;
     border-radius: 50%;
 }
-#modalChitietdon{
-    #modalChitietdon-root-node{
+#modalChitietdon {
+    #modalChitietdon-root-node {
         display: none;
         // .img__modalChitietdon{
         //     padding: 10px;
@@ -11780,72 +11778,70 @@ body {
         //     }
 
         // }
-
     }
-    .modal-dialog{
-        .modal-content{
-            .modal-header{
-                h5{
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                h5 {
                     font-family: ChakraPetch-Bold;
-                    color: $main-color
+                    color: $main-color;
                 }
             }
         }
     }
-    .modalChitietdon-product{
+    .modalChitietdon-product {
         background-color: #f0f3fc;
         display: flex;
         border: 1px solid $border-color;
         border-radius: 5px;
         margin-bottom: 16px;
-        .img__modalChitietdon{
+        .img__modalChitietdon {
             padding: 10px;
             border-right: 1px solid $border-color;
-            img{
-            max-width: 100px;
-            max-height: 100px;
-            width: auto;
-            height: auto;
+            img {
+                max-width: 100px;
+                max-height: 100px;
+                width: auto;
+                height: auto;
             }
-
         }
-        #pro-name{
+        #pro-name {
             flex: 3;
             border-right: 1px solid $border-color;
             padding: 10px;
             font-family: ChakraPetch-SemiBold;
             color: $blue-color;
         }
-        #amount-pro{
+        #amount-pro {
             padding: 10px;
             text-align: center;
             flex: 1.5;
             border-right: 1px solid $border-color;
             font-family: ChakraPetch-Bold;
-            div{
+            div {
                 color: $pink-color;
             }
         }
-        #price-pro{
+        #price-pro {
             padding: 5px;
             flex: 2;
             text-align: center;
             font-family: ChakraPetch-Bold;
-            div{
+            div {
                 color: $pink-color;
             }
         }
     }
-    #modalChitietdon-pro-list{
+    #modalChitietdon-pro-list {
         overflow: auto;
         height: 30em;
     }
-    .info__Chitietdon-pro-list{
-        .form-floating{
-            input{
+    .info__Chitietdon-pro-list {
+        .form-floating {
+            input {
                 font-family: ChakraPetch-SemiBold;
             }
-            label{
+            label {
                 font-family: ChakraPetch-Regular;
             }
         }

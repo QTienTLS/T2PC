@@ -659,10 +659,10 @@ footer {
             }
             // mtop: 50%;
         }
-        .info-acc:first-child{
+        .info-acc:first-child {
             margin-bottom: 0px;
         }
-        .info-acc:last-child{
+        .info-acc:last-child {
             margin-bottom: 0;
         }
     }
@@ -741,27 +741,26 @@ footer {
             }
             form {
                 margin-top: 6em;
-                    .address__user{
-                        .form-floating{
-                            label{
-                                padding-left: 24px;
-                            }
+                .address__user {
+                    .form-floating {
+                        label {
+                            padding-left: 24px;
                         }
+                    }
                 }
             }
         }
     }
 }
-.status{
-
+.status {
 }
-.status-pending{
+.status-pending {
     color: mediumorchid;
 }
-.status-success{
+.status-success {
     color: green;
 }
-.status-danger{
+.status-danger {
     color: tomato;
 }
 @media screen and (max-width: 85em) {
@@ -786,17 +785,17 @@ footer {
     }
 }
 
-.banned{
+.banned {
     font-family: ChakraPetch-Bold;
     margin-top: 32px;
     text-align: center;
-    p{
+    p {
         font-size: 1.5rem;
     }
 }
-.banned:first-child{
-    i{
-        color: #EE0000;
+.banned:first-child {
+    i {
+        color: #ee0000;
         font-size: 10rem;
     }
 }
