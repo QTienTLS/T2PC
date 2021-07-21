@@ -133,6 +133,7 @@
         </div>
 
       </div>
+
       <div class="slider__discount">
         <div class="main__slider">
           {{#each discountPro}}
@@ -140,8 +141,8 @@
             <div class="img-item">
               <img src="{{this.img}}" alt="">
               <div class="btn__main-product">
-                  <button title="Xem chi tiết"  ><i class="fas fa-search"></i></button>
-                  <button title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
+                  <button onclick="goToDetail('{{this._id}}')" title="Xem chi tiết"  ><i class="fas fa-search"></i></button>
+                  <button onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)" title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
                 </div>
             </div>
             <div class="discount">
@@ -171,7 +172,8 @@
         </div>
           <p type="button" class="slick-prev"><i class="fal fa-angle-left"></i></p>
           <p type="button" class="slick-next"><i class="fal fa-angle-right"></i></p>
-        </div>
+      </div>
+
       <div class="see__more">
         <button class="snip1582">XEM THÊM</button>
       </div>
@@ -179,6 +181,7 @@
 
     {{!-- Sản phẩm mới về --}}
     <div class="style__slider new__product">
+      {{!-- Titile --}}
       <div class="seperate">
         <div class="seperate__left">
           <div class="seperate__square"></div>
@@ -189,12 +192,50 @@
           <div class="triangle_up"></div>
           <div class="seperate__square"></div>
         </div>
-        
-        {{#each newPro}}
-          <div>{{this.name}}</div>
-          <img src="{{this.img}}" alt="">
-        {{/each}}
       </div>
+
+      {{!-- Listproduct --}}
+      <div class="slider__discount">
+        <div class="main__slider">
+          {{#each newPro}}
+          <div class="item">
+            <div class="img-item">
+              <img src="{{this.img}}" alt="">
+              <div class="btn__main-product">
+                  <button onclick="goToDetail('{{this._id}}')" title="Xem chi tiết"  ><i class="fas fa-search"></i></button>
+                  <button onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)" title="Thêm vào giỏ hàng"  ><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+            {{#if this.discount}}
+            <div class="discount">
+              <span>{{this.discount}}%</span>
+            </div>
+            {{/if}}
+            <div class="title-discount__product">
+              <h5><a href="/product/{{this._id}}/detail">{{this.name}}</a></h5>
+            </div>
+            <div class="reviews-discount__product">
+              <div class="star-reviews">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <p class="views" title="Lượt xem">{{this.views}}<i class="fas fa-eye"></i></p>
+            </div>
+            <div class="price-discount__product">
+              <p class="price__selling currFormat">{{this.price}} đ</p>
+              <p class="price__old currFormat">{{this.originPrice}} đ</p>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+         <p type="button" class="slick-prev"><i class="fal fa-angle-left"></i></p>
+          <p type="button" class="slick-next"><i class="fal fa-angle-right"></i></p>
+      </div>
+
+      {{!-- Button --}}
       <div class="see__more">
         <button class="snip1582">XEM THÊM</button>
       </div>
@@ -214,6 +255,9 @@
         </div>
 
       </div>
+
+      {{!-- Product --}}
+
       <div class="see__more">
         <button class="snip1582">XEM THÊM</button>
       </div>
