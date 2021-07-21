@@ -196,7 +196,7 @@
 
       {{!-- Listproduct --}}
       <div class="slider__discount">
-        <div class="main__slider-newProduct">
+        <div class="main__slider">
           {{#each newPro}}
           <div class="item">
             <div class="img-item">
@@ -321,24 +321,10 @@
 <script> //Slide sản phẩm giảm giá
   $(document).ready(function () {
     $('.main__slider').slick({
-      rtl: false,
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 1800,
-      prevArrow: '.slick-prev',
-      nextArrow: '.slick-next',
-    });
-  });
-</script>
-
-<script> //Slide sản phẩm mới về
-  $(document).ready(function () {
-    $('.main__slider-newProduct').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 1800,
+      autoplaySpeed: 1000,
       prevArrow: '.slick-prev',
       nextArrow: '.slick-next',
     });
