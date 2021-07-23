@@ -763,7 +763,7 @@ footer {
 .status-danger {
     color: tomato;
 }
-.pagination{
+.pagination {
     display: flex;
     //justify-content: space-between;
     max-width: 70em;
@@ -774,7 +774,7 @@ footer {
     left: 50%;
     transform: translateX(-50%);
 }
-.pagination__btn{
+.pagination__btn {
     height: 3em;
     width: 3em;
     border-radius: 50%;
@@ -784,11 +784,13 @@ footer {
     justify-content: center;
     align-items: center;
 }
-.pagination__btn-active,.pagination__btn:hover{
+.pagination__btn-active,
+.pagination__btn:hover {
     background-color: $main-color;
     color: white;
 }
-.pagination__btn-inside,.pagination__btn-right{
+.pagination__btn-inside,
+.pagination__btn-right {
     margin-left: 2em;
 }
 @media screen and (max-width: 85em) {

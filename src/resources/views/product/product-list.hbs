@@ -273,74 +273,81 @@
         <div class="list__sub-menu-product">
           <ul>
             <a href="#">Mới về</a>
-            <a href="#">Giảm giá</a>
+            <a  class="filter__giamgia" href="/product/{{protype.value}}/list/sort/discount">Giảm giá</a>
             <a href="#">Bán chạy</a>
             <a href="#">Nổi bật</a>
           </ul>
         </div>
         <div id="product__in-list-root" style="display: none;" class="product__in-list col-4">
-            <div class="card">
-              {{!-- Image cua the --}}
-              <div class="main__product">
-                <h3>Hết hàng</h3>
-                <div class="image-product"><a href=""><img src="" class="card-img-top" alt="..."
-                      onclick=""></a></div>
-                <div class="btn__main-product">
-                  <button title="Xem chi tiet" ><i class="fas fa-search"></i></button>
-                  <button type="button" title="Them vao gio hang" data-img=''
-                    ><i class="fas fa-cart-plus"></i></button>
-                </div>
+          <div class="card">
+            {{!-- Image cua the --}}
+            <div class="main__product">
+              <h3 class="clone-pro__hethang">Hết hàng</h3>
+              <div class="image-product"><img src="" style="cursor: pointer;" class="clone-pro__img card-img-top"
+                  alt="..." onclick=""></div>
+              <div class="btn__main-product">
+                <button class="clone-pro__detail" title="Xem chi tiet"><i class="fas fa-search"></i></button>
+                <button type="button" class="clone-pro__cart" title="Them vao gio hang" data-img=''><i
+                    class="fas fa-cart-plus"></i></button>
               </div>
-              {{!-- Body cua the --}}
-              <div class="body__card">
-                <h5 class="card-title"><a href="" ></a></h5>
-                <div class="product-reviews">
-                  <div class="star-reviews">
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <div class="views">
-                    <p class="tatal-views"> <i class="fas fa-eye"></i></p>
-                  </div>
-                  {{!-- <div class="evaluate">0 đánh giá</div> --}}
+            </div>
+            {{!-- Body cua the --}}
+            <div class="body__card">
+              <h5 class="card-title"><a href="" class="clone-pro__name"></a></h5>
+              <div class="product-reviews">
+                <div class="star-reviews">
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
                 </div>
-                <div class="mn-product">
-                  <p id="money-product" class="card-text currFormat"></p>
-                  <p class="price currFormat"></p>
-                  <div class="discount">
-                    <span></span>
-                  </div>
+                <div class="views">
+                  <p class="tatal-views clone-pro__views"> <i class="fas fa-eye"></i></p>
+                </div>
+                {{!-- <div class="evaluate">0 đánh giá</div> --}}
+              </div>
+              <div class="mn-product">
+                <p id="money-product" class="card-text currFormat clone-pro__price"></p>
+                <p class="price clone-pro__originprice currFormat"></p>
+                <div class="discount clone-pro__discount">
+                  <span class="clone-pro__percent"></span>
                 </div>
               </div>
             </div>
           </div>
-          {{!-- list sản phẩm chính --}}
-        <div class="list__all-product">
-          
-            {{#each pros}}
-            <div class="infor-pro" style="display: none;">
-            <div id="info-pro__img">{{this.img}}</div>
-            <div id="info-pro__id">{{this._id}}</div>
-            <div id="infor-pro__stored">{{this.stored}}</div>
-            <div id="infor-pro__name">{{this.name}}</div>
-            <div id="infor-pro__price">{{this.price}}</div>
-            <div id="infor-pro__views">{{this.views}}</div>
-            <div id="infor-pro__discount">{{this.discount}}</div>
-            <div id="infor-pro__originPrice">{{this.originPrice}}</div>
-            </div>
-            {{/each}}
         </div>
+        {{!-- list sản phẩm chính --}}
+        <div class="list__all-product">
+        </div>
+        {{#each pros}}
+        <div class="infor-pro" style="display: none;">
+          <div id="info-pro__img">{{this.img}}</div>
+          <div id="info-pro__id">{{this._id}}</div>
+          <div id="infor-pro__stored">{{this.stored}}</div>
+          <div id="infor-pro__name">{{this.name}}</div>
+          <div id="infor-pro__price">{{this.price}}</div>
+          <div id="infor-pro__views">{{this.views}}</div>
+          <div id="infor-pro__discount">{{this.discount}}</div>
+          <div id="infor-pro__originPrice">{{this.originPrice}}</div>
+        </div>
+        {{/each}}
+        <form action="GET" name="shipper"></form>
       </div>
     </div>
   </div>
 </div>
-{{>pagination}}
+{{!-- css nằm ở app.scss --}}
+<div class="pagination">
+  <div class="pagination__btn pagination__btn-left"><i class="fad fa-chevron-left"></i></div>
+</div>
+<div style="display: none;" class="pagination__btn pagination__btn-right"><i class="fad fa-chevron-right"></i></div>
 <script>
   var proList = document.getElementsByClassName('infor-pro');
-  for(let a = 0;a<proList.length;a++){
+  var listPro = [];
+  var page = 0;
+  listPro[page] = [];
+  for (let a = 0; a < proList.length; a++) {
     var pro = {
       img: proList[a].childNodes[1].innerHTML,
       id: proList[a].childNodes[3].innerHTML,
@@ -351,7 +358,130 @@
       discount: parseInt(proList[a].childNodes[13].innerHTML),
       originPrice: parseInt(proList[a].childNodes[15].innerHTML),
     }
-  
+    if (listPro[page].length == 9) {
+      page++;
+      listPro[page] = [];
+    }
+    listPro[page].push(pro);
   }
-  
+  for (let i = 1; i <= page + 1; i++) {
+    var newBtn = document.createElement('div');
+    newBtn.classList.add('pagination__btn');
+    newBtn.classList.add('pagination__btn-inside');
+    newBtn.addEventListener('click', function () {
+      document.getElementsByClassName('pagination__btn-active')[0].classList.remove('pagination__btn-active');
+      this.classList.add('pagination__btn-active');
+      gotoPage(i);
+    })
+    newBtn.innerHTML = i;
+    document.getElementsByClassName('pagination')[0].appendChild(newBtn);
+  }
+  var newBtn = document.getElementsByClassName('pagination__btn-right')[0];
+  newBtn.style.display = 'flex';
+  document.getElementsByClassName('pagination')[0].appendChild(newBtn);
+  document.getElementsByClassName('pagination__btn-inside')[0].classList.add('pagination__btn-active')
+  //vẽ các sản phẩm 
+  gotoPage(1);
+  //hàm vào trang chi tiết sản phẩm
+  function goToDetail(productID) {
+    var formShip = document.forms['shipper'];
+    formShip.method = 'GET';
+    formShip.action = '/product/' + productID + '/detail';
+    formShip.submit();
+
+  };
+  //hàm thêm sản phẩm vào giỏ hàng
+  function addToCart(productID, proName, price, stored, btn, n) {
+    var nP = document.getElementsByClassName('numProduct')[0];
+    if (stored < n) {
+      alert('Bạn đã nhập quá số lượng hàng cho phép ! Vui lòng kiểm tra lại');
+      return;
+    }
+    img = btn.getAttribute('data-img');
+
+    n = parseInt(n);
+    if (!sessionStorage.Cart) {
+      var cartObj = {
+        id: [productID],
+        proName: [proName],
+        amount: [n],
+        price: [price],
+        stored: [stored],
+        img: [img],
+      };
+      sessionStorage.totalPrice = price * n;
+      sessionStorage.numPro = n;
+      sessionStorage.setItem('Cart', JSON.stringify(cartObj));
+    } else {
+      var cartObj = JSON.parse(sessionStorage.getItem('Cart'));
+      var isPush = true;
+      for (let i = 0; i < cartObj.proName.length; i++) {
+        if (proName == cartObj.proName[i]) {
+          if (cartObj.stored[i] < n + cartObj.amount[i]) {
+            alert(
+              'Bạn đã nhập quá số lượng hàng cho phép ! Vui lòng kiểm tra lại',
+            );
+            return;
+          }
+          cartObj.amount[i] += n;
+          isPush = false;
+          break;
+        }
+      }
+      if (isPush) {
+        cartObj.proName.push(proName);
+        cartObj.id.push(productID);
+        cartObj.amount.push(n);
+        cartObj.price.push(price);
+        cartObj.stored.push(stored);
+        cartObj.img.push(img);
+      }
+
+      sessionStorage.numPro = parseInt(sessionStorage.numPro) + n;
+      sessionStorage.totalPrice =
+        parseInt(sessionStorage.totalPrice) + price * n;
+    }
+
+    sessionStorage.setItem('Cart', JSON.stringify(cartObj));
+    nP.innerHTML = sessionStorage.numPro;
+  }
+  function gotoPage(n) {
+    var mainList = document.getElementsByClassName('list__all-product')[0];
+    mainList.innerHTML = '';
+    for (let i = 0; i < listPro[n - 1].length; i++) {
+      var clone = document.getElementById('product__in-list-root').cloneNode(true);
+      clone.removeAttribute('id');
+      clone.style.display = 'block';
+      mainList.appendChild(clone);
+      document.getElementsByClassName('clone-pro__img')[i + 1].src = listPro[n - 1][i].img;
+      document.getElementsByClassName('clone-pro__img')[i + 1].addEventListener('click', function () {
+        goToDetail(listPro[n - 1][i].id);
+      });
+      document.getElementsByClassName('clone-pro__detail')[i + 1].addEventListener('click', function () {
+        goToDetail(listPro[n - 1][i].id);
+      });
+      if (listPro[n - 1][i].stored)
+        document.getElementsByClassName('clone-pro__hethang')[i + 1].style.display = 'none';
+      else
+        document.getElementsByClassName('clone-pro__hethang')[i + 1].style.display = 'block';
+      document.getElementsByClassName('clone-pro__name')[i + 1].innerHTML = listPro[n - 1][i].name;
+      document.getElementsByClassName('clone-pro__views')[i + 1].innerHTML += ' ' + listPro[n - 1][i].views;
+      document.getElementsByClassName('clone-pro__name')[i + 1].href = '/product/' + listPro[n - 1][i].id + '/detail';
+      document.getElementsByClassName('clone-pro__price')[i + 1].innerHTML = (listPro[n - 1][i].price + ' đ').toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      document.getElementsByClassName('clone-pro__cart')[i + 1].setAttribute('data-img', listPro[n - 1][i].img);
+      document.getElementsByClassName('clone-pro__cart')[i + 1].addEventListener('click', function () {
+        addToCart(listPro[n - 1][i].id, listPro[n - 1][i].name, listPro[n - 1][i].price, listPro[n - 1][i].stored, this, 1)
+      })
+      if (listPro[n - 1][i].discount) {
+        document.getElementsByClassName('clone-pro__originprice')[i + 1].innerHTML = (listPro[n - 1][i].originPrice + ' đ').toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        document.getElementsByClassName('clone-pro__percent')[i + 1].innerHTML = listPro[n - 1][i].discount + '%';
+      }
+      else
+        document.getElementsByClassName('clone-pro__discount')[i + 1].style.display = 'none';
+    }
+
+  }
+
 </script>

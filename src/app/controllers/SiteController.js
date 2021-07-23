@@ -16,7 +16,7 @@ class SiteController {
             .limit(6)
             .sort({ createdAt: 'desc' });
         newPro = mutipleMongooseToObject(newPro);
-        var topSellerPro = await Product.find({topseller: 1});
+        var topSellerPro = await Product.find({ topseller: 1 });
         topSellerPro = mutipleMongooseToObject(topSellerPro);
         res.render('home', { events, discountPro, newPro, topSellerPro });
     }
