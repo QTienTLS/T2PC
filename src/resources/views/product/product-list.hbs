@@ -278,30 +278,22 @@
             <a href="#">Nổi bật</a>
           </ul>
         </div>
-        <div class="list__all-product">
-          {{#each pros}}
-          <div class="product__in-list col-4">
+        <div id="product__in-list-root" style="display: none;" class="product__in-list col-4">
             <div class="card">
               {{!-- Image cua the --}}
               <div class="main__product">
-                {{#unless this.stored}}
                 <h3>Hết hàng</h3>
-                {{/unless}}
-                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..."
-                      onclick="goToDetail('{{this._id}}')"></a></div>
+                <div class="image-product"><a href=""><img src="" class="card-img-top" alt="..."
+                      onclick=""></a></div>
                 <div class="btn__main-product">
-                  <button title="Xem chi tiet" onclick="goToDetail('{{this._id}}')"><i class="fas fa-search"></i></button>
-                  {{#if this.stored}}
-                  <button type="button" title="Them vao gio hang" data-img='{{this.img}}'
-                    onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)"><i
-                      class="fas fa-cart-plus"></i></button>
-                  {{/if}}
+                  <button title="Xem chi tiet" ><i class="fas fa-search"></i></button>
+                  <button type="button" title="Them vao gio hang" data-img=''
+                    ><i class="fas fa-cart-plus"></i></button>
                 </div>
               </div>
-
               {{!-- Body cua the --}}
               <div class="body__card">
-                <h5 class="card-title"><a href="#" onclick="goToDetail('{{this._id}}')">{{this.name}}</a></h5>
+                <h5 class="card-title"><a href="" ></a></h5>
                 <div class="product-reviews">
                   <div class="star-reviews">
                     <i class="far fa-star"></i>
@@ -311,25 +303,55 @@
                     <i class="far fa-star"></i>
                   </div>
                   <div class="views">
-                    <p class="tatal-views">{{this.views}} <i class="fas fa-eye"></i></p>
+                    <p class="tatal-views"> <i class="fas fa-eye"></i></p>
                   </div>
                   {{!-- <div class="evaluate">0 đánh giá</div> --}}
                 </div>
                 <div class="mn-product">
-                  <p id="money-product" class="card-text currFormat">{{this.price}} đ</p>
-                  {{#if this.discount}}
-                  <p class="price currFormat">{{this.originPrice}} đ</p>
+                  <p id="money-product" class="card-text currFormat"></p>
+                  <p class="price currFormat"></p>
                   <div class="discount">
-                    <span>{{this.discount}}%</span>
+                    <span></span>
                   </div>
-                  {{/if}}
                 </div>
               </div>
             </div>
           </div>
-          {{/each}}
+          {{!-- list sản phẩm chính --}}
+        <div class="list__all-product">
+          
+            {{#each pros}}
+            <div class="infor-pro" style="display: none;">
+            <div id="info-pro__img">{{this.img}}</div>
+            <div id="info-pro__id">{{this._id}}</div>
+            <div id="infor-pro__stored">{{this.stored}}</div>
+            <div id="infor-pro__name">{{this.name}}</div>
+            <div id="infor-pro__price">{{this.price}}</div>
+            <div id="infor-pro__views">{{this.views}}</div>
+            <div id="infor-pro__discount">{{this.discount}}</div>
+            <div id="infor-pro__originPrice">{{this.originPrice}}</div>
+            </div>
+            {{/each}}
         </div>
       </div>
     </div>
   </div>
 </div>
+{{>pagination}}
+<script>
+  var proList = document.getElementsByClassName('infor-pro');
+  for(let a = 0;a<proList.length;a++){
+    var pro = {
+      img: proList[a].childNodes[1].innerHTML,
+      id: proList[a].childNodes[3].innerHTML,
+      stored: parseInt(proList[a].childNodes[5].innerHTML),
+      name: proList[a].childNodes[7].innerHTML,
+      price: parseInt(proList[a].childNodes[9].innerHTML),
+      views: parseInt(proList[a].childNodes[11].innerHTML),
+      discount: parseInt(proList[a].childNodes[13].innerHTML),
+      originPrice: parseInt(proList[a].childNodes[15].innerHTML),
+    }
+  
+  }
+  
+</script>

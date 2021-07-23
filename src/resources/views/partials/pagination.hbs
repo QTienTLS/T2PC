@@ -1,0 +1,22 @@
+{{!-- css nằm ở app.scss --}}
+<div class="pagination">
+    <div id="pagination__number-page" style="display: none;">6</div>
+    <div class="pagination__btn pagination__btn-left"><i class="fad fa-chevron-left"></i></div>
+    
+    
+</div>
+<div style="display: none;" class="pagination__btn pagination__btn-right"><i class="fad fa-chevron-right"></i></div>
+<script>
+    var numPage =parseInt(document.getElementById('pagination__number-page').innerHTML);
+    for(let i=1;i<=numPage;i++)
+    {
+        var newBtn = document.createElement('div');
+        newBtn.classList.add('pagination__btn');
+        newBtn.classList.add('pagination__btn-inside');
+        newBtn.innerHTML = i;
+        document.getElementsByClassName('pagination')[0].appendChild(newBtn);
+    }
+    var newBtn = document.getElementsByClassName('pagination__btn-right')[0];
+        newBtn.style.display = 'flex';
+        document.getElementsByClassName('pagination')[0].appendChild(newBtn);
+</script>
