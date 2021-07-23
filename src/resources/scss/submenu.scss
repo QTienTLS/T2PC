@@ -1,5 +1,6 @@
 @import 'var';
 .main__sub-menu {
+    max-width: 1110px;
     margin-top: 1em;
     // Banner-submenu
     .banner__submenu {
@@ -99,11 +100,49 @@
             z-index: 0;
         }
     }
+
+    .main__sb-buildpc{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2em;
+        .cat-item{
+            position: relative;
+            .img__cat-item{
+                img{
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                }
+                .detail__cat-item{
+                    position: absolute;
+                    top: 1em;
+                    left: 1em;
+                    line-height: 2;
+                    h4{
+                        font-family: ChakraPetch-Bold;
+                        color: white;
+                    }
+                    p{
+                        margin-bottom: 1em;
+                        color: white;
+                    }
+                    a{
+                        text-decoration: none;
+                        color: white;
+                        background-color: $pink-color;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
     // THông tin về các hình thức thanh toán và trợ
     .product__detail-policy__item {
         display: flex;
         justify-content: space-between;
         margin-top: 2em;
+        margin-bottom: 1em;
         padding: 0em 0em 1em 0;
 
         .policy__item {

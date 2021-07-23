@@ -96,7 +96,7 @@ body {
             top: 100%;
             width: 94%;
             padding-left: 0;
-            z-index: 2;
+            z-index: 10;
             border-right: 1px solid cadetblue;
             border-bottom: 1px solid cadetblue; }
             #header-id #nav-bar .menu-nav-bar .list-menu .tilte-menu .submenu .menu-mini {
