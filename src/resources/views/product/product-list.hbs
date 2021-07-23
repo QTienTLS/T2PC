@@ -1,256 +1,6 @@
 <div class="container main__show-all">
   <div class="row a">
-    <div class="col-3 filter">
-      <h5>BỘ LỌC SẢN PHẨM</h5>
-      {{!-- --}}
-      <div class="filter-manufacturer">
-        {{!-- Chủ đề --}}
-        <div onclick="manufacturer()" class="manufacturer">Hãng sản xuất<i class="fas fa-angle-right"></i></div>
-        {{!-- Danh sách lọc theo chủ đề --}}
-        <ul class="main__mft" id="main-manufacturer">
-          <label class="manufacturer-main">
-            <p>RAZER</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>LG</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>T2PC</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>MSI</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>ACER</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>DELL</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>KINGSTON</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>AMD</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>NVDIA</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>Cooler Master</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>Intel</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>Corsair</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>E-Dra</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>GYGABYTE</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>AKKO</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </ul>
-      </div>
-
-      <div class="filter-manufacturer sort-by-money container">
-        {{!-- Chủ đề --}}
-        <div onclick="sortByMoney()" class="manufacturer">Giá tiền<i class="fas fa-angle-right"></i></div>
-        <ul id="sortByMoney" class="sort__by-mn ">
-          <div>
-            < 1 Triệu</div>
-              <div>1 Triệu - 5 Triệu</div>
-              <div>5 Triệu - 10 Triệu</div>
-              <div>> 10 Triệu</div>
-        </ul>
-      </div>
-
-      <div class="filter-manufacturer sort-by-inch">
-        {{!-- Chủ đề --}}
-        <div onclick="sortByInch()" class="manufacturer">Kích thước<i class="fas fa-angle-right"></i></div>
-        {{!-- Danh sách lọc theo chủ đề --}}
-        <ul class="main__mft main__sort-by-inch" id="sortByInch">
-          <label class="manufacturer-main">
-            <p>49 Inch</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>22 Inch</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>24 Inch</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          </label>
-          <label class="manufacturer-main">
-            <p>27 Inch</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </ul>
-      </div>
-
-      <div class="filter-manufacturer sort-by-intel">
-        {{!-- Chủ đề --}}
-        <div onclick="sortByIntel()" class="manufacturer">Thế hệ CPU Intel<i class="fas fa-angle-right"></i></div>
-        {{!-- Danh sách lọc theo chủ đề --}}
-        <ul class="main__mft main__sort-by-inch" id="sortByIntel">
-          <label class="manufacturer-main">
-            <p>Intel Core i3</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>Intel Core i5</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>Intel Core i7</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          </label>
-          <label class="manufacturer-main">
-            <p>Intel Core i9</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </ul>
-      </div>
-
-      <div class="filter-manufacturer">
-        {{!-- Chủ đề --}}
-        <div onclick="nVidia()" class="manufacturer">NVidia Geforce<i class="fas fa-angle-right"></i></div>
-        {{!-- Danh sách lọc theo chủ đề --}}
-        <ul class="main__mft" id="nVidia">
-          <label class="manufacturer-main">
-            <p>RTX 3060</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RTX 3070Ti</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>GTX 1650 Super</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>GTX 1660</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>GTX 1660 Super</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RTX 2060</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RTX 3060 Ti</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RTX 3070</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RTX 3080</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RTX 3090</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </ul>
-      </div>
-
-      <div class="filter-manufacturer sort-by-amd">
-        {{!-- Chủ đề --}}
-        <div onclick="amd()" class="manufacturer">AMD Radeon<i class="fas fa-angle-right"></i></div>
-        {{!-- Danh sách lọc theo chủ đề --}}
-        <ul class="main__mft" id="amd">
-          <label class="manufacturer-main">
-            <p>RX 6800</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>RX 6700XT</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </ul>
-      </div>
-
-      <div class="filter-manufacturer sort-by-amd">
-        {{!-- Chủ đề --}}
-        <div onclick="psu()" class="manufacturer">PSU Nguồn máy tính<i class="fas fa-angle-right"></i></div>
-        {{!-- Danh sách lọc theo chủ đề --}}
-        <ul class="main__mft" id="psu">
-          <label class="manufacturer-main">
-            <p>80 PLUS® Bronze</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="manufacturer-main">
-            <p>80 PLUS® Gold</p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </ul>
-      </div>
-
-    </div>
+    {{>filter}}
 
     <div class="col-9 all-product">
       <div class="list-product">
@@ -278,22 +28,33 @@
             <a href="#">Nổi bật</a>
           </ul>
         </div>
-        <div id="product__in-list-root" style="display: none;" class="product__in-list col-4">
+        <div class="list__all-product">
+          {{#each pros}}
+          <div class="product__in-list col-4">
             <div class="card">
               {{!-- Image cua the --}}
               <div class="main__product">
-                <h3>Hết hàng</h3>
-                <div class="image-product"><a href=""><img src="" class="card-img-top" alt="..."
-                      onclick=""></a></div>
+                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..."
+                      onclick="goToDetail('{{this._id}}')"></a>
+                  <div class="hethang">
+                    {{#unless this.stored}}
+                      <h3>Hết hàng</h3>
+                    {{/unless}}
+                  </div>      
+                </div>
                 <div class="btn__main-product">
-                  <button title="Xem chi tiet" ><i class="fas fa-search"></i></button>
-                  <button type="button" title="Them vao gio hang" data-img=''
-                    ><i class="fas fa-cart-plus"></i></button>
+                  <button title="Xem chi tiet" onclick="goToDetail('{{this._id}}')"><i class="fas fa-search"></i></button>
+                  {{#if this.stored}}
+                  <button type="button" title="Them vao gio hang" data-img='{{this.img}}'
+                    onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)"><i
+                      class="fas fa-cart-plus"></i></button>
+                  {{/if}}
                 </div>
               </div>
+
               {{!-- Body cua the --}}
               <div class="body__card">
-                <h5 class="card-title"><a href="" ></a></h5>
+                <h5 class="card-title"><a href="#" onclick="goToDetail('{{this._id}}')">{{this.name}}</a></h5>
                 <div class="product-reviews">
                   <div class="star-reviews">
                     <i class="far fa-star"></i>
@@ -303,55 +64,25 @@
                     <i class="far fa-star"></i>
                   </div>
                   <div class="views">
-                    <p class="tatal-views"> <i class="fas fa-eye"></i></p>
+                    <p class="tatal-views">{{this.views}} <i class="fas fa-eye"></i></p>
                   </div>
                   {{!-- <div class="evaluate">0 đánh giá</div> --}}
                 </div>
                 <div class="mn-product">
-                  <p id="money-product" class="card-text currFormat"></p>
-                  <p class="price currFormat"></p>
+                  <p id="money-product" class="card-text currFormat">{{this.price}} đ</p>
+                  {{#if this.discount}}
+                  <p class="price currFormat">{{this.originPrice}} đ</p>
                   <div class="discount">
-                    <span></span>
+                    <span>{{this.discount}}%</span>
                   </div>
+                  {{/if}}
                 </div>
               </div>
             </div>
           </div>
-          {{!-- list sản phẩm chính --}}
-        <div class="list__all-product">
-          
-            {{#each pros}}
-            <div class="infor-pro" style="display: none;">
-            <div id="info-pro__img">{{this.img}}</div>
-            <div id="info-pro__id">{{this._id}}</div>
-            <div id="infor-pro__stored">{{this.stored}}</div>
-            <div id="infor-pro__name">{{this.name}}</div>
-            <div id="infor-pro__price">{{this.price}}</div>
-            <div id="infor-pro__views">{{this.views}}</div>
-            <div id="infor-pro__discount">{{this.discount}}</div>
-            <div id="infor-pro__originPrice">{{this.originPrice}}</div>
-            </div>
-            {{/each}}
+          {{/each}}
         </div>
       </div>
     </div>
   </div>
 </div>
-{{>pagination}}
-<script>
-  var proList = document.getElementsByClassName('infor-pro');
-  for(let a = 0;a<proList.length;a++){
-    var pro = {
-      img: proList[a].childNodes[1].innerHTML,
-      id: proList[a].childNodes[3].innerHTML,
-      stored: parseInt(proList[a].childNodes[5].innerHTML),
-      name: proList[a].childNodes[7].innerHTML,
-      price: parseInt(proList[a].childNodes[9].innerHTML),
-      views: parseInt(proList[a].childNodes[11].innerHTML),
-      discount: parseInt(proList[a].childNodes[13].innerHTML),
-      originPrice: parseInt(proList[a].childNodes[15].innerHTML),
-    }
-  
-  }
-  
-</script>

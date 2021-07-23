@@ -1,0 +1,213 @@
+<div class="col-3 filter">
+      <h5>BỘ LỌC SẢN PHẨM</h5>
+      {{!-- --}}
+      <div class="filter-manufacturer">
+        {{!-- Chủ đề --}}
+        <div onclick="manufacturer()" class="manufacturer">Hãng sản xuất<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="main-manufacturer">
+          <label class="manufacturer-main"><p>RAZER</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>LG</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>T2PC</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>MSI</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>ACER</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>DELL</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>KINGSTON</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>AMD</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>NVDIA</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>Cooler Master</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>Intel</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>Corsair</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>E-Dra</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>GYGABYTE</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>AKKO</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-money container">
+         {{!-- Chủ đề --}}
+        <div onclick="sortByMoney()" class="manufacturer">Giá tiền<i class="fas fa-angle-right"></i></div>
+        <ul id="sortByMoney" class="sort__by-mn ">
+          <div >< 1 Triệu</div>
+          <div >1 Triệu - 5 Triệu</div>
+          <div >5 Triệu - 10 Triệu</div>
+          <div >> 10 Triệu</div>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-inch">
+        {{!-- Chủ đề --}}
+        <div onclick="sortByInch()" class="manufacturer">Kích thước<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft main__sort-by-inch" id="sortByInch">
+          <label class="manufacturer-main"><p>49 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>22 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>24 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          </label>
+          <label class="manufacturer-main"><p>27 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-intel">
+        {{!-- Chủ đề --}}
+        <div onclick="sortByIntel()" class="manufacturer">Thế hệ CPU Intel<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft main__sort-by-inch" id="sortByIntel">
+          <label class="manufacturer-main"><p>Intel Core i3</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>Intel Core i5</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>Intel Core i7</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          </label>
+          <label class="manufacturer-main"><p>Intel Core i9</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer">
+        {{!-- Chủ đề --}}
+        <div onclick="nVidia()" class="manufacturer">NVidia Geforce<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="nVidia">
+          <label class="manufacturer-main"><p>RTX 3060</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RTX 3070Ti</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>GTX 1650 Super</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>GTX 1660</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>GTX 1660 Super</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RTX 2060</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RTX 3060 Ti</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RTX 3070</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RTX 3080</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RTX 3090</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-amd">
+        {{!-- Chủ đề --}}
+        <div onclick="amd()" class="manufacturer">AMD Radeon<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="amd">
+          <label class="manufacturer-main"><p>RX 6800</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>RX 6700XT</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+       <div class="filter-manufacturer sort-by-amd">
+        {{!-- Chủ đề --}}
+        <div onclick="psu()" class="manufacturer">PSU Nguồn máy tính<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="psu">
+          <label class="manufacturer-main"><p>80 PLUS® Bronze</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main"><p>80 PLUS® Gold</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+    </div>

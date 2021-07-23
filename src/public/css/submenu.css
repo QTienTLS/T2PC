@@ -1,4 +1,5 @@
 .main__sub-menu {
+  max-width: 1110px;
   margin-top: 1em; }
   .main__sub-menu .banner__submenu img {
     width: 100%; }
@@ -77,10 +78,38 @@
       top: -15px;
       transform: rotate(15deg);
       z-index: 0; }
+  .main__sub-menu .main__sb-buildpc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em; }
+    .main__sub-menu .main__sb-buildpc .cat-item {
+      position: relative; }
+      .main__sub-menu .main__sb-buildpc .cat-item .img__cat-item img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto; }
+      .main__sub-menu .main__sb-buildpc .cat-item .img__cat-item .detail__cat-item {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        line-height: 2; }
+        .main__sub-menu .main__sb-buildpc .cat-item .img__cat-item .detail__cat-item h4 {
+          font-family: ChakraPetch-Bold;
+          color: white; }
+        .main__sub-menu .main__sb-buildpc .cat-item .img__cat-item .detail__cat-item p {
+          margin-bottom: 1em;
+          color: white; }
+        .main__sub-menu .main__sb-buildpc .cat-item .img__cat-item .detail__cat-item a {
+          text-decoration: none;
+          color: white;
+          background-color: #f9495f;
+          padding: 10px; }
   .main__sub-menu .product__detail-policy__item {
     display: flex;
     justify-content: space-between;
     margin-top: 2em;
+    margin-bottom: 1em;
     padding: 0em 0em 1em 0; }
     .main__sub-menu .product__detail-policy__item .policy__item {
       display: flex;
