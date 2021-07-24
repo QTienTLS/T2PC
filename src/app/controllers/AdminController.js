@@ -71,7 +71,7 @@ class AdminController {
         var numPro = await Product.countDocuments({});
         var numAcc = await Account.countDocuments({});
         var numOrder = await Order.countDocuments({ status: 3 });
-        var numOrderFail = await Order.countDocuments({ status: 4 });
+        var numOrderFail = await Order.countDocuments({ status: 2 });
         res.render('admin-dashboard/dashboard', {
             check,
             numPro,
@@ -164,12 +164,12 @@ class AdminController {
         });
     }
     showProduct(req, res) {
-        Product.find({}, function (err, pro) {
-            if (err) console.log(err);
-
-            var products = mutipleMongooseToObject(pro);
+        Product.find({}).sort({stored : 'desc'})
+        .then((products)=>{
+            products = mutipleMongooseToObject(products);
             res.render('admin-dashboard/product', { products, check });
-        });
+        })
+
     }
 
     addFullProduct(req, res, next) {
@@ -248,24 +248,12 @@ class AdminController {
         });
     }
     delPro(req, res, next) {
-        Product.findOneAndDelete({ _id: req.params.id }, function (err, p) {
-            if (err) console.log(err);
-            var fs = require('fs');
-            fs.unlink(
-                path.join(`${__dirname}..\\..\\..\\public` + p.img),
-                function (err) {
-                    if (err) throw err;
-                },
-            );
-            if (p.desImg)
-                fs.unlink(
-                    path.join(`${__dirname}..\\..\\..\\public` + p.desImg),
-                    function (err) {
-                        if (err) throw err;
-                    },
-                );
+        Product.findOne({ _id: req.params.id })
+        .then((pro) => {
+            pro.stored = 0;
+            pro.save();
             res.redirect('back');
-        });
+        })
     }
     updatePro(req, res, next) {
         var fs = require('fs');
@@ -443,6 +431,16 @@ class AdminController {
         }
         res.redirect('back');
     }
+    showAccount(req,res,next){
+        Account.find({})
+        .then((acc)=>
+        {
+            acc = mutipleMongooseToObject(acc);
+            res.render('admin-dashboard/account',{acc,check});
+        })
+        .catch(next);
+    }
 }
+
 
 module.exports = new AdminController();

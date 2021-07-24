@@ -106,7 +106,7 @@ document
         var proID = btn.getAttribute('data-bs-proID');
         var formDel = document.forms['shipper'];
         var btnSubmit = document.getElementById('btn-delete-product');
-        formDel.action = '/admin/product/' + proID + '?_method=DELETE';
+        formDel.action = '/admin/product/del/' + proID + '?_method=PUT';
         btnSubmit.onclick = function () {
             formDel.submit();
         };
