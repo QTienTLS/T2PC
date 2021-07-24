@@ -16,6 +16,7 @@
                 background-color: #f0f3fc;
                 padding-left: 0em;
                 padding-right: 0em;
+                margin-bottom: 1em;
                 .manufacturer {
                     font-size: 1.2rem;
                     display: flex;
@@ -100,37 +101,29 @@
                 padding-bottom: 0.01em;
                 margin-bottom: 1em;
                 .sort__by-mn {
-                    display: none;
+                    display: block;
                     padding-left: 1em;
                     padding-right: 1em;
                     // display: flex;
-                    div {
+                    .option__sort-by-mn {
                         text-align: center;
-                        background-color: white;
+                        background: white;
                         padding: 0.5em 0;
                         margin-bottom: 0.5em;
                         cursor: pointer;
                         color: $main-color;
                     }
 
-                    div :last-child {
+                    .option__sort-by-mn :last-child {
                         margin-bottom: 0;
                     }
-                    div :hover {
-                        background-color: $main-color;
+                    .option__sort-by-mn:hover{
+                        background: $pink-color;
                         color: white;
                     }
                 }
             }
 
-            .sort-by-intel {
-                margin-top: 1em;
-                margin-bottom: 1em;
-            }
-            .sort-by-amd {
-                margin-top: 1em;
-                margin-bottom: 1em;
-            }
         }
 
         .all-product {
