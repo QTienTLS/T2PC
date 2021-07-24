@@ -1,0 +1,245 @@
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="/"> <img src="/img/logo.png" alt="" style="width: 7em; margin-left: 2em"></a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+            class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <li>
+                    <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#!">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div id="layoutSidenav">
+    {{>sidenav}}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4"><i class="fas fa-computer-speaker"></i> Quản lý tài khoản</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Product</li>
+                </ol>
+                
+                {{!-- Form thêm mới sản phẩm --}}
+                <div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm mới nào bạn ơiiii</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                {{!-- Nội dung chính --}}
+                                <form method="POST" action="/admin/addproduct" enctype="multipart/form-data"
+                                    name="form-add-product">
+                                    <div class="row  ">
+                                        <div class="form-floating col-6 mb-3">
+                                            <input class="form-control" id="inputProName" type="text"
+                                                placeholder="Tên sản phẩm" name="inputProName" />
+                                            <label for="inputProName">Tên sản phẩm</label>
+                                        </div>
+                                        <div id="pre-choose-type" style="display: none;"
+                                            data-type='{{session.curentAdd.type}}'
+                                            data-brand='{{session.curentAdd.brand}}'>
+                                        </div>
+                                        <div class="form-floating col-6 mb-3">
+                                            <select class="form-select" name="type" onchange="chooseInput(value)"
+                                                id="proType">
+                                                <option value="cpu">CPU-Bộ vi xử lí</option>
+                                                <option value="mainboard">Mainboard-Bo mạch chủ</option>
+                                                <option value="ram">Ram-Bộ nhớ trong</option>
+                                                <option value="hdd">HDD-Ổ cứng</option>
+                                                <option value="ssd">SSD-Ổ cứng thể rắn</option>
+                                                <option value="vga">VGA-Card màn hình</option>
+                                                <option value="case">Case-Vỏ máy tính</option>
+                                                <option value="psu">PSU-Nguồn máy tính</option>
+                                                <option value="laptop-gaming">Laptop gaming</option>
+                                                <option value="laptop-normal">Laptop văn phòng</option>
+                                                <option value="macbook">Macbook</option>
+                                                <option value="monitor-gaming">Màn hình gaming</option>
+                                                <option value="monitor-design">Màn hình làm đồ họa</option>
+                                                <option value="monitor-vp">Màn hình văn phòng</option>
+                                                <option value="keyboard">Bàn phím cơ</option>
+                                                <option value="mousepad">Bàn di chuột</option>
+                                                <option value="chair">Bàn, ghế gaming</option>
+                                                <option value="mouse">Chuột gaming</option>
+                                                <option value="microphone">Microphone</option>
+                                                <option value="headphone">Tai nghe gaming</option>
+                                                <option value="joy">Tay cầm chơi game</option>
+                                                <option value="speaker">Loa nghe nhạc</option>
+                                                <option value="cooler-air">Tản nhiệt khí PC</option>
+                                                <option value="cooler-water">Tản nhiệt nước PC</option>
+                                                <option value="fan">Quạt tản nhiệt PC</option>
+                                                <option value="pcgaming">Gaming PC</option>
+                                                <option value="pcworkstation">Workstation PC</option>
+                                            </select>
+                                            <label for="proType">Chủng loại</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-floating col-3 mb-3">
+                                            <input class="form-control" id="inputOriginPrice" type="number"
+                                                placeholder="Giá gốc" name="inputOriginPrice" />
+                                            <label for="inputOriginPrice">Giá gốc</label>
+                                        </div>
+                                        <div class="form-floating col-3 mb-3">
+                                            <input class="form-control" id="inputPrice" type="number"
+                                                placeholder="Giá gốc" name="inputPrice" />
+                                            <label for="inputPrice">Giá bán</label>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-3">
+                                            <label for="inputGroupFile02">Hình ảnh sản phẩm</label>
+                                            <input type="file" name="inputProImg" class="form-control" id="inputProImg">
+
+                                        </div>
+                                        <div class="mb-3 col-3">
+                                            <label for="inputGroupFile02">Hình ảnh phần mô tả</label>
+                                            <input type="file" name="inputDesImg" class="form-control" id="inputDesImg">
+
+                                        </div>
+                                        <div class="form-floating mb-3 col-6">
+                                            <input class="form-control" id="inputStored" type="number"
+                                                placeholder="Số lượng nhập vào" name="inputStored" />
+                                            <label for="inputPrice">Số lượng nhập vào</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="inputSpec" name='inputSpec' style="height: 320px"></textarea>
+                                            <label for="floatingTextarea2">Thông số chi tiết</label>
+                                        </div>
+                                        <div class="col-6 form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="inputDescription" name="inputDescription"
+                                                style="height: 320px"></textarea>
+                                            <label for="floatingTextarea2">Mô tả sản phẩm</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnCancel" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Thôi chả thêm
+                                    nữa</button>
+                                <button type="button" id="btnSubmit" class="btn btn-success">Thêm thì thêm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Danh sách sản phẩm đang bày bán
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>Số thứ tự <i class="fal fa-sort-circle"></i></th>
+                                    <th>Ảnh đại diện</th>
+                                    <th>Username <i class="fal fa-sort-circle"></i></th>
+                                    <th>Tên người dùng <i class="fal fa-sort-circle"></i></th>
+                                    <th>Đã chi tiêu <i class="fal fa-sort-circle"></i></th>
+                                    <th>Trạng thái <i class="fal fa-sort-circle"></i></th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Số thứ tự <i class="fal fa-sort-circle"></i></th>
+                                    <th>Ảnh đại diện</th>
+                                    <th>Username <i class="fal fa-sort-circle"></i></th>
+                                    <th>Tên người dùng <i class="fal fa-sort-circle"></i></th>
+                                    <th>Đã chi tiêu <i class="fal fa-sort-circle"></i></th>
+                                    <th>Trạng thái <i class="fal fa-sort-circle"></i></th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                {{#each acc}}
+                                <tr>
+                                    <td>{{sum @index 1}}</td>
+                                    <td><img src="{{this.img}}" alt="" style="width: 10em"></td>
+                                    <td>{{this.username}}</td>
+                                    <td>{{this.name}}</td>
+                                    <td class="currFormat">{{this.totalSpend}} đ</td>
+                                    <td class="status__user">{{this.status}} </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                <script>
+                    var statusUser = document.getElementsByClassName('status__user');
+                    for(let i = 0;i<statusUser.length;i++){
+                        var status = parseInt(statusUser[i].innerHTML);
+                        var statusPanel = statusUser[i];
+                        
+                        switch (status) {
+                                    case '0':
+                                        statusPanel.innerHTML = ' <i class="fad fa-spinner"></i> đang chờ kích hoạt';
+                                        statusPanel.style.color = 'gray';
+                                        break;
+                                    case '1':
+                                        statusPanel.innerHTML = ' <i class="fad fa-check-circle"></i> đang hoạt động';
+                                        statusPanel.style.color = 'green';
+                                        
+                                        break;
+                                    default:
+                                        statusPanel.innerHTML = ' <i class="fad fa-user-slash"></i> đã bị khóa';
+                                        statusPanel.style.color = 'red';
+                                }
+                    }
+                </script>
+                </div>
+
+            </div>
+            
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; T2PC 2021</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>
+<script src="/js/product-dashboard.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="/js/datatables-simple-demo.js"></script>

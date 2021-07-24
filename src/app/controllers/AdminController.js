@@ -431,6 +431,16 @@ class AdminController {
         }
         res.redirect('back');
     }
+    showAccount(req,res,next){
+        Account.find({})
+        .then((acc)=>
+        {
+            acc = mutipleMongooseToObject(acc);
+            res.render('admin-dashboard/account',{acc,check});
+        })
+        .catch(next);
+    }
 }
+
 
 module.exports = new AdminController();
