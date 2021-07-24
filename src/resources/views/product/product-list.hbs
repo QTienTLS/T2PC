@@ -106,7 +106,7 @@
             {{!-- <span>(100 Sản phẩm)</span> --}}
           </div>
           <form action="">
-            <label for="">Sắp sếp theo:</label>
+            <label for="">Sắp xếp theo:</label>
             <select name="">
               <option value="">Mới nhất</option>
               <option value="">Giá (Thấp - Cao)</option>
@@ -182,14 +182,18 @@
         {{/each}}
         <form action="GET" name="shipper"></form>
       </div>
-    </div>
+      <div class="pagination">
+        <div class="pagination__btn pagination__btn-left"><i class="far fa-angle-left"></i></div>
+      </div>
+      <div style="display: none;" class="pagination__btn pagination__btn-right"><i class="far fa-angle-right"></i></div>
+      </div>
   </div>
 </div>
 {{!-- css nằm ở app.scss --}}
-<div class="pagination">
+{{!-- <div class="pagination">
   <div class="pagination__btn pagination__btn-left"><i class="fad fa-chevron-left"></i></div>
 </div>
-<div style="display: none;" class="pagination__btn pagination__btn-right"><i class="fad fa-chevron-right"></i></div>
+<div style="display: none;" class="pagination__btn pagination__btn-right"><i class="fad fa-chevron-right"></i></div> --}}
 <script>
   var proList = document.getElementsByClassName('infor-pro');
   var listPro = [];

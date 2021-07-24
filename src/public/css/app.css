@@ -563,31 +563,30 @@ body {
   color: tomato; }
 
 .pagination {
+  font-family: ChakraPetch-Bold;
   display: flex;
-  max-width: 70em;
-  min-width: 10em;
-  width: fit-content;
-  margin-bottom: 3em;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%); }
+  justify-content: center;
+  margin-bottom: 1.5em; }
 
 .pagination__btn {
-  height: 3em;
-  width: 3em;
-  border-radius: 50%;
-  border: 1px solid #333;
+  height: 2em;
+  width: 2em;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.pagination__btn-active, .pagination__btn:hover {
+.pagination__btn-active {
   background-color: #49b14d;
   color: white; }
 
-.pagination__btn-inside, .pagination__btn-right {
-  margin-left: 2em; }
+.pagination__btn:hover {
+  background-color: #dddfe6;
+  color: #29324e; }
+
+.pagination__btn-inside,
+.pagination__btn-right {
+  margin-left: 1em; }
 
 @media screen and (max-width: 85em) {
   .login-cart .login {

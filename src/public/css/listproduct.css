@@ -85,6 +85,7 @@
         padding-left: 1em;
         padding-right: 1em; }
         .main__show-all .a .filter .sort-by-money .sort__by-mn .option__sort-by-mn {
+          font-family: ChakraPetch-SemiBold;
           text-align: center;
           background: white;
           padding: 0.5em 0;
