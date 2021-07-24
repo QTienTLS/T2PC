@@ -101,33 +101,33 @@
         }
     }
 
-    .main__sb-buildpc{
+    .main__sb-buildpc {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 2em;
-        .cat-item{
+        .cat-item {
             position: relative;
-            .img__cat-item{
-                img{
+            .img__cat-item {
+                img {
                     max-width: 100%;
                     max-height: 100%;
                     width: auto;
                     height: auto;
                 }
-                .detail__cat-item{
+                .detail__cat-item {
                     position: absolute;
                     top: 1em;
                     left: 1em;
                     line-height: 2;
-                    h4{
+                    h4 {
                         font-family: ChakraPetch-Bold;
                         color: white;
                     }
-                    p{
+                    p {
                         margin-bottom: 1em;
                         color: white;
                     }
-                    a{
+                    a {
                         text-decoration: none;
                         color: white;
                         background-color: $pink-color;

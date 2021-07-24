@@ -562,6 +562,33 @@ body {
 .status-danger {
   color: tomato; }
 
+.pagination {
+  display: flex;
+  max-width: 70em;
+  min-width: 10em;
+  width: fit-content;
+  margin-bottom: 3em;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.pagination__btn {
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  border: 1px solid #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.pagination__btn-active, .pagination__btn:hover {
+  background-color: #49b14d;
+  color: white; }
+
+.pagination__btn-inside, .pagination__btn-right {
+  margin-left: 2em; }
+
 @media screen and (max-width: 85em) {
   .login-cart .login {
     margin-top: 0em;

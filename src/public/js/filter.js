@@ -49,6 +49,7 @@ for (let i = 0; i < currency.length; i++) {
 }
 
 //hàm xem chi tiết sản phẩm
+
 function goToDetail(productID) {
     var formShip = document.forms['shipper'];
     formShip.method = 'GET';

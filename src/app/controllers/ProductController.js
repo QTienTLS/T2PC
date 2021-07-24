@@ -22,14 +22,29 @@ class ProductController {
         var proSpec = pro.spec[0];
         for (let i = 1; i < n; i++) proSpec = proSpec + '~' + pro.spec[i];
         var x = { sp: proSpec };
-        res.render('product/detail', { pro, x })
+        res.render('product/detail', { pro, x });
     }
     showByType(req, res) {
-        var protype = req.params.type;
-        Product.find({ type: protype }, function (err, pros) {
+        var protype = {
+            value: req.params.type,
+        };
+        Product.find({ type: protype.value }, function (err, pros) {
             pros = mutipleMongooseToObject(pros);
-            res.render('product/product-list', { pros });
+            res.render('product/product-list', { pros, protype });
         });
+    }
+    showSortPro(req, res,next) {
+        var protype = {
+            value: req.params.type,
+        };
+        if(req.params.method == 'discount')
+        Product.find({ type: protype.value })
+        .sort({'discount': 'desc'})
+        .then((pros)=>{
+            pros = mutipleMongooseToObject(pros);
+            res.render('product/product-list', { pros,protype });
+        })
+        .catch(next);
     }
     showSubmenu(req, res) {
         var link = 'product/' + req.params.menu;

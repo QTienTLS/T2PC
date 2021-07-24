@@ -15,7 +15,7 @@ const Product = new Schema(
         desImg: { type: String },
         spec: [],
         stored: { type: Number },
-        topseller: {type: Number, default: 0},
+        topseller: { type: Number, default: 0 },
     },
     { timestamps: true },
 );

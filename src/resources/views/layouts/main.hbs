@@ -17,42 +17,43 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/submenu.css">
     <link rel="stylesheet" href="/css/dashboard.css">
-    {{!-- <link rel="stylesheet" href="/css/product.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="/css/product.css"> --}}
     <link rel="stylesheet" href="/css/listproduct.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/productdetail.css">
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" href="/css/slick/slick.css">
     <link rel="stylesheet" href="/css/slick/slick-theme.css">
-    
+
 </head>
 
 <body>
     <div class="app">
-    {{#unless check.opendashboard}}
-    {{>header}}
-    {{/unless}}
-    <div class="container" id="main-body-content">
-        {{{body}}}
-    </div>
-    {{#unless check.opendashboard}}
-    {{>footer}}
-    <script>
-       let check = document.getElementById('checkLogin');
-       if(check.innerHTML == 'true'){
-        document.getElementById('login-header').style.display = 'none';
-        document.getElementById('user-panel').style.display = 'block';
-       }
-    </script>
-    {{/unless}}
+        {{#unless check.opendashboard}}
+        {{>header}}
+        {{/unless}}
+        <div class="container" id="main-body-content">
+            {{{body}}}
+        </div>
+        {{#unless check.opendashboard}}
+        {{>footer}}
+        <script>
+            let check = document.getElementById('checkLogin');
+                if (check.innerHTML == 'true') {
+                    document.getElementById('login-header').style.display = 'none';
+                    document.getElementById('user-panel').style.display = 'block';
+                }
+            </script>
+        {{/unless}}
     </div>
     {{#if check.opendashboard}}
     <script>
-    document.getElementById('main-body-content').classList.remove('container');
-</script>
-{{/if}}
-<script src="/js/filter.js"></script>
-     <!-- jQuery CDN - Slim version (=without AJAX) -->
+            document.getElementById('main-body-content').classList.remove('container');
+        </script>
+    {{/if}}
+    <script src="/js/filter.js"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="/js/jquery/dist/jquery.slim.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/css/bootstrap/js/bootstrap.min.js"></script>
@@ -60,8 +61,8 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="/css/slick/slick.min.js"></script>
-{{!-- Form này để post một số thứ lên sever --}}
-<form method="POST" name="shipper"></form>
+    {{!-- Form này để post một số thứ lên sever --}}
+    <form method="POST" name="shipper"></form>
 </body>
 
 </html>

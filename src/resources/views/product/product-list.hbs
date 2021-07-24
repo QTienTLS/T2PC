@@ -1,6 +1,256 @@
 <div class="container main__show-all">
   <div class="row a">
-    {{>filter}}
+    <div class="col-3 filter">
+      <h5>BỘ LỌC SẢN PHẨM</h5>
+      {{!-- --}}
+      <div class="filter-manufacturer">
+        {{!-- Chủ đề --}}
+        <div onclick="manufacturer()" class="manufacturer">Hãng sản xuất<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="main-manufacturer">
+          <label class="manufacturer-main">
+            <p>RAZER</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>LG</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>T2PC</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>MSI</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>ACER</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>DELL</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>KINGSTON</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>AMD</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>NVDIA</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>Cooler Master</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>Intel</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>Corsair</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>E-Dra</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>GYGABYTE</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>AKKO</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-money container">
+        {{!-- Chủ đề --}}
+        <div onclick="sortByMoney()" class="manufacturer">Giá tiền<i class="fas fa-angle-right"></i></div>
+        <ul id="sortByMoney" class="sort__by-mn ">
+          <div>
+            < 1 Triệu</div>
+              <div>1 Triệu - 5 Triệu</div>
+              <div>5 Triệu - 10 Triệu</div>
+              <div>> 10 Triệu</div>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-inch">
+        {{!-- Chủ đề --}}
+        <div onclick="sortByInch()" class="manufacturer">Kích thước<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft main__sort-by-inch" id="sortByInch">
+          <label class="manufacturer-main">
+            <p>49 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>22 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>24 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          </label>
+          <label class="manufacturer-main">
+            <p>27 Inch</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-intel">
+        {{!-- Chủ đề --}}
+        <div onclick="sortByIntel()" class="manufacturer">Thế hệ CPU Intel<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft main__sort-by-inch" id="sortByIntel">
+          <label class="manufacturer-main">
+            <p>Intel Core i3</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>Intel Core i5</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>Intel Core i7</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          </label>
+          <label class="manufacturer-main">
+            <p>Intel Core i9</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer">
+        {{!-- Chủ đề --}}
+        <div onclick="nVidia()" class="manufacturer">NVidia Geforce<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="nVidia">
+          <label class="manufacturer-main">
+            <p>RTX 3060</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RTX 3070Ti</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>GTX 1650 Super</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>GTX 1660</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>GTX 1660 Super</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RTX 2060</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RTX 3060 Ti</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RTX 3070</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RTX 3080</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RTX 3090</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-amd">
+        {{!-- Chủ đề --}}
+        <div onclick="amd()" class="manufacturer">AMD Radeon<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="amd">
+          <label class="manufacturer-main">
+            <p>RX 6800</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>RX 6700XT</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+      <div class="filter-manufacturer sort-by-amd">
+        {{!-- Chủ đề --}}
+        <div onclick="psu()" class="manufacturer">PSU Nguồn máy tính<i class="fas fa-angle-right"></i></div>
+        {{!-- Danh sách lọc theo chủ đề --}}
+        <ul class="main__mft" id="psu">
+          <label class="manufacturer-main">
+            <p>80 PLUS® Bronze</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="manufacturer-main">
+            <p>80 PLUS® Gold</p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </ul>
+      </div>
+
+    </div>
 
     <div class="col-9 all-product">
       <div class="list-product">
@@ -23,66 +273,215 @@
         <div class="list__sub-menu-product">
           <ul>
             <a href="#">Mới về</a>
-            <a href="#">Giảm giá</a>
+            <a  class="filter__giamgia" href="/product/{{protype.value}}/list/sort/discount">Giảm giá</a>
             <a href="#">Bán chạy</a>
             <a href="#">Nổi bật</a>
           </ul>
         </div>
-        <div class="list__all-product">
-          {{#each pros}}
-          <div class="product__in-list col-4">
-            <div class="card">
-              {{!-- Image cua the --}}
-              <div class="main__product">
-                <div class="image-product"><a href="#"><img src="{{this.img}}" class="card-img-top" alt="..."
-                      onclick="goToDetail('{{this._id}}')"></a>
-                  <div class="hethang">
-                    {{#unless this.stored}}
-                      <h3>Hết hàng</h3>
-                    {{/unless}}
-                  </div>      
-                </div>
-                <div class="btn__main-product">
-                  <button title="Xem chi tiet" onclick="goToDetail('{{this._id}}')"><i class="fas fa-search"></i></button>
-                  {{#if this.stored}}
-                  <button type="button" title="Them vao gio hang" data-img='{{this.img}}'
-                    onclick="addToCart('{{this._id}}','{{this.name}}',{{this.price}},{{this.stored}},this,1)"><i
-                      class="fas fa-cart-plus"></i></button>
-                  {{/if}}
-                </div>
+        <div id="product__in-list-root" style="display: none;" class="product__in-list col-4">
+          <div class="card">
+            {{!-- Image cua the --}}
+            <div class="main__product">
+              <h3 class="clone-pro__hethang">Hết hàng</h3>
+              <div class="image-product"><img src="" style="cursor: pointer;" class="clone-pro__img card-img-top"
+                  alt="..." onclick=""></div>
+              <div class="btn__main-product">
+                <button class="clone-pro__detail" title="Xem chi tiet"><i class="fas fa-search"></i></button>
+                <button type="button" class="clone-pro__cart" title="Them vao gio hang" data-img=''><i
+                    class="fas fa-cart-plus"></i></button>
               </div>
-
-              {{!-- Body cua the --}}
-              <div class="body__card">
-                <h5 class="card-title"><a href="#" onclick="goToDetail('{{this._id}}')">{{this.name}}</a></h5>
-                <div class="product-reviews">
-                  <div class="star-reviews">
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <div class="views">
-                    <p class="tatal-views">{{this.views}} <i class="fas fa-eye"></i></p>
-                  </div>
-                  {{!-- <div class="evaluate">0 đánh giá</div> --}}
+            </div>
+            {{!-- Body cua the --}}
+            <div class="body__card">
+              <h5 class="card-title"><a href="" class="clone-pro__name"></a></h5>
+              <div class="product-reviews">
+                <div class="star-reviews">
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
                 </div>
-                <div class="mn-product">
-                  <p id="money-product" class="card-text currFormat">{{this.price}} đ</p>
-                  {{#if this.discount}}
-                  <p class="price currFormat">{{this.originPrice}} đ</p>
-                  <div class="discount">
-                    <span>{{this.discount}}%</span>
-                  </div>
-                  {{/if}}
+                <div class="views">
+                  <p class="tatal-views clone-pro__views"> <i class="fas fa-eye"></i></p>
+                </div>
+                {{!-- <div class="evaluate">0 đánh giá</div> --}}
+              </div>
+              <div class="mn-product">
+                <p id="money-product" class="card-text currFormat clone-pro__price"></p>
+                <p class="price clone-pro__originprice currFormat"></p>
+                <div class="discount clone-pro__discount">
+                  <span class="clone-pro__percent"></span>
                 </div>
               </div>
             </div>
           </div>
-          {{/each}}
         </div>
+        {{!-- list sản phẩm chính --}}
+        <div class="list__all-product">
+        </div>
+        {{#each pros}}
+        <div class="infor-pro" style="display: none;">
+          <div id="info-pro__img">{{this.img}}</div>
+          <div id="info-pro__id">{{this._id}}</div>
+          <div id="infor-pro__stored">{{this.stored}}</div>
+          <div id="infor-pro__name">{{this.name}}</div>
+          <div id="infor-pro__price">{{this.price}}</div>
+          <div id="infor-pro__views">{{this.views}}</div>
+          <div id="infor-pro__discount">{{this.discount}}</div>
+          <div id="infor-pro__originPrice">{{this.originPrice}}</div>
+        </div>
+        {{/each}}
+        <form action="GET" name="shipper"></form>
       </div>
     </div>
   </div>
 </div>
+{{!-- css nằm ở app.scss --}}
+<div class="pagination">
+  <div class="pagination__btn pagination__btn-left"><i class="fad fa-chevron-left"></i></div>
+</div>
+<div style="display: none;" class="pagination__btn pagination__btn-right"><i class="fad fa-chevron-right"></i></div>
+<script>
+  var proList = document.getElementsByClassName('infor-pro');
+  var listPro = [];
+  var page = 0;
+  listPro[page] = [];
+  for (let a = 0; a < proList.length; a++) {
+    var pro = {
+      img: proList[a].childNodes[1].innerHTML,
+      id: proList[a].childNodes[3].innerHTML,
+      stored: parseInt(proList[a].childNodes[5].innerHTML),
+      name: proList[a].childNodes[7].innerHTML,
+      price: parseInt(proList[a].childNodes[9].innerHTML),
+      views: parseInt(proList[a].childNodes[11].innerHTML),
+      discount: parseInt(proList[a].childNodes[13].innerHTML),
+      originPrice: parseInt(proList[a].childNodes[15].innerHTML),
+    }
+    if (listPro[page].length == 9) {
+      page++;
+      listPro[page] = [];
+    }
+    listPro[page].push(pro);
+  }
+  for (let i = 1; i <= page + 1; i++) {
+    var newBtn = document.createElement('div');
+    newBtn.classList.add('pagination__btn');
+    newBtn.classList.add('pagination__btn-inside');
+    newBtn.addEventListener('click', function () {
+      document.getElementsByClassName('pagination__btn-active')[0].classList.remove('pagination__btn-active');
+      this.classList.add('pagination__btn-active');
+      gotoPage(i);
+    })
+    newBtn.innerHTML = i;
+    document.getElementsByClassName('pagination')[0].appendChild(newBtn);
+  }
+  var newBtn = document.getElementsByClassName('pagination__btn-right')[0];
+  newBtn.style.display = 'flex';
+  document.getElementsByClassName('pagination')[0].appendChild(newBtn);
+  document.getElementsByClassName('pagination__btn-inside')[0].classList.add('pagination__btn-active')
+  //vẽ các sản phẩm 
+  gotoPage(1);
+  //hàm vào trang chi tiết sản phẩm
+  function goToDetail(productID) {
+    var formShip = document.forms['shipper'];
+    formShip.method = 'GET';
+    formShip.action = '/product/' + productID + '/detail';
+    formShip.submit();
+
+  };
+  //hàm thêm sản phẩm vào giỏ hàng
+  function addToCart(productID, proName, price, stored, btn, n) {
+    var nP = document.getElementsByClassName('numProduct')[0];
+    if (stored < n) {
+      alert('Bạn đã nhập quá số lượng hàng cho phép ! Vui lòng kiểm tra lại');
+      return;
+    }
+    img = btn.getAttribute('data-img');
+
+    n = parseInt(n);
+    if (!sessionStorage.Cart) {
+      var cartObj = {
+        id: [productID],
+        proName: [proName],
+        amount: [n],
+        price: [price],
+        stored: [stored],
+        img: [img],
+      };
+      sessionStorage.totalPrice = price * n;
+      sessionStorage.numPro = n;
+      sessionStorage.setItem('Cart', JSON.stringify(cartObj));
+    } else {
+      var cartObj = JSON.parse(sessionStorage.getItem('Cart'));
+      var isPush = true;
+      for (let i = 0; i < cartObj.proName.length; i++) {
+        if (proName == cartObj.proName[i]) {
+          if (cartObj.stored[i] < n + cartObj.amount[i]) {
+            alert(
+              'Bạn đã nhập quá số lượng hàng cho phép ! Vui lòng kiểm tra lại',
+            );
+            return;
+          }
+          cartObj.amount[i] += n;
+          isPush = false;
+          break;
+        }
+      }
+      if (isPush) {
+        cartObj.proName.push(proName);
+        cartObj.id.push(productID);
+        cartObj.amount.push(n);
+        cartObj.price.push(price);
+        cartObj.stored.push(stored);
+        cartObj.img.push(img);
+      }
+
+      sessionStorage.numPro = parseInt(sessionStorage.numPro) + n;
+      sessionStorage.totalPrice =
+        parseInt(sessionStorage.totalPrice) + price * n;
+    }
+
+    sessionStorage.setItem('Cart', JSON.stringify(cartObj));
+    nP.innerHTML = sessionStorage.numPro;
+  }
+  function gotoPage(n) {
+    var mainList = document.getElementsByClassName('list__all-product')[0];
+    mainList.innerHTML = '';
+    for (let i = 0; i < listPro[n - 1].length; i++) {
+      var clone = document.getElementById('product__in-list-root').cloneNode(true);
+      clone.removeAttribute('id');
+      clone.style.display = 'block';
+      mainList.appendChild(clone);
+      document.getElementsByClassName('clone-pro__img')[i + 1].src = listPro[n - 1][i].img;
+      document.getElementsByClassName('clone-pro__img')[i + 1].addEventListener('click', function () {
+        goToDetail(listPro[n - 1][i].id);
+      });
+      document.getElementsByClassName('clone-pro__detail')[i + 1].addEventListener('click', function () {
+        goToDetail(listPro[n - 1][i].id);
+      });
+      if (listPro[n - 1][i].stored)
+        document.getElementsByClassName('clone-pro__hethang')[i + 1].style.display = 'none';
+      else
+        document.getElementsByClassName('clone-pro__hethang')[i + 1].style.display = 'block';
+      document.getElementsByClassName('clone-pro__name')[i + 1].innerHTML = listPro[n - 1][i].name;
+      document.getElementsByClassName('clone-pro__views')[i + 1].innerHTML += ' ' + listPro[n - 1][i].views;
+      document.getElementsByClassName('clone-pro__name')[i + 1].href = '/product/' + listPro[n - 1][i].id + '/detail';
+      document.getElementsByClassName('clone-pro__price')[i + 1].innerHTML = (listPro[n - 1][i].price + ' đ').toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      document.getElementsByClassName('clone-pro__cart')[i + 1].setAttribute('data-img', listPro[n - 1][i].img);
+      document.getElementsByClassName('clone-pro__cart')[i + 1].addEventListener('click', function () {
+        addToCart(listPro[n - 1][i].id, listPro[n - 1][i].name, listPro[n - 1][i].price, listPro[n - 1][i].stored, this, 1)
+      })
+      if (listPro[n - 1][i].discount) {
+        document.getElementsByClassName('clone-pro__originprice')[i + 1].innerHTML = (listPro[n - 1][i].originPrice + ' đ').toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        document.getElementsByClassName('clone-pro__percent')[i + 1].innerHTML = listPro[n - 1][i].discount + '%';
+      }
+      else
+        document.getElementsByClassName('clone-pro__discount')[i + 1].style.display = 'none';
+    }
+
+  }
+
+</script>
