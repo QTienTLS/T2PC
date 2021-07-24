@@ -142,6 +142,7 @@
             .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .btn__main-product {
               position: absolute;
               right: 0;
+              z-index: 2;
               bottom: 1em;
               border-radius: 25px;
               background: #f0f3fc;
@@ -167,6 +168,7 @@
               height: 100%;
               padding: 0.5em 0;
               top: 0;
+              z-index: 1;
               justify-content: center;
               align-items: center; }
               .main__show-all .a .all-product .list-product .list__all-product .product__in-list .card .main__product .hethang h3 {
